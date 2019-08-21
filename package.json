@@ -2,12 +2,19 @@
   "name": "ninja",
   "version": "1.0.0",
   "description": "Website building webpack flow we use at Graffino.",
-  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": "git@github.com:Graffino/ninja.git",
   "author": "team@graffino.com",
   "license": "MIT",
   "devDependencies": {
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "webpack-merge": "^4.2.1"
   }
 }
