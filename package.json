@@ -12,6 +12,8 @@
   "author": "team@graffino.com",
   "license": "MIT",
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.4",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
