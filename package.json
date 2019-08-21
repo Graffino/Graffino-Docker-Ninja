@@ -1,0 +1,13 @@
+{
+  "name": "ninja",
+  "version": "1.0.0",
+  "description": "Website building webpack flow we use at Graffino.",
+  "main": "index.js",
+  "repository": "git@github.com:Graffino/ninja.git",
+  "author": "team@graffino.com",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  }
+}
