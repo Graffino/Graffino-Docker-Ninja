@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 module.exports = {
@@ -162,12 +163,13 @@ module.exports = {
       filename: 'index.html',
       template: './src/html/index.handlebars'
     }),
-    new SpriteLoaderPlugin({
-      plainSprite: true
-    }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       chunkFilename: '[id].css'
+    }),
+    new StyleLintPlugin(),
+    new SpriteLoaderPlugin({
+      plainSprite: true
     })
   ]
 };
