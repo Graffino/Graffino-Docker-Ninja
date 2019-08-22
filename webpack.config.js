@@ -44,35 +44,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: [{
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development',
-              reloadAll: true
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
-      },
-      {
         test: /\.(ttf|eot|woff|woff2)$/,
         exclude: path.resolve(__dirname, 'src/icons/'),
         use: [{

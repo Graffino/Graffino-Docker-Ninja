@@ -1,6 +1,5 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const webpack = require('webpack');
 const common = require('./webpack.config.js');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -23,6 +22,36 @@ module.exports = merge(common, {
             minimize: true
           }
         }]
+      },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: path.join(__dirname, '/postcss.config.js'),
+                ctx: {
+                  env: 'production'
+                }
+              }
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       }
     ]
   },
@@ -69,7 +98,8 @@ module.exports = merge(common, {
     })
   ],
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contentHash].js',
-    path: path.resolve(__dirname, 'dist')
+    publicPath: '/'
   }
 });
