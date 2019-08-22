@@ -5,37 +5,28 @@
 
 $typi: (
   base: (
-    null: (16px, 1.375),
-    tablet: (18px, 1.38)
+    null: ($default-font-size, $default-line-height)
   ),
   text: (
-    null: (16px, 1.625)
-  ),
-  quote: (
-    null: (24px, 1.25)
+    null: ($body-font-size, $body-line-height)
   ),
   h1: (
-    null: (38px, 1.18),
-    tablet: (66px, 1.09)
+    null: ($h1-font-size, $h1-line-height)
   ),
   h2: (
-    null: (36px, 1.25),
-    tablet: (46px, 1.13)
+    null: ($h2-font-size, $h2-line-height)
   ),
   h3: (
-    null: (36px, 1),
-    tablet: (36px, 1.58)
+    null: ($h3-font-size, $h3-line-height)
   ),
   h4: (
-    null: (28px, 1.28),
-    tablet: (28px, 2.03)
+    null: ($h4-font-size, $h4-line-height)
   ),
   h5: (
-    null: (20px, 1.8),
-    tablet: (24px, 1.5)
+    null: ($h5-font-size, $h5-line-height)
   ),
   h6: (
-    null: (18px, 1.38)
+    null: ($h6-font-size, $h6-line-height)
   )
 );
 

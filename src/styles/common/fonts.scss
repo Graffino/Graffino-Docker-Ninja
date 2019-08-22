@@ -3,6 +3,7 @@
  * Author: Graffino (http://www.graffino.com)
  */
 
+
 /*
   // Font weights
   Extra Light, Ultra Light = 100
@@ -16,43 +17,45 @@
   Extra Black, Fat, Poster, UltraBlack = 900
 */
 
+$extra-light: 100;
+$light: 200;
+$book: 300;
+$regular: 400;
 $medium: 500;
 $semibold: 600;
 $bold: 700;
+$black: 800;
+$extra-black: 900;
+
 
 /**
  * Sharp Sans
  */
 
-// Medium - 500
-@include webfont("SharpSans", "SharpSansNo1-Medium", $medium, normal, "U+0000-007F");
+// Regular - 400
+@include webfont("Inter", "Inter-Regular", $medium, normal, "U+0000-007F");
 
 // SemiBold - 600
-@include webfont("SharpSans", "SharpSansNo1-Semibold", $semibold, normal, "U+0000-007F");
+@include webfont("Inter", "Inter-SemiBold", $semibold, normal, "U+0000-007F");
 
 // Bold - 700
-@include webfont("SharpSans", "SharpSansNo1-Bold", $bold, normal, "U+0000-007F");
+@include webfont("Inter", "Inter-Bold", $bold, normal, "U+0000-007F");
 
-
-/**
- * Georgia
- */
-
-// Italic
-@include webfont("Georgia", "Georgia-Italic", 500, italic, "U+0000-007F");
 
 /**
  * Fontfaces
  */
 
-$sans-fontface:                "SharpSans";
+$sans-fontface:                "Inter";
 $serif-fontface:               "Georgia";
 $cursive-fontface:             "Zapfino";
+$mono-fontface:                "Space Mono";
 
 // Font-families stack
 $sans-fontface-stack:          $sans-fontface, Helvetica, Arial, sans-serif;
 $serif-fontface-stack:         $serif-fontface, Georgia, "Times New Roman", Times, serif;
-$cursive-fontface-stack:       $cursive-fontface, cursive, sans-serif;
+$cursive-fontface-stack:       $cursive-fontface, cursive;
+$mono-fontface-stack:          $mono-fontface, monospace;
 
 // System fontface stacks used when webfonts are not loaded
 $system-sans-fontface-stack:   "Helvetica", "Helvetica Neue", "Arial", sans-serif;
@@ -63,8 +66,5 @@ $system-serif-fontface-stack:  "Georgia", "Times New Roman", Times, serif;
  * Defaults
  */
 
-$default-font-size:           rem(18px);
-$default-font-weight:         $medium;
-$default-line-height:         1.38;
 $default-fontface-stack:      $sans-fontface-stack;
 $default-system-stack:        $system-sans-fontface-stack;

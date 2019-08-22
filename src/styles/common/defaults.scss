@@ -3,11 +3,6 @@
  * Author: Graffino (http://www.graffino.com)
  */
 
-// Variables
-
-$default-radius: rem(10px);
-$default-shadow: 0 rem(5px) rem(20px) 0 rgba($color-primary, 0.3);
-
 svg.icon {
   use {
     fill: currentColor;
@@ -50,7 +45,7 @@ body {
   overflow-x: hidden;
   min-width: rem(320px);
   background-color: white;
-  color: $default-color;
+  color: $color-text;
   font-family: $default-fontface-stack;
   font-size: $default-font-size;
   font-weight: $default-font-weight;
@@ -66,7 +61,7 @@ body {
   @include clearfix();
   margin: rem(32px) 0;
   padding: rem(48px) 0 rem(96px);
-  background-color: $color-background-light;
+  background-color: white;
   transition: transition-custom();
   transition-property: margin;
 

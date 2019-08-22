@@ -4,8 +4,6 @@
  */
 
 .form {
-  counter-reset: fieldset-steps;
-
   // Input and Textarea
   &__input,
   &__select,
@@ -17,9 +15,9 @@
     border: rem(1px) solid $color-border;
     border-radius: $default-radius;
     padding: rem(22px) rem(16px);
-    background-color: $color-form-input-background;
-    color: $color-text-dark;
-    font-size: $size-medium;
+    background-color: white;
+    color: $color-text;
+    font-size: $default-font-size;
     font-weight: $semibold;
     line-height: 1;
     outline: 0;
@@ -30,14 +28,7 @@
     &:hover,
     &:focus,
     &:active {
-      border: rem(1px) solid $governor-bay;
-      background-color: rgba($color-form-input-background, 0.75);
-    }
-
-    &:focus {
-      &::placeholder {
-        color: transparent;
-      }
+      border: rem(1px) solid $color-border;
     }
 
     &::placeholder,
@@ -48,157 +39,5 @@
       line-height: 1;
       transition: transition-custom();
     }
-  }
-
-
-  &__select {
-    &-wrapper {
-      position: relative;
-
-      &::after {
-        content: "";
-        pointer-events: none;
-        position: absolute;
-        top: 50%;
-        right: rem(20px);
-        left: auto;
-        width: 0;
-        height: 0;
-        border-top: rem(5px) solid $color-primary;
-        border-right: rem(5px) solid transparent;
-        border-left: rem(5px) solid transparent;
-        transform: translateY(-50%);
-      }
-    }
-
-    &:invalid {
-      color: $color-text;
-      font-size: $size-medium;
-      font-weight: $semibold;
-      line-height: 1;
-      transition: transition-custom();
-    }
-  }
-
-  &__field {
-    margin-top: rem(30px);
-
-    &.is-invalid {
-      .form {
-        &__input,
-        &__textarea {
-          border-color: $color-warning;
-        }
-      }
-    }
-  }
-
-  &__fieldset {
-    border: none;
-
-    @include below(tablet) {
-      margin-left: rem(0px);
-    }
-
-    @include below(mobile-medium) {
-      padding-left: rem(0px);
-    }
-
-    .fieldset__legend {
-      color: $color-text-dark;
-      font-weight: $semibold;
-
-      @include below(tablet) {
-        text-align: center;
-      }
-
-      &::before {
-        content: counter(fieldset-steps);
-        display: inline-block;
-        vertical-align: middle;
-        counter-increment: fieldset-steps;
-        min-width: rem(28px);
-        min-height: rem(28px);
-        margin-right: rem(10px);
-        border-radius: $default-radius;
-        background-color: $color-primary;
-        color: white;
-        font-weight: $semibold;
-        text-align: center;
-      }
-    }
-  }
-
-  &__notice {
-    display: inline-flex;
-    margin-top: rem(10px);
-    border-radius: rem(4px);
-    padding: 0 rem(4px);
-    background-color: $mystic;
-    line-height: 1.625;
-
-    @include below(tablet) {
-      padding-bottom: rem(4px);
-      background-color: $mystic;
-    }
-  }
-
-  &__error {
-    margin-top: rem(10px);
-    color: $color-warning;
-    font-size: $size-medium;
-    font-weight: $semibold;
-    line-height: 1.31;
-    text-align: center;
-  }
-
-  &__link {
-    @extend .link;
-    margin-top: rem(10px);
-    color: $color-primary;
-    font-size: $size-medium;
-    font-weight: $semibold;
-    line-height: 1;
-  }
-
-  &__radio {
-    display: none;
-
-    &-wrapper {
-      @extend .form__input;
-      display: flex;
-      align-items: center;
-      padding: rem(16px) rem(14px);
-
-      &:hover {
-        .form__checkbox {
-          border-color: $color-primary;
-        }
-      }
-
-      .form__radio:checked {
-        & + .form__checkbox {
-          border-width: rem(8px);
-          border-color: $color-primary;
-        }
-      }
-    }
-  }
-
-  &__checkbox {
-    display: inline-block;
-    min-width: rem(28px);
-    min-height: rem(28px);
-    margin-right: rem(10px);
-    border: 1px solid $color-border;
-    border-radius: 50%;
-    transition: transition-custom();
-  }
-
-  &__file-upload {
-    @extend .form__input;
-    margin-bottom: 0;
-    white-space: nowrap;
-    cursor: pointer;
   }
 }

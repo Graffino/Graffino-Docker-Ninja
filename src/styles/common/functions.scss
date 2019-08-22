@@ -27,10 +27,11 @@ $font-colors: (
   white: white,
   black: black,
   primary: $color-primary,
-  primary-darker: $color-primary-darker,
   accent: $color-accent,
-  light-blue: $lochmara,
-  warning: $color-warning
+  success: $color-success,
+  info: $color-info,
+  warning: $color-warning,
+  danger: $color-danger,
 );
 
 /**

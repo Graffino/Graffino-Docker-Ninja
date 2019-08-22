@@ -3,19 +3,17 @@
  * Author: Graffino (http://www.graffino.com)
  */
 
-$button-radius: $default-radius;
-
 .button {
   user-select: none;
   position: relative;
   display: inline-block;
   vertical-align: middle;
   border: 1px solid transparent;
-  border-radius: $button-radius;
+  border-radius: $default-radius;
   padding: rem(16px) rem(40px);
-  background-color: $color-button;
+  background-color: $color-primary;
   color: white;
-  font-size: $size-medium;
+  font-size: $default-font-size;
   font-weight: $semibold;
   text-align: center;
   text-decoration: none;
@@ -25,7 +23,7 @@ $button-radius: $default-radius;
   transition: transition-custom();
 
   &:hover {
-    background-color: $color-primary-darker;
+    background-color: darken($color-primary, 0.1);
   }
 
   @include below(small) {
