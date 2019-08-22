@@ -6,9 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    vendor: './src/vendor.js'
+  },
   module: {
     rules: [
       {
@@ -118,7 +122,7 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'images/',
-              publicPath: 'images/'
+              publicPath: '/images/'
             }
           },
           {
@@ -163,6 +167,11 @@ module.exports = {
       filename: 'index.html',
       template: './src/html/index.handlebars'
     }),
+    new HtmlWebpackPlugin({
+      title: 'Ninja | 404',
+      filename: '404.html',
+      template: './src/html/404.handlebars'
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
       chunkFilename: '[id].css'
@@ -170,6 +179,14 @@ module.exports = {
     new StyleLintPlugin(),
     new SpriteLoaderPlugin({
       plainSprite: true
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as(entry) {
+        if (/\.(woff|woff2|ttf|otf)$/.test(entry)) return 'font';
+      },
+      fileWhitelist: [/\.(woff|woff2|ttf|otf)$/],
+      include: 'allAssets'
     })
   ]
 };
