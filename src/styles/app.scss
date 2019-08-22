@@ -1,0 +1,45 @@
+/**
+ * Main stylus file
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+/**
+ * Dependencies
+ */
+
+// Normalize
+@import "~normalize.css/normalize.css";
+
+/**
+ * Common
+ */
+
+// Color variables
+@import "common/colors";
+// Functions
+@import "common/functions";
+// Grid — custom 12 column grid
+@import "common/grid";
+// Fonts and sizes variables
+@import "common/fonts";
+// Animations
+@import "common/animations";
+// Helpers
+@import "common/helpers";
+// Common styles and extends
+@import "common/defaults";
+// Typography
+@import "common/typography";
+// Button
+@import "common/button";
+//Form
+@import "common/form";
+
+/**
+ * Modules
+ */
+
+// Header
+@import "modules/header";
+// Footer
+@import "modules/footer";

@@ -1,0 +1,170 @@
+/**
+ * Typography
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+$typi: (
+  base: (
+    null: (16px, 1.375),
+    tablet: (18px, 1.38)
+  ),
+  text: (
+    null: (16px, 1.625)
+  ),
+  quote: (
+    null: (24px, 1.25)
+  ),
+  h1: (
+    null: (38px, 1.18),
+    tablet: (66px, 1.09)
+  ),
+  h2: (
+    null: (36px, 1.25),
+    tablet: (46px, 1.13)
+  ),
+  h3: (
+    null: (36px, 1),
+    tablet: (36px, 1.58)
+  ),
+  h4: (
+    null: (28px, 1.28),
+    tablet: (28px, 2.03)
+  ),
+  h5: (
+    null: (20px, 1.8),
+    tablet: (24px, 1.5)
+  ),
+  h6: (
+    null: (18px, 1.38)
+  )
+);
+
+@include typi-create-classes;
+
+/**
+ * Headings
+ */
+
+.heading {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  color: $color-heading;
+  word-break: break-word;
+  hyphens: auto;
+
+  @include below(medium) {
+    word-break: normal;
+  }
+
+  @include below(small) {
+    text-align: center;
+  }
+
+  // Default font-family until webfonts are loaded
+  .no-fonts & {
+    font-family: $system-sans-fontface-stack;
+  }
+
+  // Adding font-weight modifier classes (e.g. ".-font-weight-200")
+  @include font-weights();
+
+  // Generate color themeing for headings
+  @include font-colors();
+}
+
+
+/**
+ * Links
+ */
+
+.link {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  color: $color-link;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transition-custom();
+  transition-property: color;
+
+  @include font-weights();
+  @include link-colors();
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
+
+$size-small: rem(14px);
+$size-medium: rem(16px);
+$size-large: rem(18px);
+
+.text {
+  color: $color-text;
+  font-weight: 500;
+
+  // Default font-family until webfonts are loaded
+  .no-fonts & {
+    font-family: $system-sans-fontface-stack;
+  }
+
+  &.-no-wrap {
+    white-space: nowrap;
+  }
+
+  &.-overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .link {
+    vertical-align: baseline;
+    line-height: inherit;
+  }
+
+  // Adding font-weight modifier classes (e.g. ".-font-weight-200")
+  @include font-weights();
+
+  // Generate color theming for headings
+  @include font-colors();
+
+  &.-type {
+    &-transparent {
+      opacity: 0.6;
+    }
+  }
+}
+
+
+
+/**
+ * Lists
+ */
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+
+  &.-style {
+    &-roman {
+      list-style-type: upper-roman;
+
+      .list__item {
+        &::before {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+.quote {
+  color: $color-primary;
+  font-family: $serif-fontface-stack;
+  font-style: italic;
+}

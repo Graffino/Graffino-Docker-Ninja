@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width">
+  <meta name="apple-mobile-web-app-title" content="{{htmlWebpackPlugin.options.title}}">
+  <meta name="application-name" content="{{htmlWebpackPlugin.options.title}}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+  <title>{{htmlWebpackPlugin.options.title}}</title>
+  <meta name="description" content="Secure, Fast, Reliable VPN Service">
+  <meta property="og:title" content="{{htmlWebpackPlugin.options.title}}">
+  <meta property="og:site_name" content="{{htmlWebpackPlugin.options.title}}">
+  <meta property="og:url" content="https://graffino.ninja">
+  <meta property="og:description" content="Secure, Fast, Reliable VPN Service">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://graffino.ninja/social.jpg">
+  <meta property="og:alt" content="Cryptolayer logo on top of white image">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cryptolayer">
+  <meta name="twitter:description" content="Secure, Fast, Reliable VPN Service">
+  <meta name="twitter:image" content="https://graffino.ninja/social.jpg">
+  <meta name="twitter:image:alt" content="Cryptolayer logo on top of white image">
+  <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/pin_icon.svg" color="#000000">
+  <link rel="manifest" href="/site.webmanifest">
+  <link type="text/plain" rel="author" href="../humans.txt">
+  <link rel="cannonical" href="http://graffino.ninja">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="//fonts.googleapis.com">
+</head>
+<body>
+  {{#if htmlWebpackPlugin.files.sprites}}
+    <div class="h-visually-hidden">
+      {{#each htmlWebpackPlugin.files.sprites}}
+        {{{this}}}
+      {{/each}}
+    </div>
+  {{/if}}
+  <header class="header"></header>

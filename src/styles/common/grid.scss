@@ -1,0 +1,367 @@
+/**
+ * Name: grid.styl
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+
+// Maximum numbers of columns in the grid
+$max-columns:              12;
+// Default column gutter width
+$columns-gutter:           24px;
+$columns-gutter-large:     40px;
+// Default container horizontal padding
+$container-padding:        28px;
+$container-padding-small:  12px;
+// Default container width
+$container-width:          1200px;
+
+$gutter-compensation: $columns-gutter * 0.5 * -1;
+$gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
+
+// Breakpoint names and sizes
+$breakpoints: (
+  xlarge: 1250px,
+  desktop: 1120px,
+  large: 1050px,
+  medium: 940px,
+  tablet: 768px,
+  small: 640px,
+  xsmall: 480px,
+  mobile-large: 414px,
+  mobile-medium: 375px,
+  mobile-small: 320px
+);
+
+// Easy Media Queries
+
+@mixin above($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (min-width: $breakpoint-value + 1) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  }
+
+  @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin below($breakpoint) {
+
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  }
+
+  @else {
+
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin between($lower, $upper) {
+
+  // If both the lower and upper breakpoints exist in the map.
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+
+    // Get the lower and upper breakpoints.
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    // Write the media query.
+    @media (min-width: $lower-breakpoint + 1) and (max-width: $upper-breakpoint) {
+      @content;
+    }
+
+    // If one or both of the breakpoints don't exist.
+  }
+
+  @else {
+
+    // If lower breakpoint is invalid.
+    @if (map-has-key($breakpoints, $lower)==false) {
+
+      // Log a warning.
+      @warn 'Your lower breakpoint was invalid: #{$lower}.';
+    }
+
+    // If upper breakpoint is invalid.
+    @if (map-has-key($breakpoints, $upper)==false) {
+
+      // Log a warning.
+      @warn 'Your upper breakpoint was invalid: #{$upper}.';
+    }
+  }
+}
+
+@each $name, $size in $breakpoints {
+  .hide-#{$name}-up {
+    @include above($name) {
+      display: none !important;
+    }
+  }
+
+  .hide-#{$name}-down {
+    @include below($name) {
+      display: none !important;
+    }
+  }
+
+  .show-#{$name}-up {
+    display: none !important;
+
+    @include above($name) {
+      display: block !important;
+    }
+  }
+
+  .show-#{$name}-down {
+    display: none !important;
+
+    @include below($name) {
+      display: block !important;
+    }
+  }
+
+  .center-#{$name}-up {
+    @include above($name) {
+      text-align: center !important;
+    }
+  }
+
+  .center-#{$name}-down {
+    @include below($name) {
+      text-align: center !important;
+    }
+  }
+}
+
+// Grid classes
+
+.container {
+  box-sizing: border-box;
+  max-width: $container-width + 2 * $container-padding;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include below(tablet) {
+    max-width: 100%;
+    padding-right: $container-padding-small;
+    padding-left: $container-padding-small;
+  }
+}
+
+.container--fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+}
+
+.columns {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+
+  &.no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  &.align {
+    &-start {
+      justify-content: start;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-end {
+      justify-content: end;
+    }
+
+    &-top {
+      align-items: flex-start;
+    }
+
+    &-middle {
+      align-items: center;
+    }
+
+    &-bottom {
+      align-items: flex-end;
+    }
+  }
+
+  &.distribute {
+    &-around {
+      justify-content: space-around;
+    }
+
+    &-between {
+      justify-content: space-between;
+    }
+  }
+
+  &.masonry {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    & > .column {
+      flex-basis: auto;
+      margin-bottom: rem(30px);
+
+      &.is-6 {
+        width: 50%;
+      }
+
+      &.is-12-tablet {
+        @include below(tablet) {
+          width: 100%;
+          margin-bottom: rem(10px);
+        }
+      }
+
+      .card {
+        height: auto;
+      }
+    }
+  }
+
+  &.equal-height {
+    & > .column {
+      margin-bottom: rem(30px);
+
+      @include below(tablet) {
+        margin-bottom: rem(20px);
+      }
+
+      & > * {
+        height: 100%;
+      }
+    }
+  }
+
+  &.gutter-large {
+    margin-right: $gutter-compensation-large;
+    margin-left: $gutter-compensation-large;
+
+    & > .column {
+      padding-right: $columns-gutter-large * 0.5;
+      padding-left: $columns-gutter-large * 0.5;
+    }
+  }
+}
+
+.column {
+  box-sizing: border-box;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  padding-right: $columns-gutter * 0.5;
+  padding-left: $columns-gutter * 0.5;
+
+  @each $name, $size in $breakpoints {
+    @for $column from 1 through $max-columns {
+      &.is-#{$column} {
+        flex-basis: 100% / $max-columns * $column;
+        max-width: 100% / $max-columns * $column;
+      }
+    }
+
+    @for $column from 0 through $max-columns {
+      &.is-offset-#{$column} {
+        @if $column == 0 {
+          margin-left: 0;
+        } @else {
+          margin-left: 100% / $max-columns * $column;
+        }
+      }
+    }
+
+    @for $column from 1 through $max-columns {
+      &.is-#{$column}-#{$name} {
+        @media only screen and (max-width: $size) {
+          flex-basis: 100% / $max-columns * $column;
+          max-width: 100% / $max-columns * $column;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $size) {
+      @for $column from 0 through $max-columns {
+        &.is-offset-#{$column}-#{$name} {
+          @if $column==0 {
+            margin-left: 0;
+          }
+
+          @else {
+            margin-left: 100% / $max-columns * $column;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $size) {
+      @for $order from 0 through 10 {
+        &.order-#{$order}-#{$name} {
+          order: $order;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $size) {
+      @for $order from 0 through 10 {
+        &.no-padding-#{$name}-down {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  &.order {
+    &-first {
+      order: -1;
+    }
+
+    &-last {
+      order: 1;
+    }
+  }
+}
+
+.masonry__wrapper {
+  display: flex;
+  max-height: rem(1000px);
+}

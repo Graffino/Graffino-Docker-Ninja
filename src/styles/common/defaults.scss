@@ -1,0 +1,76 @@
+/**
+ * Defaults
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+// Variables
+
+$default-radius: rem(10px);
+$default-shadow: 0 rem(5px) rem(20px) 0 rgba($color-primary, 0.3);
+
+svg.icon {
+  use {
+    fill: currentColor;
+  }
+}
+
+/**
+ * Globals
+ */
+
+* {
+  // Border-box
+  box-sizing: border-box;
+
+  // Custom focus state for DOM elements
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 rem(3px) rgba($color-primary, 0.12);
+  }
+}
+
+// HTML
+html {
+  position: relative;
+
+  // Font rendering
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  font-kerning: normal;
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: antialiased;
+
+  // Enable scroll momentum on iPhone Safari (webkit)
+  -webkit-overflow-scrolling: touch;
+}
+
+// Body
+body {
+  // Defaults
+  overflow-x: hidden;
+  min-width: rem(320px);
+  background-color: white;
+  color: $default-color;
+  font-family: $default-fontface-stack;
+  font-size: $default-font-size;
+  font-weight: $default-font-weight;
+  line-height: $default-line-height;
+
+  // Default font-family until webfonts are loaded
+  .no-fonts & {
+    font-family: $default-system-stack;
+  }
+}
+
+.main {
+  @include clearfix();
+  margin: rem(32px) 0;
+  padding: rem(48px) 0 rem(96px);
+  background-color: $color-background-light;
+  transition: transition-custom();
+  transition-property: margin;
+
+  @include below(large) {
+    margin: rem(16px) 0;
+  }
+}

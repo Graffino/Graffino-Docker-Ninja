@@ -1,0 +1,100 @@
+/**
+ * Color variables
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+/**
+ * Palette
+ */
+
+$aqua-haze                    : #F7F9FA;
+$catskill-white-light         : #F3F6F9;
+$mystic                       : #EFF3F5;
+$catskill-white               : #E8EDF4;
+$titan-white                  : #E9EDFF;
+$bali-hai                     : #8A99AC;
+$dusty-gray                   : #979797;
+$header                       : #B7C2D1;
+$seashell-peach               : #FFF3ED;
+$persimmon                    : #FF5C5C;
+$pomegranate                  : #F02525;
+$ocean-green                  : #43BA7E;
+$lochmara                     : #0071C2;
+$governor-bay                 : #2B2A9F;
+$violet                       : #110D3F;
+
+$color-primary                : $governor-bay;
+$color-primary-darker         : $violet;
+$color-accent                 : $persimmon;
+
+
+/**
+ * Backgrounds
+ */
+
+$color-background             : $governor-bay;
+$color-background-light       : $aqua-haze;
+$color-background-dark        : $violet;
+
+
+/**
+ * Buttons
+ */
+
+$color-button                 : $governor-bay;
+
+/**
+ * Borders
+ */
+
+$color-border                 : $catskill-white;
+$color-border-light           : $catskill-white-light;
+$color-border-dark            : $dusty-gray;
+
+/**
+ * Text
+ */
+
+$color-text                   : $bali-hai;
+$color-text-dark              : $violet;
+
+
+/**
+ * Headings
+ */
+
+$color-heading                : $violet;
+
+
+/**
+ * Links
+ */
+
+$color-link                   : $violet;
+$color-link-hover             : $violet;
+
+$color-link-footer            : $bali-hai;
+$color-link-footer-hover      : $color-primary;
+
+/**
+ * Form Elements
+ */
+
+$color-form-required-mark     : $pomegranate;
+$color-form-input-background  : white;
+
+$color-form-notice-text       : $pomegranate;
+$color-form-notice-background : $pomegranate;
+
+$color-success                : $ocean-green;
+$color-warning                : $persimmon;
+$color-danger                 : $pomegranate;
+
+
+/**
+ * Defaults
+ */
+
+$default-color                : $color-text;
+$default-link-color           : $color-link;
+$default-link-hover           : $color-link-hover;
