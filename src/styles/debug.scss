@@ -2,3 +2,28 @@
  * Debug Mode
  * Author: Graffino (http://www.graffino.com)
  */
+
+
+// Global Debug
+$debug: false;
+$grid-debug: false;
+
+// Variables
+$debug-outline-color: $color-warning;
+
+@if $debug {
+  *:not(path):not(g) {
+    outline: solid 1px $debug-outline-color !important;
+  }
+}
+
+@if $grid-debug {
+  .columns .column {
+    outline: solid 1px $debug-outline-color !important;
+  }
+}
+
+// Debug Class
+.debug {
+  outline: solid 1px $debug-outline-color !important;
+}

@@ -38,19 +38,10 @@ $typi: (
 
 .heading {
   position: relative;
-  margin: 0;
   padding: 0;
   color: $color-heading;
   word-break: break-word;
   hyphens: auto;
-
-  @include below(medium) {
-    word-break: normal;
-  }
-
-  @include below(small) {
-    text-align: center;
-  }
 
   // Default font-family until webfonts are loaded
   .no-fonts & {
