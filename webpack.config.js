@@ -63,7 +63,9 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env']
           }
-        }]
+        },
+        'eslint-loader'
+      ]
       },
       {
         test: /\.svg$/,

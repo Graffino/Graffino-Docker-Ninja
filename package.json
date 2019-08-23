@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
+    "lint": "eslint src -c .eslintrc --ext js",
+    "fix-code": "prettier-eslint --write 'src/**/*.js'",
+    "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git@github.com:Graffino/ninja.git",
@@ -16,6 +19,7 @@
     "@babel/preset-env": "^7.5.5",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "browserlist": "^1.0.1",
     "clean-webpack-plugin": "^3.0.0",
@@ -24,6 +28,13 @@
     "css-loader": "^3.2.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-import-resolver-webpack": "^0.11.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
     "favicons-webpack-plugin": "^1.0.1",
     "file-loader": "^4.2.0",
     "handlebars": "^4.1.2",
@@ -39,6 +50,10 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "preload-webpack-plugin": "3.0.0-beta.3",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-stylelint": "^0.4.2",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
@@ -56,5 +71,9 @@
     "webpack-dev-server": "^3.8.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0"
   }
 }
