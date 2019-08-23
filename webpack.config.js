@@ -10,8 +10,8 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.js',
-    vendor: './src/vendor.js'
+    main: path.resolve(__dirname, 'src/index.js'),
+    vendor: path.resolve(__dirname, 'src/vendor.js')
   },
   module: {
     rules: [
