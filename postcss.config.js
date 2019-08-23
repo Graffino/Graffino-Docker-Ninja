@@ -5,7 +5,14 @@ module.exports = {
     require('autoprefixer'),
     require("css-mqpacker")(),
     require('cssnano')({
-      preset: 'default'
+      preset: [
+        'default',
+        {
+          discardComments: {
+            removeAll: true
+          }
+        }
+      ]
     }),
     purgecss({
       content: ['./**/*.handlebars'],

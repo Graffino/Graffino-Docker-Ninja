@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
@@ -144,8 +145,8 @@ module.exports = {
       template: './src/html/404.handlebars'
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
-      chunkFilename: '[id].css'
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
     }),
     new StyleLintPlugin(),
     new SpriteLoaderPlugin({

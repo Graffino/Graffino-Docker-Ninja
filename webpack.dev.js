@@ -27,8 +27,7 @@ module.exports = merge(common, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: true,
-              reloadAll: true
+              hmr: process.env.NODE_ENV === 'development',
             }
           },
           {
@@ -54,6 +53,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
   output: {
