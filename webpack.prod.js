@@ -96,6 +96,7 @@ module.exports = merge(common, {
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
+      cacheFolder: './imgcache',
       gifsicle: {
         optimizationLevel: 9
       },
