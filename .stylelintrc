@@ -1,7 +1,8 @@
 {
-  "plugins": [ "stylelint-order" ],
-  "extends": "stylelint-config-recommended",
+  "plugins": [ "stylelint-order", "stylelint-prettier"],
+  "extends": ["stylelint-prettier/recommended"],
   "rules": {
+    "prettier/prettier": true,
     at-rule-no-unknown: null,
     "block-no-empty": true,
     "color-no-invalid-hex": true,
