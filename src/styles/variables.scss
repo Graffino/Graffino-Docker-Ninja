@@ -3,14 +3,12 @@
  * Author: Graffino (http://www.graffino.com)
  */
 
-
 /**
  * Palette
  */
 
-$midnight-express:  #1D2230;
-$champagne:         #DAC19D;
-
+$midnight-express: #1d2230;
+$champagne: #dac19d;
 
 /**
  * Brand Colors
@@ -22,7 +20,6 @@ $color-info: cyan;
 $color-success: green;
 $color-warning: yellow;
 $color-danger: red;
-
 
 /**
  * Typography
@@ -53,7 +50,6 @@ $h5-line-height: 18px;
 $h6-font-size: 18px;
 $h6-line-height: 18px;
 
-
 /**
  * Breakpoints
  */
@@ -71,7 +67,6 @@ $breakpoints: (
   mobile-small: 320px
 );
 
-
 /**
  * Grid
  */
@@ -86,7 +81,6 @@ $container-padding: 28px;
 $container-padding-small: 12px;
 // Default container width
 $container-width: 1200px;
-
 
 /**
  * Globals

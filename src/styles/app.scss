@@ -8,55 +8,52 @@
  */
 
 // Normalize
-@import "~normalize.css/normalize.css";
+@import '~normalize.css/normalize.css';
 // Typi
-@import "~typi/scss/typi";
-
+@import '~typi/scss/typi';
 
 /**
  * Variables
  */
 
-@import "variables";
-
+@import 'variables';
 
 /**
  * Debug
  */
 
-@import "debug";
-
+@import 'debug';
 
 /**
  * Common
  */
 
 // Color variables
-@import "common/colors";
+@import 'common/colors';
 // Functions
-@import "common/functions";
+@import 'common/functions';
 // Grid — custom 12 column grid
-@import "common/grid";
+@import 'common/grid';
 // Fonts and sizes variables
-@import "common/fonts";
+@import 'common/fonts';
 // Animations
-@import "common/animations";
+@import 'common/animations';
 // Helpers
-@import "common/helpers";
+@import 'common/helpers';
 // Common styles and extends
-@import "common/defaults";
+@import 'common/defaults';
 // Typography
-@import "common/typography";
+@import 'common/typography';
 // Button
-@import "common/button";
+@import 'common/button';
 //Form
-@import "common/form";
+@import 'common/form';
 
 /**
  * Modules
  */
 
 // Header
-@import "modules/header";
+@import 'modules/header';
 // Footer
-@import "modules/footer";
+@import 'modules/footer';

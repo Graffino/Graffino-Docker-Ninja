@@ -31,7 +31,7 @@ $font-colors: (
   success: $color-success,
   info: $color-info,
   warning: $color-warning,
-  danger: $color-danger,
+  danger: $color-danger
 );
 
 /**
@@ -73,12 +73,18 @@ $font-colors: (
 /*
  * Font mixin
  */
-@mixin webfont($family, $file, $weight: normal, $style: normal, $range: "U+0000-007F") {
+@mixin webfont(
+  $family,
+  $file,
+  $weight: normal,
+  $style: normal,
+  $range: 'U+0000-007F'
+) {
   @font-face {
     font-family: $family;
     font-display: swap;
-    src: url("../fonts/#{$file}.woff2") format("woff2"),
-      url("../fonts/#{$file}.woff") format("woff");
+    src: url('../fonts/#{$file}.woff2') format('woff2'),
+      url('../fonts/#{$file}.woff') format('woff');
     font-style: $style;
     font-weight: $weight;
     unicode-range: $range;
@@ -87,7 +93,7 @@ $font-colors: (
 
 @mixin clearfix {
   &:after {
-    content: "";
+    content: '';
     clear: both;
     display: table;
   }
@@ -142,6 +148,10 @@ $font-colors: (
   }
 }
 
-@function transition-custom($property: all, $duration: 250ms, $ease: cubic-bezier(0.250, 0.460, 0.450, 0.940)) {
+@function transition-custom(
+  $property: all,
+  $duration: 250ms,
+  $ease: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+) {
   @return $property $duration $ease;
 }
