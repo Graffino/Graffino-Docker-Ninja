@@ -17,40 +17,42 @@ module.exports = merge(common, {
     host: 'localhost',
     port: 4200,
     hot: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    }
   },
   module: {
-    rules: [
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          'style-loader',
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development',
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+    rules: [{
+      test: /\.(sa|sc|c)ss$/,
+      use: [
+        'style-loader',
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            hmr: process.env.NODE_ENV === 'development',
           }
-        ]
-      }
-    ]
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: true
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: true
+          }
+        }
+      ]
+    }]
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
