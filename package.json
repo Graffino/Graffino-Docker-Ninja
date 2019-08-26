@@ -9,6 +9,7 @@
     "lint": "eslint src -c .eslintrc --ext js",
     "fix-code": "prettier-eslint --write 'src/**/*.js'",
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
+    "stylelint-check": "stylelint-config-prettier-check",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git@github.com:Graffino/ninja.git",
@@ -29,12 +30,15 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^6.2.1",
-    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-standard": "^14.0.1",
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "favicons-webpack-plugin": "^1.0.1",
     "file-loader": "^4.2.0",
     "handlebars": "^4.1.2",
@@ -57,8 +61,13 @@
     "sass-loader": "^7.3.1",
     "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
-    "stylelint-config-recommended": "^2.2.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-sass-guidelines": "^6.0.0",
+    "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.1",
+    "stylelint-prettier": "^1.1.1",
+    "stylelint-scss": "^3.9.4",
+    "stylelint-selector-bem-pattern": "^2.1.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "svg-sprite-loader": "^4.1.6",
     "svg-transform-loader": "^2.0.8",
@@ -73,9 +82,6 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "stylelint-prettier": "^1.1.1",
     "vanilla-lazyload": "^12.0.0"
   }
 }
