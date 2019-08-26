@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {
+  CleanWebpackPlugin
+} = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -15,8 +17,7 @@ module.exports = {
     vendor: path.resolve(__dirname, 'src/vendor.js')
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(handlebars|hbs)$/,
         use: [{
             loader: 'handlebars-loader',
@@ -59,13 +60,13 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        },
-        'eslint-loader'
-      ]
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          },
+          'eslint-loader'
+        ]
       },
       {
         test: /\.svg$/,
@@ -128,9 +129,10 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new CopyPlugin([
-      { from: 'src/static', to: '' }
-    ]),
+    new CopyPlugin([{
+      from: 'src/static',
+      to: ''
+    }]),
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {}

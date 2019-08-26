@@ -7,8 +7,15 @@
  * Palette
  */
 
+$black: #000;
+$white: #FFF;
+$alto: #DCDCDC;
 $midnight-express: #1d2230;
 $champagne: #dac19d;
+$picton-blue: #209CEE;
+$mountain-meadow: #23D160;
+$mustard: #FFDD57;
+$vermilion: #FF470F;
 
 /**
  * Brand Colors
@@ -16,10 +23,10 @@ $champagne: #dac19d;
 
 $color-primary: $midnight-express;
 $color-accent: $champagne;
-$color-info: cyan;
-$color-success: green;
-$color-warning: yellow;
-$color-danger: red;
+$color-info: $picton-blue;
+$color-success: $mountain-meadow;
+$color-warning: $mustard;
+$color-danger: $vermilion;
 
 /**
  * Typography
@@ -27,35 +34,34 @@ $color-danger: red;
 
 $default-font-size: 18px;
 $default-font-weight: 400;
-$default-line-height: 18px;
+$default-line-height: 1.5;
 
 $body-font-size: 18px;
-$body-line-height: 18px;
+$body-line-height: 1.5;
 
-$h1-font-size: 18px;
-$h1-line-height: 18px;
+$h1-font-size: 55px;
+$h1-line-height: 1.5;
 
-$h2-font-size: 18px;
-$h2-line-height: 18px;
+$h2-font-size: 44px;
+$h2-line-height: 1.5;
 
-$h3-font-size: 18px;
-$h3-line-height: 18px;
+$h3-font-size: 35px;
+$h3-line-height: 1.5;
 
-$h4-font-size: 18px;
-$h4-line-height: 18px;
+$h4-font-size: 28px;
+$h4-line-height: 1.5;
 
-$h5-font-size: 18px;
-$h5-line-height: 18px;
+$h5-font-size: 22px;
+$h5-line-height: 1.5;
 
 $h6-font-size: 18px;
-$h6-line-height: 18px;
+$h6-line-height: 1.5;
 
 /**
  * Breakpoints
  */
 
-$breakpoints: (
-  xlarge: 1250px,
+$breakpoints: (xlarge: 1250px,
   desktop: 1120px,
   large: 1050px,
   medium: 940px,
@@ -64,8 +70,7 @@ $breakpoints: (
   xsmall: 480px,
   mobile-large: 414px,
   mobile-medium: 375px,
-  mobile-small: 320px
-);
+  mobile-small: 320px);
 
 /**
  * Grid

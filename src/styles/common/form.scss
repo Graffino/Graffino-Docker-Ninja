@@ -4,6 +4,7 @@
  */
 
 .form {
+
   // Input and Textarea
   &__input,
   &__select,
@@ -15,14 +16,14 @@
     border: rem(1px) solid $color-border;
     border-radius: $default-radius;
     padding: rem(22px) rem(16px);
-    background-color: white;
+    background-color: $white;
     color: $color-text;
     font-size: $default-font-size;
     font-weight: $semibold;
     line-height: 1;
     outline: 0;
-    transition: transition-custom();
     resize: none;
+    transition: transition-custom();
     appearance: none;
 
     &:hover,

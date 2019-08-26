@@ -3,56 +3,22 @@
  * Author: Graffino (http://www.graffino.com)
  */
 
-$typi: (
-  base: (
-    null: (
-      $default-font-size,
-      $default-line-height
-    )
-  ),
-  text: (
-    null: (
-      $body-font-size,
-      $body-line-height
-    )
-  ),
-  h1: (
-    null: (
-      $h1-font-size,
-      $h1-line-height
-    )
-  ),
-  h2: (
-    null: (
-      $h2-font-size,
-      $h2-line-height
-    )
-  ),
-  h3: (
-    null: (
-      $h3-font-size,
-      $h3-line-height
-    )
-  ),
-  h4: (
-    null: (
-      $h4-font-size,
-      $h4-line-height
-    )
-  ),
-  h5: (
-    null: (
-      $h5-font-size,
-      $h5-line-height
-    )
-  ),
-  h6: (
-    null: (
-      $h6-font-size,
-      $h6-line-height
-    )
-  )
-);
+$typi: (base: (null: ($default-font-size,
+      $default-line-height)),
+  text: (null: ($body-font-size,
+      $body-line-height)),
+  h1: (null: ($h1-font-size,
+      $h1-line-height)),
+  h2: (null: ($h2-font-size,
+      $h2-line-height)),
+  h3: (null: ($h3-font-size,
+      $h3-line-height)),
+  h4: (null: ($h4-font-size,
+      $h4-line-height)),
+  h5: (null: ($h5-font-size,
+      $h5-line-height)),
+  h6: (null: ($h6-font-size,
+      $h6-line-height)));
 
 @include typi-create-classes;
 
@@ -61,22 +27,22 @@ $typi: (
  */
 
 .heading {
-  position: relative;
-  padding: 0;
-  color: $color-heading;
-  word-break: break-word;
-  hyphens: auto;
-
-  // Default font-family until webfonts are loaded
-  .no-fonts & {
-    font-family: $system-sans-fontface-stack;
-  }
 
   // Adding font-weight modifier classes (e.g. ".-font-weight-200")
   @include font-weights();
 
   // Generate color themeing for headings
   @include font-colors();
+  position: relative;
+  padding: 0;
+  color: $color-heading;
+  hyphens: auto;
+  word-break: break-word;
+
+  // Default font-family until webfonts are loaded
+  .no-fonts & {
+    font-family: $system-sans-fontface-stack;
+  }
 }
 
 /**
@@ -84,6 +50,9 @@ $typi: (
  */
 
 .link {
+
+  @include font-weights();
+  @include link-colors();
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -93,9 +62,6 @@ $typi: (
   cursor: pointer;
   transition: transition-custom();
   transition-property: color;
-
-  @include font-weights();
-  @include link-colors();
 
   &:hover {
     color: $color-link-hover;
@@ -107,6 +73,12 @@ $size-medium: rem(16px);
 $size-large: rem(18px);
 
 .text {
+
+  // Adding font-weight modifier classes (e.g. ".-font-weight-200")
+  @include font-weights();
+
+  // Generate color theming for headings
+  @include font-colors();
   color: $color-text;
   font-weight: 500;
 
@@ -129,12 +101,6 @@ $size-large: rem(18px);
     vertical-align: baseline;
     line-height: inherit;
   }
-
-  // Adding font-weight modifier classes (e.g. ".-font-weight-200")
-  @include font-weights();
-
-  // Generate color theming for headings
-  @include font-colors();
 
   &.-type {
     &-transparent {

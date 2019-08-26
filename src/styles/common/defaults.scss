@@ -3,7 +3,7 @@
  * Author: Graffino (http://www.graffino.com)
  */
 
-svg.icon {
+.icon {
   use {
     fill: currentColor;
   }
@@ -26,25 +26,24 @@ svg.icon {
 
 // HTML
 html {
+  font-feature-settings: 'kern';
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  font-variant-ligatures: common-ligatures;
+
+  // Enable scroll momentum on iPhone Safari (webkit)
+  -webkit-overflow-scrolling: touch;
   position: relative;
 
   // Font rendering
   text-rendering: optimizeLegibility;
-  font-variant-ligatures: common-ligatures;
-  font-kerning: normal;
-  font-feature-settings: 'kern';
-  -webkit-font-smoothing: antialiased;
-
-  // Enable scroll momentum on iPhone Safari (webkit)
-  -webkit-overflow-scrolling: touch;
 }
 
 // Body
 body {
-  // Defaults
   overflow-x: hidden;
   min-width: rem(320px);
-  background-color: white;
+  background-color: $white;
   color: $color-text;
   font-family: $default-fontface-stack;
   font-size: $default-font-size;
@@ -61,7 +60,7 @@ body {
   @include clearfix();
   margin: rem(32px) 0;
   padding: rem(48px) 0 rem(96px);
-  background-color: white;
+  background-color: $white;
   transition: transition-custom();
   transition-property: margin;
 

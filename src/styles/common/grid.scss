@@ -9,6 +9,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 // Easy Media Queries
 
 @mixin above($breakpoint) {
+
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
@@ -20,13 +21,16 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     }
 
     // If the breakpoint doesn't exist in the map.
-  } @else {
+  }
+
+  @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
 @mixin below($breakpoint) {
+
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
@@ -38,13 +42,16 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     }
 
     // If the breakpoint doesn't exist in the map.
-  } @else {
+  }
+
+  @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
 @mixin between($lower, $upper) {
+
   // If both the lower and upper breakpoints exist in the map.
   @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
     // Get the lower and upper breakpoints.
@@ -57,22 +64,26 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     }
 
     // If one or both of the breakpoints don't exist.
-  } @else {
+  }
+
+  @else {
+
     // If lower breakpoint is invalid.
-    @if (map-has-key($breakpoints, $lower) ==false) {
+    @if (map-has-key($breakpoints, $lower)==false) {
       // Log a warning.
       @warn 'Your lower breakpoint was invalid: #{$lower}.';
     }
 
     // If upper breakpoint is invalid.
-    @if (map-has-key($breakpoints, $upper) ==false) {
+    @if (map-has-key($breakpoints, $upper)==false) {
       // Log a warning.
       @warn 'Your upper breakpoint was invalid: #{$upper}.';
     }
   }
 }
 
-@each $name, $size in $breakpoints {
+@each $name,
+$size in $breakpoints {
   .hide-#{$name}-up {
     @include above($name) {
       display: none !important;
@@ -194,7 +205,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     flex-direction: column;
     flex-wrap: wrap;
 
-    & > .column {
+    &>.column {
       flex-basis: auto;
       margin-bottom: rem(30px);
 
@@ -216,14 +227,14 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
   }
 
   &.equal-height {
-    & > .column {
+    &>.column {
       margin-bottom: rem(30px);
 
       @include below(tablet) {
         margin-bottom: rem(20px);
       }
 
-      & > * {
+      &>* {
         height: 100%;
       }
     }
@@ -233,7 +244,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     margin-right: $gutter-compensation-large;
     margin-left: $gutter-compensation-large;
 
-    & > .column {
+    &>.column {
       padding-right: $columns-gutter-large * 0.5;
       padding-left: $columns-gutter-large * 0.5;
     }
@@ -242,13 +253,14 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
 .column {
   box-sizing: border-box;
+  flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: auto;
   padding-right: $columns-gutter * 0.5;
   padding-left: $columns-gutter * 0.5;
 
-  @each $name, $size in $breakpoints {
+  @each $name,
+  $size in $breakpoints {
     @for $column from 1 through $max-columns {
       &.is-#{$column} {
         flex-basis: 100% / $max-columns * $column;
@@ -258,9 +270,11 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
     @for $column from 0 through $max-columns {
       &.is-offset-#{$column} {
-        @if $column == 0 {
+        @if $column==0 {
           margin-left: 0;
-        } @else {
+        }
+
+        @else {
           margin-left: 100% / $max-columns * $column;
         }
       }
@@ -280,7 +294,9 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
         &.is-offset-#{$column}-#{$name} {
           @if $column==0 {
             margin-left: 0;
-          } @else {
+          }
+
+          @else {
             margin-left: 100% / $max-columns * $column;
           }
         }

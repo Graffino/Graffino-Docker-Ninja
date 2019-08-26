@@ -4,7 +4,6 @@
  */
 
 .button {
-  user-select: none;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -12,21 +11,22 @@
   border-radius: $default-radius;
   padding: rem(16px) rem(40px);
   background-color: $color-primary;
-  color: white;
+  color: $white;
   font-size: $default-font-size;
   font-weight: $semibold;
   text-align: center;
   text-decoration: none;
+  user-select: none;
   white-space: nowrap;
   cursor: pointer;
   box-shadow: $default-shadow;
   transition: transition-custom();
 
-  &:hover {
-    background-color: darken($color-primary, 0.1);
-  }
-
   @include below(small) {
     width: 100%;
+  }
+
+  &:hover {
+    background-color: darken($color-primary, 0.1);
   }
 }
