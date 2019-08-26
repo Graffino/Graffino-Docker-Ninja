@@ -16,7 +16,6 @@ module.exports = merge(common, {
     https: false,
     host: 'localhost',
     port: 4200,
-    hot: true,
     overlay: {
       warnings: false,
       errors: true
