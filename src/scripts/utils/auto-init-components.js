@@ -6,7 +6,7 @@ const autoInitComponents = () => {
     moduleLoader(componentName).then(Component => {
       // eslint-disable-next-line no-unused-vars
       const compontent = new Component({
-        element: element
+        element
       })
     })
   })

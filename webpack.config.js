@@ -13,8 +13,8 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'src/index.js'),
-    vendor: path.resolve(__dirname, 'src/vendor.js')
+    main: path.resolve(__dirname, 'src/scripts/index.js'),
+    vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
   module: {
     rules: [{
@@ -22,8 +22,8 @@ module.exports = {
         use: [{
             loader: 'handlebars-loader',
             options: {
-              helperDirs: path.resolve(__dirname, 'src/html/helpers'),
-              partialDirs: path.resolve(__dirname, 'src/html/partials'),
+              helperDirs: path.resolve(__dirname, 'src/views/helpers'),
+              partialDirs: path.resolve(__dirname, 'src/views/partials'),
               precompileOptions: {
                 knownHelpersOnly: false,
               }
@@ -123,11 +123,6 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    alias: {
-      modules: path.resolve(__dirname, 'src/modules/')
-    }
-  },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
@@ -146,12 +141,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Ninja | Webpack Flow',
       filename: 'index.html',
-      template: './src/html/index.handlebars'
+      template: './src/views/index.handlebars'
     }),
     new HtmlWebpackPlugin({
       title: 'Ninja | 404',
       filename: '404.html',
-      template: './src/html/404.handlebars'
+      template: './src/views/404.handlebars'
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].css' : '[name].[hash].css',
