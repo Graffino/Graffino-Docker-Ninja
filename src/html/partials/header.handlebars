@@ -36,15 +36,16 @@
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="preconnect" href="//fonts.googleapis.com">
 </head>
+
 <body>
   {{#if htmlWebpackPlugin.files.sprites}}
-    <div class="h-visually-hidden">
-      {{#each htmlWebpackPlugin.files.sprites}}
-        {{{this}}}
-      {{/each}}
-    </div>
+  <div class="h-visually-hidden">
+    {{#each htmlWebpackPlugin.files.sprites}}
+    {{{this}}}
+    {{/each}}
+  </div>
   {{/if}}
-  <header class="header">
+  <header class="header" data-component="header">
     <div class="container">
       <div class="header__logo">
         <a class="link" href="/" aria-label="Graffino logo">

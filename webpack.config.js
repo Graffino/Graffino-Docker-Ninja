@@ -123,6 +123,11 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    alias: {
+      modules: path.resolve(__dirname, 'src/modules/')
+    }
+  },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
