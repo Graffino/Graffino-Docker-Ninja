@@ -37,3 +37,4 @@ const ease = {
 
 export default stateClass
 export default breakpoints
+export default ease
