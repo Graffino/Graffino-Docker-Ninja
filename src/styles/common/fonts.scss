@@ -27,11 +27,11 @@ $black: 800;
 $extra-black: 900;
 
 /**
- * Sharp Sans
+ * Inter
  */
 
 // Regular - 400
-@include webfont('Inter', 'Inter-Regular', $medium, normal, 'U+0000-007F');
+@include webfont('Inter', 'Inter-Regular', $regular, normal, 'U+0000-007F');
 
 // SemiBold - 600
 @include webfont('Inter', 'Inter-SemiBold', $semibold, normal, 'U+0000-007F');
@@ -40,23 +40,45 @@ $extra-black: 900;
 @include webfont('Inter', 'Inter-Bold', $bold, normal, 'U+0000-007F');
 
 /**
+ * Inconsolata
+ */
+
+// Regular - 400
+@include webfont('Inconsolata', 'Inconsolata-Regular', $regular, normal, 'U+0000-007F');
+
+/**
  * Fontfaces
  */
 
 $sans-fontface: 'Inter';
 $serif-fontface: 'Georgia';
 $cursive-fontface: 'Zapfino';
-$mono-fontface: 'Space Mono';
+$mono-fontface: 'Inconsolata';
 
 // Font-families stack
-$sans-fontface-stack: $sans-fontface, Helvetica, Arial, sans-serif;
-$serif-fontface-stack: $serif-fontface, Georgia, 'Times New Roman', Times, serif;
-$cursive-fontface-stack: $cursive-fontface, cursive;
-$mono-fontface-stack: $mono-fontface, monospace;
+$sans-fontface-stack: $sans-fontface,
+Helvetica,
+Arial,
+sans-serif;
+$serif-fontface-stack: $serif-fontface,
+Georgia,
+'Times New Roman',
+Times,
+serif;
+$cursive-fontface-stack: $cursive-fontface,
+cursive;
+$mono-fontface-stack: $mono-fontface,
+monospace;
 
 // System fontface stacks used when webfonts are not loaded
-$system-sans-fontface-stack: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
-$system-serif-fontface-stack: 'Georgia', 'Times New Roman', Times, serif;
+$system-sans-fontface-stack: 'Helvetica',
+'Helvetica Neue',
+'Arial',
+sans-serif;
+$system-serif-fontface-stack: 'Georgia',
+'Times New Roman',
+Times,
+serif;
 
 /**
  * Defaults

@@ -4,5 +4,31 @@
  */
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
+  padding: rem(20px) rem(30px);
+
+  &__logo {
+    svg {
+      display: block;
+      width: auto;
+      height: rem(60px);
+    }
+  }
+
+  &__navigation {
+    .navigation {
+      &__menu {
+        *+* {
+          margin-left: rem(50px);
+        }
+      }
+
+      &__item {
+        display: inline-block;
+      }
+    }
+  }
 }

@@ -7,19 +7,20 @@
  * Backgrounds
  */
 
-$color-background: $white;
+$color-background: $ghost-white;
+$color-background-dark: $white-smoke;
 
 /**
  * Borders
  */
 
-$color-border: $alto;
+$color-border: $color-primary;
 
 /**
  * Text
  */
 
-$color-text: $black;
+$color-text: $color-primary;
 
 /**
  * Headings
@@ -31,8 +32,8 @@ $color-heading: $color-primary;
  * Links
  */
 
-$color-link: $black;
-$color-link-hover: rgba($black, 0.7);
+$color-link: $color-primary;
+$color-link-hover: rgba($color-primary, 0.7);
 
 /**
  * Form Elements

@@ -8,14 +8,15 @@
  */
 
 $black: #000;
-$white: #fff;
-$alto: #dcdcdc;
 $midnight-express: #1d2230;
 $champagne: #dac19d;
+$white: #fcfcff;
+$ghost-white: #F9F9FC;
+$white-smoke: #F7F7F7;
 $picton-blue: #209cee;
 $mountain-meadow: #23d160;
-$mustard: #ffdd57;
 $vermilion: #ff470f;
+$mustard: #ffdd57;
 
 /**
  * Brand Colors
@@ -32,37 +33,36 @@ $color-danger: $vermilion;
  * Typography
  */
 
-$default-font-size: 18px;
+$default-font-size: 20px;
 $default-font-weight: 400;
 $default-line-height: 1.5;
 
-$body-font-size: 18px;
+$body-font-size: 20px;
 $body-line-height: 1.5;
 
-$h1-font-size: 55px;
+$h1-font-size: 60px;
 $h1-line-height: 1.5;
 
-$h2-font-size: 44px;
+$h2-font-size: 48px;
 $h2-line-height: 1.5;
 
-$h3-font-size: 35px;
+$h3-font-size: 40px;
 $h3-line-height: 1.5;
 
-$h4-font-size: 28px;
+$h4-font-size: 32px;
 $h4-line-height: 1.5;
 
-$h5-font-size: 22px;
+$h5-font-size: 25px;
 $h5-line-height: 1.5;
 
-$h6-font-size: 18px;
+$h6-font-size: 20px;
 $h6-line-height: 1.5;
 
 /**
  * Breakpoints
  */
 
-$breakpoints: (
-  xlarge: 1250px,
+$breakpoints: (xlarge: 1250px,
   desktop: 1120px,
   large: 1050px,
   medium: 940px,
@@ -71,8 +71,7 @@ $breakpoints: (
   xsmall: 480px,
   mobile-large: 414px,
   mobile-medium: 375px,
-  mobile-small: 320px
-);
+  mobile-small: 320px);
 
 /**
  * Grid
@@ -93,7 +92,7 @@ $container-width: 1200px;
  * Globals
  */
 
-$default-radius: 10px;
+$default-radius: 4px;
 $default-shadow: 0 5px 20px 0 rgba($color-primary, 0.3);
 $default-margin: 10px;
-$default-padding: 10px;
+$default-padding: 80px;

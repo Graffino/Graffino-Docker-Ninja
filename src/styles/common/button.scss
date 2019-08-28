@@ -7,19 +7,20 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid transparent;
+  border: rem(2px) solid $color-primary;
   border-radius: $default-radius;
   padding: rem(16px) rem(40px);
-  background-color: $color-primary;
-  color: $white;
+  background-color: transparent;
+  color: $color-text;
   font-size: $default-font-size;
   font-weight: $semibold;
   text-align: center;
+  text-transform: lowercase;
   text-decoration: none;
   user-select: none;
   white-space: nowrap;
   cursor: pointer;
-  box-shadow: $default-shadow;
+  box-shadow: none;
   transition: transition-custom();
 
   @include below(small) {
@@ -27,6 +28,6 @@
   }
 
   &:hover {
-    background-color: darken($color-primary, 0.1);
+    box-shadow: $default-shadow;
   }
 }

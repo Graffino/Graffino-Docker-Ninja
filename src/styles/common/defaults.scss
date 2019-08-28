@@ -43,7 +43,7 @@ html {
 body {
   overflow-x: hidden;
   min-width: rem(320px);
-  background-color: $white;
+  background-color: $color-background;
   color: $color-text;
   font-family: $default-fontface-stack;
   font-size: $default-font-size;
@@ -66,5 +66,15 @@ body {
 
   @include below(large) {
     margin: rem(16px) 0;
+  }
+}
+
+.section {
+  padding-top: $default-padding;
+  padding-bottom: $default-padding;
+  background-color: $color-background;
+
+  &.-background-dark {
+    background-color: $color-background-dark;
   }
 }
