@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>tool</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Desktop-HD" transform="translate(-732.000000, -848.000000)" stroke="#1D2230" stroke-width="4">
+            <g id="Features" transform="translate(0.000000, 756.000000)">
+                <g id="Tools" transform="translate(730.000000, 94.000000)">
+                    <g id="tool" transform="translate(4.000000, 0.000000)">
+                        <path d="M49.2554139,18.1164178 C47.6510351,19.7532116 47.6510351,22.3727693 49.2554139,24.009563 L55.990437,30.7445861 C57.6272307,32.3489649 60.2467884,32.3489649 61.8835822,30.7445861 L77.7529802,14.875188 C82.0869761,24.452658 80.0352791,35.7131998 72.6018596,43.1466193 C65.1684401,50.5800388 53.9078983,52.6317358 44.3304283,48.2977399 L15.2435475,77.3846207 C11.7563751,80.8717931 6.10255164,80.8717931 2.61537927,77.3846207 C-0.871793091,73.8974484 -0.871793091,68.2436249 2.61537927,64.7564525 L31.7022601,35.6695717 C27.3682642,26.0921017 29.4199612,14.8315599 36.8533807,7.39814038 C44.2868002,-0.0352791362 55.547342,-2.08697607 65.124812,2.24701977 L49.2975078,18.074324 L49.2554139,18.1164178 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

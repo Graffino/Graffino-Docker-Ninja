@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="84px" height="84px" viewBox="0 0 84 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>grid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Desktop-HD" transform="translate(-492.000000, -848.000000)" stroke="#1D2230" stroke-width="4">
+            <g id="Features" transform="translate(0.000000, 756.000000)">
+                <g id="Grid" transform="translate(490.000000, 94.000000)">
+                    <g id="grid" transform="translate(4.000000, 0.000000)">
+                        <rect id="Rectangle" x="0" y="0" width="31.1111111" height="31.1111111"></rect>
+                        <rect id="Rectangle" x="48.8888889" y="0" width="31.1111111" height="31.1111111"></rect>
+                        <rect id="Rectangle" x="48.8888889" y="48.8888889" width="31.1111111" height="31.1111111"></rect>
+                        <rect id="Rectangle" x="0" y="48.8888889" width="31.1111111" height="31.1111111"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
