@@ -1,8 +1,10 @@
 # Ninja
 
-Webpack flow we use at Graffino for building websites using Handlebars, Stylus and ES6 Modules.
+The feature packed, lightning fast boilerplate we use at [Graffino](https://graffino.com/) for building modern responsive websites.
 
 ## Getting Started
+
+You need [git](https://git-scm.com/), [node](https://nodejs.org/) and [yarn](https://yarnpkg.com) on your computer before running.
 
 ```Bash
 # Clone Project
@@ -19,3 +21,16 @@ yarn install
 # Start Dev Server
 yarn run dev
 ```
+
+## Features
+
+- ES6 transpiling
+- SCSS and PostCSS
+- Handlebars Templating
+- Flexbox Grid System
+- Development Server
+- Asset Compression
+- Favicon Generation
+- SVG Sprite Generation
+- Sourcemaps
+- Webpack Config Split
