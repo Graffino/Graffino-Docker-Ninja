@@ -7,8 +7,7 @@
  * Variables
  */
 
-$spaceamounts: (
-  0,
+$spaceamounts: (0,
   5,
   10,
   15,
@@ -27,8 +26,7 @@ $spaceamounts: (
   80,
   85,
   90,
-  100
-); // Adjust this to include the pixel amounts you need.
+  100); // Adjust this to include the pixel amounts you need.
 
 $sides: (top, bottom, left, right); // Leave this variable alone
 
@@ -39,6 +37,7 @@ $values: (0, 1, 2); //values for line height
  */
 
 .h {
+
   //Width 100%
   &-width-100 {
     width: 100%;
@@ -111,7 +110,8 @@ $values: (0, 1, 2); //values for line height
         padding-#{$side}: #{$space}px !important;
       }
 
-      @each $name, $size in $breakpoints {
+      @each $name,
+      $size in $breakpoints {
         &-m-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
           @include below($name) {
             margin-#{$side}: #{$space}px !important;
@@ -172,6 +172,10 @@ $values: (0, 1, 2); //values for line height
   &-case {
     &-normal {
       text-transform: none !important;
+    }
+
+    &-lowercase {
+      text-transform: lowercase !important;
     }
 
     &-uppercase {

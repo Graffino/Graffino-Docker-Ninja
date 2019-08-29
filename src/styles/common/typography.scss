@@ -37,6 +37,7 @@ $typi: (base: (null: ($default-font-size,
   color: $color-heading;
   hyphens: auto;
   word-break: break-word;
+  text-transform: uppercase;
 
   // Default font-family until webfonts are loaded
   .no-fonts & {
@@ -52,8 +53,12 @@ $typi: (base: (null: ($default-font-size,
   @include font-weights();
   @include link-colors();
   position: relative;
-  display: inline-block;
+  display: inline;
   vertical-align: middle;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: center 100%;
+  background-size: 0 1px;
+  background-repeat: no-repeat;
   color: $color-link;
   font-weight: 500;
   text-decoration: none;
@@ -138,8 +143,8 @@ $size-large: rem(18px);
 
 .code {
   width: 100%;
-  border-radius: $default-radius;
-  background-color: $color-primary;
+  padding: rem(10px) rem(30px);
+  background-color: $color-background-dark;
 
   code {
     color: $white;

@@ -7,14 +7,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
-  padding: rem(20px) rem(30px);
+  width: 100%;
+  padding: rem(10px) rem(30px);
+  background-color: $color-background-dark;
 
   &__logo {
     svg {
       display: block;
       width: auto;
-      height: rem(60px);
+      height: rem(50px);
     }
   }
 

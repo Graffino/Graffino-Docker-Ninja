@@ -43,7 +43,8 @@ html {
 body {
   overflow-x: hidden;
   min-width: rem(320px);
-  background-color: $color-background;
+  padding: rem(20px);
+  background-color: $color-background-body;
   color: $color-text;
   font-family: $default-fontface-stack;
   font-size: $default-font-size;

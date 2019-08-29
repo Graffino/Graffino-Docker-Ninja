@@ -4,5 +4,9 @@
  */
 
 .footer {
-  text-align: left;
+  display: block;
+  padding-top: rem(10px);
+  padding-bottom: rem(10px);
+  background-color: $color-background-dark;
+  text-align: center;
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="76px" height="84px" viewBox="0 0 76 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="75px" height="84px" viewBox="0 0 75 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
     <title>zap</title>
     <desc>Created with Sketch.</desc>
-    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g id="Desktop-HD" transform="translate(-252.000000, -848.000000)" stroke="#1D2230" stroke-width="4">
-            <g id="Features" transform="translate(0.000000, 756.000000)">
-                <g id="Fast" transform="translate(250.000000, 94.000000)">
-                    <g id="zap" transform="translate(4.000000, 0.000000)">
-                        <polygon id="Path" points="40 0 0 48 36 48 32 80 72 32 36 32"></polygon>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Dark" transform="translate(-251.000000, -838.000000)" fill="#C2C2C2" fill-rule="nonzero">
+            <g id="Features" transform="translate(21.000000, 755.000000)">
+                <g id="Fast" transform="translate(229.000000, 85.000000)">
+                    <g id="zap" transform="translate(3.884477, 0.000000)">
+                        <path d="M32.7028274,50 L29.0903869,79.7589894 C28.8483679,81.7527223 31.3670794,82.8193452 32.6304981,81.2581543 L71.4752634,33.2581543 C72.5335282,31.9504694 71.6028273,30 69.9205776,30 L37.2177502,30 L40.8301907,0.241010571 C41.0722097,-1.7527223 38.5534982,-2.81934522 37.2900796,-1.25815426 L-1.55468578,46.7418457 C-2.61295056,48.0495306 -1.68224966,50 0,50 L32.7028274,50 Z M36.0205163,6.66915031 L32.9748634,31.7589894 C32.8302398,32.9503875 33.7601449,34 34.9602888,34 L65.7291786,34 L33.9000613,73.3308497 L36.9457142,48.2410106 C37.0903379,47.0496125 36.1604327,46 34.9602888,46 L4.19139906,46 L36.0205163,6.66915031 Z" id="Path"></path>
                     </g>
                 </g>
             </g>

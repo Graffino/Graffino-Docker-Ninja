@@ -7,33 +7,34 @@
  * Backgrounds
  */
 
-$color-background: $ghost-white;
-$color-background-dark: $white-smoke;
+$color-background: $charleston-green;
+$color-background-dark: $midnight-express;
+$color-background-body: $eerie-black;
 
 /**
  * Borders
  */
 
-$color-border: $color-primary;
+$color-border: $color-accent;
 
 /**
  * Text
  */
 
-$color-text: $color-primary;
+$color-text: $silver-sand;
 
 /**
  * Headings
  */
 
-$color-heading: $color-primary;
+$color-heading: $color-accent;
 
 /**
  * Links
  */
 
-$color-link: $color-primary;
-$color-link-hover: rgba($color-primary, 0.7);
+$color-link: rgba($white, 0.4);
+$color-link-hover: $white;
 
 /**
  * Form Elements

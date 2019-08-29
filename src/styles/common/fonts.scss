@@ -27,30 +27,27 @@ $black: 800;
 $extra-black: 900;
 
 /**
- * Inter
+ * Montserrat
  */
 
-// Regular - 400
-@include webfont('Inter', 'Inter-Regular', $regular, normal, 'U+0000-007F');
-
-// SemiBold - 600
-@include webfont('Inter', 'Inter-SemiBold', $semibold, normal, 'U+0000-007F');
+// Light - 200
+@include webfont('Montserrat', 'montserrat-light', $regular, normal, 'U+0000-007F');
 
 // Bold - 700
-@include webfont('Inter', 'Inter-Bold', $bold, normal, 'U+0000-007F');
+@include webfont('Montserrat', 'montserrat-bold', $bold, normal, 'U+0000-007F');
 
 /**
  * Inconsolata
  */
 
 // Regular - 400
-@include webfont('Inconsolata', 'Inconsolata-Regular', $regular, normal, 'U+0000-007F');
+@include webfont('Inconsolata', 'inconsolata-regular', $regular, normal, 'U+0000-007F');
 
 /**
  * Fontfaces
  */
 
-$sans-fontface: 'Inter';
+$sans-fontface: 'Montserrat';
 $serif-fontface: 'Georgia';
 $cursive-fontface: 'Zapfino';
 $mono-fontface: 'Inconsolata';
