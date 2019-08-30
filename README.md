@@ -2,6 +2,8 @@
 
 The feature packed, lightning fast boilerplate we use at [Graffino](https://graffino.com/) for building modern responsive websites.
 
+Check out this [wiki](https://github.com/Graffino/Ninja/wiki) for more information.
+
 ## Getting Started
 
 You need [git](https://git-scm.com/), [node](https://nodejs.org/) and [yarn](https://yarnpkg.com) on your computer before running.
