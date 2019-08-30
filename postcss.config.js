@@ -13,12 +13,5 @@ module.exports = {
         }
       ]
     })
-    // purgecss({
-    //   content: ['./**/*.handlebars'],
-    //   css: ['./**/*.scss'],
-    //   whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/],
-    //   whitelistPatternsChildren: [],
-    //   keyframes: true
-    // })
   ]
 }
