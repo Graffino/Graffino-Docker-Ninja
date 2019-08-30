@@ -1,4 +1,4 @@
-# Ninja
+# Enter the Ninja
 
 The feature packed, lightning fast boilerplate we use at [Graffino](https://graffino.com/) for building modern responsive websites.
 
