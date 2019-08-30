@@ -34,6 +34,10 @@ $color-danger: $vermilion;
  * Typography
  */
 
+// Base font sizes for EM / REM mixins
+$base-font-size: 100%;
+$base-font-size-px: 16px;
+
 $default-font-size: 19px;
 $default-font-weight: 200;
 $default-line-height: 1.5;
