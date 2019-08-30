@@ -1,9 +1,11 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.config.js');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -27,7 +29,12 @@ module.exports = merge(common, {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../'
+            }
+          },
           {
             loader: 'css-loader',
             options: {
@@ -88,8 +95,22 @@ module.exports = merge(common, {
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'style.[contentHash].css',
+      filename: 'style[contentHash].css',
       chunkFilename: '[id].css'
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(
+        path.join(__dirname, './src/views/**/*.handlebars')
+      ),
+      extractors: [{
+        extractor: class {
+          static extract(content) {
+            return content.match(/[A-z0-9-:\/]+/g) || []
+          }
+        },
+        extensions: ['handlebars', 'html', 'js', 'php', 'vue']
+      }]
+      // whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/]
     }),
     new CompressionPlugin({
       test: /\.(html|css|js)(\?.*)?$/i

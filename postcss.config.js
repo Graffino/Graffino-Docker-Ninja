@@ -1,5 +1,3 @@
-const purgecss = require('@fullhuman/postcss-purgecss');
-
 module.exports = {
   plugins: [
     require('autoprefixer'),
@@ -14,13 +12,13 @@ module.exports = {
           }
         }
       ]
-    }),
-    purgecss({
-      content: ['./**/*.handlebars'],
-      css: ['./**/*.scss'],
-      whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/],
-      whitelistPatternsChildren: [],
-      keyframes: true
     })
+    // purgecss({
+    //   content: ['./**/*.handlebars'],
+    //   css: ['./**/*.scss'],
+    //   whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/],
+    //   whitelistPatternsChildren: [],
+    //   keyframes: true
+    // })
   ]
 }

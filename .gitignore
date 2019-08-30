@@ -2,4 +2,5 @@
 /node_modules
 /dist
 /.vscode
+/imgcache
 .DS_Store
