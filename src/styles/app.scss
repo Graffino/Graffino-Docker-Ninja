@@ -16,44 +16,44 @@
  * Variables
  */
 
-@import 'variables';
+@import 'base/variables';
 
 /**
- * Debug
+ * Utils
  */
 
-@import 'debug';
+@import 'utils/debug';
+@import 'utils/functions';
+@import 'utils/helpers';
 
 /**
- * Common
+ * Base
  */
 
-// Color variables
-@import 'common/colors';
-// Functions
-@import 'common/functions';
-// Grid — custom 12 column grid
-@import 'common/grid';
-// Fonts and sizes variables
-@import 'common/fonts';
-// Animations
-@import 'common/animations';
-// Helpers
-@import 'common/helpers';
-// Common styles and extends
-@import 'common/defaults';
-// Typography
-@import 'common/typography';
-// Button
-@import 'common/button';
-//Form
-@import 'common/form';
+@import 'base/colors';
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/defaults';
+@import 'base/animations';
+@import 'base/buttons';
+@import 'base/forms';
+
+/**
+ * Layout
+ */
+
+@import 'layout/header';
+@import 'layout/grid';
+@import 'layout/footer';
 
 /**
  * Modules
  */
 
-// Header
-@import 'modules/header';
-// Footer
-@import 'modules/footer';
+@import 'modules/hero';
+
+/**
+ * Pages
+ */
+
+@import 'pages/home';
