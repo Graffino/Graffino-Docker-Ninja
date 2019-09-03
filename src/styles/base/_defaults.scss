@@ -79,3 +79,12 @@ body {
     background-color: $color-background-dark;
   }
 }
+
+/* stylelint-disable selector-no-qualifying-type */
+img[data-src],
+img[data-srcset] {
+  display: block;
+  min-height: 1px;
+}
+
+/* stylelint-enable */
