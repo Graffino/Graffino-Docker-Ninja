@@ -1,0 +1,18 @@
+{
+  "repositories": [{
+    "type": "composer",
+    "url": "https://wpackagist.org"
+  }],
+  "config": {
+    "vendor-dir": "wp-content/vendor"
+  },
+  "require": {
+    "johnpbloch/wordpress-core": ">=5.2.2"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
+  }
+}
