@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
+    "wordpress": "webpack --progress --watch --config webpack.wordpress.js",
     "lint": "eslint src -c .eslintrc --ext js",
     "fix-code": "prettier-eslint --write 'src/**/*.js' --config .eslintrc",
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
@@ -24,6 +25,8 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "browserlist": "^1.0.1",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.0.0",

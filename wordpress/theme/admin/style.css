@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+/*
+Custom Admin CSS Style file
+Author: Graffino (http://www.graffino.com)
+*/
+
+/* !Remove WP logo */
+/* ==|========================================================================= */
+#header-logo,
+#footer-left,
+#footer-upgrade,
+#screen-mdeta,
+#wp-admin-bar-wp-logo {
+  display: none !important;
+}
+
+.login h1 a {
+  background: url("../assets/images/svgs/logo-dark.svg") no-repeat center center;
+  background-size: 280px 65px;
+  width: 280px;
+  height: 65px;
+}
+
+/* Fix ACF Uploader */
+.max-upload-size {
+  display: none;
+}
+
+/* HashCash */
+#loginform {
+  padding-bottom: 60px;
+  overflow: visible !important;
+
+}
+#loginform .submit { position: relative; }
+#loginform .hashcash-onoffswitch {
+  position: absolute;
+  left: -4px;
+  top: 25px !important;
+}

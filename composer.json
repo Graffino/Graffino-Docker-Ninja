@@ -1,5 +1,5 @@
 {
-  "name": "graffino/wp-theme",
+  "name": "graffino/ninja",
   "description": "Wordpress Example Theme",
   "authors": [{
     "name": "Graffino",
@@ -24,10 +24,10 @@
     "phpcompatibility/phpcompatibility-wp": "^2.1"
   },
   "extra": {
-    "wordpress-install-dir": "wp",
+    "wordpress-install-dir": "theme",
     "installer-paths": {
-      "wp/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "wp/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+      "theme/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "theme/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   }
 }

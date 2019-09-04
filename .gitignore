@@ -1,6 +1,9 @@
 /.git
 /node_modules
+/composer
+/cache
 /dist
+/theme
 /.vscode
-/imgcache
+/cache
 .DS_Store
