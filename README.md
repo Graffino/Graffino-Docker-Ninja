@@ -1,9 +1,12 @@
 # Ninja
 
 The coolest boilerplate you've ever seen in your whole life.
+
 All up in the interwebs, world wide!
-2019, futuristic
-Enter the Ninja
+
+2019, futuristic.
+
+_Enter the Ninja_
 
 The feature packed, lightning fast boilerplate we use at [Graffino](https://graffino.com/) for building modern responsive websites.
 
