@@ -4,6 +4,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const dotenv = require('dotenv').config({
+  path: __dirname + '/.env'
+})
 
 module.exports = {
   entry: {
@@ -121,10 +124,13 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env": dotenv.parsed
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['wp-content/themes/ninja/**/*']
+      cleanOnceBeforeBuildPatterns: ['wp-content/themes/ninja/**/*', '!wp-content/uploads/**/*']
     }),
     new CopyPlugin([
       {
@@ -132,11 +138,7 @@ module.exports = {
         to: 'theme/wp-content/themes/ninja'
       },
       {
-        from: 'wordpress/uploads',
-        to: 'theme/wp-content/uploads'
-      },
-      {
-        from: 'wordpress/config',
+        from: 'wordpress/config/*.php',
         to: 'theme/'
       }
     ]),
@@ -145,11 +147,11 @@ module.exports = {
     }),
     new BrowserSyncPlugin({
       files: '**/*.php',
-      proxy: 'http://ninja.test',
+      proxy: process.env.THEME_URL,
     })
   ],
   output: {
-    path: path.resolve(__dirname, 'theme/wp-content/themes/ninja'),
+    path: path.resolve(__dirname, `theme/wp-content/themes/${process.env.THEME_NAME}`),
     filename: 'main.js',
     publicPath: '/'
   }
