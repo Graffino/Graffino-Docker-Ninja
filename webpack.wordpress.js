@@ -3,12 +3,14 @@ const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env'
 })
 
 module.exports = {
+  mode: 'development',
   entry: {
     main: path.resolve(__dirname, 'src/scripts/index.js'),
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
@@ -134,16 +136,21 @@ module.exports = {
     }),
     new CopyPlugin([
       {
-        from: 'wordpress/theme',
-        to: 'theme/wp-content/themes/ninja'
+        from: path.resolve(__dirname, 'wordpress/theme'),
+        to: path.resolve(__dirname, 'theme/wp-content/themes/ninja')
       },
       {
-        from: 'wordpress/config/*.php',
-        to: 'theme/'
+        from: path.resolve(__dirname, 'wordpress/config/*.php'),
+        to: path.resolve(__dirname, 'theme/'),
+        flatten: true,
+        force: true
       }
     ]),
     new MiniCssExtractPlugin({
       filename: 'style.css'
+    }),
+    new SpriteLoaderPlugin({
+      plainSprite: true
     }),
     new BrowserSyncPlugin({
       files: '**/*.php',
