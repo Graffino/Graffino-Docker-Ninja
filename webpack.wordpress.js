@@ -155,6 +155,7 @@ module.exports = {
     new BrowserSyncPlugin({
       files: '**/*.php',
       proxy: process.env.THEME_URL,
+      open: false
     })
   ],
   output: {
