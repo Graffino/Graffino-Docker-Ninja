@@ -21,18 +21,18 @@ const databaseConnect = () => {
 
   pool.getConnection()
     .then(connection => {
-      connection.query(`CREATE DATABASE ${themeDatabase}`)
+      connection.query(`CREATE DATABASE \`${themeDatabase}\``)
         .then((res) => {
           console.log(`Database ${themeDatabase} created!`)
           connection.end()
           app.exit()
         })
         .catch(err => {
-          console.log(`Database ${themeDatabase} already exists or incorrect permisions!`)
+          console.log(`Database ${themeDatabase} already exists or incorrect permisions! Error: ${err.code}`)
           app.exit()
         })
     }).catch(err => {
-      console.log(`Cannot connect to database. Reason: ${err.code}`)
+      console.log(`Cannot connect to database. Error: ${err.code}`)
       app.exit()
     })
 }
