@@ -25,10 +25,10 @@
     "phpcompatibility/phpcompatibility-wp": "^2.1"
   },
   "extra": {
-    "wordpress-install-dir": "theme",
+    "wordpress-install-dir": "dist-wp",
     "installer-paths": {
-      "theme/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
-      "theme/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+      "dist-wp/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "dist-wp/wp-content/themes/{$name}/": ["type:wordpress-theme"]
     }
   }
 }

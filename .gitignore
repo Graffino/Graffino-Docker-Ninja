@@ -3,7 +3,7 @@
 /composer
 /cache
 /dist
-/theme
+/dist-wp
 /.vscode
 /cache
 .DS_Store

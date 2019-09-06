@@ -141,9 +141,13 @@ module.exports = {
       },
       {
         from: path.resolve(__dirname, 'wordpress/config/*.php'),
-        to: path.resolve(__dirname, 'theme/'),
+        to: path.resolve(__dirname, 'dist-wp/'),
         flatten: true,
         force: true
+      },
+      {
+        from: path.resolve(__dirname, 'wordpress/uploads'),
+        to: path.resolve(__dirname, 'dist-wp/wp-content/uploads'),
       }
     ]),
     new MiniCssExtractPlugin({
@@ -159,7 +163,7 @@ module.exports = {
     })
   ],
   output: {
-    path: path.resolve(__dirname, `theme/wp-content/themes/${process.env.THEME_NAME}`),
+    path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
     filename: 'main.js',
     publicPath: '/'
   }
