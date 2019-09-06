@@ -15,7 +15,7 @@
   },
   "require": {
     "johnpbloch/wordpress-core-installer": ">=1.0.2",
-    "johnpbloch/wordpress": ">=5.2.2",
+    "johnpbloch/wordpress": ">=5.2.3",
     "vlucas/phpdotenv": "^3.5"
   },
   "require-dev": {
