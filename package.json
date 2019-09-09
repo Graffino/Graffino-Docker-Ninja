@@ -48,6 +48,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "favicons-webpack-plugin": "^1.0.1",
     "file-loader": "^4.2.0",
+    "fs": "^0.0.1-security",
     "handlebars": "^4.1.2",
     "handlebars-loader": "^1.7.1",
     "html-webpack-plugin": "^3.2.0",
@@ -60,6 +61,7 @@
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "path": "^0.12.7",
     "postcss-loader": "^3.0.0",
     "postcss-sorting": "^5.0.1",
     "preload-webpack-plugin": "3.0.0-beta.3",
@@ -85,11 +87,13 @@
     "svgo-loader": "^2.2.1",
     "terser-webpack-plugin": "^1.4.1",
     "typi": "^3.2.0",
+    "unzipper": "^0.10.4",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
     "webpack-hot-middleware": "^2.25.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "yesno": "^0.3.0"
   },
   "dependencies": {
     "vanilla-lazyload": "^12.0.0"
