@@ -1,6 +1,10 @@
 /.git
 /node_modules
+/composer
+/cache
 /dist
+/dist-wp
 /.vscode
-/imgcache
+/cache
 .DS_Store
+.env
