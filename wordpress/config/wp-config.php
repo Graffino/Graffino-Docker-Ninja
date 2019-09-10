@@ -23,13 +23,13 @@ $dotenv->load();
  */
 
 
-define( 'WP_HOME', getenv( 'THEME_DEV_URL' ) );
-define( 'WP_SITEURL', getenv( 'THEME_DEV_URL' ) );
-define( 'WP_CONTENT_URL', getenv( 'THEME_DEV_URL' ) . '/wp-content' );
+define( 'WP_HOME', getenv( 'THEME_URL' ) );
+define( 'WP_SITEURL', getenv( 'THEME_URL' ) );
+define( 'WP_CONTENT_URL', getenv( 'THEME_URL' ) . '/wp-content' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', getenv( 'THEME_DB' ) );
+define( 'DB_NAME', getenv( 'DB_NAME' ) );
 
 /** MySQL database username */
 define( 'DB_USER', getenv( 'DB_USER' ) );
