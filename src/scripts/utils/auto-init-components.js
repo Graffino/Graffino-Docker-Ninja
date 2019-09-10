@@ -5,7 +5,7 @@ const autoInitComponents = () => {
     const componentName = element.dataset.component
     moduleLoader(componentName).then(Component => {
       // eslint-disable-next-line no-unused-vars
-      const compontent = new Component({
+      const component = new Component({
         element
       })
     })
