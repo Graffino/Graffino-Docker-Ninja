@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "wp": "webpack --progress --watch --config webpack.wordpress.js",
     "wp-setup": "yarn && composer install --prefer-dist && node wordpress/scripts/setup.js",
+    "wp-migrate": "node wordpress/scripts/migrate.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint-js": "eslint src -c .eslintrc --ext js",
     "lint-style": "stylelint-config-prettier-check",
