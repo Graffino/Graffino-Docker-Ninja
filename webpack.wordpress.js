@@ -132,17 +132,22 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['wp-content/themes/ninja/**/*', '!wp-content/uploads/**/*']
+      cleanOnceBeforeBuildPatterns: [`wp-content/themes/${process.env.THEME_NAME}/**/*', '!wp-content/uploads/**/*`]
     }),
     new CopyPlugin([
       {
         from: path.resolve(__dirname, 'wordpress/theme'),
-        to: path.resolve(__dirname, 'theme/wp-content/themes/ninja')
+        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`)
       },
       {
         from: path.resolve(__dirname, 'wordpress/config/*.php'),
         to: path.resolve(__dirname, 'dist-wp/'),
-        flatten: true,
+        force: true,
+        flatten: true
+      },
+      {
+        from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
+        to: path.resolve(__dirname, 'dist-wp/'),
         force: true
       },
       {
