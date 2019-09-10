@@ -1,7 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const unzipper = require('unzipper');
-const yesno = require('yesno');
+const yesno = require('yesno')
 const mariadb = require('mariadb')
 
 require('dotenv').config()
@@ -20,6 +20,8 @@ if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
 }
 
 const unzip = async () => {
+  console.log(`(1) Unzipping "${Migration}" file...`)
+
   fs.createReadStream(`${MigrationFile}.sql.zip`)
    .pipe(unzipper.Parse())
       .on('entry', function (entry) {
@@ -31,57 +33,63 @@ const unzip = async () => {
         } else {
           entry.autodrain();
         }
-      }).promise().then(() => migrate())
+      })
+      .promise()
+      .then(
+        console.log(`(2) Migration "${Migration}" file unzipped ...`)
+      )
 }
 
-const migrate = () => {
+const migrate = async () => {
   const pool = mariadb.createPool({
     host: DatabaseHost,
+    database: DatabaseName,
     user: DatabaseUser,
-    password: DatabasePassword,
-    database: DatabaseName
+    password: DatabasePassword
   })
 
   pool.getConnection()
-    .then(connection => {
-      const queries = fs.readFileSync(`${MigrationFile}.sql`, {
-        encoding: "UTF-8"
-      }).split(";\n");
+    .then( connection => {
+      console.log(`(3) Starting "${Migration}" migration ...`)
+      const queries = fs.readFileSync(
+        `${MigrationFile}.sql`, {
+          encoding: "UTF-8"
+        }).split(";\n");
 
       for (let query of queries) {
         query = query.trim();
         if (query.length !== 0 && !query.match(/\/\*/)) {
           connection.query(query)
-          .catch(err => {
-            console.log(`Migration ${Migration} failed. Error: ${err.code}\n`)
-            fs.unlink(`${MigrationFile}.sql`)
-            app.exit()
-          });
-        } else {
-          console.log(`... ${Migration} migration finished.\n`);
-          fs.unlink(`${MigrationFile}.sql`)
-          app.exit()
         }
       }
     })
-    .catch(err => {
-      console.log(`Cannot connect to database. Error: ${err.code}`)
-      //fs.unlink(`${MigrationFile}.sql`)
-      app.exit()
+    .then( () => {
+      console.log(`(4) Migration "${Migration}" finished.\n`)
+      terminate()
     })
-  }
+    .catch(err => {
+      console.log(`Cannot connect to database. Error: ${err}`)
+      terminate()
+    })
+}
+
+const terminate = () => {
+  console.log(`Temporary files deleted.`)
+  fs.unlink(`${MigrationFile}.sql`, () => {})
+  app.exit()
+}
 
 async function start() {
-  const ok = await yesno({
-    question: `${Migration} will overwrite your database! Are you sure you want to continue?`
+  const confirmation = await yesno({
+    question: `Migration SQL "${Migration}" will overwrite your database! Are you sure you want to continue?\n`
   });
 
-  if (ok) {
-    console.log(`Starting migration ${Migration}.. \n`);
-    migrate()
+  if (confirmation) {
+    await unzip()
+    await migrate()
   } else {
-    console.log('Stopping ... no changes were made. \n');
-    app.exit();
+    console.log('Stopping ... no changes were made. \n')
+    app.exit()
   }
 }
 
