@@ -148,12 +148,13 @@ module.exports = {
       {
         from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
         to: path.resolve(__dirname, 'dist-wp/'),
-        force: true
       },
       {
-        from: path.resolve(__dirname, 'wordpress/uploads'),
-        to: path.resolve(__dirname, 'dist-wp/wp-content/uploads'),
-      }
+        from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
+        to: path.resolve(__dirname, 'wordpress/uploads'),
+        toType: 'dir',
+        force: true
+      },
     ]),
     new MiniCssExtractPlugin({
       filename: 'style.css'
