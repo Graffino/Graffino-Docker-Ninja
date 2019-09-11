@@ -30,9 +30,14 @@ const breakpoints = {
   mobileSmall: '320'
 }
 
+const dom = {
+  window,
+  document
+}
+
 const ease = {
   easeOutQuad: [0.250, 0.460, 0.450, 0.940],
   easeOutBack: [0.175, 0.885, 0.320, 1.275]
 }
 
-export default { stateClass, breakpoints, ease }
+export default { stateClass, breakpoints, ease, dom }

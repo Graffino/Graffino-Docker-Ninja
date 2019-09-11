@@ -7,7 +7,7 @@ export default class Header extends Component {
   }
 
   init () {
-    const INITIAL_STATE = {
+    const data = {
       elHeight: 0,
       elTop: 0,
       dHeight: 0,
@@ -16,14 +16,14 @@ export default class Header extends Component {
       wScrollBefore: 0,
       wScrollDiff: 0
     }
-    this.setState({ INITIAL_STATE })
+    this.setState({ data })
   }
 
   onScroll () {
     const {
       element,
       wScrollDiff,
-      dHeight,
+      dHeight = '100px',
       elHeight,
       wHeight,
       wScrollBefore,

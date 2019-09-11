@@ -7,11 +7,11 @@ export default class Module extends Component {
   }
 
   init () {
-    const INITIAL_STATE = {
+    const data = {
       data: 42
     }
 
-    this.setState({ INITIAL_STATE })
+    this.setState({ data })
   }
 
   destroy () {

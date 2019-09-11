@@ -9,8 +9,7 @@ class Component {
     }
 
     this.state = {
-      element: props.element,
-      data: props.data || null
+      element: props.element
     }
 
     this.init = this.init.bind(this)
