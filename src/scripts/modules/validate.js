@@ -1,7 +1,7 @@
 import Component from '../utils/component.js'
 import Pristine from 'pristinejs'
 
-export default class Module extends Component {
+export default class Validate extends Component {
   constructor (props) {
     super(props)
     this.state = {
