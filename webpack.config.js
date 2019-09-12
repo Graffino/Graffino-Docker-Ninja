@@ -25,7 +25,7 @@ module.exports = {
               helperDirs: path.resolve(__dirname, 'src/views/helpers'),
               partialDirs: path.resolve(__dirname, 'src/views/partials'),
               precompileOptions: {
-                knownHelpersOnly: false,
+                knownHelpersOnly: false
               }
             }
           },
