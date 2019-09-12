@@ -1,0 +1,213 @@
+/**
+ * Name: grid.styl
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+$gutter-compensation: $columns-gutter * 0.5 * -1;
+$gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
+
+// Grid classes
+.container {
+  box-sizing: border-box;
+  max-width: $container-width + 2 * $container-padding;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include below(tablet) {
+    max-width: 100%;
+    padding-right: $container-padding-small;
+    padding-left: $container-padding-small;
+  }
+}
+
+.container--fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+}
+
+.columns {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
+
+  &.reversed {
+    flex-direction: row-reverse;
+  }
+
+  &.no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  &.align {
+    &-start {
+      justify-content: start;
+    }
+
+    &-center {
+      justify-content: center;
+    }
+
+    &-end {
+      justify-content: end;
+    }
+
+    &-top {
+      align-items: flex-start;
+    }
+
+    &-middle {
+      align-items: center;
+    }
+
+    &-bottom {
+      align-items: flex-end;
+    }
+  }
+
+  &.distribute {
+    &-around {
+      justify-content: space-around;
+    }
+
+    &-between {
+      justify-content: space-between;
+    }
+  }
+
+  &.masonry {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    & > .column {
+      flex-basis: auto;
+      margin-bottom: rem(30px);
+
+      &.is-6 {
+        width: 50%;
+      }
+
+      &.is-12-tablet {
+        @include below(tablet) {
+          width: 100%;
+          margin-bottom: rem(10px);
+        }
+      }
+
+      .card {
+        height: auto;
+      }
+    }
+  }
+
+  &.equal-height {
+    & > .column {
+      margin-bottom: rem(30px);
+
+      @include below(tablet) {
+        margin-bottom: rem(20px);
+      }
+
+      & > * {
+        height: 100%;
+      }
+    }
+  }
+
+  &.gutter-large {
+    margin-right: $gutter-compensation-large;
+    margin-left: $gutter-compensation-large;
+
+    & > .column {
+      padding-right: $columns-gutter-large * 0.5;
+      padding-left: $columns-gutter-large * 0.5;
+    }
+  }
+}
+
+.column {
+  box-sizing: border-box;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-right: $columns-gutter * 0.5;
+  padding-left: $columns-gutter * 0.5;
+
+  @each $name, $size in $breakpoints {
+    @for $column from 1 through $max-columns {
+      &.is-#{$column} {
+        flex-basis: 100% / $max-columns * $column;
+        max-width: 100% / $max-columns * $column;
+      }
+    }
+
+    @for $column from 0 through $max-columns {
+      &.is-offset-#{$column} {
+        @if $column==0 {
+          margin-left: 0;
+        } @else {
+          margin-left: 100% / $max-columns * $column;
+        }
+      }
+    }
+
+    @for $column from 1 through $max-columns {
+      &.is-#{$column}-#{$name} {
+        @media only screen and (max-width: $size) {
+          flex-basis: 100% / $max-columns * $column;
+          max-width: 100% / $max-columns * $column;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $size) {
+      @for $column from 0 through $max-columns {
+        &.is-offset-#{$column}-#{$name} {
+          @if $column==0 {
+            margin-left: 0;
+          } @else {
+            margin-left: 100% / $max-columns * $column;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $size) {
+      @for $order from 0 through 10 {
+        &.order-#{$order}-#{$name} {
+          order: $order;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $size) {
+      @for $order from 0 through 10 {
+        &.no-padding-#{$name}-down {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  &.order {
+    &-first {
+      order: -1;
+    }
+
+    &-last {
+      order: 1;
+    }
+  }
+}
+
+.masonry__wrapper {
+  display: flex;
+  max-height: rem(1000px);
+}

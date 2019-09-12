@@ -1,0 +1,197 @@
+/**
+ * Typography
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+$typi: (
+  base: (
+    null: (
+      $base-font-size-px,
+      $default-line-height
+    )
+  ),
+  text: (
+    null: (
+      $body-font-size,
+      $body-line-height
+    )
+  ),
+  h1: (
+    null: (
+      $h1-font-size,
+      $h1-line-height
+    )
+  ),
+  h2: (
+    null: (
+      $h2-font-size,
+      $h2-line-height
+    )
+  ),
+  h3: (
+    null: (
+      $h3-font-size,
+      $h3-line-height
+    )
+  ),
+  h4: (
+    null: (
+      $h4-font-size,
+      $h4-line-height
+    )
+  ),
+  h5: (
+    null: (
+      $h5-font-size,
+      $h5-line-height
+    )
+  ),
+  h6: (
+    null: (
+      $h6-font-size,
+      $h6-line-height
+    )
+  )
+);
+
+@include typi-create-classes;
+
+/**
+ * Headings
+ */
+
+.heading {
+  // Adding font-weight modifier classes (e.g. ".-font-weight-200")
+  @include font-weights();
+
+  // Generate color themeing for headings
+  @include font-colors();
+  position: relative;
+  padding: 0;
+  color: $color-heading;
+  hyphens: auto;
+  word-break: break-word;
+  text-transform: uppercase;
+
+  // Default font-family until webfonts are loaded
+  .no-fonts & {
+    font-family: $system-sans-fontface-stack;
+  }
+}
+
+/**
+ * Links
+ */
+
+.link {
+  @include font-weights();
+  @include link-colors();
+  position: relative;
+  display: inline;
+  vertical-align: middle;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: center 100%;
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  color: $color-link;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transition-custom();
+  transition-property: all;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+
+  &.-type {
+    &-inverted {
+      background-size: 100% 1px;
+
+      &:hover {
+        background-size: 0 1px;
+        color: currentColor;
+      }
+    }
+  }
+}
+
+$size-small: rem(14px);
+$size-medium: rem(16px);
+$size-large: rem(18px);
+
+.text {
+  // Adding font-weight modifier classes (e.g. ".-font-weight-200")
+  @include font-weights();
+
+  // Generate color theming for headings
+  @include font-colors();
+  color: $color-text;
+  font-weight: 500;
+
+  // Default font-family until webfonts are loaded
+  .no-fonts & {
+    font-family: $system-sans-fontface-stack;
+  }
+
+  &.-no-wrap {
+    white-space: nowrap;
+  }
+
+  &.-overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .link {
+    vertical-align: baseline;
+    line-height: inherit;
+  }
+
+  &.-type {
+    &-transparent {
+      opacity: 0.6;
+    }
+  }
+}
+
+/**
+ * Lists
+ */
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+
+  &.-style {
+    &-roman {
+      list-style-type: upper-roman;
+
+      .list__item {
+        &::before {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+.quote {
+  color: $color-primary;
+  font-family: $serif-fontface-stack;
+  font-style: italic;
+}
+
+.code {
+  width: 100%;
+  padding: rem(10px) rem(30px);
+  background-color: $color-background-dark;
+
+  code {
+    color: $white;
+    font-family: $mono-fontface-stack;
+  }
+}

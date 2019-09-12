@@ -1,0 +1,20 @@
+
+# humanstxt.org/
+# The humans responsible
+
+   _____
+  __|___  |__  _____   ____    ______  ______  ____  ____   _   _____
+ |   ___|    ||     | |    \  |   ___||   ___||    ||    \ | | /     \
+ |   |  |    ||     \ |     \ |   ___||   ___||    ||     \| ||       |
+ |______|  __||__|\__\|__|\__\|___|   |___|   |____||__/\____| \_____/
+    |_____|
+
+/* TEAM */
+
+Title:     Graffino
+Position:  Author
+Email:     hello@graffino.com
+Website:   https://graffino.com
+Medium:    https://by.graffino.com
+Twitter:   https://twitter.com/graffino
+Location:  Sibiu, Romania

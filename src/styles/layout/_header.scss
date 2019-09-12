@@ -1,0 +1,35 @@
+/**
+ * Header
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: rem(10px) rem(30px);
+  background-color: $color-background-dark;
+
+  &__logo {
+    svg {
+      display: block;
+      width: auto;
+      height: rem(50px);
+    }
+  }
+
+  &__navigation {
+    .navigation {
+      &__menu {
+        * + * {
+          margin-left: rem(50px);
+        }
+      }
+
+      &__item {
+        display: inline-block;
+      }
+    }
+  }
+}

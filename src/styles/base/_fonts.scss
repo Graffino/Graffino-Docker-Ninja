@@ -1,0 +1,82 @@
+/**
+ * Fonts and Sizes
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+/*
+  // Font weights
+  Extra Light, Ultra Light = 100
+  Light, Thin = 200
+  Book, Demi = 300
+  Normal, Regular = 400
+  Medium = 500
+  SemiBold, Demibold = 600
+  Bold = 700
+  Black, ExtraBold, Heavy = 800
+  Extra Black, Fat, Poster, UltraBlack = 900
+*/
+
+$extra-light: 100;
+$light: 200;
+$book: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$black: 800;
+$extra-black: 900;
+
+/**
+ * Montserrat
+ */
+
+// Light - 200
+@include webfont(
+  'Montserrat',
+  'montserrat-light',
+  $regular,
+  normal,
+  'U+0000-007F'
+);
+
+// Bold - 700
+@include webfont('Montserrat', 'montserrat-bold', $bold, normal, 'U+0000-007F');
+
+/**
+ * Inconsolata
+ */
+
+// Regular - 400
+@include webfont(
+  'Inconsolata',
+  'inconsolata-regular',
+  $regular,
+  normal,
+  'U+0000-007F'
+);
+
+/**
+ * Fontfaces
+ */
+
+$sans-fontface: 'Montserrat';
+$serif-fontface: 'Georgia';
+$cursive-fontface: 'Zapfino';
+$mono-fontface: 'Inconsolata';
+
+// Font-families stack
+$sans-fontface-stack: $sans-fontface, Helvetica, Arial, sans-serif;
+$serif-fontface-stack: $serif-fontface, Georgia, 'Times New Roman', Times, serif;
+$cursive-fontface-stack: $cursive-fontface, cursive;
+$mono-fontface-stack: $mono-fontface, monospace;
+
+// System fontface stacks used when webfonts are not loaded
+$system-sans-fontface-stack: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+$system-serif-fontface-stack: 'Georgia', 'Times New Roman', Times, serif;
+
+/**
+ * Defaults
+ */
+
+$default-fontface-stack: $sans-fontface-stack;
+$default-system-stack: $system-sans-fontface-stack;

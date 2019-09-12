@@ -1,0 +1,44 @@
+/**
+ * Color variables
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+/**
+ * Backgrounds
+ */
+
+$color-background: $charleston-green;
+$color-background-dark: $midnight-express;
+$color-background-body: $eerie-black;
+
+/**
+ * Borders
+ */
+
+$color-border: $color-accent;
+
+/**
+ * Text
+ */
+
+$color-text: $silver-sand;
+
+/**
+ * Headings
+ */
+
+$color-heading: $color-accent;
+
+/**
+ * Links
+ */
+
+$color-link: rgba($white, 0.4);
+$color-link-hover: $white;
+
+/**
+ * Form Elements
+ */
+
+$color-form-required-mark: $color-danger;
+$color-form-notice-text: $color-danger;

@@ -1,0 +1,99 @@
+/**
+ * Animations
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 1);
+  }
+
+  75% {
+    opacity: 75%;
+    transform: scale3d(1.1, 1.1, 1);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, rem(-24px), 0);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translate3d(rem(-12px), 0, 0);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate3d(rem(-6px), 0, 0);
+  }
+
+  25% {
+    transform: translate3d(rem(6px), 0, 0);
+  }
+
+  75% {
+    transform: translate3d(rem(-6px), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes point-right {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  40% {
+    transform: translate3d(rem(6px), 0, 0);
+  }
+
+  80% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animation {
+  &-shake {
+    animation-duration: 400ms;
+    animation-name: shake;
+    animation-timing-function: ease-in-out;
+  }
+}

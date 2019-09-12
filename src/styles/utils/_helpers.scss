@@ -1,0 +1,313 @@
+/**
+ * Global helpers
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+/**
+ * Variables
+ */
+
+$spaceamounts: (
+  0,
+  5,
+  10,
+  15,
+  20,
+  25,
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  100
+); // Adjust this to include the pixel amounts you need.
+
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+$values: (0, 1, 2); //values for line height
+
+/**
+ * Global helpers
+ */
+
+.h {
+  //Width 100%
+  &-width-100 {
+    width: 100%;
+  }
+
+  //Height 100%
+  &-height-100 {
+    height: 100%;
+  }
+
+  // Make image responsive
+  &-responsive-image {
+    width: 100%;
+    height: auto;
+  }
+
+  // Hide element visually without removing it
+  &-visually-hidden {
+    overflow: hidden !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+  }
+
+  // Overflow hidden
+  &-overflow {
+    &-hidden {
+      overflow: hidden;
+    }
+  }
+
+  // Text alignment for breakpoints
+  &-align {
+    @each $position in (left center right) {
+      &-#{$position} {
+        text-align: $position !important;
+      }
+    }
+  }
+
+  &-line-height {
+    @each $value in $values {
+      &-#{$value} {
+        line-height: $value !important;
+      }
+    }
+  }
+
+  // Floats
+  &-float {
+    @each $float in (none left right) {
+      &-#{$float} {
+        float: $float !important;
+      }
+    }
+  }
+
+  // Margin and Padding scale modifier classes
+  @each $space in $spaceamounts {
+    @each $side in $sides {
+      &-m-#{str-slice($side, 0, 1)}-#{$space} {
+        margin-#{$side}: #{$space}px !important;
+      }
+
+      &-p-#{str-slice($side, 0, 1)}-#{$space} {
+        padding-#{$side}: #{$space}px !important;
+      }
+
+      @each $name, $size in $breakpoints {
+        &-m-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
+          @include below($name) {
+            margin-#{$side}: #{$space}px !important;
+          }
+        }
+
+        &-p-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
+          @include below($name) {
+            padding-#{$side}: #{$space}px !important;
+          }
+        }
+      }
+    }
+  }
+
+  // No margin classes
+  &-no-margin {
+    margin: 0 !important;
+
+    @each $side in $sides {
+      &-#{str-slice($side, 0, 1)} {
+        margin-#{$side}: 0 !important;
+      }
+    }
+  }
+
+  // No margin classes
+  &-no-border {
+    border: 0 !important;
+
+    @each $side in $sides {
+      &-#{str-slice($side, 0, 1)} {
+        border-#{$side}: 0 !important;
+      }
+    }
+  }
+
+  // No padding classes
+  &-no-padding {
+    padding: 0 !important;
+
+    @each $side in $sides {
+      &-#{str-slice($side, 0, 1)} {
+        padding-#{$side}: 0 !important;
+      }
+    }
+  }
+
+  &-clear {
+    @include clearfix;
+
+    &-both {
+      clear: both;
+    }
+  }
+
+  // Text case
+  &-case {
+    &-normal {
+      text-transform: none !important;
+    }
+
+    &-lowercase {
+      text-transform: lowercase !important;
+    }
+
+    &-uppercase {
+      text-transform: uppercase !important;
+    }
+  }
+
+  // Text color
+  &-color {
+    &-inherit {
+      color: inherit !important;
+    }
+  }
+
+  // Center
+  &-center {
+    // Make sure the element doesn't have a float,
+    // otherwise the helper doesn't work
+    float: none !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+
+  // Display
+  @each $type in (inline inline-block block flex inline-flex none) {
+    &-display-#{$type} {
+      display: $type !important;
+    }
+  }
+
+  @each $type in (static relative fixed absolute) {
+    &-position-#{$type} {
+      position: $type !important;
+    }
+  }
+
+  // Align vertically via table method
+  &-vertical-align {
+    display: table-cell !important;
+    vertical-align: middle;
+
+    &-middle {
+      vertical-align: middle !important;
+    }
+  }
+
+  // Height 100%
+  &-full-height {
+    min-height: 100%;
+  }
+
+  // Width 100%
+  &-full-width {
+    min-width: 100%;
+  }
+
+  // Disable pointer events
+  &-no-pointer-events {
+    pointer-events: none;
+  }
+
+  // Word-break
+  &-word-break {
+    &-all {
+      word-break: break-all;
+    }
+  }
+
+  &-nowrap {
+    white-space: nowrap;
+  }
+
+  // Position
+  &-position {
+    @each $position in (static relative absolute) {
+      &-#{$position} {
+        position: $position !important;
+      }
+    }
+  }
+
+  // Z-index scale helper classes
+  @for $i from 0 through 10 {
+    &-z-index {
+      &-#{$i} {
+        z-index: $i * 100;
+      }
+
+      &-max {
+        z-index: 2147483647;
+      }
+
+      &-negative {
+        z-index: -1;
+
+        &-#{$i} {
+          z-index: $i * -100;
+        }
+      }
+    }
+  }
+
+  // Flex-grow scale helper classes
+  @for $i from 0 through 10 {
+    &-flex-grow-#{$i} {
+      flex-grow: $i;
+    }
+  }
+
+  // Flex align-items helper classes
+  @each $pos in (baseline center end flex-end flex-start left normal right) {
+    &-flex-align-items-#{$pos} {
+      align-items: $pos !important;
+    }
+  }
+
+  // Flex justify-content helper classes
+  @each $pos in (center flex-end flex-start space-between space-around) {
+    &-flex-justify-content-#{$pos} {
+      justify-content: $pos !important;
+    }
+  }
+
+  &-no-before {
+    &::before {
+      content: none !important;
+    }
+  }
+
+  &-no-after {
+    &::after {
+      content: none !important;
+    }
+  }
+}
