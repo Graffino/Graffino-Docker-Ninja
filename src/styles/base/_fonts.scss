@@ -31,7 +31,13 @@ $extra-black: 900;
  */
 
 // Light - 200
-@include webfont('Montserrat', 'montserrat-light', $regular, normal, 'U+0000-007F');
+@include webfont(
+  'Montserrat',
+  'montserrat-light',
+  $regular,
+  normal,
+  'U+0000-007F'
+);
 
 // Bold - 700
 @include webfont('Montserrat', 'montserrat-bold', $bold, normal, 'U+0000-007F');
@@ -41,7 +47,13 @@ $extra-black: 900;
  */
 
 // Regular - 400
-@include webfont('Inconsolata', 'inconsolata-regular', $regular, normal, 'U+0000-007F');
+@include webfont(
+  'Inconsolata',
+  'inconsolata-regular',
+  $regular,
+  normal,
+  'U+0000-007F'
+);
 
 /**
  * Fontfaces
@@ -53,29 +65,14 @@ $cursive-fontface: 'Zapfino';
 $mono-fontface: 'Inconsolata';
 
 // Font-families stack
-$sans-fontface-stack: $sans-fontface,
-Helvetica,
-Arial,
-sans-serif;
-$serif-fontface-stack: $serif-fontface,
-Georgia,
-'Times New Roman',
-Times,
-serif;
-$cursive-fontface-stack: $cursive-fontface,
-cursive;
-$mono-fontface-stack: $mono-fontface,
-monospace;
+$sans-fontface-stack: $sans-fontface, Helvetica, Arial, sans-serif;
+$serif-fontface-stack: $serif-fontface, Georgia, 'Times New Roman', Times, serif;
+$cursive-fontface-stack: $cursive-fontface, cursive;
+$mono-fontface-stack: $mono-fontface, monospace;
 
 // System fontface stacks used when webfonts are not loaded
-$system-sans-fontface-stack: 'Helvetica',
-'Helvetica Neue',
-'Arial',
-sans-serif;
-$system-serif-fontface-stack: 'Georgia',
-'Times New Roman',
-Times,
-serif;
+$system-sans-fontface-stack: 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+$system-serif-fontface-stack: 'Georgia', 'Times New Roman', Times, serif;
 
 /**
  * Defaults

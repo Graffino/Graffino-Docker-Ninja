@@ -67,7 +67,8 @@ $h6-line-height: 1.5;
  * Breakpoints
  */
 
-$breakpoints: (xlarge: 1250px,
+$breakpoints: (
+  xlarge: 1250px,
   desktop: 1120px,
   large: 1050px,
   medium: 940px,
@@ -76,7 +77,8 @@ $breakpoints: (xlarge: 1250px,
   xsmall: 480px,
   mobile-large: 414px,
   mobile-medium: 375px,
-  mobile-small: 320px);
+  mobile-small: 320px
+);
 
 /**
  * Grid

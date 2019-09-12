@@ -4,23 +4,27 @@
  */
 
 // Generate color themeing for headings
-$font-weights: (ultraligt: 200,
+$font-weights: (
+  ultraligt: 200,
   light: 300,
   regular: 400,
   medium: 500,
   semibold: 600,
   bold: 700,
   black: 800,
-  extrablack: 900);
+  extrablack: 900
+);
 
-$font-colors: (white: white,
+$font-colors: (
+  white: white,
   black: black,
   primary: $color-primary,
   accent: $color-accent,
   success: $color-success,
   info: $color-info,
   warning: $color-warning,
-  danger: $color-danger);
+  danger: $color-danger
+);
 
 /**
  * Functions and Mixins
@@ -61,12 +65,12 @@ $font-colors: (white: white,
 /*
  * Font mixin
  */
-@mixin webfont($family,
+@mixin webfont(
+  $family,
   $file,
   $weight: normal,
   $style: normal,
   $range: 'U+0000-007F'
-
 ) {
   @font-face {
     font-display: swap;
@@ -74,7 +78,7 @@ $font-colors: (white: white,
     font-style: $style;
     font-weight: $weight;
     src: url('../fonts/#{$file}.woff2') format('woff2'),
-    url('../fonts/#{$file}.woff') format('woff');
+      url('../fonts/#{$file}.woff') format('woff');
     unicode-range: $range;
   }
 }
@@ -107,9 +111,7 @@ $font-colors: (white: white,
 }
 
 @mixin font-weights {
-
-  @each $weight,
-  $value in $font-weights {
+  @each $weight, $value in $font-weights {
     &.-font-weight {
       &-#{$weight} {
         font-weight: $value;
@@ -119,9 +121,7 @@ $font-colors: (white: white,
 }
 
 @mixin font-colors {
-
-  @each $key,
-  $value in $font-colors {
+  @each $key, $value in $font-colors {
     &.-color-#{$key} {
       color: $value;
     }
@@ -129,9 +129,7 @@ $font-colors: (white: white,
 }
 
 @mixin link-colors {
-
-  @each $key,
-  $value in $font-colors {
+  @each $key, $value in $font-colors {
     &.-color-#{$key} {
       color: $value;
 
@@ -142,16 +140,17 @@ $font-colors: (white: white,
   }
 }
 
-@function transition-custom($property: all,
+@function transition-custom(
+  $property: all,
   $duration: 250ms,
-  $ease: cubic-bezier(0.25, 0.46, 0.45, 0.94)) {
+  $ease: cubic-bezier(0.25, 0.46, 0.45, 0.94)
+) {
   @return $property $duration $ease;
 }
 
 // Easy Media Queries
 
 @mixin above($breakpoint) {
-
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
@@ -163,16 +162,13 @@ $font-colors: (white: white,
     }
 
     // If the breakpoint doesn't exist in the map.
-  }
-
-  @else {
+  } @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
 @mixin below($breakpoint) {
-
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
     // Get the breakpoint value.
@@ -184,16 +180,13 @@ $font-colors: (white: white,
     }
 
     // If the breakpoint doesn't exist in the map.
-  }
-
-  @else {
+  } @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
 @mixin between($lower, $upper) {
-
   // If both the lower and upper breakpoints exist in the map.
   @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
     // Get the lower and upper breakpoints.
@@ -206,26 +199,22 @@ $font-colors: (white: white,
     }
 
     // If one or both of the breakpoints don't exist.
-  }
-
-  @else {
-
+  } @else {
     // If lower breakpoint is invalid.
-    @if (map-has-key($breakpoints, $lower)==false) {
+    @if (map-has-key($breakpoints, $lower) ==false) {
       // Log a warning.
       @warn 'Your lower breakpoint was invalid: #{$lower}.';
     }
 
     // If upper breakpoint is invalid.
-    @if (map-has-key($breakpoints, $upper)==false) {
+    @if (map-has-key($breakpoints, $upper) ==false) {
       // Log a warning.
       @warn 'Your upper breakpoint was invalid: #{$upper}.';
     }
   }
 }
 
-@each $name,
-$size in $breakpoints {
+@each $name, $size in $breakpoints {
   .hide-#{$name}-up {
     @include above($name) {
       display: none !important;
@@ -272,13 +261,13 @@ $size in $breakpoints {
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 100%;
     padding-top: ($height / $width) * 100%;
   }
 
-  >.content {
+  > .content {
     position: absolute;
     top: 0;
     right: 0;
