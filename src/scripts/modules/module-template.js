@@ -15,9 +15,7 @@ export default class Module extends Component {
   }
 
   destroy () {
-    const {
-      data = null
-    } = this.state
+    const { data = null } = this.state
 
     this.setState({
       data: data

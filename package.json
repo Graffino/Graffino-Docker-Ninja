@@ -89,6 +89,7 @@
     "svgo": "^1.3.0",
     "svgo-loader": "^2.2.1",
     "terser-webpack-plugin": "^1.4.1",
+    "three": "^0.108.0",
     "typi": "^3.2.0",
     "unzipper": "^0.10.4",
     "webpack": "^4.39.3",

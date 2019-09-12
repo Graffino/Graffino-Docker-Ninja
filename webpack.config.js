@@ -129,6 +129,10 @@ module.exports = {
       from: 'src/static',
       to: ''
     }]),
+    new CopyPlugin([{
+      from: 'src/media',
+      to: 'media'
+    }]),
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {}

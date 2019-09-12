@@ -36,8 +36,8 @@ const dom = {
 }
 
 const ease = {
-  easeOutQuad: [0.250, 0.460, 0.450, 0.940],
-  easeOutBack: [0.175, 0.885, 0.320, 1.275]
+  easeOutQuad: [0.25, 0.46, 0.45, 0.94],
+  easeOutBack: [0.175, 0.885, 0.32, 1.275]
 }
 
 export default { stateClass, breakpoints, ease, dom }

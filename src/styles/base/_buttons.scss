@@ -26,7 +26,7 @@
   &::after,
   &__inner::before,
   &__inner::after {
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     width: rem(12px);
@@ -64,7 +64,6 @@
   }
 
   &:hover {
-
     &::before,
     &::after,
     .button__inner::before,

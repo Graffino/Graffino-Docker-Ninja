@@ -85,7 +85,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     flex-direction: column;
     flex-wrap: wrap;
 
-    &>.column {
+    & > .column {
       flex-basis: auto;
       margin-bottom: rem(30px);
 
@@ -107,14 +107,14 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
   }
 
   &.equal-height {
-    &>.column {
+    & > .column {
       margin-bottom: rem(30px);
 
       @include below(tablet) {
         margin-bottom: rem(20px);
       }
 
-      &>* {
+      & > * {
         height: 100%;
       }
     }
@@ -124,7 +124,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     margin-right: $gutter-compensation-large;
     margin-left: $gutter-compensation-large;
 
-    &>.column {
+    & > .column {
       padding-right: $columns-gutter-large * 0.5;
       padding-left: $columns-gutter-large * 0.5;
     }
@@ -139,8 +139,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
   padding-right: $columns-gutter * 0.5;
   padding-left: $columns-gutter * 0.5;
 
-  @each $name,
-  $size in $breakpoints {
+  @each $name, $size in $breakpoints {
     @for $column from 1 through $max-columns {
       &.is-#{$column} {
         flex-basis: 100% / $max-columns * $column;
@@ -152,9 +151,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
       &.is-offset-#{$column} {
         @if $column==0 {
           margin-left: 0;
-        }
-
-        @else {
+        } @else {
           margin-left: 100% / $max-columns * $column;
         }
       }
@@ -174,9 +171,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
         &.is-offset-#{$column}-#{$name} {
           @if $column==0 {
             margin-left: 0;
-          }
-
-          @else {
+          } @else {
             margin-left: 100% / $max-columns * $column;
           }
         }
