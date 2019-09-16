@@ -1,8 +1,8 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const common = require('./webpack.config.js');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const merge = require('webpack-merge')
+const webpack = require('webpack')
+const common = require('./webpack.config.js')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -14,12 +14,13 @@ module.exports = merge(common, {
     liveReload: true,
     http2: false,
     https: false,
-    host: 'localhost',
+    host: '127.0.0.1',
     port: 4200,
     overlay: {
       warnings: false,
       errors: true
-    }
+    },
+    disableHostCheck: true
   },
   module: {
     rules: [{
@@ -29,7 +30,7 @@ module.exports = merge(common, {
         {
           loader: MiniCssExtractPlugin.loader,
           options: {
-            hmr: process.env.NODE_ENV === 'development',
+            hmr: process.env.NODE_ENV === 'development'
           }
         },
         {
@@ -62,4 +63,4 @@ module.exports = merge(common, {
     filename: '[name].js',
     publicPath: '/'
   }
-});
+})

@@ -14,7 +14,7 @@ const app = process
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
   console.log('Configuration values not set. Please edit your .env file!')
-  terminate();
+  app.exit()
 }
 
 // Start
@@ -51,7 +51,7 @@ const start = () => {
 
 // Terminate app
 const terminate = () => {
-  console.log(`Temporary files deleted.`)
+  console.log('Temporary files deleted.')
   // Exit app
   app.exit()
 }

@@ -11,8 +11,8 @@
     "wp-migrate": "node wordpress/scripts/db-migrate.js",
     "wp-dump": "node wordpress/scripts/db-dump.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint-js": "eslint src -c .eslintrc --ext js",
-    "lint-style": "stylelint-config-prettier-check",
+    "lint-code": "eslint src -c .eslintrc --ext js",
+    "lint-style": "stylelint 'src/styles/**/*.scss'",
     "fix-code": "prettier-eslint --write 'src/**/*.js' --config .eslintrc",
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
     "composer-install": "composer install --prefer-dist"
@@ -57,6 +57,7 @@
     "image-webpack-loader": "^6.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
+    "js-yaml": "^3.13.1",
     "mariadb": "^2.1.1",
     "markup-inline-loader": "^0.2.2",
     "mini-css-extract-plugin": "^0.8.0",
