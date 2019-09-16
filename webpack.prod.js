@@ -1,16 +1,16 @@
-const path = require('path');
-const glob = require('glob');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const common = require('./webpack.config.js');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const path = require('path')
+const glob = require('glob')
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const common = require('./webpack.config.js')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const imageminMozjpeg = require('imagemin-mozjpeg')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -104,8 +104,8 @@ module.exports = merge(common, {
       ),
       extractors: [{
         extractor: class {
-          static extract(content) {
-            return content.match(/[A-z0-9-:\/]+/g) || []
+          static extract (content) {
+            return content.match(/[A-z0-9-:/]+/g) || []
           }
         },
         extensions: ['handlebars', 'html', 'js', 'php', 'vue'],
@@ -137,7 +137,7 @@ module.exports = merge(common, {
       cache: true,
       inject: true,
       background: '#fff',
-      title: 'Graffino Ninja',
+      title: 'Graffino Ninja'
     })
   ],
   output: {
@@ -145,4 +145,4 @@ module.exports = merge(common, {
     filename: '[name].[contenthash:8].js',
     publicPath: '/'
   }
-});
+})
