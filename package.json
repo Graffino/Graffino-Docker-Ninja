@@ -11,7 +11,7 @@
     "wp-migrate": "node wordpress/scripts/db-migrate.js",
     "wp-dump": "node wordpress/scripts/db-dump.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint-js": "eslint src -c .eslintrc --ext js",
+    "lint-code": "eslint src -c .eslintrc --ext js",
     "lint-style": "stylelint 'src/styles/**/*.scss'",
     "fix-code": "prettier-eslint --write 'src/**/*.js' --config .eslintrc",
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
