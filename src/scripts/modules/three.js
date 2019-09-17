@@ -1,7 +1,7 @@
 import Component from '../utils/component.js'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 export default class Module extends Component {
   constructor (props) {
@@ -12,8 +12,9 @@ export default class Module extends Component {
   init () {
     const canvas = this.state.element
     const renderer = new THREE.WebGLRenderer({
-      canvas
-      // alpha: true
+      canvas,
+      alpha: true,
+      antialias: true
     })
 
     const fov = 40
@@ -23,25 +24,27 @@ export default class Module extends Component {
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
     camera.position.z = 120
 
+    // eslint-disable-next-line no-unused-vars
+    const controls = new OrbitControls(camera, renderer.domElement)
+
     const scene = new THREE.Scene()
 
-    scene.background = new THREE.Color(0xAAAAAA)
-
     {
-      const color = 0xffffff
-      const intensity = 1
-      const light = new THREE.DirectionalLight(color, intensity)
-      light.position.set(-1, 2, 4)
-      scene.add(light)
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 100)
+      directionalLight.position.set(0, 1, 0)
+      directionalLight.castShadow = true
+      scene.add(directionalLight)
     }
 
+    let model = null
     {
       const loader = new GLTFLoader(this.loadingManager)
       loader.load(
         '/media/scene.gltf',
         gltf => {
-          const root = gltf.scene
-          scene.add(root)
+          model = gltf.scene.children[0]
+          model.scale.set(4, 4, 4)
+          scene.add(gltf.scene)
         },
         undefined,
         error => {
@@ -61,11 +64,20 @@ export default class Module extends Component {
       return needResize
     }
 
-    const render = () => {
+    const render = (time) => {
+      time *= 0.001
+
       if (resizeRendererToDisplaySize(renderer)) {
         const canvas = renderer.domElement
         camera.aspect = canvas.clientWidth / canvas.clientHeight
         camera.updateProjectionMatrix()
+      }
+
+      if (model) {
+        console.log(model)
+        const rot = time
+        model.rotation.x = rot
+        model.rotation.y = rot * 1.5
       }
 
       renderer.render(scene, camera)
