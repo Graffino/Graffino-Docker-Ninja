@@ -1,7 +1,6 @@
 import Component from '../utils/component.js'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 export default class Module extends Component {
   constructor (props) {
@@ -23,9 +22,6 @@ export default class Module extends Component {
     const far = 1000
     const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
     camera.position.z = 120
-
-    // eslint-disable-next-line no-unused-vars
-    const controls = new OrbitControls(camera, renderer.domElement)
 
     const scene = new THREE.Scene()
 
