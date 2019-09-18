@@ -1,12 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
-  path: __dirname + '/.env'
+  path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
 
 module.exports = {
@@ -21,12 +21,12 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: [{
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          },
-          'eslint-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
+        'eslint-loader'
         ]
       },
       {
@@ -36,7 +36,7 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development',
+              hmr: process.env.NODE_ENV === 'development'
             }
           },
           {
@@ -74,60 +74,58 @@ module.exports = {
         test: /\.svg$/,
         include: path.resolve(__dirname, 'src/icons/'),
         use: [{
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true
-            }
-          },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [{
-                removeAttrs: {
-                  attrs: '*:(stroke|fill):((?!^none$).)*'
-                }
-              }]
-            }
+          loader: 'svg-sprite-loader',
+          options: {
+            extract: true
           }
-        ]
+        },
+        {
+          loader: 'svgo-loader',
+          options: {
+            plugins: [{
+              removeAttrs: {
+                attrs: '*:(stroke|fill):((?!^none$).)*'
+              }
+            }]
+          }
+        }]
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         exclude: path.resolve(__dirname, 'src/icons/'),
         use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: '/images/'
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              optipng: {
-                enabled: true
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false
-              }
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/',
+            publicPath: '/images/'
+          }
+        },
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            mozjpeg: {
+              progressive: true,
+              quality: 65
+            },
+            optipng: {
+              enabled: true
+            },
+            pngquant: {
+              quality: '65-90',
+              speed: 4
+            },
+            gifsicle: {
+              interlaced: false
             }
           }
-        ]
+        }]
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": dotenv.parsed
+      'process.env': dotenv.parsed
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -147,14 +145,14 @@ module.exports = {
       },
       {
         from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
-        to: path.resolve(__dirname, 'dist-wp/'),
+        to: path.resolve(__dirname, 'dist-wp/')
       },
       {
         from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
         to: path.resolve(__dirname, 'wordpress/uploads'),
         toType: 'dir',
         force: true
-      },
+      }
     ]),
     new MiniCssExtractPlugin({
       filename: 'style.css'

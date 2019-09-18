@@ -13,7 +13,7 @@ const app = process
 
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
-  console.log('Configuration values not set. Please edit your .env file!')
+  console.log('Database configuration values not set. Please edit your .env file!')
   app.exit()
 }
 

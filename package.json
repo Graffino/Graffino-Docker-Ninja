@@ -1,13 +1,13 @@
 {
   "name": "ninja",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Website building webpack flow we use at Graffino.",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
     "wp": "webpack --progress --watch --config webpack.wordpress.js",
-    "wp-setup": "yarn && composer install --prefer-dist && node wordpress/scripts/db-init.js",
+    "wp-setup": "yarn && composer install --prefer-dist && composer install --prefer-dist && composer update && node wordpress/scripts/db-init.js",
     "wp-migrate": "node wordpress/scripts/db-migrate.js",
     "wp-dump": "node wordpress/scripts/db-dump.js",
     "test": "echo \"Error: no test specified\" && exit 1",

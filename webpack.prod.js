@@ -51,7 +51,7 @@ module.exports = merge(common, {
                   env: 'production'
                 }
               }
-            },
+            }
           },
           {
             loader: 'sass-loader',
