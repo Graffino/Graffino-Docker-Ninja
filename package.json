@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
     "wp": "webpack --progress --watch --config webpack.wordpress.js",
-    "wp-setup": "yarn && composer install --prefer-dist && composer install --prefer-dist && composer update && node wordpress/scripts/db-init.js",
+    "wp-setup": "yarn && composer install --prefer-dist && composer update --prefer-dist && composer update && node wordpress/scripts/db-init.js",
     "wp-migrate": "node wordpress/scripts/db-migrate.js",
     "wp-dump": "node wordpress/scripts/db-dump.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +15,7 @@
     "lint-style": "stylelint 'src/styles/**/*.scss'",
     "fix-code": "prettier-eslint --write 'src/**/*.js' --config .eslintrc",
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
-    "composer-install": "composer install --prefer-dist"
+    "composer-install": "composer install --prefer-dist && composer update"
   },
   "repository": "git@github.com:Graffino/ninja.git",
   "author": "team@graffino.com",
