@@ -122,7 +122,7 @@ module.exports = merge(common, {
         optimizationLevel: 9
       },
       pngquant: ({
-        quality: '75'
+        quality: [0.65, 0.90]
       }),
       plugins: [imageminMozjpeg({
         quality: '75'
