@@ -16,7 +16,10 @@
     "fix-code": "prettier-eslint --write 'src/**/*.js' --config .eslintrc",
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
     "composer-install": "composer install --prefer-dist && composer update",
-    "deploy": "git fetch --all; git reset --hard origin/develop; yarn; yarn run build"
+    "deploy": "git fetch --all; git reset --hard origin/develop; yarn; yarn run build",
+    "bump-minor": "node bin/bump.js -- minor",
+    "bump-major": "node bin/bump.js -- major",
+    "bump-patch": "node bin/bump.js -- patch"
   },
   "repository": "git@github.com:Graffino/ninja.git",
   "author": "team@graffino.com",
@@ -77,6 +80,7 @@
     "pristinejs": "^0.1.6",
     "purgecss-webpack-plugin": "^1.5.0",
     "sass-loader": "^8.0.0",
+    "semver": "^6.3.0",
     "style-loader": "^1.0.0",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
