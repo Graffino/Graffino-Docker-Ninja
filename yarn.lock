@@ -9678,13 +9678,10 @@ prebuild-install@^5.3.0:
     tunnel-agent "^0.6.0"
     which-pm-runs "^1.0.0"
 
-preload-webpack-plugin@3.0.0-beta.3:
-  version "3.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-3.0.0-beta.3.tgz#945990d0cd90d3ecb15a2f6fc59f742e39930db6"
-  integrity sha512-pIRna/JagOd+ci64d84SfDH4bjKsM632OQ/4JIBk7Q8Kr6VH2X+7q5q3HrTilKpMzzO3ib9kC7rs1B0KXJTa6Q==
-  dependencies:
-    core-js "^2.5.7"
-    url-parse "^1.4.3"
+preload-webpack-plugin@3.0.0-beta.4:
+  version "3.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/preload-webpack-plugin/-/preload-webpack-plugin-3.0.0-beta.4.tgz#b8a36046df3b4a1b61db55d92f1a5aebdb99d246"
+  integrity sha512-6hhh0AswCbp/U4EPVN4fbK2wiDkXhmgjjgEYEmXa21UYwjYzCIgh3ZRMXM21ZPLfbQGpdFuSL3zFslU+edjpwg==
 
 prelude-ls@~1.1.2:
   version "1.1.2"
