@@ -78,7 +78,7 @@
     "prettier-eslint-cli": "^5.0.0",
     "prettier-stylelint": "^0.4.2",
     "pristinejs": "^0.1.6",
-    "purgecss-webpack-plugin": "^1.5.0",
+    "purgecss-webpack-plugin": "^1.6.0",
     "sass-loader": "^8.0.0",
     "semver": "^6.3.0",
     "style-loader": "^1.0.0",
