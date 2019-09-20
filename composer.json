@@ -1,12 +1,15 @@
 {
-  "name": "graffino/ninja",
-  "description": "Wordpress Example Theme",
-  "authors": [{
-    "name": "Graffino",
-    "homepage": "https://graffino.com/"
-  }],
+  "name": "graffino/valeaizvoarelor",
+  "description": "Valea Izvoarelor website.",
+  "authors": [
+    {
+      "name": "Graffino",
+      "homepage": "https://graffino.com/"
+    }
+  ],
   "type": "project",
-  "repositories": [{
+  "repositories": [
+    {
       "type": "composer",
       "url": "https://wpackagist.org"
     },
@@ -21,6 +24,54 @@
           "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t={%version}"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/sitepress-multilingual-cms",
+        "version": "4.2.8",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-string-translation",
+        "version": "2.10.6",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/wpml-media-translation",
+        "version": "2.5.3",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "wpml/acfml",
+        "version": "1.4.0",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
+        }
+      }
     }
   ],
   "config": {
@@ -30,7 +81,11 @@
     "johnpbloch/wordpress-core-installer": ">=1.0.2",
     "johnpbloch/wordpress": ">=5.2.3",
     "vlucas/phpdotenv": "^3.5",
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.8"
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.8",
+    "wpml/sitepress-multilingual-cms": "^4.2",
+    "wpml/wpml-string-translation": "^2.10",
+    "wpml/wpml-media-translation": "^2.5",
+    "wpml/acfml": "^1.4"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
@@ -44,8 +99,7 @@
     "wordpress-install-dir": "dist-wp",
     "installer-paths": {
       "dist-wp/wp-content/plugins/{$name}/": [
-        "type:wordpress-plugin",
-        "vendor/advanced-custom-fields/advanced-custom-fields-pro"
+        "type:wordpress-plugin"
       ],
       "dist-wp/wp-content/themes/{$name}/": [
         "type:wordpress-theme"
