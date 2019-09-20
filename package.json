@@ -100,7 +100,7 @@
     "unzipper": "^0.10.5",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8",
-    "webpack-dev-server": "^3.8.0",
+    "webpack-dev-server": "^3.8.1",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
     "yesno": "^0.3.0"
