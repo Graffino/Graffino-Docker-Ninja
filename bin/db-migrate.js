@@ -17,7 +17,7 @@ const Migration = process.env.DB_MIGRATION
 const app = process
 
 // Path to migration
-const MigrationFile = path.join(__dirname, `../migrations/${process.env.DB_MIGRATION}.sql`)
+const MigrationFile = path.join(__dirname, `../wordpress/migrations/${process.env.DB_MIGRATION}.sql`)
 
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {

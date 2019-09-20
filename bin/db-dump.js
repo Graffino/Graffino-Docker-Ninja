@@ -39,7 +39,7 @@ const start = () => {
   console.log('(1) Dumping database.')
 
   // Open dump file
-  const DumpFile = fs.createWriteStream(path.join(__dirname, '../migrations/' + filename()))
+  const DumpFile = fs.createWriteStream(path.join(__dirname, '../wordpress/migrations/' + filename()))
 
   // Spawn mysqldump with required data
   const MysqlDump = spawn('mysqldump', [
@@ -72,16 +72,16 @@ const archive = () => {
   console.log('(3) Zipping ' + filename() + ' file...')
 
   // Read sql file and zip it
-  zip.file(filename(), fs.readFileSync(path.join(__dirname, '../migrations/' + filename())))
+  zip.file(filename(), fs.readFileSync(path.join(__dirname, '../wordpress/migrations/' + filename())))
   const data = zip.generate({
     base64: false,
     compression: 'DEFLATE'
   })
 
   // Write sync zip as yyyy.mm.dd-hhmm.sql.zip
-  fs.writeFileSync(path.join(__dirname, '../migrations/' + filename() + '.zip'), data, 'binary')
+  fs.writeFileSync(path.join(__dirname, '../wordpress/migrations/' + filename() + '.zip'), data, 'binary')
   // Write sync zip as latest.sql.zip
-  fs.writeFileSync(path.join(__dirname, '../migrations/latest.sql.zip'), data, 'binary')
+  fs.writeFileSync(path.join(__dirname, '../wordpress/migrations/latest.sql.zip'), data, 'binary')
   // Run terminate app
   terminate()
 }
@@ -90,7 +90,7 @@ const archive = () => {
 const terminate = () => {
   console.log('Temporary files deleted.')
   // Delete remaining sql file
-  fs.unlink(path.join(__dirname, '../migrations/' + filename()), () => {})
+  fs.unlink(path.join(__dirname, '../wordpress/migrations/' + filename()), () => {})
   // Exit app
   app.exit()
 }
