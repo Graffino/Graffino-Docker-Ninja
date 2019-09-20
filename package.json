@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
-    "wp": "webpack --progress --watch --config webpack.wordpress.js",
-    "wp-setup": "yarn && composer install --prefer-dist && composer update --prefer-dist && composer update && node bin/db-init.js",
+    "wp": "node bin/sync-uploads --no-confirm && webpack --progress --watch --config webpack.wordpress.js",
+    "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads",
     "wp-migrate": "node bin/db-migrate.js",
     "wp-dump": "node bin/db-dump.js",
+    "wp-sync-uploads": "node bin/sync-uploads",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint-code": "eslint src -c .eslintrc --ext js",
     "lint-style": "stylelint 'src/styles/**/*.scss'",
@@ -38,6 +39,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
+    "cpy": "^7.3.0",
     "css-loader": "^3.2.0",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
@@ -106,6 +108,8 @@
     "yesno": "^0.3.0"
   },
   "dependencies": {
+    "jump.js": "^1.0.2",
+    "swiper": "^5.0.3",
     "vanilla-lazyload": "^12.0.0"
   }
 }
