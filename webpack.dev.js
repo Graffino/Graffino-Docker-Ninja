@@ -15,7 +15,7 @@ module.exports = merge(common, {
     http2: false,
     https: false,
     host: '127.0.0.1',
-    port: 4200,
+    port: 3000,
     overlay: {
       warnings: false,
       errors: true
@@ -60,7 +60,7 @@ module.exports = merge(common, {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: 'js/[name][contentHash:8].js',
     publicPath: '/'
   }
 })

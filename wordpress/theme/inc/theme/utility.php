@@ -20,23 +20,14 @@ function convert_array_to_list( $var ) {
 	return count( $array ) ? implode( ', ', $array ) : 'Nothing';
 }
 
-// Get version
-function get_version() {
-	$package_json = file_get_contents( get_template_directory() . '/version.php' );
-	return $package_json;
-}
-
 // Check if debug mode is on
 function is_debug() {
 	return WP_DEBUG === true;
 }
 
-// Return minified version of file if debug is false
-function asset_output( $asset, $extension ) {
-	if ( is_debug() ) {
-		$return = $asset . '.' . $extension . '?v=' . get_version();
-	} else {
-		$return = $asset . '.min.' . $extension . '?v=' . get_version();
-	}
-	echo $return;
+// Enqueue theme assets
+function enqueue_theme_assets() {
+	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css', array(), CACHE_BUSTING );
+	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), CACHE_BUSTING );
 }
+add_action( 'wp_enqueue_scripts', 'enqueue_theme_assets' );

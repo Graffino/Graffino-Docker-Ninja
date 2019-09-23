@@ -1,15 +1,12 @@
 {
-  "name": "graffino/valeaizvoarelor",
-  "description": "Valea Izvoarelor website.",
-  "authors": [
-    {
-      "name": "Graffino",
-      "homepage": "https://graffino.com/"
-    }
-  ],
+  "name": "graffino/ninja",
+  "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
+  "authors": [{
+    "name": "Graffino",
+    "homepage": "https://graffino.com/"
+  }],
   "type": "project",
-  "repositories": [
-    {
+  "repositories": [{
       "type": "composer",
       "url": "https://wpackagist.org"
     },
