@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6593972fafbd58113484d78a6943dbd",
+    "content-hash": "974a1a0920bfa3375975e178b26ee9f1",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
             "version": "5.8.4",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9MzI5ODZ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTA3LTA3IDE2OjE0OjM4&t=5.8.4"
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t=5.8.4"
             },
             "type": "wordpress-plugin"
         },
@@ -307,6 +307,42 @@
                 "environment"
             ],
             "time": "2019-09-10T21:37:39+00:00"
+        },
+        {
+            "name": "wpml/acfml",
+            "version": "1.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=1.4.0#v1.4.0"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
+            "name": "wpml/sitepress-multilingual-cms",
+            "version": "4.2.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=4.2.8#v4.2.8"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
+            "name": "wpml/wpml-media-translation",
+            "version": "2.5.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=2.5.3#v2.5.3"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
+            "name": "wpml/wpml-string-translation",
+            "version": "2.10.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=2.10.6#v2.10.6"
+            },
+            "type": "wordpress-plugin"
         }
     ],
     "packages-dev": [

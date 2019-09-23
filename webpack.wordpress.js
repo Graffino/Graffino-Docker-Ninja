@@ -15,6 +15,11 @@ module.exports = {
     main: path.resolve(__dirname, 'src/scripts/index.js'),
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
+  output: {
+    path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+    filename: 'js/main.js',
+    publicPath: '/'
+  },
   module: {
     rules: [
       {
@@ -60,13 +65,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(ttf|eot|woff|woff2)$/,
-        exclude: path.resolve(__dirname, 'src/icons/'),
+        test: /\.(woff|woff2)$/,
         use: [{
           loader: 'file-loader',
           options: {
             name: 'fonts/[name].[ext]',
-            outputPath: 'fonts'
+            publicPath: '../'
           }
         }]
       },
@@ -129,13 +133,17 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [`wp-content/themes/${process.env.THEME_NAME}/**/*', '!wp-content/uploads/**/*`]
-    }),
+    new CleanWebpackPlugin(),
     new CopyPlugin([
       {
+        from: path.resolve(__dirname, 'src/static'),
+        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+        force: true
+      },
+      {
         from: path.resolve(__dirname, 'wordpress/theme'),
-        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`)
+        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+        force: true
       },
       {
         from: path.resolve(__dirname, 'wordpress/config/*.php'),
@@ -155,7 +163,7 @@ module.exports = {
       }
     ]),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: 'css/main.css'
     }),
     new SpriteLoaderPlugin({
       plainSprite: true
@@ -164,11 +172,9 @@ module.exports = {
       files: '**/*.php',
       proxy: process.env.THEME_URL,
       open: false
+    }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
     })
-  ],
-  output: {
-    path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
-    filename: 'main.js',
-    publicPath: '/'
-  }
+  ]
 }

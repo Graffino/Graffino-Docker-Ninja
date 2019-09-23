@@ -5,63 +5,64 @@
 //
 ?>
 <!DOCTYPE html>
-<html class="no-js no-fonts">
+<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		<?php
+		// Page title | Site name | Site description
+		wp_title( '|', true, true );
+		bloginfo( 'name' );
+		$site_description = get_bloginfo( 'description', 'display' );
+		if ( $site_description && ( is_home() || is_front_page() ) ) {
+			echo " | $site_description";
+		}
+		?>
+	</title>
+	<meta name="description" content="<?php get_bloginfo( 'description', 'display' ); ?>">
+
+	<!-- // Configuration meta -->
+	<meta charset="<?php get_bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width">
 
-	<!-- Icon Names -->
+	<!-- // Application title - iOS / macOS -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-title" content="<?php bloginfo( 'name' ); ?>">
-	<meta name="application-name" content="<?php bloginfo( 'name' ); ?>">
-	<!-- /Icon Names -->
 
-	<!-- Windows Phone Tile -->
-	<meta name="msapplication-TileColor" content="#2A459E">
-	<meta name="msapplication-TileImage" content="<?php bloginfo( 'template_directory' ); ?>/touch-icon-transparent.png">
-	<!-- /Windows Phone Tile -->
+	<!-- // Facebook Meta -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="<?php echo site_url(); ?>">
+	<meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
+	<meta property="og:locale" content="<?php bloginfo( 'name' ); ?>">
+	<meta property="og:description" content="<?php echo $site_description; ?>">
+	<meta property="og:image" content="<?php echo bloginfo( 'template_url' ); ?>/social.jpg">
+	<meta property="og:image:alt" content="<?php echo $site_description; ?>">
 
-	<title>
-	<?php
-	// Page title | Site name | Site description
-	wp_title( '|', true, true );
-	bloginfo( 'name' );
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		echo " | $site_description";
-	}
-	?>
-	</title>
+	<!-- // Twitter Meta -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="<?php bloginfo( 'name' ); ?>">
+	<meta name="twitter:description" content="<?php echo $site_description; ?>">
+	<meta name="twitter:image" content="<?php echo bloginfo( 'template_url' ); ?>/social.jpg">
+	<meta name="twitter:image:alt" content="<?php echo $site_description; ?>">
 
-	<!-- Author Information -->
-	<link type="text/plain" rel="author" href="<?php bloginfo( 'template_directory' ); ?>/humans.txt">
-	<!-- /Author Information -->
+	<!-- // Favicon -->
+	<link rel="icon" href="<?php bloginfo( 'template_url' ); ?>/favicon.ico">
+	<!-- Apple Pin Icon -->
+	<link rel="mask-icon" href="<?php bloginfo( 'template_url' ); ?>/pin_icon.svg" color="#000000">
+	<!-- Apple Touch Icon -->
+	<link rel="apple-touch-icon" href="<?php bloginfo( 'template_url' ); ?>/touch-icon.png">
+	<!-- Apple Startup Image -->
+	<link rel="apple-touch-startup-image" href="<?php bloginfo( 'template_url' ); ?>/touch-startup-image.png">
 
-	<!-- Touch Icons -->
-	<link rel="mask-icon" href="<?php bloginfo( 'template_directory' ); ?>/pin-icon.svg" color="#2A459E">
-	<link rel="shortcut icon" href="<?php bloginfo( 'template_directory' ); ?>/favicon.ico">
-	<link rel="icon" type="image/png" href="<?php bloginfo( 'template_directory' ); ?>/touch-icon.png">
-	<link rel="apple-touch-icon" href="<?php bloginfo( 'template_directory' ); ?>/touch-icon.png">
-	<!-- /Touch Icons -->
+	<!-- // Manifest file - Android -->
+	<link rel="manifest" href="<?php bloginfo( 'template_url' ); ?>/site.webmanifest">
+	<!-- // Manifest file - Windows -->
+	<link rel="msapplication-config" href="<?php bloginfo( 'template_url' ); ?>/browserconfig.xml">
 
-	<!-- Prefetch DNS for external resources -->
-	<link rel="dns-prefetch" href="//fonts.googleapis.com">
-	<!-- /Prefetch DNS -->
-
-	<!-- Preconnect for external resources -->
-	<link rel="preconnect" href="//fonts.googleapis.com">
-	<!-- /Preconnect -->
-
-	<!-- Load CSS -->
-	<link rel="stylesheet" href="<?php bloginfo( 'template_directory' ); ?>/css/<?php asset_output( 'main', 'css' ); ?>">
-	<!-- /Load CSS -->
-
-	<!-- Template URL variable -->
-	<script type="text/javascript">
-		const templateUrl = '<?php echo get_bloginfo( 'template_url' ); ?>';
-	</script>
-	<!-- /Template URL variable -->
+	<!-- // Humans file -->
+	<link type="text/plain" rel="author" href="<?php bloginfo( 'template_url' ); ?>/humans.txt">
 
 	<!-- Header Scripts -->
 	<?php wp_head(); ?>

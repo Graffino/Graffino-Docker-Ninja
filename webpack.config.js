@@ -46,7 +46,7 @@ module.exports = {
       ]
     },
     {
-      test: /\.(ttf|eot|woff|woff2)$/,
+      test: /\.(woff|woff2)$/,
       exclude: path.resolve(__dirname, 'src/icons/'),
       use: [{
         loader: 'file-loader',
@@ -145,8 +145,8 @@ module.exports = {
       template: './src/views/404.handlebars'
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+      filename: devMode ? 'css/[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? 'css/[id].css' : '[id].[hash].css'
     }),
     new StyleLintPlugin(),
     new SpriteLoaderPlugin({
