@@ -4,7 +4,6 @@
 /cache
 /dist
 /dist-wp
-/.vscode
 /cache
 .DS_Store
 .env
