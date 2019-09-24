@@ -169,7 +169,7 @@ module.exports = {
       plainSprite: true
     }),
     new BrowserSyncPlugin({
-      files: '**/*.php',
+      files: '**/*',
       proxy: process.env.THEME_URL,
       open: false
     }),
