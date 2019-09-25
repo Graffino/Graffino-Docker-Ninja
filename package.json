@@ -10,7 +10,7 @@
     "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads.js --no-confirm && node bin/clean-wp.js",
     "wp-migrate": "node bin/db-migrate.js",
     "wp-dump": "node bin/db-dump.js",
-    "wp-update": "composer update && node bin/sync-uploads.js",
+    "wp-update": "composer update && node bin/sync-uploads.js --no-confirm",
     "wp-sync-uploads": "node bin/sync-uploads.js",
     "wp-clean-install-folder": "node bin/clean-wp.js",
     "test": "echo \"Error: no test specified\" && exit 1",

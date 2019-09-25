@@ -9,21 +9,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Require Autoloader
-require_once get_template_directory() . '/inc/theme/classes/class-autoloader.php';
+// Require Autoloaders
+require_once get_template_directory() . '/inc/theme/classes/class-nwp-class-autoloader.php';
+require_once get_template_directory() . '/inc/theme/classes/class-nwp-module-autoloader.php';
 
 // Autoload Classes
 $class_autoload_path = __DIR__ . '/inc/theme/classes/';
-AutoLoader::set_path( $class_autoload_path );
-spl_autoload_register( 'Autoloader::loader' );
+NWP_ClassAutoLoader::set_path( $class_autoload_path );
+spl_autoload_register( 'NWP_ClassAutoLoader::loader' );
 
 // Autoload Modules
-$modules = new \FilesystemIterator( __DIR__ . '/inc/theme', \FilesystemIterator::SKIP_DOTS );
-try {
-	foreach ( $modules as $module ) {
-		! $modules->isDir() and include $module->getRealPath();
-	}
-} catch ( Exception $error ) {
-	return $error;
-}
-
+$module_autoloader_path = __DIR__ . '/inc/theme/';
+NWP_ModuleAutoLoader::set_path( $module_autoloader_path );
+NWP_ModuleAutoLoader::loader();

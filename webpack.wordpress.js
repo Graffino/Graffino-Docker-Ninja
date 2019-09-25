@@ -180,7 +180,7 @@ module.exports = {
       open: false
     }),
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
+      maxChunks: 2
     })
   ]
 }
