@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlPlugin = require('html-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
@@ -131,6 +132,11 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': dotenv.parsed
     }),
+    new HtmlPlugin({
+      filename: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`),
+      template: path.resolve(__dirname, 'wordpress/config/sprite.ejs'),
+      inject: false
+    }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
@@ -169,7 +175,7 @@ module.exports = {
       plainSprite: true
     }),
     new BrowserSyncPlugin({
-      files: '**/*',
+      files: ['src/**/*', 'wordpress/**/*'],
       proxy: process.env.THEME_URL,
       open: false
     }),
