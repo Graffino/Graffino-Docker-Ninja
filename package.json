@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
     "wp": "node bin/sync-uploads --no-confirm && webpack --progress --watch --config webpack.wordpress.js",
-    "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads.js --no-confirm && node bin/clean-wp.js",
+    "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads.js --no-confirm && node bin/clean-wp.js && node bin/db-migrate.js",
     "wp-migrate": "node bin/db-migrate.js",
     "wp-dump": "node bin/db-dump.js",
     "wp-update": "composer update && node bin/sync-uploads.js --no-confirm",
