@@ -25,7 +25,7 @@ const bump = type => {
 
     const cmd = [
       'git add package.json',
-      `git commit -m "v${bumpVersion}"`
+      `git commit -m "Bumping to: v${bumpVersion}"`
     ].join(' && ')
 
     exec(cmd, {
