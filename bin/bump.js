@@ -7,6 +7,9 @@ var exec = require('child_process').exec
 var pkgPath = path.join(__dirname, '..', 'package.json')
 const pkg = require(pkgPath)
 
+// Bump type
+let bumpType = process.argv[2]
+
 const bump = type => {
   const bumpVersion = semver.inc(pkg.version, type)
 
@@ -40,4 +43,10 @@ const bump = type => {
   }
 }
 
-bump(process.argv[3])
+if (bumpType) {
+  bumpType = bumpType.replace('--', '')
+} else {
+  bumpType = 'patch'
+}
+
+bump(bumpType)

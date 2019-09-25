@@ -5,51 +5,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Class Autoloader
+ * Module Autoloader
  *
- * @since annotext 2.0.0
+ * @package annotext
  */
-class Autoloader {
+class NWP_ModuleAutoLoader {
 	/** @var bool DEBUG Enable debug */
 	const DEBUG = false;
 	/** @var string $autoload_extension File extension */
-	protected static $autoload_extension = '.php';
+	protected static $autoload_extension = 'php';
 	/** @var object $auth Auth object */
 	protected static $autoload_path = __DIR__;
-	/** @var object $file_iterator A placeholder to hold the file iterator so that directory traversal is only performed once. */
-	protected static $file_iterator = null;
 
 	/**
 	 * Autoload function for registration with spl_autoload_register
-	 *
 	 * Looks recursively through project directory and loads class files based on
 	 * filename match.
 	 *
-	 * @param string $class_name
+	 * @uses FilesystemIterator::__construct()
+	 * @return mixed None or $error
 	 */
-	public static function loader( $class_name ) {
-		if ( is_null( static::$file_iterator ) ) {
-			static::$file_iterator = new RecursiveIteratorIterator(
-				new RecursiveDirectoryIterator(
-					static::$autoload_path,
-					RecursiveDirectoryIterator::SKIP_DOTS
-				),
-				RecursiveIteratorIterator::SELF_FIRST,
-				RecursiveIteratorIterator::CATCH_GET_CHILD
-			);
-		}
-		$filename = $class_name . static::$autoload_extension;
-		foreach ( static::$file_iterator as $file ) {
-			if ( strtolower( $file->getFilename() ) === strtolower( $filename ) ) {
-				if ( $file->isReadable() ) {
-					include_once $file->getPathname();
+	public static function loader() {
+		$autoload_path      = static::$autoload_path;
+		$autoload_extension = static::$autoload_extension;
+
+		$files = new \FilesystemIterator( $autoload_path, \FilesystemIterator::SKIP_DOTS );
+		try {
+			foreach ( $files as $file ) {
+				if ( $file->isFile() && $file->getExtension() == $autoload_extension ) {
+					include $file->getRealPath();
 				}
-				break;
 			}
+		} catch ( Exception $error ) {
+			return $error;
 		}
 	}
 
-	/**
+		/**
 	 * Sets the $autoload_extension property
 	 *
 	 * @param string $autoload_extension The file extension used for class files.  Default is "php".

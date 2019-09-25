@@ -1,0 +1,7 @@
+<% if (htmlWebpackPlugin.files.sprites) { %>
+  <div class="h-visually-hidden">
+  <% for (var spriteFileName in htmlWebpackPlugin.files.sprites) { %>
+    <%= htmlWebpackPlugin.files.sprites[spriteFileName] %>
+  <% } %>
+  </div>
+<% } %>

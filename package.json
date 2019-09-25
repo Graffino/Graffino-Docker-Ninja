@@ -1,16 +1,16 @@
 {
   "name": "ninja",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
     "wp": "node bin/sync-uploads --no-confirm && webpack --progress --watch --config webpack.wordpress.js",
-    "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads.js --no-confirm && node bin/clean-wp.js",
+    "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads.js --no-confirm && node bin/clean-wp.js && node bin/db-migrate.js",
     "wp-migrate": "node bin/db-migrate.js",
     "wp-dump": "node bin/db-dump.js",
-    "wp-update": "composer update && node bin/sync-uploads.js",
+    "wp-update": "composer update && node bin/sync-uploads.js --no-confirm",
     "wp-sync-uploads": "node bin/sync-uploads.js",
     "wp-clean-install-folder": "node bin/clean-wp.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,9 +20,7 @@
     "fix-style": "prettier-stylelint --write 'src/**/*.{css,scss}'",
     "composer-install": "composer install --prefer-dist && composer update",
     "deploy": "git fetch --all; git reset --hard origin/develop; yarn; yarn run build",
-    "bump-minor": "node bin/bump.js -- minor",
-    "bump-major": "node bin/bump.js -- major",
-    "bump-patch": "node bin/bump.js -- patch"
+    "bump": "node bin/bump.js"
   },
   "repository": "git@github.com:Graffino/ninja.git",
   "author": "team@graffino.com",

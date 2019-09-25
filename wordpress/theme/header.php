@@ -78,7 +78,7 @@
 			<!-- Header Logo -->
 			<div class="header__logo logo">
 			<a href="<?php echo site_url(); ?>" class="logo__anchor">
-				<img class="logo__image js-logo" src="<?php bloginfo( 'template_directory' ); ?>/images/svgs/logo.svg" alt="Logo of <?php bloginfo( 'name' ); ?>" width="200" height="30">
+				<img class="logo__image js-logo" src="<?php bloginfo( 'template_directory' ); ?>/images/logo.svg" alt="Logo of <?php bloginfo( 'name' ); ?>">
 			</a>
 			<?php edit_admin_link(); ?>
 			</div>
@@ -92,7 +92,7 @@
 					'theme_location' => 'primary-right',
 					'container'      => false,
 					'items_wrap'     => '%3$s',
-					'walker'         => new Main_Menu_Walker,
+					'walker'         => new NWP_Main_Menu_Walker,
 					'block'          => 'nav',
 				) );
 				?>

@@ -13037,11 +13037,6 @@ window-size@^0.2.0:
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
   integrity sha1-tDFbtCFKPXBY6+7okuE/ok2YsHU=
 
-wordpress-enqueue-chunks-webpack-plugin@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/wordpress-enqueue-chunks-webpack-plugin/-/wordpress-enqueue-chunks-webpack-plugin-0.2.1.tgz#d2e9826ee26a827db09c1b03960b1c1eb3ecab2f"
-  integrity sha512-I9J6EXGtBwNwQ5GOCEThxzk345cTspG1eD5PwFvrTI5KxmWhi/c2tL30XRf4UXPCUw5LFkuW4E7/Tw4XSnbMvA==
-
 wordwrap@~0.0.2:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
