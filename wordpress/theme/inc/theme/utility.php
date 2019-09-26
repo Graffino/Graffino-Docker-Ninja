@@ -28,6 +28,6 @@ function is_debug() {
 // Enqueue theme assets
 function enqueue_theme_assets() {
 	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css', array(), CACHE_BUSTING );
-	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), CACHE_BUSTING );
+	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), CACHE_BUSTING, true );
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_assets' );
