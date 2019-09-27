@@ -38,7 +38,7 @@ module.exports = merge(common, {
       }]
     }),
     new CompressionPlugin({
-      test: /\.(php|html|css|js)(\?.*)?$/i
+      test: /\.(html|css|js)(\?.*)?$/i
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
