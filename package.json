@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.dev.js --env.NODE_ENV=development",
     "build": "webpack --config webpack.prod.js",
-    "wp": "node bin/sync-uploads --no-confirm && webpack --progress --watch --config webpack.wordpress.js",
+    "wp": "yarn wp-dev",
+    "wp-dev": "node bin/sync-uploads --no-confirm && webpack --progress --watch --config webpack.wordpress.js",
     "wp-setup": "yarn && composer install --prefer-dist && composer update && node bin/db-init.js && node bin/sync-uploads.js --no-confirm && node bin/clean-wp.js && node bin/db-migrate.js",
     "wp-build": "yarn && composer install --prefer-dist && composer update && node bin/sync-uploads --no-confirm && node bin/db-dump.js && webpack --config webpack.wordpress.prod.js",
     "wp-migrate": "node bin/db-migrate.js",
@@ -53,7 +54,6 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "favicons-webpack-plugin": "^1.0.2",
     "file-loader": "^4.2.0",
     "fs": "^0.0.2",
     "fs-extra": "^8.1.0",

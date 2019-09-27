@@ -8,7 +8,6 @@ const TerserPlugin = require('terser-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -53,17 +52,6 @@ module.exports = merge(common, {
       plugins: [imageminMozjpeg({
         quality: '75'
       })]
-    }),
-    new FaviconsWebpackPlugin({
-      logo: path.resolve(__dirname, 'src/favicon.svg'),
-      icons: {
-        twitter: true,
-        windows: true
-      },
-      cache: true,
-      inject: true,
-      background: '#fff',
-      title: 'Ninja Wordpress Theme'
     })
   ]
 })
