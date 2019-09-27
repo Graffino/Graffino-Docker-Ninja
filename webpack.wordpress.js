@@ -177,7 +177,7 @@ module.exports = {
       plainSprite: true
     }),
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 2
+      maxChunks: 1
     })
   ]
 }
