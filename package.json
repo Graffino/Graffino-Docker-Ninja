@@ -38,7 +38,6 @@
     "babel-polyfill": "^6.26.0",
     "browserlist": "^1.0.1",
     "clean-webpack-plugin": "^3.0.0",
-    "compression-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.4",
     "cpy": "^7.3.0",
     "css-loader": "^3.2.0",

@@ -7,7 +7,6 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
 
@@ -110,9 +109,6 @@ module.exports = merge(common, {
         extensions: ['handlebars', 'html', 'js', 'php', 'vue'],
         whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/]
       }]
-    }),
-    new CompressionPlugin({
-      test: /\.(html|css|js)(\?.*)?$/i
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
