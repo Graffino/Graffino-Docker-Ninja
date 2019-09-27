@@ -111,9 +111,9 @@ function remove_menus() {
 	// Add plugins
 	if ( $simple_admin && ! $simple_plugins ) {
 		$plugins = __( 'Plugins' );
-		$search  = array_search( $plugins, $restricted );
+		$key     = array_search( $plugins, $restricted );
 
-		if ( ( $key == $search ) !== false ) {
+		if ( false !== $key ) {
 			unset( $restricted[ $key ] );
 		}
 	}

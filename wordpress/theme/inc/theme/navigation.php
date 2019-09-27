@@ -68,3 +68,6 @@ function current_type_nav_class( $classes, $item ) {
 
 	return $classes;
 }
+
+// Initialize custom post archives links to navigation
+NWP_Custom_Post_Type_Archive_Menu_Links::init();

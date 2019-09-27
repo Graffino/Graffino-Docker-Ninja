@@ -5,7 +5,6 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
@@ -19,7 +18,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
     filename: 'js/main.js',
-    publicPath: '/'
+    publicPath: '../'
   },
   module: {
     rules: [
@@ -54,7 +53,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              config: {
+                path: path.join(__dirname, '/postcss.config.js')
+              }
             }
           },
           {
@@ -103,7 +105,7 @@ module.exports = {
           options: {
             name: '[name].[ext]',
             outputPath: 'images/',
-            publicPath: '/images/'
+            publicPath: '../images/'
           }
         },
         {
@@ -173,11 +175,6 @@ module.exports = {
     }),
     new SpriteLoaderPlugin({
       plainSprite: true
-    }),
-    new BrowserSyncPlugin({
-      files: ['src/**/*', 'wordpress/**/*'],
-      proxy: process.env.THEME_URL,
-      open: false
     }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 2
