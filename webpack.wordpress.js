@@ -53,7 +53,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              config: {
+                path: path.join(__dirname, '/postcss.config.js')
+              }
             }
           },
           {
