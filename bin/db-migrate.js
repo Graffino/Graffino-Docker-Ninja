@@ -100,9 +100,13 @@ const terminate = () => {
 // Start async
 async function start () {
   // Implement confirmation
-  const confirmation = await yesno({
-    question: `WARNING: Migration file "${Migration}.zip" will overwrite your database! Are you sure you want to continue?\n`
-  })
+  let confirmation = true
+
+  if (process.argv[2] !== '--no-confirm') {
+    confirmation = await yesno({
+      question: `WARNING: Migration file "${Migration}.zip" will overwrite your database! Are you sure you want to continue?\n`
+    })
+  }
 
   // If yes
   if (confirmation) {
