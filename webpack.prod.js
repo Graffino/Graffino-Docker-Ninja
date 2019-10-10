@@ -94,7 +94,7 @@ module.exports = merge(common, {
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/style[contentHash].css',
-      chunkFilename: '[id].css'
+      chunkFilename: 'css/[id].css'
     }),
     new PurgecssPlugin({
       paths: glob.sync(
