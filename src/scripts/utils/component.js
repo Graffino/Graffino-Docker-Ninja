@@ -1,4 +1,5 @@
 'use strict'
+import { dom } from './globals.js'
 
 class Component {
   constructor (props) {
@@ -16,9 +17,11 @@ class Component {
     this.onResize = this.onResize.bind(this)
     this.onScroll = this.onScroll.bind(this)
 
-    window.addEventListener('load', () => this.init())
-    window.addEventListener('scroll', () => this.onScroll())
-    window.addEventListener('resize', () => this.onResize())
+    dom.window.addEventListener('load', () => {
+      this.init()
+      dom.window.addEventListener('scroll', () => this.onScroll())
+      dom.window.addEventListener('resize', () => this.onResize())
+    })
   }
 
   setState (props) {

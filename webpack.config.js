@@ -52,7 +52,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[ext]',
-          outputPath: 'fonts'
+          outputPath: './'
         }
       }]
     },
@@ -145,8 +145,8 @@ module.exports = {
       template: './src/views/404.handlebars'
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? 'css/[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? 'css/[id].css' : '[id].[hash].css'
+      filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
+      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css'
     }),
     new StyleLintPlugin(),
     new SpriteLoaderPlugin({
