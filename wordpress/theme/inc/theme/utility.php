@@ -22,12 +22,15 @@ function convert_array_to_list( $var ) {
 
 // Check if debug mode is on
 function is_debug() {
-	return WP_DEBUG === true;
+	return WP_DEBUG == true;
 }
 
 // Enqueue theme assets
 function enqueue_theme_assets() {
 	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css', array(), CACHE_BUSTING );
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), CACHE_BUSTING, true );
+	if ( is_debug() ) {
+		wp_enqueue_script( 'browser-sync-client', ':3000/browser-sync/browser-sync-client.js', array(), CACHE_BUSTING, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_assets' );

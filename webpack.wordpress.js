@@ -184,7 +184,11 @@ module.exports = {
     new BrowserSyncPlugin({
       files: ['src/**/*', 'wordpress/**/*'],
       proxy: process.env.THEME_URL,
-      open: false
+      open: false,
+      https: {
+        cert: 'certs/cert.pem',
+        key: 'certs/privkey.pem'
+      }
     }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
