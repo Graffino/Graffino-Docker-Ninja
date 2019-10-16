@@ -14,7 +14,7 @@
       "type": "package",
       "package": {
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.8.4",
+        "version": "5.8.5",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
