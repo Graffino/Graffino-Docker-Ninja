@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
@@ -179,6 +180,11 @@ module.exports = {
     }),
     new SpriteLoaderPlugin({
       plainSprite: true
+    }),
+    new BrowserSyncPlugin({
+      files: ['src/**/*', 'wordpress/**/*'],
+      proxy: process.env.THEME_URL,
+      open: false
     }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
