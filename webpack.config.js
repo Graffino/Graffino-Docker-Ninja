@@ -124,7 +124,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      // TODO: Temp fix until next version of CopyPlugin to prevent conflicts
+      // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
+      cleanStaleWebpackAssets: false
+    }),
     new CopyPlugin([{
       from: 'src/static',
       to: ''
