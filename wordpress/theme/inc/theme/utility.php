@@ -22,7 +22,7 @@ function convert_array_to_list( $var ) {
 
 // Check if debug mode is on
 function is_debug() {
-	return WP_DEBUG == true;
+	return ( WP_DEBUG == true ? true : false );
 }
 
 // Enqueue theme assets
