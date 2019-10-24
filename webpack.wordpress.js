@@ -21,6 +21,15 @@ module.exports = {
     filename: 'js/main.js',
     publicPath: '../'
   },
+  watchOptions: {
+    ignored: [
+      'node_modules',
+      'dist',
+      'dist-wp',
+      'composer',
+      'cache'
+    ]
+  },
   module: {
     rules: [
       {
@@ -184,12 +193,19 @@ module.exports = {
       plainSprite: true
     }),
     new BrowserSyncPlugin({
-      files: ['src/**/*', 'wordpress/**/*'],
+      files: ['dist/**/*.css', 'dist/**/*.js', 'dist-wp/wp-content/themes/**/*.css', 'dist-wp/wp-content/themes/**/*.js', 'wordpress/**/*.php'],
+      ignore: 'sprite.php',
       proxy: process.env.THEME_URL,
       open: false,
       https: {
         cert: 'certs/cert.pem',
         key: 'certs/privkey.pem'
+      },
+      injectCss: true,
+      watchOptions: {
+        ignored: [
+          'sprite.php'
+        ]
       }
     }),
     new webpack.optimize.LimitChunkCountPlugin({

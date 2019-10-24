@@ -16,6 +16,15 @@ module.exports = {
     main: path.resolve(__dirname, 'src/scripts/index.js'),
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
+  watchOptions: {
+    ignored: [
+      'node_modules',
+      'dist',
+      'dist-wp',
+      'composer',
+      'cache'
+    ]
+  },
   module: {
     rules: [{
       test: /\.(handlebars|hbs)$/,
