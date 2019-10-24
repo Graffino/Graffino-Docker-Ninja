@@ -19,6 +19,7 @@ module.exports = {
   module: {
     rules: [{
       test: /\.(handlebars|hbs)$/,
+      include: path.resolve(__dirname, 'src/views/'),
       use: [{
         loader: 'handlebars-loader',
         options: {
@@ -47,7 +48,7 @@ module.exports = {
     },
     {
       test: /\.(woff|woff2)$/,
-      exclude: path.resolve(__dirname, 'src/icons/'),
+      include: path.resolve(__dirname, 'src/fonts/'),
       use: [{
         loader: 'file-loader',
         options: {
@@ -58,7 +59,7 @@ module.exports = {
     },
     {
       test: /\.js$/,
-      exclude: /(node_modules)/,
+      include: path.resolve(__dirname, 'src/scripts/'),
       use: [{
         loader: 'babel-loader',
         options: {
@@ -91,7 +92,7 @@ module.exports = {
     },
     {
       test: /\.(png|svg|jpe?g|gif)$/,
-      exclude: path.resolve(__dirname, 'src/icons/'),
+      include: path.resolve(__dirname, 'src/images/'),
       use: [{
         loader: 'file-loader',
         options: {

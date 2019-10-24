@@ -25,7 +25,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        include: path.resolve(__dirname, 'src/scripts/'),
         use: [{
           loader: 'babel-loader',
           options: {
@@ -37,6 +37,7 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        include: path.resolve(__dirname, 'src/styles/'),
         use: [
           'style-loader',
           {
@@ -70,6 +71,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2)$/,
+        include: path.resolve(__dirname, 'src/fonts/'),
         use: [{
           loader: 'file-loader',
           options: {
@@ -100,7 +102,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
-        exclude: path.resolve(__dirname, 'src/icons/'),
+        include: path.resolve(__dirname, 'src/images/'),
         use: [{
           loader: 'file-loader',
           options: {

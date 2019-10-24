@@ -5,8 +5,6 @@ const common = require('./webpack.wordpress.js')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const ImageminPlugin = require('imagemin-webpack-plugin').default
-const imageminMozjpeg = require('imagemin-mozjpeg')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -35,19 +33,6 @@ module.exports = merge(common, {
         extensions: ['handlebars', 'html', 'js', 'php', 'vue'],
         whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/]
       }]
-    }),
-    new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      cacheFolder: './cache/img',
-      gifsicle: {
-        optimizationLevel: 9
-      },
-      pngquant: ({
-        quality: '65-90'
-      }),
-      plugins: [imageminMozjpeg({
-        quality: '75'
-      })]
     })
   ]
 })

@@ -17,6 +17,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.html$/,
+        include: path.resolve(__dirname, 'src/views/'),
         use: [{
           loader: 'html-loader',
           options: {
@@ -26,6 +27,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        include: path.resolve(__dirname, 'src/styles/'),
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -117,7 +119,7 @@ module.exports = merge(common, {
         optimizationLevel: 9
       },
       pngquant: ({
-        quality: [0.65, 0.90]
+        quality: '65-90'
       }),
       plugins: [imageminMozjpeg({
         quality: '75'

@@ -25,6 +25,7 @@ module.exports = merge(common, {
   module: {
     rules: [{
       test: /\.(sa|sc|c)ss$/,
+      include: path.resolve(__dirname, 'src/styles/'),
       use: [
         'style-loader',
         {
@@ -60,7 +61,7 @@ module.exports = merge(common, {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name][contentHash:8].js',
+    filename: 'js/[name][hash].js',
     publicPath: '/'
   }
 })
