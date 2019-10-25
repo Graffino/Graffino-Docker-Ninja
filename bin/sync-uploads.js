@@ -8,7 +8,7 @@ const cpy = require('cpy')
 const copy = async () => {
   console.log('(1) Syncing files...')
 
-  await cpy(['**'],
+  await cpy(['**/*'],
     path.resolve(__dirname, '../dist-wp/wp-content/uploads/'),
     {
       cwd: path.resolve(__dirname, '../wordpress/uploads/'),

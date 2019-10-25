@@ -1,5 +1,5 @@
 const path = require('path')
-const glob = require('glob')
+const glob = require('glob-all')
 const merge = require('webpack-merge')
 const common = require('./webpack.wordpress.js')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -23,9 +23,13 @@ module.exports = merge(common, {
   },
   plugins: [
     new PurgecssPlugin({
-      paths: glob.sync(
+      paths: glob.sync([
+        path.join(__dirname, './src/**/*.html'),
+        path.join(__dirname, './src/**/*.handlebars'),
+        path.join(__dirname, './src/**/*.js'),
+        path.join(__dirname, './src/**/*.vue'),
         path.join(__dirname, './wordpress/**/*.php')
-      ),
+      ], { nodir: true }),
       extractors: [{
         extractor: class {
           static extract (content) {
@@ -37,8 +41,7 @@ module.exports = merge(common, {
       }]
     }),
     new ImageminPlugin({
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      include: path.resolve(__dirname, 'src/images/'),
+      test: './src/**/*',
       cacheFolder: './cache/img',
       gifsicle: {
         optimizationLevel: 9
