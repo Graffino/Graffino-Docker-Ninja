@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ruleset name="Flyeralarm Standard">
+
+ <!--
+    The name attribute of the ruleset tag is displayed
+    when running PHP_CodeSniffer with the -v command line
+    argument. The description tag below is not displayed anywhere
+    except in this file, so it can contain information for
+    developers who may change this file in the future.
+ -->
+ <description>Flyeralarm coding standard</description>
+
+ <!--
+    Include all sniffs in the PSR2 standard except the following. Note that
+    the name of the sniff being excluded is the code that the sniff
+    is given by PHP_CodeSniffer and is based on the file name and
+    path of the sniff class. You can display these codes using the
+    -s command line argument when checking a file.
+ -->
+ <rule ref="PSR2">
+     <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+     <exclude name="Squiz.Classes.ValidClassName"/>
+     <exclude name="PSR2.Methods.FunctionCallSignature.Indent" />
+ </rule>
+
+ <rule ref="Generic.Files.LineLength">
+     <properties>
+         <property name="lineLimit" value="120"/>
+         <property name="absoluteLineLimit" value="130"/>
+     </properties>
+ </rule>
+
+</ruleset>
