@@ -17,7 +17,7 @@
     path of the sniff class. You can display these codes using the
     -s command line argument when checking a file.
  -->
- <rule ref="WordpressCore"></rule>
+ <rule ref="WordPress-Core"></rule>
 
  <rule ref="Generic.Files.LineLength">
      <properties>
