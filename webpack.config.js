@@ -67,6 +67,10 @@ module.exports = {
       }]
     },
     {
+      test: /masonry-layout/,
+      loader: 'imports?define=>false&this=>window'
+    },
+    {
       test: /\.js$/,
       include: path.resolve(__dirname, 'src/scripts/'),
       use: [{
