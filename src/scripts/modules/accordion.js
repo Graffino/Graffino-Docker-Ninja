@@ -1,5 +1,5 @@
-import Component from '../utils/component.js'
-import { stateClass, dom } from '../utils/globals.js'
+import Component from '../utils/component'
+import { stateClass, dom } from '../utils/globals'
 
 export default class Accordion extends Component {
   constructor (props) {
@@ -9,8 +9,8 @@ export default class Accordion extends Component {
 
   init () {
     const { element } = this.state
-    element.addEventListener('click', function (e) {
-      if (!element.classList.contains(stateClass.open)) {
+    element.addEventListener('click', e => {
+      if (!Array.from(element.classList).includes(stateClass.open)) {
         element.classList.add(stateClass.open)
       } else {
         element.classList.remove(stateClass.open)
@@ -18,8 +18,12 @@ export default class Accordion extends Component {
     })
 
     dom.window.addEventListener('click', e => {
-      if (element !== undefined) {
-        if (!element.contains(e.target)) {
+      const check = dom.document.getElementsByClassName('js-sidebar-menu')
+
+      if (check.length > 0) {
+        if (
+          !dom.document.getElementsByClassName('js-sidebar-menu')[0].contains(e.target)
+        ) {
           element.classList.remove(stateClass.open)
         }
       }

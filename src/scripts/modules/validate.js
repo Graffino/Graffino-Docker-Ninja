@@ -1,4 +1,4 @@
-import Component from '../utils/component.js'
+import Component from '../utils/component'
 import Pristine from 'pristinejs'
 
 export default class Validate extends Component {

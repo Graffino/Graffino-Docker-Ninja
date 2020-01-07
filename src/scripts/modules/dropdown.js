@@ -1,5 +1,5 @@
-import Component from '../utils/component.js'
-import { dom } from '../utils/globals.js'
+import Component from '../utils/component'
+import { dom } from '../utils/globals'
 
 export default class Dropdown extends Component {
   constructor (props) {
