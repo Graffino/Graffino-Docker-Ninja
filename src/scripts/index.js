@@ -5,8 +5,9 @@ import loadPolyfills from 'polyfill-io-loader!?Promise,NodeList.prototype.forEac
 import requireAll from './utils/require-all'
 import autoInitComponents from './utils/auto-init-components'
 
-requireAll(require.context('../images/', true, /\.(png|svg|jpe?g|gif)$/))
 requireAll(require.context('../icons/', true, /\.svg$/))
+requireAll(require.context('../images/', true, /\.(png|svg|jpe?g|gif)$/))
+requireAll(require.context('../media/', true, /\.[^.]+$/))
 
 document.addEventListener('DOMContentLoaded', () => {
   loadPolyfills(() => {
