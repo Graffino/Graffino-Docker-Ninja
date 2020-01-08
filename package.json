@@ -78,6 +78,7 @@
     "normalize.css": "^8.0.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "path": "^0.12.7",
+    "polyfill-io-loader": "https://github.com/Graffino/polyfill-io-loader",
     "postcss-loader": "^3.0.0",
     "postcss-sorting": "^5.0.1",
     "preload-webpack-plugin": "3.0.0-beta.4",
