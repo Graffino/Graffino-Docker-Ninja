@@ -107,6 +107,7 @@
     "terser-webpack-plugin": "^2.2.1",
     "typi": "^3.2.0",
     "unzipper": "^0.10.5",
+    "video.js": "^7.6.6",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
