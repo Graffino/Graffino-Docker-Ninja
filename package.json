@@ -120,7 +120,7 @@
     "countup.js": "^2.0.4",
     "jump.js": "^1.0.2",
     "micromodal": "^0.4.2",
-    "swiper": "^5.2.0",
+    "swiper": "^5.2.1",
     "vanilla-lazyload": "^12.2.0"
   }
 }
