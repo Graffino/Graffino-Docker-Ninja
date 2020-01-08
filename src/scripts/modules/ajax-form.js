@@ -1,5 +1,5 @@
 import Component from '../utils/component'
-import { stateClass, dom } from '../utils/globals'
+import { stateClass } from '../utils/globals'
 import axios from 'axios'
 
 export default class AjaxForm extends Component {
