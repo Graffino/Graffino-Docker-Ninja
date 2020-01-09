@@ -52,7 +52,8 @@ export default class Header extends Component {
         element.style.top =
           ((elTop = wScrollCurrent + wHeight - dHeight) < 0 ? elTop : 0) + 'px'
       } else {
-        element.style.top = (Math.abs(elTop) > elHeight ? -elHeight : elTop) + 'px'
+        element.style.top =
+          (Math.abs(elTop) > elHeight ? -elHeight : elTop) + 'px'
       }
     }
 
