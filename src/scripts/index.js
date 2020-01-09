@@ -7,7 +7,6 @@ import autoInitComponents from './utils/auto-init-components'
 
 requireAll(require.context('../icons/', true, /\.svg$/))
 requireAll(require.context('../images/', true, /\.(png|svg|jpe?g|gif)$/))
-requireAll(require.context('../media/', true, /\.[^.]+$/))
 
 document.addEventListener('DOMContentLoaded', () => {
   loadPolyfills(() => {
