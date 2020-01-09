@@ -1,6 +1,5 @@
-import Component from '../utils/component.js'
-import { loadScript } from '../utils/helper-functions.js'
-import { dom } from '../utils/globals.js'
+import Component from '../utils/component'
+import { loadScript } from '../utils/helpers'
 
 export default class Recaptcha extends Component {
   constructor (props) {
@@ -11,8 +10,8 @@ export default class Recaptcha extends Component {
   init () {
     var recaptchaApi = this.state.element.dataset.recaptcha
     window.recaptchaCode = {}
+    // eslint-disable-next-line no-undef
     recaptchaCode.code = recaptchaApi
-    loadScript(`https://www.google.com/recaptcha/api.js?render=${recaptchaApi}`, function () {
-    })
+    loadScript(`https://www.google.com/recaptcha/api.js?render=${recaptchaApi}`, function () {})
   }
 }

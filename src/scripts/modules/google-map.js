@@ -1,6 +1,5 @@
-import Component from '../utils/component.js'
-import { loadScript } from '../utils/helper-functions.js'
-import { dom } from '../utils/globals.js'
+import Component from '../utils/component'
+import { loadScript } from '../utils/helpers'
 
 export default class GoogleMap extends Component {
   constructor (props) {
@@ -15,6 +14,7 @@ export default class GoogleMap extends Component {
     const apiKey = element.dataset.apikey
 
     loadScript(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`, function () {
+      // eslint-disable-next-line no-undef
       const map = new google.maps.Map(element, {
         allowZoom: false,
         scrollwheel: false,
@@ -31,7 +31,8 @@ export default class GoogleMap extends Component {
           lng: parseFloat(element.dataset.lng)
         }
       })
+      // eslint-disable-next-line no-undef
       directionsRenderer.setMap(map)
-    }
+    })
   }
 }
