@@ -70,7 +70,6 @@ export default class Module extends Component {
       }
 
       if (model) {
-        console.log(model)
         const rot = time
         model.rotation.x = rot
         model.rotation.y = rot * 1.5
