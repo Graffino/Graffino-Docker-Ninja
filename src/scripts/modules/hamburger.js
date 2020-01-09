@@ -29,9 +29,7 @@ export default class Hamburger extends Component {
       // Listen for tap
       if (item.classList.contains('js-double-tap')) {
         // Prevent first tap
-        if (item.innerText !== 'Contact') {
-          this.doubleTap(e)
-        }
+        this.doubleTap(e)
       }
 
       // Listen for menu class
