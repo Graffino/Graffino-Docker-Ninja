@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Main menu mobile walker
  */
-class Main_Menu_Mobile_Walker extends Walker_Nav_Menu {
+class NWP_Main_Menu_Mobile_Walker extends Walker_Nav_Menu {
 
 	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$block   = isset( $args->block ) ? $args->block : explode( ' ', $args->menu_class );

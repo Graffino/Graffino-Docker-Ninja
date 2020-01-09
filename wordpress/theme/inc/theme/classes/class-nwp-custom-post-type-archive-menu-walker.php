@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Custom post type archive menu walker
  */
-class Custom_Post_Type_Archive_Menu_Walker {
+class NWP_Custom_Post_Type_Archive_Menu_Walker {
 	public static function init() {
 		// Set-up Action and Filter Hooks
 		add_action( 'admin_head-nav-menus.php', array( __CLASS__, 'inject_cpt_archives_menu_meta_box' ) );

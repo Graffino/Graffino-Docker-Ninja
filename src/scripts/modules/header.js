@@ -1,4 +1,4 @@
-import Component from '../utils/component.js'
+import Component from '../utils/component'
 
 export default class Header extends Component {
   constructor (props) {

@@ -1,7 +1,7 @@
 // Require modules
 const fs = require('fs')
 const path = require('path')
-const unzipper = require('unzipper');
+const unzipper = require('unzipper')
 const yesno = require('yesno')
 const mariadb = require('mariadb')
 
@@ -17,12 +17,12 @@ const Migration = process.env.DB_MIGRATION
 const app = process
 
 // Path to migration
-const MigrationFile = path.join(__dirname, `../migrations/${process.env.DB_MIGRATION}.sql`);
+const MigrationFile = path.join(__dirname, `../wordpress/migrations/${process.env.DB_MIGRATION}.sql`)
 
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
-  console.log('Configuration values not set. Please edit your .env file!\n')
-  terminate();
+  console.log('Database configuration values not set. Please edit your .env file!\n')
+  app.exit()
 }
 
 // Unarchive zip file
@@ -32,24 +32,24 @@ const unarchive = async () => {
   // Read zip file
   fs.createReadStream(`${MigrationFile}.zip`)
     // Parse zip file
-   .pipe(unzipper.Parse())
-      .on('entry', function (entry) {
-        // Get entry type
-        const name = entry.path
-        // If it's a file
-        if (name.includes('sql') && ! name.includes('__')) {
-          // Unzip it and save it
-          entry.pipe(fs.createWriteStream(`${MigrationFile}`));
-        } else {
-          // Throw it away
-          entry.autodrain();
-        }
-      })
-      .promise()
-      .then( () => {
-        migrate()
-        console.log(`(2) Migration "${Migration}" file unzipped ...`)
-      })
+    .pipe(unzipper.Parse())
+    .on('entry', function (entry) {
+      // Get entry type
+      const name = entry.path
+      // If it's a file
+      if (name.includes('sql') && !name.includes('__')) {
+        // Unzip it and save it
+        entry.pipe(fs.createWriteStream(`${MigrationFile}`))
+      } else {
+        // Throw it away
+        entry.autodrain()
+      }
+    })
+    .promise()
+    .then(() => {
+      migrate()
+      console.log(`(2) Migration "${Migration}" file unzipped ...`)
+    })
 }
 
 // Load db file async
@@ -72,7 +72,7 @@ const migrate = async () => {
         `${MigrationFile}`, {
           encoding: 'UTF-8'
         }
-      );
+      )
 
       connection.query(query)
         .then(() => {
@@ -90,7 +90,7 @@ const migrate = async () => {
 
 // Terminate app
 const terminate = () => {
-  console.log(`Temporary files deleted.`)
+  console.log('Temporary files deleted.')
   // Delete remaining sql file
   fs.unlink(`${MigrationFile}`, () => {})
   // Exit app
@@ -98,11 +98,15 @@ const terminate = () => {
 }
 
 // Start async
-async function start() {
+async function start () {
   // Implement confirmation
-  const confirmation = await yesno({
-    question: `WARNING: Migration file "${Migration}.zip" will overwrite your database! Are you sure you want to continue?\n`
-  });
+  let confirmation = true
+
+  if (process.argv[2] !== '--no-confirm') {
+    confirmation = await yesno({
+      question: `WARNING: Migration file "${Migration}.zip" will overwrite your database! Are you sure you want to continue?\n`
+    })
+  }
 
   // If yes
   if (confirmation) {

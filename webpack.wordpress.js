@@ -1,12 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlPlugin = require('html-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
-  path: __dirname + '/.env'
+  path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
 
 module.exports = {
@@ -15,28 +16,43 @@ module.exports = {
     main: path.resolve(__dirname, 'src/scripts/index.js'),
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
+  output: {
+    path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+    filename: 'js/main.js',
+    publicPath: '../'
+  },
+  watchOptions: {
+    ignored: [
+      'node_modules',
+      'dist',
+      'dist-wp',
+      'composer',
+      'cache'
+    ]
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        include: path.resolve(__dirname, 'src/scripts/'),
         use: [{
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          },
-          'eslint-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
+        'eslint-loader'
         ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
+        include: path.resolve(__dirname, 'src/styles/'),
         use: [
           'style-loader',
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development',
+              hmr: process.env.NODE_ENV === 'development'
             }
           },
           {
@@ -48,7 +64,10 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true
+              sourceMap: true,
+              config: {
+                path: path.join(__dirname, '/postcss.config.js')
+              }
             }
           },
           {
@@ -60,13 +79,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.(ttf|eot|woff|woff2)$/,
-        exclude: path.resolve(__dirname, 'src/icons/'),
+        test: /\.(woff|woff2)$/,
+        include: path.resolve(__dirname, 'src/fonts/'),
         use: [{
           loader: 'file-loader',
           options: {
             name: 'fonts/[name].[ext]',
-            outputPath: 'fonts'
+            publicPath: '../'
           }
         }]
       },
@@ -74,70 +93,81 @@ module.exports = {
         test: /\.svg$/,
         include: path.resolve(__dirname, 'src/icons/'),
         use: [{
-            loader: 'svg-sprite-loader',
-            options: {
-              extract: true
-            }
-          },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [{
-                removeAttrs: {
-                  attrs: '*:(stroke|fill):((?!^none$).)*'
-                }
-              }]
-            }
+          loader: 'svg-sprite-loader',
+          options: {
+            extract: true
           }
-        ]
+        },
+        {
+          loader: 'svgo-loader',
+          options: {
+            plugins: [{
+              removeAttrs: {
+                attrs: '*:(stroke|fill):((?!^none$).)*'
+              }
+            }]
+          }
+        }]
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
-        exclude: path.resolve(__dirname, 'src/icons/'),
+        include: path.resolve(__dirname, 'src/images/'),
         use: [{
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: '/images/'
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              optipng: {
-                enabled: true
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false
-              }
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/',
+            publicPath: '../images/'
+          }
+        },
+        {
+          loader: 'image-webpack-loader',
+          options: {
+            mozjpeg: {
+              progressive: true,
+              quality: 65
+            },
+            optipng: {
+              enabled: true
+            },
+            pngquant: {
+              quality: [0.65, 0.90],
+              speed: 4
+            },
+            gifsicle: {
+              interlaced: false
             }
           }
-        ]
+        }]
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": dotenv.parsed
+      'process.env': dotenv.parsed
+    }),
+    new HtmlPlugin({
+      filename: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`),
+      template: path.resolve(__dirname, 'wordpress/config/sprite.ejs'),
+      inject: false
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [`wp-content/themes/${process.env.THEME_NAME}/**/*', '!wp-content/uploads/**/*`]
+      // TODO: Temp fix until next version of CopyPlugin to prevent conflicts
+      // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
+      cleanStaleWebpackAssets: false
     }),
     new CopyPlugin([
       {
+        from: path.resolve(__dirname, 'src/static'),
+        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+        force: true
+      },
+      {
         from: path.resolve(__dirname, 'wordpress/theme'),
-        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`)
+        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+        force: true
       },
       {
         from: path.resolve(__dirname, 'wordpress/config/*.php'),
@@ -147,30 +177,39 @@ module.exports = {
       },
       {
         from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
-        to: path.resolve(__dirname, 'dist-wp/'),
+        to: path.resolve(__dirname, 'dist-wp/')
       },
       {
         from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
         to: path.resolve(__dirname, 'wordpress/uploads'),
         toType: 'dir',
         force: true
-      },
+      }
     ]),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
+      filename: 'css/main.css'
     }),
     new SpriteLoaderPlugin({
       plainSprite: true
     }),
     new BrowserSyncPlugin({
-      files: '**/*.php',
+      files: ['dist/**/*.css', 'dist/**/*.js', 'dist-wp/wp-content/themes/**/*.css', 'dist-wp/wp-content/themes/**/*.js', 'wordpress/**/*.php'],
+      ignore: 'sprite.php',
       proxy: process.env.THEME_URL,
-      open: false
+      open: false,
+      https: {
+        cert: 'certs/cert.pem',
+        key: 'certs/privkey.pem'
+      },
+      injectCss: true,
+      watchOptions: {
+        ignored: [
+          'sprite.php'
+        ]
+      }
+    }),
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
     })
-  ],
-  output: {
-    path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
-    filename: 'main.js',
-    publicPath: '/'
-  }
+  ]
 }

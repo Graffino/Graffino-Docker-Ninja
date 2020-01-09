@@ -2,6 +2,7 @@
   "plugins": [ "stylelint-order", "stylelint-scss", "stylelint-prettier", "stylelint-selector-bem-pattern"],
   "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier"],
   "rules": {
+    "scss/at-extend-no-missing-placeholder": null,
     "scss/selector-no-redundant-nesting-selector": null,
     "selector-max-compound-selectors": null,
     "max-nesting-depth": null,

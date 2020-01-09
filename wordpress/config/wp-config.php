@@ -87,6 +87,7 @@ $table_prefix = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define( 'WP_DEBUG', getenv( 'DEBUG' ) );
+define( 'CACHE_BUSTING', getenv( 'CACHE_BUSTING' ) );
 
 /* That's all, stop editing! Happy publishing. */
 

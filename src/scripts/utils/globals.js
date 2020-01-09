@@ -40,4 +40,4 @@ const ease = {
   easeOutBack: [0.175, 0.885, 0.32, 1.275]
 }
 
-export default { stateClass, breakpoints, ease, dom }
+export { stateClass, breakpoints, ease, dom }
