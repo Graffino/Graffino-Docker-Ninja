@@ -48,12 +48,14 @@ function remove_higher_levels( $all_roles ) {
 }
 
 // Disable user color selection
-add_action( 'admin_head', 'admin_del_options' );
+add_action( 'init', 'admin_del_options' );
 function admin_del_options() {
-	global $_wp_admin_css_colors, $simple_admin;
+	global $simple_admin;
 
 	if ( $simple_admin ) {
-		$_wp_admin_css_colors = 0;
+		if ( is_admin() ) {
+			remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+		}
 	}
 }
 
@@ -70,6 +72,7 @@ function remove_user_details() {
 	jQuery(document).ready(function(){
 		jQuery('#url').parents('tr').hide();
 		jQuery('#rich_editing').parents('tr').hide();
+		jQuery('#syntax_highlighting').parents('tr').hide();
 		jQuery('#admin_bar_front').parents('tr').hide();
 		jQuery('#comment_shortcuts').parents('tr').hide();
 		jQuery('#nickname').parents('tr').hide();
@@ -86,17 +89,6 @@ function remove_user_details() {
 	});
 </script>
 EOT;
-	}
-}
-
-// Disable AIM, Jabber, YIM, AMT profile fields
-add_filter( 'user_contactmethods', 'hide_profile_fields', 10, 1 );
-function hide_profile_fields( $contactmethods ) {
-	global $simple_admin;
-
-	if ( $simple_admin ) {
-		$contactmethods = array();
-		return $contactmethods;
 	}
 }
 
@@ -155,10 +147,8 @@ function remove_menus() {
 		// SEO by Yoast
 		remove_menu_page( 'wpseo_dashboard' );
 
-		//Custom Fields
+		// Custom Posts Types
 		if ( $simple_acf ) {
-			remove_menu_page( 'edit.php?post_type=acf-field-group' );
-			// Custom Posts Types
 			remove_menu_page( 'edit.php?post_type=cptm' );
 		}
 	}
@@ -167,6 +157,19 @@ function remove_menus() {
 		remove_submenu_page( 'index.php', 'update-core.php' );
 	}
 }
+
+// Remove acf according to simple admin
+add_action( 'acf/settings/show_admin', 'remove_acf', 999 );
+function remove_acf() {
+	global $simple_admin, $simple_acf;
+
+	if ( $simple_admin && $simple_acf ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
 
 // Remove menu bar links according to simple admin
 add_action( 'admin_bar_menu', 'remove_default_links', 500 );
@@ -221,13 +224,12 @@ function disable_dashboard_widgets() {
 // Add Maintenance Dashboard Widget
 add_action( 'wp_dashboard_setup', 'wp_support_dashboard' );
 function wp_support_dashboard() {
-	global $current_user;
-
 	if ( function_exists( 'get_field' ) ) {
 		$widget_title = get_field( 'dashboard_title', 'options' );
-		wp_add_dashboard_widget( 'wpse_wp_support_dashboard', $widget_title, 'wp_support_dashboard_content' );
+		wp_add_dashboard_widget( 'nwp_support_dashboard', $widget_title, 'wp_support_dashboard_content' );
 	}
 }
+
 function wp_support_dashboard_content() {
 	if ( function_exists( 'get_field' ) ) {
 		$widget_content = get_field( 'dashboard_content', 'options' );
