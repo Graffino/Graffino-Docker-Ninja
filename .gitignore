@@ -7,3 +7,6 @@
 /cache
 .DS_Store
 .env
+/certs/privkey.pem
+/certs/chain.pem
+/certs/cert.pem
