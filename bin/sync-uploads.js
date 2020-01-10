@@ -8,15 +8,19 @@ const cpy = require('cpy')
 const copy = async () => {
   console.log('(1) Syncing files...')
 
-  await cpy(['**/*'],
-    path.resolve(__dirname, '../dist-wp/wp-content/uploads/'),
-    {
-      cwd: path.resolve(__dirname, '../wordpress/uploads/'),
-      overwrite: false,
-      parents: true
-    }
-  )
-  console.log('(2) Files synced.')
+  try {
+    await cpy(['**/*'],
+      path.resolve(__dirname, '../dist-wp/wp-content/uploads/'),
+      {
+        cwd: path.resolve(__dirname, '../wordpress/uploads/'),
+        overwrite: false,
+        parents: true
+      }
+    )
+    console.log('(2) Files synced.')
+  } catch (e) {
+    console.log('(2) No files to sync.')
+  }
 }
 
 // Start async
