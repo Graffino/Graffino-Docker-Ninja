@@ -12,12 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Globalize variables for WP-CLI
 global $registry;
 
-// Global variables
-$graffinowp_dir_path  = get_template_directory();
-
 // Require Autoloaders
-require_once $graffinowp_dir_path . '/inc/theme/classes/class-nwp-class-autoloader.php';
-require_once $graffinowp_dir_path . '/inc/theme/classes/class-nwp-module-autoloader.php';
+
+
+// Require class autoloader
+require_once get_template_directory() . '/inc/theme/classes/class-nwp-class-autoloader.php';
+
+// Require file autoloader
+require_once get_template_directory() . '/inc/theme/classes/class-nwp-module-autoloader.php';
 
 // Autoload Classes
 $class_autoload_path = __DIR__ . '/inc/theme/classes/';
