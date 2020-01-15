@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "604988341c108422f35a0288e2047af3",
+    "content-hash": "878fe7a5e3cc3daceae7641aab8934da",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -788,6 +788,24 @@
                 "wordpress"
             ],
             "time": "2019-11-12T15:26:05+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/debug-bar",
+            "version": "1.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/debug-bar/",
+                "reference": "tags/1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/debug-bar.1.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/debug-bar/"
         },
         {
             "name": "wpackagist-plugin/safly-curl-patch",

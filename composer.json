@@ -95,8 +95,8 @@
     "wpml/wpml-string-translation": "^2.10",
     "wpml/wpml-media-translation": "^2.5",
     "wpml/acfml": "^1.4",
-    "wpackagist-plugin/safly-curl-patch": "^1.0",
-    "wp-cli/wp-cli": "^2.3"
+    "wp-cli/wp-cli": "^2.3",
+    "wpackagist-plugin/debug-bar": "^1.0"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
