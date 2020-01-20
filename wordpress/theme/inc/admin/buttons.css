@@ -7,7 +7,7 @@ Author: Graffino (http://www.graffino.com)
 
 
 @font-face {
-  font-family: 'admin';
+  font-family: 'nwp-admin';
   src: url('font/admin.eot?25922992');
   src: url('font/admin.eot?25922992#iefix') format('embedded-opentype'),
        url('font/admin.woff?25922992') format('woff'),
@@ -16,20 +16,9 @@ Author: Graffino (http://www.graffino.com)
   font-weight: normal;
   font-style: normal;
 }
-/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
-/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-/*
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'admin';
-    src: url('../font/admin.svg?25922992#admin') format('svg');
-  }
-}
-*/
-#wpadminbar{ display: none !important; }
 
- [class^="icon-adm"]:before, [class*=" icon-adm"]:before {
-  font-family: "admin";
+[class^="nwp-admin__icon"]:before, [class*=" nwp-admin__icon"]:before {
+  font-family: "nwp-admin";
   font-style: normal;
   font-weight: normal;
   cursor: pointer;
@@ -45,33 +34,20 @@ Author: Graffino (http://www.graffino.com)
 
   text-decoration: inherit;
   text-align: center;
-
-  /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-
-  /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-
   transition: 0.2s ease-in-out;
 }
 
-.icon-adm-panel:before { content: '\61'; } /* 'a' */
-.icon-adm-edit:before { content: '\65'; } /* 'e' */
-.icon-adm-edit-menu:before { content: '\6d'; } /* 'm' */
-.icon-adm-select:before { content: '\73'; } /* 's' */
+.nwp-admin__icon-panel:before { content: '\61'; } /* 'a' */
+.nwp-admin__icon-edit:before { content: '\65'; } /* 'e' */
+.nwp-admin__icon-edit-menu:before { content: '\6d'; } /* 'm' */
+.nwp-admin__icon-select:before { content: '\73'; } /* 's' */
 
-/* !Edit link */
-/* ==|========================================================================= */
-.quote,
-.partners__wrapper,
-.footer__links {
-  position: relative !important;
-}
-
-.adm-edit {
+.nwp-admin {
   position: absolute;
   bottom: 10%;
   right: 45px;
@@ -79,11 +55,11 @@ Author: Graffino (http://www.graffino.com)
   display: inline-block;
   cursor: pointer;
 }
-    .adm-edit.-menu {
+    .nwp-admin.-menu {
         bottom: 0;
     }
 
-    .adm-edit.-admin {
+    .nwp-admin.-admin {
         top: 65px;
         left: 45px;
         right: auto;
