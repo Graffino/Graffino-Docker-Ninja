@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Class Class Autoloader
  */
-class NWP_ClassAutoLoader {
+class NWP_Class_AutoLoader {
 	/** @var bool DEBUG Enable debug */
 	const DEBUG = false;
 	/** @var string $autoload_extension File extension */

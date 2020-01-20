@@ -1,6 +1,6 @@
 <?php
 // If file is accessed directly, exit
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
@@ -10,8 +10,7 @@ if (!defined('ABSPATH')) {
  * @since 2.0.0
  * @package annotext
  */
-class NWP_Registry
-{
+class NWP_Registry {
 	/** @var array $_objects Class objects */
 	protected $_objects = array();
 
@@ -23,14 +22,13 @@ class NWP_Registry
 	 * @param object  $object Instance of an object you want to register
 	 * @return bool           Set result
 	 */
-	function set($name, &$object)
-	{
+	function set( $name, &$object ) {
 		// Return false if $name is already in the array
-		if (array_key_exists($name, $this->_objects)) {
+		if ( array_key_exists( $name, $this->_objects ) ) {
 			return false;
 		}
 		// Add the object to the array via reference
-		$this->_objects[$name] = &$object;
+		$this->_objects[ $name ] = &$object;
 		// Return true
 		return true;
 	}
@@ -39,18 +37,17 @@ class NWP_Registry
 	 * Object getter method from registry
 	 *
 	 */
-	function &get($name)
-	{
+	function &get( $name ) {
 
 		// Return false if $name is not in the array
 		if (
-			!array_key_exists($name, $this->_objects)
+			! array_key_exists( $name, $this->_objects )
 		) {
 			$new_instance = new $name();
-			$this->set($name, $new_instance);
+			$this->set( $name, $new_instance );
 		}
 
 		// Return the instance object
-		return $this->_objects[$name];
+		return $this->_objects[ $name ];
 	}
 }

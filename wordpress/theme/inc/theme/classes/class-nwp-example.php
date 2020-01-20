@@ -6,13 +6,11 @@
  */
 
 // If file is accessed directly, exit
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class NWP_Example
-{
-	public function __construct()
-	{
+class NWP_Example {
+	public function __construct() {
 	}
 }

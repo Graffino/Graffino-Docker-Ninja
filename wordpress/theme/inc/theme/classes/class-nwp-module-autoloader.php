@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @package annotext
  */
-class NWP_ModuleAutoLoader {
+class NWP_Module_AutoLoader {
 	/** @var bool DEBUG Enable debug */
 	const DEBUG = false;
 	/** @var string $autoload_extension File extension */
