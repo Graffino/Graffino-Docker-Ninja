@@ -21,6 +21,5 @@ class NWP_Setup {
 	protected static function disable_curl_ssl_verification() {
 		add_filter( 'https_ssl_verify', '__return_false' );
 		add_filter( 'https_local_ssl_verify', '__return_false' );
-		return $this;
 	}
 }
