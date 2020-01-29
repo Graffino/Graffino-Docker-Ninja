@@ -1,5 +1,5 @@
 import '../styles/app.scss'
-import '@babel/polyfill'
+
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import loadPolyfills from 'polyfill-io-loader!?Promise,NodeList.prototype.forEach,Object.assign'
 import requireAll from './utils/require-all'
