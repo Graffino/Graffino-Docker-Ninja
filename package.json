@@ -15,7 +15,9 @@
     "wp-update": "composer update && node bin/sync-uploads.js --no-confirm",
     "wp-sync-uploads": "node bin/sync-uploads.js",
     "wp-clean-install-folder": "node bin/clean-wp.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-prep": "./node_modules/.bin/selenium-standalone install && ./node_modules/.bin/selenium-standalone start",
+    "test": "node node_modules/hermione/bin/hermione",
+    "approve": "node node_modules/hermione/bin/hermione --update-refs",
     "lint-code": "eslint src -c .eslintrc --ext js",
     "lint-style": "stylelint 'src/styles/**/*.scss'",
     "fix-code": "prettier-eslint --write 'src/**/*.js' --config .eslintrc",
@@ -61,6 +63,7 @@
     "glob-all": "^3.1.0",
     "handlebars": "^4.7.2",
     "handlebars-loader": "^1.7.1",
+    "html-reporter": "^5.9.1",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
     "imagemin-mozjpeg": "^8.0.0",
@@ -87,6 +90,7 @@
     "pristinejs": "^0.1.6",
     "purgecss-webpack-plugin": "^2.0.5",
     "sass-loader": "^8.0.2",
+    "selenium-standalone": "^6.17.0",
     "semver": "^7.1.1",
     "sharp": "^0.24.0",
     "style-loader": "^1.1.3",
@@ -113,7 +117,8 @@
     "webpack-dev-server": "^3.10.1",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
-    "yesno": "^0.3.1"
+    "yesno": "^0.3.1",
+    "hermione": "^3.0.0"
   },
   "dependencies": {
     "animejs": "^3.1.0",

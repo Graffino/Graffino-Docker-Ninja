@@ -10,3 +10,4 @@
 /certs/privkey.pem
 /certs/chain.pem
 /certs/cert.pem
+/tests/hermione/reports
