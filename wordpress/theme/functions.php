@@ -21,7 +21,7 @@ require_once get_template_directory() . '/inc/theme/classes/class-nwp-module-aut
 // Autoload Classes
 $class_autoload_path = __DIR__ . '/inc/theme/classes/';
 NWP_Class_AutoLoader::set_path( $class_autoload_path );
-spl_autoload_register( 'NWP_ClassAutoLoader::loader' );
+spl_autoload_register( 'NWP_Class_AutoLoader::loader' );
 
 // Initialize registry for app configuration
 $registry = new NWP_Registry();
