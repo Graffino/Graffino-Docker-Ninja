@@ -3,6 +3,10 @@
   "extends": ["standard", "prettier/standard"],
   "plugins": ["prettier", "standard"],
   "rules": {},
+  "globals": {
+    "describe": "readonly",
+    "it": "readonly"
+  },
   "env": {
     "browser": true,
     "es6": true

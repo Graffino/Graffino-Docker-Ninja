@@ -10,3 +10,5 @@
 /certs/privkey.pem
 /certs/chain.pem
 /certs/cert.pem
+/nohup.out
+/tests/reports
