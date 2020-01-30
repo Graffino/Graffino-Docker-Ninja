@@ -11,3 +11,5 @@
 /certs/chain.pem
 /certs/cert.pem
 /tests/hermione/reports
+/nohup.out
+/tests/reports

@@ -44,3 +44,15 @@ yarn run dev
 - SVG Sprite Generation
 - Sourcemaps
 - Webpack Config Split
+
+## Tests
+[hermione.js](https://github.com/gemini-testing/hermione) is a testing framework developed a
+https://mochajs.org/
+
+Is based on [mochajs](https://mochajs.org/) and uses [chai.js](https://www.chaijs.com/) for assertions.
+
+1. Run `yarn test:setup`
+2. Run `yarn test`
+
+Regression testing requires that you have previously 'approved' the desired design.
+You can do so by running `yarn test:approve`
