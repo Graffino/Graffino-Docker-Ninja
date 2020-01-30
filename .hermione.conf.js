@@ -1,13 +1,19 @@
 module.exports = {
   sets: {
-    desktop: {
-      files: 'tests/desktop'
+    regression: {
+      files: 'tests/regression'
+    },
+    unit: {
+      files: 'tests/unit'
+    },
+    integration: {
+      files: 'tests/integration'
     }
   },
   baseUrl: 'http://localhost:3000',
   gridUrl: 'http://localhost:4444/wd/hub',
   compositeImage: true,
-  screenshotsDir: 'tests/hermione/screens',
+  screenshotsDir: 'tests/approved',
   browsers: {
     chromeXL: {
       desiredCapabilities: {
@@ -16,7 +22,16 @@ module.exports = {
           args: ['--headless'],
         },
       },
-      windowSize: '1300x900',
+      windowSize: '1920x1080',
+    },
+    chrome: {
+      desiredCapabilities: {
+        browserName: 'chrome',
+        chromeOptions: {
+          args: ['--headless'],
+        },
+      },
+      windowSize: '1280x720',
     },
     chromeMobile: {
       desiredCapabilities: {
@@ -30,27 +45,12 @@ module.exports = {
         height: 800
       },
     }
-    // safariXL: {
-    //   desiredCapabilities: {
-    //     browserName: 'safari',
-    //   },
-    //   windowSize: '1300x900'
-    // },
-    // safariMobile: {
-    //   desiredCapabilities: {
-    //     browserName: 'safari',
-    //   },
-    //   windowSize: {
-    //     width: 414,
-    //     height: 700
-    //   }
-    // }
   },
 
   plugins: {
     'html-reporter/hermione': {
       enabled: true,
-      path: 'tests/hermione/reports',
+      path: 'tests/reports',
       defaultView: 'all',
       baseHost: 'http://localhost:3000'
     }
