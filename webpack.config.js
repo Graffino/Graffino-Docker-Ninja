@@ -77,7 +77,13 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env'],
-          plugins: ['@babel/plugin-transform-exponentiation-operator']
+          plugins: [
+            ['@babel/plugin-transform-runtime',
+              {
+                regenerator: true
+              }
+            ]
+          ]
         }
       },
       'eslint-loader'
