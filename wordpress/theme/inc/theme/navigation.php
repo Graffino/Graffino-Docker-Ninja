@@ -33,9 +33,10 @@ function get_menu_id( $theme_location = 'primary' ) {
 
 	$theme_locations = get_nav_menu_locations();
 	$menu_obj        = get_term( $theme_locations[ $theme_location ], 'nav_menu' );
-	$menu_id         = $menu_obj->term_id;
-
-	return $menu_id;
+	if ( isset( $menu_obj->term_id ) ) {
+		$menu_id = $menu_obj->term_id;
+		return $menu_id;
+	}
 }
 
 // Highlight Custom Post Archives
