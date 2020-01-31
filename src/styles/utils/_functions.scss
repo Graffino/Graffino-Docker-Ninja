@@ -214,48 +214,6 @@ $font-colors: (
   }
 }
 
-@each $name, $size in $breakpoints {
-  .hide-#{$name}-up {
-    @include above($name) {
-      display: none !important;
-    }
-  }
-
-  .hide-#{$name}-down {
-    @include below($name) {
-      display: none !important;
-    }
-  }
-
-  .show-#{$name}-up {
-    display: none !important;
-
-    @include above($name) {
-      display: block !important;
-    }
-  }
-
-  .show-#{$name}-down {
-    display: none !important;
-
-    @include below($name) {
-      display: block !important;
-    }
-  }
-
-  .center-#{$name}-up {
-    @include above($name) {
-      text-align: center !important;
-    }
-  }
-
-  .center-#{$name}-down {
-    @include below($name) {
-      text-align: center !important;
-    }
-  }
-}
-
 // Maintain Aspect Ratio
 @mixin aspect-ratio($width, $height) {
   position: relative;
