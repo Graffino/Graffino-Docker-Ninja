@@ -105,7 +105,9 @@ function edit_taxonomy_tag_link( $id = null ) {
 
 // Menu Admin Links
 function edit_menu_link( $theme_location = 'nav-main', $echo = true ) {
-	$id = get_menu_id( $theme_location );
+	global $registry;
+	$menus = $registry->get( 'NWP_Menus' );
+	$id    = $menus->get_menu_id( $theme_location );
 
 	if ( current_user_can( 'level_10' ) ) {
 		$link = '<div class="nwp-admin is-menu"><div class="nwp-admin__icon -menu"><a class="post-edit-link" href="' . site_url() . '/wp-admin/nav-menus.php?action=edit&menu=' . $id . '" title="Edit Menu"></a></div></div>';
