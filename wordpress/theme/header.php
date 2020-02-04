@@ -80,7 +80,11 @@
 			<a href="<?php echo site_url(); ?>" class="logo__anchor">
 				<img class="logo__image js-logo" src="<?php bloginfo( 'template_directory' ); ?>/images/logo.svg" alt="Logo of <?php bloginfo( 'name' ); ?>">
 			</a>
-			<?php edit_admin_link(); ?>
+			<?php
+				global $registry;
+				$admin = $registry->get( 'NWP_Admin' );
+				$admin->edit_admin_link();
+			?>
 			</div>
 			<!-- /Header Logo -->
 
@@ -99,7 +103,7 @@
 				);
 				?>
 			</ul>
-			<?php edit_menu_link( 'primary-right' ); ?>
+			<?php $admin->edit_menu_link( 'primary-right' ); ?>
 			</div>
 			<!-- /Header Navigation -->
 		</div><!-- .container -->
