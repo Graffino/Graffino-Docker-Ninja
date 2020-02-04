@@ -14,17 +14,20 @@ class NWP_Hooks {
 		 * Setup
 		 */
 		$setup = $registry->get( 'NWP_Setup' );
+
 		/**
 		 * Menus
 		 */
 		$menus = $registry->get( 'NWP_Menus' );
 		add_action( 'init', array( $menus, 'nwp_register_menus' ) );
 		add_filter( 'nav_menu_css_class', array( $menus, 'current_type_nav_class' ), 10, 2 );
+
 		/**
 		 * Images
 		 */
 		$images = $registry->get( 'NWP_Images' );
 		add_action( 'after_setup_theme', array( $images, 'nwp_images' ) );
+
 		/**
 		 * Restrictions
 		 */
@@ -62,12 +65,14 @@ class NWP_Hooks {
 		add_action( 'wp_dashboard_setup', array( $restrictions, 'wp_support_dashboard' ) );
 		// Remove <head> links
 		add_action( 'init', 'remove_head_links' );
+
 		/**
 		 * Utilities
 		 */
 		$utilities = $registry->get( 'NWP_Utilities' );
 		add_action( 'wp_enqueue_scripts', array( $utilities, 'enqueue_theme_assets' ) );
 		add_action( 'upload_mimes', array( $utilities, 'my_custom_upload_mimes' ) );
+
 		/**
 		 * ACF
 		 */
@@ -91,6 +96,7 @@ class NWP_Hooks {
 		}
 		add_filter( 'acf/load_value/type=textarea', array( $acf, 'text_field_shortcode' ), 10, 3 );
 		add_filter( 'acf/load_value/type=text', array( $acf, 'text_field_shortcode' ), 10, 3 );
+
 		/**
 		 * Shortcodes
 		 */
@@ -103,5 +109,12 @@ class NWP_Hooks {
 		add_shortcode( 'italic', array( $shortcodes, 'emphasized_text_shortcode' ) );
 		// Newline Shortcode
 		add_shortcode( 'newline', array( $shortcodes, 'newline_shortcode' ) );
+
+		/**
+		 * Forms
+		 */
+		$forms = $registry->get( 'NWP_Forms' );
+		// Check for post
+		add_action( 'init', array( $forms, 'check_for_post' ) );
 	}
 }
