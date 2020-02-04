@@ -91,5 +91,17 @@ class NWP_Hooks {
 		}
 		add_filter( 'acf/load_value/type=textarea', array( $acf, 'text_field_shortcode' ), 10, 3 );
 		add_filter( 'acf/load_value/type=text', array( $acf, 'text_field_shortcode' ), 10, 3 );
+		/**
+		 * Shortcodes
+		 */
+		$shortcodes = $registry->get( 'NWP_Shortcodes' );
+		// Icon Shortcode
+		add_shortcode( 'icon', array( $shortcodes, 'icon_shortcode' ) );
+		// Strong text Shortcode
+		add_shortcode( 'bold', array( $shortcodes, 'strong_text_shortcode' ) );
+		// Emphasized text Shortcode
+		add_shortcode( 'italic', array( $shortcodes, 'emphasized_text_shortcode' ) );
+		// Newline Shortcode
+		add_shortcode( 'newline', array( $shortcodes, 'newline_shortcode' ) );
 	}
 }
