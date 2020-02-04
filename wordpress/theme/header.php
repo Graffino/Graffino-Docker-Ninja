@@ -88,13 +88,15 @@
 			<div class="header__nav">
 			<ul class="nav__items">
 				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'primary-right',
-					'container'      => false,
-					'items_wrap'     => '%3$s',
-					'walker'         => new NWP_Main_Menu_Walker,
-					'block'          => 'nav',
-				) );
+				wp_nav_menu(
+					array(
+						'theme_location' => 'primary-right',
+						'container'      => false,
+						'items_wrap'     => '%3$s',
+						'walker'         => new NWP_Main_Menu_Walker,
+						'block'          => 'nav',
+					)
+				);
 				?>
 			</ul>
 			<?php edit_menu_link( 'primary-right' ); ?>
