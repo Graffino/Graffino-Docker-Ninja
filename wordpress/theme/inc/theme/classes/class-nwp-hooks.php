@@ -68,5 +68,28 @@ class NWP_Hooks {
 		$utilities = $registry->get( 'NWP_Utilities' );
 		add_action( 'wp_enqueue_scripts', array( $utilities, 'enqueue_theme_assets' ) );
 		add_action( 'upload_mimes', array( $utilities, 'my_custom_upload_mimes' ) );
+		/**
+		 * ACF
+		 */
+		$acf = $registry->get( 'NWP_ACF' );
+		// Register option pages
+		if ( function_exists( 'acf_add_options_page' ) ) {
+			acf_add_options_page();
+			acf_add_options_sub_page( 'Global Widgets' );
+			acf_add_options_sub_page( 'Social & Contact' );
+			acf_add_options_sub_page( 'Page Links' );
+			acf_add_options_sub_page( 'API Settings' );
+			acf_add_options_sub_page( 'Admin Settings' );
+		}
+
+		if ( function_exists( 'register_options_page' ) ) {
+			register_options_page( 'Global Widgets' );
+			register_options_page( 'Social & Contact' );
+			register_options_page( 'Page Links' );
+			register_options_page( 'API Settings' );
+			register_options_page( 'Admin Settings' );
+		}
+		add_filter( 'acf/load_value/type=textarea', array( $acf, 'text_field_shortcode' ), 10, 3 );
+		add_filter( 'acf/load_value/type=text', array( $acf, 'text_field_shortcode' ), 10, 3 );
 	}
 }
