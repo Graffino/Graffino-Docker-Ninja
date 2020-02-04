@@ -44,7 +44,7 @@ class NWP_Utilities {
 		}
 	}
 
-	function my_custom_upload_mimes( $mimes = array() ) {
+	public function my_custom_upload_mimes( $mimes = array() ) {
 		// Add a key and value for the SVG file type
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;

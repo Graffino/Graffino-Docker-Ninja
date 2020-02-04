@@ -17,7 +17,7 @@ class NWP_ACF {
 	/**
 	 * Use shortcode inside ACF text area
 	 */
-	function text_field_shortcode( $value, $post_id, $field ) {
+	public function text_field_shortcode( $value, $post_id, $field ) {
 		if ( is_admin() ) {
 			return $value;
 		}
