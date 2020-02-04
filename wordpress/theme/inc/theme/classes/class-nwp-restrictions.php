@@ -80,7 +80,7 @@ class NWP_Restrictions {
 		}
 	}
 
-	// Remove menus according to sumple admin
+	// Remove menus according to simple admin
 	public function remove_menus() {
 		global $simple_admin, $simple_plugins, $simple_updates, $simple_settings, $simple_acf, $simple_wpml, $menu, $submenu;
 

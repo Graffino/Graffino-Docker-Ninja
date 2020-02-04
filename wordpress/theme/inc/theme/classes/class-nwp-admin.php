@@ -29,20 +29,10 @@ class NWP_Admin {
 		echo $meta;
 	}
 
-	// Insert into admin footer
-	public function insert_into_admin_footer() {
-		//
-	}
-
-	// Add custom style for login page
-	public function custom_login_style() {
-		echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_url' ) . '/inc/admin/login.css' . '">';
-	}
-
 	// Add custom syle for edit button
 	public function custom_edit_style() {
 		if ( is_user_logged_in() ) {
-			echo '<link rel="stylesheet" href="' . get_bloginfo( 'template_url' ) . '/inc/admin/buttons.css' . '">';
+			wp_enqueue_style( 'customEditButtonStyle', get_bloginfo( 'template_url' ) . '/inc/admin/buttons.css' );
 		}
 	}
 

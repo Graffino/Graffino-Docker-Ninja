@@ -51,7 +51,7 @@ class NWP_Hooks {
 		add_action( 'admin_head-user-edit.php', array( $restrictions, 'remove_user_details' ) );
 		add_action( 'admin_head-profile.php', array( $restrictions, 'remove_user_details' ) );
 		add_action( 'admin_head-user-new.php', array( $restrictions, 'remove_user_details' ) );
-		// Remove menus according to sumple admin
+		// Remove menus according to simple admin
 		add_action( 'admin_menu', array( $restrictions, 'remove_menus' ), 999 );
 		// Remove acf according to simple admin
 		add_action( 'acf/settings/show_admin', array( $restrictions, 'remove_acf' ), 999 );
@@ -125,10 +125,6 @@ class NWP_Hooks {
 		add_action( 'admin_init', array( $admin, 'admin_load' ) );
 		// Insert into admin header
 		add_action( 'admin_head', array( $admin, 'insert_into_admin_header' ) );
-		// Insert into admin footer
-		add_action( 'admin_footer', array( $admin, 'insert_into_admin_footer' ) );
-		// Add custom style for login page
-		add_action( 'login_head', array( $admin, 'custom_login_style' ) );
 		// Add custom syle for edit button
 		add_action( 'wp_head', array( $admin, 'custom_edit_style' ) );
 		// Change Login Header URL
