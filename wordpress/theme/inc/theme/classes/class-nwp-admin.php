@@ -21,11 +21,9 @@ class NWP_Admin {
 
 	// Insert into admin header
 	public function insert_into_admin_header() {
-		$url  = get_bloginfo( 'template_directory' );
-		$name = get_bloginfo( 'name' );
+		$url = get_bloginfo( 'template_directory' );
 
-		$meta = '
-		<link rel="shortcut icon" href="' . $url . '/images/favicon.ico">';
+		$meta = '<link rel="shortcut icon" href="' . $url . '/images/favicon.ico">';
 		echo $meta;
 	}
 
