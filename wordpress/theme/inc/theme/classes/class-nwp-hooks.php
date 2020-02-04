@@ -64,7 +64,7 @@ class NWP_Hooks {
 		// Add Maintenance Dashboard Widget
 		add_action( 'wp_dashboard_setup', array( $restrictions, 'wp_support_dashboard' ) );
 		// Remove <head> links
-		add_action( 'init', 'remove_head_links' );
+		add_action( 'init', array( $restrictions, 'remove_head_links' ) );
 
 		/**
 		 * Utilities
@@ -116,5 +116,25 @@ class NWP_Hooks {
 		$forms = $registry->get( 'NWP_Forms' );
 		// Check for post
 		add_action( 'init', array( $forms, 'check_for_post' ) );
+
+		/**
+		 * Admin
+		 */
+		$admin = $registry->get( 'NWP_Admin' );
+		// Load custom admin styles & scripts
+		add_action( 'admin_init', array( $admin, 'admin_load' ) );
+		// Insert into admin header
+		add_action( 'admin_head', array( $admin, 'insert_into_admin_header' ) );
+		// Insert into admin footer
+		add_action( 'admin_footer', array( $admin, 'insert_into_admin_footer' ) );
+		// Add custom style for login page
+		add_action( 'login_head', array( $admin, 'custom_login_style' ) );
+		// Add custom syle for edit button
+		add_action( 'wp_head', array( $admin, 'custom_edit_style' ) );
+		// Change Login Header URL
+		add_filter( 'login_headerurl', array( $admin, 'custom_login_url' ) );
+		// De-register print styles
+		add_action( 'wp_print_styles', array( $admin, 'my_deregister_styles' ), 100 );
+
 	}
 }
