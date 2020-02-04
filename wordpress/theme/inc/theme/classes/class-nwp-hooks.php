@@ -62,5 +62,11 @@ class NWP_Hooks {
 		add_action( 'wp_dashboard_setup', array( $restrictions, 'wp_support_dashboard' ) );
 		// Remove <head> links
 		add_action( 'init', 'remove_head_links' );
+		/**
+		 * Utilities
+		 */
+		$utilities = $registry->get( 'NWP_Utilities' );
+		add_action( 'wp_enqueue_scripts', array( $utilities, 'enqueue_theme_assets' ) );
+		add_action( 'upload_mimes', array( $utilities, 'my_custom_upload_mimes' ) );
 	}
 }
