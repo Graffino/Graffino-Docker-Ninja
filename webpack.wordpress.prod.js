@@ -36,9 +36,9 @@ module.exports = merge(common, {
             return content.match(/[A-z0-9-:/]+/g) || []
           }
         },
-        extensions: ['handlebars', 'html', 'js', 'php', 'vue'],
-        whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/]
-      }]
+        extensions: ['handlebars', 'html', 'js', 'php', 'vue']
+      }],
+      whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/, /^h-/, /^d-/]
     }),
     new ImageminPlugin({
       test: './src/**/*',
