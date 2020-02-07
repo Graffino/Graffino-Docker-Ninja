@@ -209,6 +209,7 @@ module.exports = {
         key: 'certs/privkey.pem'
       },
       injectCss: true,
+      notify: false,
       watchOptions: {
         ignored: [
           'sprite.php'
