@@ -9,6 +9,8 @@ requireAll(require.context('../icons/', true, /\.svg$/))
 requireAll(require.context('../images/', true, /\.(png|svg|jpe?g|gif)$/))
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.remove('no-js')
+
   loadPolyfills(() => {
     autoInitComponents()
   })
