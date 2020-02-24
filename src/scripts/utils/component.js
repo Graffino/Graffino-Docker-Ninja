@@ -17,11 +17,9 @@ class Component {
     this.onResize = this.onResize.bind(this)
     this.onScroll = this.onScroll.bind(this)
 
-    dom.window.addEventListener('load', () => {
-      this.init()
-      dom.window.addEventListener('scroll', () => this.onScroll())
-      dom.window.addEventListener('resize', () => this.onResize())
-    })
+    this.init()
+    dom.window.addEventListener('scroll', () => this.onScroll())
+    dom.window.addEventListener('resize', () => this.onResize())
   }
 
   setState (props) {
