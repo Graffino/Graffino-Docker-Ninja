@@ -5,6 +5,7 @@ context('Regression', () => {
 
   describe('Homepage', () => {
     it('should have a nice looking button', () => {
+      cy.wait(5000)
       cy.get('.hero .button').matchImageSnapshot()
     })
   })
