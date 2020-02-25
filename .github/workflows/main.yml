@@ -10,3 +10,4 @@ jobs:
       - uses: cypress-io/github-action@v1
         with:
           browser: chrome
+          headless: true
