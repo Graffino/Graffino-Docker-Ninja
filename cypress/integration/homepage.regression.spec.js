@@ -8,5 +8,8 @@ context('Regression', () => {
     it('should have a nice looking button', () => {
       cy.get('.hero .button').matchImageSnapshot()
     })
+    it('should have a nice looking homepage', () => {
+      cy.get('body').matchImageSnapshot()
+    })
   })
 })
