@@ -1,9 +1,10 @@
-name: E2E
+name: E2E on Chrome
 on: [pull_request]
 jobs:
   cypress-run:
     runs-on: ubuntu-16.04
-    name: E2E on Electron
+    # let's make sure our tests pass on Chrome browser
+    name: E2E on Chrome
     steps:
       - uses: actions/checkout@v1
       - uses: cypress-io/github-action@v1
