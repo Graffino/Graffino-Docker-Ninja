@@ -9,6 +9,5 @@ jobs:
       - uses: actions/checkout@v1
       - uses: cypress-io/github-action@v1
         with:
-          video: false
-          record: false
+          browser: chrome
           start: yarn dev
