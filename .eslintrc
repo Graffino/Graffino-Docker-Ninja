@@ -5,7 +5,9 @@
   "rules": {},
   "globals": {
     "describe": "readonly",
-    "it": "readonly"
+    "it": "readonly",
+    "context": "readonly",
+    "cy": "readonly"
   },
   "env": {
     "browser": true,

@@ -12,3 +12,6 @@
 /certs/cert.pem
 /nohup.out
 /tests/reports
+/.idea
+/cypress/screenshots
+/cypress/videos
