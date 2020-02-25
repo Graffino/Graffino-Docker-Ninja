@@ -1,6 +1,6 @@
 context('Regression', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
     cy.wait(5000)
   })
 

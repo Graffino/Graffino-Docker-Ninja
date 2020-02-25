@@ -10,76 +10,80 @@ export default class Module extends Component {
 
   init () {
     const canvas = this.state.element
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      alpha: true,
-      antialias: true
-    })
+    try {
+      const renderer = new THREE.WebGLRenderer({
+        canvas,
+        alpha: true,
+        antialias: true
+      })
 
-    const fov = 40
-    const aspect = 2
-    const near = 0.1
-    const far = 1000
-    const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
-    camera.position.z = 120
+      const fov = 40
+      const aspect = 2
+      const near = 0.1
+      const far = 1000
+      const camera = new THREE.PerspectiveCamera(fov, aspect, near, far)
+      camera.position.z = 120
 
-    const scene = new THREE.Scene()
+      const scene = new THREE.Scene()
 
-    {
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 100)
-      directionalLight.position.set(0, 1, 0)
-      directionalLight.castShadow = true
-      scene.add(directionalLight)
-    }
-
-    let model = null
-    {
-      const loader = new GLTFLoader(this.loadingManager)
-      loader.load(
-        '/media/scene.gltf',
-        gltf => {
-          model = gltf.scene.children[0]
-          model.scale.set(4, 4, 4)
-          scene.add(gltf.scene)
-        },
-        undefined,
-        error => {
-          console.error(error)
-        }
-      )
-    }
-
-    const resizeRendererToDisplaySize = renderer => {
-      const canvas = renderer.domElement
-      const width = canvas.clientWidth
-      const height = canvas.clientHeight
-      const needResize = canvas.width !== width || canvas.height !== height
-      if (needResize) {
-        renderer.setSize(width, height, false)
+      {
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 100)
+        directionalLight.position.set(0, 1, 0)
+        directionalLight.castShadow = true
+        scene.add(directionalLight)
       }
-      return needResize
-    }
 
-    const render = (time) => {
-      time *= 0.001
+      let model = null
+      {
+        const loader = new GLTFLoader(this.loadingManager)
+        loader.load(
+          '/media/scene.gltf',
+          gltf => {
+            model = gltf.scene.children[0]
+            model.scale.set(4, 4, 4)
+            scene.add(gltf.scene)
+          },
+          undefined,
+          error => {
+            console.error(error)
+          }
+        )
+      }
 
-      if (resizeRendererToDisplaySize(renderer)) {
+      const resizeRendererToDisplaySize = renderer => {
         const canvas = renderer.domElement
-        camera.aspect = canvas.clientWidth / canvas.clientHeight
-        camera.updateProjectionMatrix()
+        const width = canvas.clientWidth
+        const height = canvas.clientHeight
+        const needResize = canvas.width !== width || canvas.height !== height
+        if (needResize) {
+          renderer.setSize(width, height, false)
+        }
+        return needResize
       }
 
-      if (model) {
-        const rot = time
-        model.rotation.x = rot
-        model.rotation.y = rot * 1.5
-      }
+      const render = (time) => {
+        time *= 0.001
 
-      renderer.render(scene, camera)
+        if (resizeRendererToDisplaySize(renderer)) {
+          const canvas = renderer.domElement
+          camera.aspect = canvas.clientWidth / canvas.clientHeight
+          camera.updateProjectionMatrix()
+        }
+
+        if (model) {
+          const rot = time
+          model.rotation.x = rot
+          model.rotation.y = rot * 1.5
+        }
+
+        renderer.render(scene, camera)
+
+        requestAnimationFrame(render)
+      }
 
       requestAnimationFrame(render)
+    } catch (e) {
+      console.log(e)
     }
-
-    requestAnimationFrame(render)
   }
 }
