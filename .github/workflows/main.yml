@@ -11,3 +11,4 @@ jobs:
         with:
           browser: chrome
           start: yarn dev
+          wait-on: http://localhost:3000
