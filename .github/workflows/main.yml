@@ -10,6 +10,5 @@ jobs:
       - uses: cypress-io/github-action@v1
         with:
           browser: chrome
-          headless: true
           start: yarn dev
           wait-on: http://localhost:3000
