@@ -9058,6 +9058,11 @@ normalize.css@^8.0.1:
   resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.1.tgz#9b98a208738b9cc2634caacbc42d131c97487bf3"
   integrity sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
 
+nouislider@^14.1.1:
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/nouislider/-/nouislider-14.1.1.tgz#def812b2aaaa2ccf9e7a41dd0144a25dab5673e5"
+  integrity sha512-3/+Z/pTBoWoJf2YXSEWRmS27LW2XxOBmGEzkPyRzB/J6QvL+0mS3QwcQp0SmWhgO5CMzbSxPmb1lDDD4HP12bg==
+
 npm-conf@^1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/npm-conf/-/npm-conf-1.1.3.tgz#256cc47bd0e218c259c4e9550bf413bc2192aff9"
@@ -14490,6 +14495,11 @@ window-size@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
   integrity sha1-tDFbtCFKPXBY6+7okuE/ok2YsHU=
+
+wnumb@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/wnumb/-/wnumb-1.2.0.tgz#f6fa5bfa739b9ca3b1e472094e1feeeb189484d9"
+  integrity sha512-eYut5K/dW7usfk/Mwm6nxBNoTPp/uP7PlXld+hhg7lDtHLdHFnNclywGYM9BRC7Ohd4JhwuHg+vmOUGfd3NhVA==
 
 word-wrap@~1.2.3:
   version "1.2.3"
