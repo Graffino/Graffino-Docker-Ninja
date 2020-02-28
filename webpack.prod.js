@@ -103,11 +103,7 @@ module.exports = merge(common, {
         path.join(__dirname, './src/views/**/*.handlebars')
       ),
       extractors: [{
-        extractor: class {
-          static extract (content) {
-            return content.match(/[A-z0-9-:/]+/g) || []
-          }
-        },
+        extractor: content => content.match(/[A-z0-9-:/]+/g) || [],
         extensions: ['handlebars', 'html', 'js', 'php', 'vue']
       }],
       whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/, /^h-/, /^d-/]
