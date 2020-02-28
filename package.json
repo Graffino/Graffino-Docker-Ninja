@@ -15,6 +15,7 @@
     "wp:update": "composer update && node bin/sync-uploads.js --no-confirm",
     "wp:sync:uploads": "node bin/sync-uploads.js",
     "wp:clean": "node bin/clean-wp.js",
+    "clean:all": "node bin/clean-all.js",
     "test": "yarn cypress run",
     "test:interactive": "yarn cypress open",
     "test:regression": "yarn cypress run --spec \"cypress/integration/regression/**/*.spec.js\"  --reporter cypress-image-snapshot/reporter --env failOnSnapshotDiff=false --browser chrome",
