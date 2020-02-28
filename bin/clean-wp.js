@@ -20,6 +20,10 @@ const copy = async () => {
     console.log('Twentynineteen theme removed...')
   })
 
+  fse.remove(path.resolve(__dirname, '../dist-wp/wp-content/themes/twentytwenty/'), () => {
+    console.log('Twentytwenty theme removed...')
+  })
+
   fse.remove(path.resolve(__dirname, '../dist-wp/wp-content/plugins/akismet/'), () => {
     console.log('Akismet removed...')
   })
