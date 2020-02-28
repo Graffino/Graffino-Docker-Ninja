@@ -19,10 +19,10 @@
 		}
 		?>
 	</title>
-	<meta name="description" content="<?php get_bloginfo( 'description', 'display' ); ?>">
+	<meta name="description" content="<?php bloginfo( 'description', 'display' ); ?>">
 
 	<!-- // Configuration meta -->
-	<meta charset="<?php get_bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta http-equiv="Accept-CH" content="DPR,Width,Viewport-Width">
@@ -37,14 +37,14 @@
 	<meta property="og:title" content="<?php bloginfo( 'name' ); ?>">
 	<meta property="og:locale" content="<?php bloginfo( 'name' ); ?>">
 	<meta property="og:description" content="<?php echo $site_description; ?>">
-	<meta property="og:image" content="<?php echo bloginfo( 'template_url' ); ?>/social.jpg">
+	<meta property="og:image" content="<?php bloginfo( 'template_url' ); ?>/social.jpg">
 	<meta property="og:image:alt" content="<?php echo $site_description; ?>">
 
 	<!-- // Twitter Meta -->
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="<?php bloginfo( 'name' ); ?>">
 	<meta name="twitter:description" content="<?php echo $site_description; ?>">
-	<meta name="twitter:image" content="<?php echo bloginfo( 'template_url' ); ?>/social.jpg">
+	<meta name="twitter:image" content="<?php bloginfo( 'template_url' ); ?>/social.jpg">
 	<meta name="twitter:image:alt" content="<?php echo $site_description; ?>">
 
 	<!-- // Favicon -->

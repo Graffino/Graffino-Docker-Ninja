@@ -183,6 +183,10 @@ module.exports = {
         flatten: true
       },
       {
+        from: path.resolve(__dirname, '.env'),
+        to: path.resolve(__dirname, 'dist-wp/')
+      },
+      {
         from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
         to: path.resolve(__dirname, 'dist-wp/')
       },
