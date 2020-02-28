@@ -1,6 +1,6 @@
 <?php
 require_once( __DIR__ . '/../composer/vendor/autoload.php' );
-$dotenv = Dotenv\Dotenv::create( dirname( __DIR__ ) );
+$dotenv = Dotenv\Dotenv::create( dirname( __DIR__, 1 ) );
 $dotenv->load();
 
 /**
