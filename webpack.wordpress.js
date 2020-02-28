@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlPlugin = require('html-webpack-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
@@ -196,6 +197,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'css/main.css'
     }),
+    new StyleLintPlugin(),
     new SpriteLoaderPlugin({
       plainSprite: true
     }),
