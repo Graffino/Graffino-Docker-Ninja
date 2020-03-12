@@ -79,17 +79,29 @@ class NWP_Forms {
 					break;
 				case 'mailchimp':
 					// Vars
-					$action = $this->get_post_var( 'mailchimp_action' );
-					$email  = $this->get_post_var( 'mailchimp_email', false, false, FILTER_VALIDATE_EMAIL );
+                    if (have_rows('mailchimp', 'options')) :
+                        while (have_rows('mailchimp', 'options')) :
+                            the_row();
+                            $api_key = get_sub_field('api_key');
+                            $list_id = get_sub_field('list_id');
+                        endwhile;
+                    endif;
+                    $first_name   = $this->get_post_var('mailchimp_first_name');
+                    $last_name    = $this->get_post_var('mailchimp_last_name');
+                    $email        = $this->get_post_var('mailchimp_email', false, false, FILTER_VALIDATE_EMAIL);
+                    $merge_fields = array(
+                        'FNAME' => $first_name,
+                        'LNAME' => $last_name,
+                    );
 
-					if ( $action && $email ) {
-						$result = $this->mailchimp_form( $action, $email );
-						echo $result;
-						die();
-					} else {
-						wp_die( 'Please submit required fields.' );
-					}
-					break;
+                    if ($api_key && $list_id && $email && $merge_fields) {
+                        $result = $this->mailchimp_form($api_key, $list_id, $email, $merge_fields);
+                        echo $result;
+                        die();
+                    } else {
+                        wp_die('Please submit required fields.');
+                    }
+                    break;
 			}
 		} else {
 			echo 'Anti-spam triggered.';
@@ -132,24 +144,51 @@ class NWP_Forms {
 	}
 
 	// Mailchimp form
-	public function mailchimp_form( $action, $email ) {
-		// Generate URL
-		$url = urldecode( $action );
-		$url = $url . '&EMAIL=' . urlencode( $email ) . '&amp;c=?';
+	public function mailchimp_form( $api_key, $list_id, $email, $merge_fields ) {
+		$data = array(
+            'apikey'        => $api_key,
+            'status'        => 'subscribed',
+            'email_address' => $email,
+            'merge_fields'  => $merge_fields,
+        );
 
-		//  Initiate curl
-		$ch = curl_init();
-		// Disable SSL verification
-		curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-		// Will return the response, if false it print the response
-		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-		// Set the url
-		curl_setopt( $ch, CURLOPT_URL, $url );
-		// Execute
-		$result = curl_exec( $ch );
-		// Closing
-		curl_close( $ch );
+        //  Initiate curl
+        $ch = curl_init();
+        // Set the url
+        curl_setopt($ch, CURLOPT_URL, 'https://' . substr($api_key, strpos($api_key, '-') + 1) . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . md5(strtolower($data['email_address'])));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Authorization: Basic ' . base64_encode('user:' . $api_key) ));
+        curl_setopt($ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0');
+        // Will return the response, if false it print the response
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // method PUT
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_POST, true);
+        // Disable SSL verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data)); // send data in json
+        // Execute
+        $result = curl_exec($ch);
+        // Closing
+        curl_close($ch);
 
-		return $result;
+        $result = json_decode($result);
+
+        if ('400' === $result->status) {
+            $status  = 'error';
+            $message = 'Something went wrong. Please try again.';
+        } else {
+            $status  = 'success';
+            $message = 'Thank you!';
+        }
+
+        $response = json_encode(
+            array(
+                'result' => $status,
+                'msg'    => $message,
+            )
+        );
+
+        return $response;
 	}
 }
