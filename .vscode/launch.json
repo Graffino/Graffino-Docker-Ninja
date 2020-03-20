@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for XDebug",
+      "type": "php",
+      "request": "launch",
+      "cwd": "${fileDirname}",
+      "port": 9000,
+      "ignore": [
+        "**/vendor/**/*.php",
+        "**/.composer/**/*.php"
+      ],
+      "pathMappings": {
+        "${workspaceRoot}/dist-www": "${workspaceRoot}/wordpress/theme"
+      }
+    },
+    {
+      "name": "Chrome Debug",
+      "type": "chrome",
+      "request": "attach",
+      "urlFilter": "https://*.graffino.dev/*",
+      "webRoot": "${workspaceFolder}/",
+      "pathMapping": {
+        "webpack:///./src/scripts/*": "${workspaceFolder}/src/scripts/*",
+        "${workspaceFolder}/dist-www/src/scripts/*": "${workspaceFolder}/src/scripts/*"
+      }
+    }
+  ]
+}

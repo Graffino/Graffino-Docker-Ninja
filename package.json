@@ -116,7 +116,7 @@
     "terser-webpack-plugin": "^2.3.5",
     "three": "^0.113.2",
     "typi": "^3.2.0",
-    "unzipper": "^0.10.9",
+    "unzipper": "^0.10.10",
     "video.js": "^7.6.6",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",
@@ -133,6 +133,6 @@
     "micromodal": "^0.4.2",
     "nouislider": "^14.1.1",
     "swiper": "^5.3.1",
-    "vanilla-lazyload": "^12.5.0"
+    "vanilla-lazyload": "^12.5.1"
   }
 }

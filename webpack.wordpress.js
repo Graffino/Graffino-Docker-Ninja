@@ -13,6 +13,7 @@ const dotenv = require('dotenv').config({
 
 module.exports = {
   mode: 'development',
+  devtool: 'inline-source-map',
   entry: {
     main: path.resolve(__dirname, 'src/scripts/index.js'),
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')

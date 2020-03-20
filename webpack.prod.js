@@ -106,7 +106,7 @@ module.exports = merge(common, {
         extractor: content => content.match(/[A-z0-9-:/]+/g) || [],
         extensions: ['handlebars', 'html', 'js', 'php', 'vue']
       }],
-      whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/, /^h-/, /^d-/]
+      whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/, /^h-/, /^d-/, /^nav/, /^-nav/, /^-submenu/, /^submenu/, /^nwp-/, /^post-/, /^page-/, /^slide-/, /^icon/, /^noUi/, /^choices/, /data-.*/]
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
