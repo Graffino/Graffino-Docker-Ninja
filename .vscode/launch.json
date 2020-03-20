@@ -1,21 +1,29 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
-  "configurations": [{
+  "configurations": [
+    {
       "name": "Listen for XDebug",
       "type": "php",
       "request": "launch",
       "cwd": "${fileDirname}",
       "port": 9000,
-      "ignore":[
+      "ignore": [
         "**/vendor/**/*.php",
-        "**/composer/**/*.php",
         "**/.composer/**/*.php"
       ],
       "pathMappings": {
-        "${workspaceRoot}/dist-wp": "${workspaceRoot}/wordpress/theme"
+        "${workspaceRoot}/dist-www": "${workspaceRoot}/wordpress/theme"
+      }
+    },
+    {
+      "name": "Chrome Debug",
+      "type": "chrome",
+      "request": "attach",
+      "urlFilter": "https://*.graffino.dev/*",
+      "webRoot": "${workspaceFolder}/",
+      "pathMapping": {
+        "webpack:///./src/scripts/*": "${workspaceFolder}/src/scripts/*",
+        "${workspaceFolder}/dist-www/src/scripts/*": "${workspaceFolder}/src/scripts/*"
       }
     }
   ]
