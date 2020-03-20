@@ -15,12 +15,15 @@
         "${workspaceRoot}/dist-www": "${workspaceRoot}/wordpress/theme"
       }
     },
+    // Start chrome from terminal
+    // Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9229
     {
       "name": "Chrome Debug",
       "type": "chrome",
       "request": "attach",
       "urlFilter": "https://*.graffino.dev/*",
       "webRoot": "${workspaceFolder}/",
+      "port": 9229,
       "pathMapping": {
         "webpack:///./src/scripts/*": "${workspaceFolder}/src/scripts/*",
         "${workspaceFolder}/dist-www/src/scripts/*": "${workspaceFolder}/src/scripts/*"
