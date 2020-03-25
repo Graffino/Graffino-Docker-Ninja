@@ -1,5 +1,5 @@
 import Component from '../utils/component'
-import { breakpoints, dom, stateClass } from '../utils/globals'
+import { dom, breakpoints, stateClass } from '../utils/globals'
 
 export default class Sticky extends Component {
   constructor (props) {
@@ -13,106 +13,164 @@ export default class Sticky extends Component {
       dom.document.documentElement.clientHeight,
       dom.window.innerHeight || 0
     )
-    data.entrance = null
-    data.noBottomLimit = false
-    const feedbackBox = document.getElementsByClassName('js-feedback-box')[0]
-    this.setState({ ...this.state, feedbackBox })
 
-    if (Object.keys(this.state).includes('entrance')) {
-      data.entrance = this.state.entrance
-    }
-    if (Object.keys(this.state).includes('stickyNoBottomLimit')) {
-      data.noBottomLimit = true
+    // Add State classes
+    this.state.element.classList.add('js-sticky')
+
+    // Get props
+    if (Object.keys(this.state).includes('stickyDisableOn')) {
+      data.disableOn = this.state.stickyDisableOn
     }
 
-    if (Object.keys(this.state).includes('stickyBottomLimitFooter')) {
-      const footerHeight = document.querySelector('.footer').offsetHeight
-      data.botLimit = dom.document.body.offsetHeight - data.viewportHeight - footerHeight
+    if (Object.keys(this.state).includes('stickyEntrance')) {
+      data.entrance = this.state.stickyEntrance
+      data.entranceDefault = this.state.stickyEntrance
+    } else {
+      data.entrance = 'top'
+      data.entranceDefault = 'top'
+    }
+
+    if (Object.keys(this.state).includes('stickyEntranceBreakpoint')) {
+      data.entranceBreakpoint = this.state.stickyEntranceBreakpoint
+    }
+
+    if (Object.keys(this.state).includes('stickyEntranceMobile')) {
+      data.entranceMobile = this.state.stickyEntranceMobile
+    }
+
+    if (Object.keys(this.state).includes('stickyBottomLimit')) {
+      data.$bottomLimit = dom.document.querySelector(`.${this.state.stickyBottomLimit}`)
     }
 
     if (Object.keys(this.state).includes('stickyParent')) {
-      data.parent = this.state.element.parentElement
+      data.$parent = dom.document.querySelector(`.${this.state.stickyParent}`)
+      data.parent = this.state.stickyParent
     } else {
-      data.parent = dom.document.body
+      data.$parent = dom.document.body
     }
-    data.delta = 20
-    data.newTop = 0
-    data.disableBreakpoint = breakpoints.medium
-    data.offset = this.state.element.parentElement.getBoundingClientRect().top
-    data.topLimit =
-      this.state.element.getBoundingClientRect().top +
-      dom.document.documentElement.scrollTop
 
-    if (typeof data.botLimit === 'undefined') {
-      data.botLimit = data.parent.getBoundingClientRect().top + dom.document.documentElement.scrollTop + data.parent.offsetHeight
+    if (Object.keys(this.state).includes('stickyPushTop')) {
+      data.$pushTop = dom.document.querySelector(`.${this.state.stickyPushTop}`)
     }
+
+    if (Object.keys(this.state).includes('stickyDelta')) {
+      data.delta = parseInt(this.state.stickyDelta)
+    }
+
+    if (Object.keys(this.state).includes('stickyDeltaTop')) {
+      data.deltaTop = parseInt(this.state.stickyDeltaTop)
+    }
+
+    if (Object.keys(this.state).includes('stickyDeltaBottom')) {
+      data.deltaBottom = parseInt(this.state.stickyDeltaBottom)
+    }
+
+    // Initialize empty top
+    data.newTop = 0
+
+    // Calculate parent offset
+    data.offset = data.$parent.getBoundingClientRect().top
+
+    // Calculate top limit
+    data.topLimit = this.state.element.getBoundingClientRect().top + dom.document.documentElement.scrollTop
+
+    // Calculate bottom limit from parent div if prop not present
+    if (typeof data.$bottomLimit === 'undefined') {
+      data.bottomLimit = data.$parent.getBoundingClientRect().top + dom.document.documentElement.scrollTop + data.$parent.offsetHeight
+    } else {
+      // Calculate bottom limit
+      data.bottomLimit = dom.document.body.offsetHeight - data.viewportHeight - data.$bottomLimit.offsetHeight
+    }
+
+    // Save state
     this.setState({ data })
+  }
+
+  onResize () {
+    // Reinit
   }
 
   onScroll () {
     const { element, data } = this.state
 
-    element.classList.add(stateClass.sticky)
-    element.classList.remove(stateClass.floating)
-    data.parent.classList.add(stateClass.stickyParent)
+    // Get current scroll position
+    const scrollPos = dom.document.documentElement.scrollTop
 
-    const scrollPos = document.documentElement.scrollTop
-    // If scroll position hasn't reached the top limit
-    if (scrollPos < data.topLimit) {
-      data.newTop = 0
-      element.classList.remove(stateClass.floating)
-      // If scroll position is between the top and bottom limits
-    } else if (scrollPos >= data.topLimit && scrollPos <= data.botLimit) {
-      data.newTop = scrollPos - data.topLimit + 12
-      if (data.newTop > data.delta) {
-        element.classList.add(stateClass.floating)
+    // Reset data entrance if entranceBreakpoint prop is defined and breakpoint is hit
+    if (typeof data.entranceBreakpoint !== 'undefined') {
+      if (dom.window.innerWidth <= breakpoints[data.entranceBreakpoint]) {
+        data.entrance = data.entranceMobile
       } else {
-        element.classList.remove(stateClass.floating)
+        data.entrance = data.entranceDefault
       }
+    }
 
-    // If scroll position is below the bottom limit
-    } else if (scrollPos > data.botLimit) {
-      data.newTop = data.parent.offsetHeight - element.offsetHeight
-      // If anything else fails :-)
+    // If sticky enters from top we need to account for the menu if prop is set
+    if (typeof data.$pushTop !== 'undefined') {
+      // If menu is visible add it's height
+      if (data.$pushTop.classList.contains(stateClass.pinned)) {
+        data.pushTop = data.$pushTop.offsetHeight
+      } else {
+        data.pushTop = 0
+      }
     } else {
+      data.pushTop = 0
+    }
+
+    // If entrance is from the top
+    if (data.entrance === 'top') {
+      // If scroll position hasn't reached the top limit
+      if (scrollPos >= data.topLimit && scrollPos <= data.bottomLimit) {
+        data.newTop = scrollPos - data.topLimit + 12 + data.pushTop
+
+      // If scroll position is below the bottom limit
+      } else if (scrollPos > data.bottomLimit) {
+        data.newTop = data.$parent.offsetHeight - element.offsetHeight
+      } else {
+        data.newTop = 0
+      }
+      // If entrance is from the bottom
+    } else if (data.entrance === 'bottom') {
+      const dataParentOffset = data.$parent.offsetHeight
+
+      // If scroll position is above bot limit
+      if (scrollPos < data.topLimit) {
+        data.newTop = data.topLimit + element.offsetHeight + data.pushTop + data.delta
+      } else if (scrollPos > data.topLimit && scrollPos < data.bottomLimit) {
+        data.newTop = scrollPos - data.topLimit + data.viewportHeight - element.offsetHeight - data.delta
+      } else if (scrollPos > data.bottomLimit) {
+        data.newTop = dataParentOffset + data.deltaBottom
+      }
+    } else {
+      // If everything else fails :-)
       data.newTop = 0
     }
 
-    // Request animation frame to prevent stutters in between the draws
-    dom.window.requestAnimationFrame(() => {
-      if (data.entrance === null) {
-        Object.assign(element.style, {
-          transform: `translate3d(0, ${Math.floor(data.newTop)}px, 0)`
-        })
-      } else if (data.entrance === 'bottom') {
-        let bottomPos = 0
+    // If when passing delta add/remove floating class
+    if (
+      scrollPos > (data.topLimit + data.deltaTop) &&
+      scrollPos < (data.bottomLimit + data.deltaBottom)
+    ) {
+      element.classList.remove(stateClass.floating)
+      element.classList.add(stateClass.sticky)
+    } else {
+      element.classList.add(stateClass.floating)
+      element.classList.remove(stateClass.sticky)
+    }
 
-        if (scrollPos >= data.botLimit) {
-          Object.assign(element.style, {
-            opacity: '0',
-            visibility: 'hidden',
-            'transition-property': 'none'
-          })
-        } else if (scrollPos - element.offsetHeight <= data.topLimit) {
-          bottomPos = 0
-          element.classList.remove('animation-slide-in-top')
-        } else {
-          const feedbackBoxHeight = this.state.feedbackBox ? this.state.feedbackBox.offsetHeight : 0
-          bottomPos = `calc(100vh + ${Math.floor((data.newTop - element.offsetHeight - feedbackBoxHeight - 12))}px)`
-          Object.assign(element.style, {
-            opacity: '1',
-            visibility: 'visible',
-            'transition-property': 'none'
-          })
-          if (this.state.feedbackBox && document.querySelector('.form__container').classList.contains('disclaimer-shown') && !element.classList.contains(stateClass.floating)) {
-            this.state.feedbackBox.classList.remove(stateClass.visible)
-          }
-          element.classList.add('animation-slide-in-top')
-        }
-        Object.assign(element.style, {
-          transform: `translate3d(0, ${bottomPos}, 0)`
-        })
-      }
+    // If disabledOn prop class is present lock sticky in place
+    const isDisabled = element.classList.contains(data.disableOn)
+    if (isDisabled) {
+      data.newTop = dom.document.scrollTop
+    }
+    // eslint-disable-next-line
+    dom.window.requestAnimationFrame(() => {
+      // E pur si muove
+      Object.assign(element.style, {
+        opacity: '1',
+        visibility: 'visible',
+        transform: `translate3d(0, ${Math.floor(data.newTop)}px, 0)`
+      })
     })
   }
 }
