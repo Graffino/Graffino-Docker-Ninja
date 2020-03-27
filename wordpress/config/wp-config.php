@@ -22,6 +22,14 @@ $dotenv->load();
  * @package WordPress
  */
 
+// Fix SSL Redirect Loop
+if ( 'https' == $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+	$_SERVER['HTTPS'] = 'on';
+}
+
+if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] )) {
+	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
 
 define( 'WP_HOME', getenv( 'THEME_URL' ) );
 define( 'WP_SITEURL', getenv( 'THEME_URL' ) );
