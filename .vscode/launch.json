@@ -12,7 +12,7 @@
         "**/.composer/**/*.php"
       ],
       "pathMappings": {
-        "${workspaceRoot}/dist-wp": "${workspaceRoot}/wordpress/theme"
+        "${workspaceRoot}/dist-wp/wp-content/themes/ninja": "${workspaceRoot}/wordpress/theme"
       }
     },
     {
