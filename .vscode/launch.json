@@ -22,7 +22,7 @@
       // Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9229
       // Or you can replace "attach" with "launch"
       "request": "attach",
-      "urlFilter": "https://*.graffino.dev/*",
+      "urlFilter": "https://*.graffino.dev",
       "webRoot": "${workspaceFolder}/",
       "port": 9229,
       "pathMapping": {
