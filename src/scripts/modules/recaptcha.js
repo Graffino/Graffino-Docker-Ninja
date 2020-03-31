@@ -12,6 +12,9 @@ export default class Recaptcha extends Component {
     window.recaptchaCode = {}
     // eslint-disable-next-line no-undef
     recaptchaCode.code = recaptchaApi
-    loadScript(`https://www.google.com/recaptcha/api.js?render=${recaptchaApi}`, function () {})
+    loadScript(
+      `https://www.google.com/recaptcha/api.js?render=${recaptchaApi}`,
+      function () {}
+    )
   }
 }

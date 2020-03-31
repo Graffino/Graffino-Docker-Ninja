@@ -10,14 +10,17 @@ export default class AvoidFOIT extends Component {
   init () {
     const fonts = ['Montserrat', 'Inconsolata']
 
-    fonts.forEach(font => {
+    fonts.forEach((font) => {
       const observer = new FontFaceObserver(font)
 
-      observer.load().then(() => {
-        this.state.element.classList.remove('no-fonts')
-      }, () => {
-        this.state.element.classList.add('no-fonts')
-      })
+      observer.load().then(
+        () => {
+          this.state.element.classList.remove('no-fonts')
+        },
+        () => {
+          this.state.element.classList.add('no-fonts')
+        }
+      )
     })
   }
 }

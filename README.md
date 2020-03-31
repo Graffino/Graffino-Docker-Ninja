@@ -6,7 +6,7 @@ All up in the interwebs, world wide!
 
 2019, futuristic.
 
-_Enter the Ninja_
+## Enter the Ninja
 
 The feature packed, lightning fast boilerplate we use at [Graffino](https://graffino.com/) for building modern responsive websites.
 
@@ -46,8 +46,9 @@ yarn run dev
 - Webpack Config Split
 
 ## Tests
+
 [hermione.js](https://github.com/gemini-testing/hermione) is a testing framework developed a
-https://mochajs.org/
+<https://mochajs.org/>
 
 Is based on [mochajs](https://mochajs.org/) and uses [chai.js](https://www.chaijs.com/) for assertions.
 

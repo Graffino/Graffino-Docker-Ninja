@@ -11,9 +11,11 @@ export default class SlideTop extends Component {
 
   init () {
     const { element } = this.state
-    element.addEventListener('click', e => {
+    element.addEventListener('click', (e) => {
       e.preventDefault()
-      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
+      requestAnimationFrame(() =>
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      )
     })
   }
 

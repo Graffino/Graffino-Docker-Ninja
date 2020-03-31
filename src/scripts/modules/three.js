@@ -37,19 +37,19 @@ export default class Module extends Component {
       const loader = new GLTFLoader(this.loadingManager)
       loader.load(
         '/media/scene.gltf',
-        gltf => {
+        (gltf) => {
           model = gltf.scene.children[0]
           model.scale.set(4, 4, 4)
           scene.add(gltf.scene)
         },
         undefined,
-        error => {
+        (error) => {
           console.error(error)
         }
       )
     }
 
-    const resizeRendererToDisplaySize = renderer => {
+    const resizeRendererToDisplaySize = (renderer) => {
       const canvas = renderer.domElement
       const width = canvas.clientWidth
       const height = canvas.clientHeight

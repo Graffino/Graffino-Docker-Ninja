@@ -15,7 +15,9 @@ export default class Expand extends Component {
     }
 
     if (Object.keys(this.state).includes('expandCollapse')) {
-      data.collapse = dom.document.querySelector(`.${this.state.expandCollapse}`)
+      data.collapse = dom.document.querySelector(
+        `.${this.state.expandCollapse}`
+      )
     }
 
     data.height = this.state.element.getBoundingClientRect().top
@@ -60,7 +62,9 @@ export default class Expand extends Component {
       scrollTo = scrollTop + data.height
     }
 
-    requestAnimationFrame(() => window.scrollTo({ top: scrollTo, behavior: 'smooth' }))
+    requestAnimationFrame(() =>
+      window.scrollTo({ top: scrollTo, behavior: 'smooth' })
+    )
   }
 
   // Close expand on resize

@@ -1,4 +1,4 @@
-const moduleLoader = async componentName => {
+const moduleLoader = async (componentName) => {
   const { default: module } = await import(`../modules/${componentName}`)
   return module
 }

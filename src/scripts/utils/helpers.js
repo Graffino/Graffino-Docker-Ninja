@@ -3,11 +3,11 @@ const wrap = (el, wrapper) => {
   wrapper.appendChild(el)
 }
 
-const getIndex = el => {
+const getIndex = (el) => {
   return parseInt(el.dataset.index)
 }
 
-const toSnakeCase = string => {
+const toSnakeCase = (string) => {
   let str = string.replace(/[^\w\s]/g, '')
   str = string.replace(/\s+/g, ' ')
   return str.toLowerCase().split(' ').join('_')
@@ -21,21 +21,21 @@ const getInitialTransformValue = (element, property) => {
   const scale = /scale\(\s*([^\s,)]+)\)/.exec(transform)
 
   switch (property) {
-    case 'X':
-      return translate[1]
-    case 'Y':
-      return translate[2]
-    case 'rotate':
-      return rotate
-    case 'scale':
-      return scale[1]
-    default:
-      return ''
+  case 'X':
+    return translate[1]
+  case 'Y':
+    return translate[2]
+  case 'rotate':
+    return rotate
+  case 'scale':
+    return scale[1]
+  default:
+    return ''
   }
 }
 
-const isTrue = value => {
-  return (value === 'true')
+const isTrue = (value) => {
+  return value === 'true'
 }
 
 const hasPassiveSupport = () => {
@@ -43,11 +43,13 @@ const hasPassiveSupport = () => {
 
   try {
     const options = Object.defineProperty({}, 'passive', {
-      get: function () { passiveSupported = !0 }
+      get: function () {
+        passiveSupported = !0
+      }
     })
 
     window.addEventListener('test', null, options)
-  } catch (err) { }
+  } catch (err) {}
 
   return passiveSupported
 }
@@ -62,8 +64,7 @@ const loadScript = (url, callback) => {
 
   if (script.readyState) {
     script.onreadystatechange = function () {
-      if (script.readyState === 'loaded' ||
-        script.readyState === 'complete') {
+      if (script.readyState === 'loaded' || script.readyState === 'complete') {
         script.onreadystatechange = null
         callback()
       }

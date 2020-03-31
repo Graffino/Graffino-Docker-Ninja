@@ -19,38 +19,37 @@ module.exports = {
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
   output: {
-    path: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+    path: path.resolve(
+      __dirname,
+      `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+    ),
     filename: 'js/main.js',
     publicPath: '../'
   },
   watchOptions: {
-    ignored: [
-      'node_modules',
-      'dist',
-      'dist-wp',
-      'composer',
-      'cache'
-    ]
+    ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src/scripts/'),
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: [
-              ['@babel/plugin-transform-runtime',
-                {
-                  regenerator: true
-                }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: [
+                [
+                  '@babel/plugin-transform-runtime',
+                  {
+                    regenerator: true
+                  }
+                ]
               ]
-            ]
-          }
-        },
-        'eslint-loader'
+            }
+          },
+          'eslint-loader'
         ]
       },
       {
@@ -90,64 +89,72 @@ module.exports = {
       {
         test: /\.(woff|woff2)$/,
         include: path.resolve(__dirname, 'src/fonts/'),
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: 'fonts/[name].[ext]',
-            publicPath: '../'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]',
+              publicPath: '../'
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.svg$/,
         include: path.resolve(__dirname, 'src/icons/'),
-        use: [{
-          loader: 'svg-sprite-loader',
-          options: {
-            extract: true
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true
+            }
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  removeAttrs: {
+                    attrs: '*:(stroke|fill):((?!^none$).)*'
+                  }
+                }
+              ]
+            }
           }
-        },
-        {
-          loader: 'svgo-loader',
-          options: {
-            plugins: [{
-              removeAttrs: {
-                attrs: '*:(stroke|fill):((?!^none$).)*'
-              }
-            }]
-          }
-        }]
+        ]
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         include: path.resolve(__dirname, 'src/images/'),
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'images/',
-            publicPath: '../images/'
-          }
-        },
-        {
-          loader: 'image-webpack-loader',
-          options: {
-            mozjpeg: {
-              progressive: true,
-              quality: 65
-            },
-            optipng: {
-              enabled: true
-            },
-            pngquant: {
-              quality: [0.65, 0.90],
-              speed: 4
-            },
-            gifsicle: {
-              interlaced: false
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+              publicPath: '../images/'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: true
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              }
             }
           }
-        }]
+        ]
       }
     ]
   },
@@ -156,7 +163,10 @@ module.exports = {
       'process.env': dotenv.parsed
     }),
     new HtmlPlugin({
-      filename: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`),
+      filename: path.resolve(
+        __dirname,
+        `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`
+      ),
       template: path.resolve(__dirname, 'wordpress/config/sprite.ejs'),
       inject: false
     }),
@@ -170,12 +180,18 @@ module.exports = {
     new CopyPlugin([
       {
         from: path.resolve(__dirname, 'src/static'),
-        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+        to: path.resolve(
+          __dirname,
+          `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+        ),
         force: true
       },
       {
         from: path.resolve(__dirname, 'wordpress/theme'),
-        to: path.resolve(__dirname, `dist-wp/wp-content/themes/${process.env.THEME_NAME}`),
+        to: path.resolve(
+          __dirname,
+          `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+        ),
         force: true
       },
       {
@@ -203,7 +219,13 @@ module.exports = {
       plainSprite: true
     }),
     new BrowserSyncPlugin({
-      files: ['dist/**/*.css', 'dist/**/*.js', 'dist-wp/wp-content/themes/**/*.css', 'dist-wp/wp-content/themes/**/*.js', 'wordpress/**/*.php'],
+      files: [
+        'dist/**/*.css',
+        'dist/**/*.js',
+        'dist-wp/wp-content/themes/**/*.css',
+        'dist-wp/wp-content/themes/**/*.js',
+        'wordpress/**/*.php'
+      ],
       ignore: 'sprite.php',
       proxy: process.env.THEME_URL,
       open: false,
@@ -214,9 +236,7 @@ module.exports = {
       injectCss: true,
       notify: false,
       watchOptions: {
-        ignored: [
-          'sprite.php'
-        ]
+        ignored: ['sprite.php']
       }
     }),
     new webpack.optimize.LimitChunkCountPlugin({

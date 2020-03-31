@@ -1,6 +1,9 @@
-ClickUp link: https://app.clickup.com/t/xxxxxx
+# Pull Request
+
+ClickUp link: <https://app.clickup.com/t/xxxxxx>
 
 ## Acceptance criteria
+
 * [ ] Passes all regression tests
 * [ ] Is cross-browser compatible
 * [ ] Is cross-device compatible

@@ -23,37 +23,39 @@ module.exports = merge(common, {
     disableHostCheck: true
   },
   module: {
-    rules: [{
-      test: /\.(sa|sc|c)ss$/,
-      include: path.resolve(__dirname, 'src/styles/'),
-      use: [
-        'style-loader',
-        {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            hmr: process.env.NODE_ENV === 'development'
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        include: path.resolve(__dirname, 'src/styles/'),
+        use: [
+          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development'
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
           }
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true
-          }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true
-          }
-        },
-        {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true
-          }
-        }
-      ]
-    }]
+        ]
+      }
+    ]
   },
   plugins: [
     new webpack.NamedModulesPlugin(),

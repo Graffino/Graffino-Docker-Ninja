@@ -21,7 +21,7 @@ export default class Video extends Component {
     myPlayer.errorDisplay.el_.remove()
     window.myplayer = myPlayer
 
-    player.addEventListener('click', e => {
+    player.addEventListener('click', (e) => {
       e.preventDefault()
       if (playing) {
         buttonPlay[0].classList.remove('is-hidden')

@@ -23,41 +23,45 @@ export default class Hamburger extends Component {
     const component = this.state
 
     // Global listener
-    document.body.addEventListener('click', e => {
-      const item = e.target
+    document.body.addEventListener(
+      'click',
+      (e) => {
+        const item = e.target
 
-      // Listen for tap
-      if (item.classList.contains('js-double-tap')) {
-        // Prevent first tap
-        this.doubleTap(e)
-      }
-
-      // Listen for menu class
-      if (this.isMobile() && item.className === component.element.className) {
-        e.preventDefault()
-
-        if (component.menu.classList.contains(stateClass.active)) {
-          this.close()
-        } else {
-          this.open()
+        // Listen for tap
+        if (item.classList.contains('js-double-tap')) {
+          // Prevent first tap
+          this.doubleTap(e)
         }
-      }
 
-      // Listen for submenu class
-      if (item.classList.contains('js-menu-action')) {
-        // If on mobile activate expand / collapse
-        const { actionsAll } = this.state
-        if (this.isMobile() && actionsAll[3] !== item) {
+        // Listen for menu class
+        if (this.isMobile() && item.className === component.element.className) {
           e.preventDefault()
 
-          if (item.classList.contains(stateClass.active)) {
-            this.collapse(item)
+          if (component.menu.classList.contains(stateClass.active)) {
+            this.close()
           } else {
-            this.expand(item)
+            this.open()
           }
         }
-      }
-    }, false)
+
+        // Listen for submenu class
+        if (item.classList.contains('js-menu-action')) {
+          // If on mobile activate expand / collapse
+          const { actionsAll } = this.state
+          if (this.isMobile() && actionsAll[3] !== item) {
+            e.preventDefault()
+
+            if (item.classList.contains(stateClass.active)) {
+              this.collapse(item)
+            } else {
+              this.expand(item)
+            }
+          }
+        }
+      },
+      false
+    )
   }
 
   onResize () {
@@ -73,7 +77,7 @@ export default class Hamburger extends Component {
 
   // Check for mobile breakpoint
   isMobile () {
-    return (dom.window.innerWidth <= breakpoints.large) === true
+    return dom.window.innerWidth <= breakpoints.large === true
   }
 
   // Prevent link on first tap

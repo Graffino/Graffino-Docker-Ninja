@@ -16,10 +16,12 @@ export default class CustomCursor extends Component {
   }
 
   initCursor () {
-    document.querySelectorAll('canvas')[0].addEventListener('mousemove', e => {
-      this.state.clientX = e.clientX
-      this.state.clientY = e.clientY
-    })
+    document
+      .querySelectorAll('canvas')[0]
+      .addEventListener('mousemove', (e) => {
+        this.state.clientX = e.clientX
+        this.state.clientY = e.clientY
+      })
 
     const render = () => {
       this.state.element.style.transform = `translate(${this.state.clientX}px, ${this.state.clientY}px)`
