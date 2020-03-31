@@ -235,6 +235,11 @@ module.exports = {
       },
       injectCss: true,
       notify: false,
+      ghostMode: {
+        clicks: false,
+        forms: false,
+        scroll: false
+      },
       watchOptions: {
         ignored: ['sprite.php']
       }
