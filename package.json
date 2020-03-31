@@ -71,7 +71,7 @@
     "handlebars": "^4.7.3",
     "handlebars-loader": "^1.7.1",
     "html-reporter": "^5.15.0",
-    "html-webpack-plugin": "^4.0.3",
+    "html-webpack-plugin": "3.2.0",
     "image-webpack-loader": "^6.0.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
