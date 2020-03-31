@@ -2,7 +2,13 @@
   "parser": "babel-eslint",
   "extends": ["standard", "prettier/standard"],
   "plugins": ["prettier", "standard"],
-  "rules": {},
+  "rules": {
+    "template-curly-spacing" : "off",
+    "indent": ["error", 2, {
+      "ignoredNodes": ["TemplateLiteral"]
+    }],
+    "import/no-duplicates": "off"
+  },
   "globals": {
     "describe": "readonly",
     "it": "readonly",

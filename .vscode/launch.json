@@ -12,18 +12,22 @@
         "**/.composer/**/*.php"
       ],
       "pathMappings": {
-        "${workspaceRoot}/dist-www": "${workspaceRoot}/wordpress/theme"
+        "${workspaceRoot}/dist-wp/wp-content/themes/ninja": "${workspaceRoot}/wordpress/theme"
       }
     },
     {
       "name": "Chrome Debug",
       "type": "chrome",
+      // To use "attach" you must start Chrome from the terminal
+      // Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9229
+      // Or you can replace "attach" with "launch"
       "request": "attach",
-      "urlFilter": "https://*.graffino.dev/*",
+      "urlFilter": "https://*.graffino.dev",
       "webRoot": "${workspaceFolder}/",
+      "port": 9229,
       "pathMapping": {
         "webpack:///./src/scripts/*": "${workspaceFolder}/src/scripts/*",
-        "${workspaceFolder}/dist-www/src/scripts/*": "${workspaceFolder}/src/scripts/*"
+        "${workspaceFolder}/dist-wp/src/scripts/*": "${workspaceFolder}/src/scripts/*"
       }
     }
   ]

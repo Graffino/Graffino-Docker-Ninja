@@ -14,12 +14,12 @@ export default class RangeSlider extends Component {
     const slider = this.state.element
 
     noUiSlider.create(slider, {
-      start: 50,
+      start: 2475,
       connect: 'lower',
       tooltips: wNumb({ decimals: 0 }),
       range: {
-        min: [0],
-        max: [100]
+        min: [50],
+        max: [5000]
       }
     })
   }
