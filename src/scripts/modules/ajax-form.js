@@ -23,30 +23,37 @@ export default class AjaxForm extends Component {
 
     this.setState({ ...this.state, feedbackBox })
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault()
       if (this.state.element.validate()) {
         // eslint-disable-next-line no-undef
         grecaptcha.ready(() => {
           // eslint-disable-next-line no-undef
-          grecaptcha.execute(window.recaptchaCode.code, {
-            action: 'forms'
-          }).then((token) => {
-            const input = document.createElement('input')
-            input.type = 'hidden'
-            input.name = 'token'
-            input.value = token
+          grecaptcha
+            .execute(window.recaptchaCode.code, {
+              action: 'forms'
+            })
+            .then((token) => {
+              const input = document.createElement('input')
+              input.type = 'hidden'
+              input.name = 'token'
+              input.value = token
 
-            axios.post(AJAX_URL, new FormData(form))
-              .then(response => this.responseCallback({
-                type: response.data.result,
-                msg: response.data.msg
-              }))
-              .catch(error => this.responseCallback({
-                type: 'error',
-                msg: error
-              }))
-          })
+              axios
+                .post(AJAX_URL, new FormData(form))
+                .then((response) =>
+                  this.responseCallback({
+                    type: response.data.result,
+                    msg: response.data.msg
+                  })
+                )
+                .catch((error) =>
+                  this.responseCallback({
+                    type: 'error',
+                    msg: error
+                  })
+                )
+            })
         })
       }
     })
@@ -54,7 +61,11 @@ export default class AjaxForm extends Component {
 
   onScroll () {
     if (document.querySelector('.form__container') !== null) {
-      if (document.querySelector('.form__container').classList.contains('disclaimer-shown')) {
+      if (
+        document
+          .querySelector('.form__container')
+          .classList.contains('disclaimer-shown')
+      ) {
         const disclaimer = document.querySelector('.form__container')
         disclaimer.classList.remove('disclaimer-shown')
       }
@@ -63,7 +74,9 @@ export default class AjaxForm extends Component {
 
   responseCallback ({ type, msg }) {
     this.state.element.classList.add(stateClass.hidden)
-    const feedbackBoxModal = document.getElementsByClassName('js-feedback-box-modal')[0]
+    const feedbackBoxModal = document.getElementsByClassName(
+      'js-feedback-box-modal'
+    )[0]
 
     if (feedbackBoxModal !== undefined) {
       feedbackBoxModal.classList.add(stateClass.visible)
@@ -71,7 +84,9 @@ export default class AjaxForm extends Component {
 
     this.state.feedbackBox.classList.add(stateClass.visible)
     if (this.state.element.querySelector('.form__container') !== null) {
-      this.state.element.querySelector('.form__container').classList.add('disclaimer-shown')
+      this.state.element
+        .querySelector('.form__container')
+        .classList.add('disclaimer-shown')
     }
 
     if (this.state.customMessage === undefined) {
@@ -82,7 +97,7 @@ export default class AjaxForm extends Component {
     }
 
     if (this.state.customMessage !== 'html') {
-      if (this.state.customMessage && (msg !== null) && (type !== 'error')) {
+      if (this.state.customMessage && msg !== null && type !== 'error') {
         this.state.feedbackBox.innerHTML = `<div class="form__message is-error">${this.state.customMessage}</div>`
       }
     }
@@ -123,11 +138,13 @@ export default class AjaxForm extends Component {
     let userTyped = false
     const inputs = this.state.element.querySelectorAll('input')
 
-    inputs.forEach(input => {
+    inputs.forEach((input) => {
       input.addEventListener('keyup', () => {
         userTyped = true
         if (userTyped) {
-          this.state.element.querySelector('.form__container').classList.add('disclaimer-shown')
+          this.state.element
+            .querySelector('.form__container')
+            .classList.add('disclaimer-shown')
         }
       })
     })

@@ -1,8 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const {
-  CleanWebpackPlugin
-} = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -17,131 +15,136 @@ module.exports = {
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
   watchOptions: {
-    ignored: [
-      'node_modules',
-      'dist',
-      'dist-wp',
-      'composer',
-      'cache'
-    ]
+    ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
   module: {
-    rules: [{
-      test: /\.(handlebars|hbs)$/,
-      include: path.resolve(__dirname, 'src/views/'),
-      use: [{
-        loader: 'handlebars-loader',
-        options: {
-          helperDirs: path.resolve(__dirname, 'src/views/helpers'),
-          partialDirs: path.resolve(__dirname, 'src/views/partials'),
-          precompileOptions: {
-            knownHelpersOnly: false
-          }
-        }
-      },
+    rules: [
       {
-        loader: 'markup-inline-loader',
-        options: {
-          svgo: {
-            plugins: [{
-              cleanupIDs: true
-            },
-            {
-              prefixIds: true
-            }
-            ]
-          }
-        }
-      }
-      ]
-    },
-    {
-      test: /\.(woff|woff2)$/,
-      include: path.resolve(__dirname, 'src/fonts/'),
-      use: [{
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]',
-          outputPath: './'
-        }
-      }]
-    },
-    {
-      test: /masonry-layout/,
-      loader: 'imports?define=>false&this=>window'
-    },
-    {
-      test: /\.js$/,
-      include: path.resolve(__dirname, 'src/scripts/'),
-      use: [{
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env'],
-          plugins: [
-            ['@babel/plugin-transform-runtime',
-              {
-                regenerator: true
+        test: /\.(handlebars|hbs)$/,
+        include: path.resolve(__dirname, 'src/views/'),
+        use: [
+          {
+            loader: 'handlebars-loader',
+            options: {
+              helperDirs: path.resolve(__dirname, 'src/views/helpers'),
+              partialDirs: path.resolve(__dirname, 'src/views/partials'),
+              precompileOptions: {
+                knownHelpersOnly: false
               }
-            ]
-          ]
-        }
-      },
-      'eslint-loader'
-      ]
-    },
-    {
-      test: /\.svg$/,
-      include: path.resolve(__dirname, 'src/icons/'),
-      use: [{
-        loader: 'svg-sprite-loader',
-        options: {
-          extract: true
-        }
-      },
-      {
-        loader: 'svgo-loader',
-        options: {
-          plugins: [{
-            removeAttrs: {
-              attrs: '*:(stroke|fill):((?!^none$).)*'
             }
-          }]
-        }
-      }
-      ]
-    },
-    {
-      test: /\.(png|svg|jpe?g|gif)$/,
-      include: path.resolve(__dirname, 'src/images/'),
-      use: [{
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'images/',
-          publicPath: '/images/'
-        }
+          },
+          {
+            loader: 'markup-inline-loader',
+            options: {
+              svgo: {
+                plugins: [
+                  {
+                    cleanupIDs: true
+                  },
+                  {
+                    prefixIds: true
+                  }
+                ]
+              }
+            }
+          }
+        ]
       },
       {
-        loader: 'image-webpack-loader',
-        options: {
-          mozjpeg: {
-            progressive: true,
-            quality: 65
-          },
-          optipng: {
-            enabled: true
-          },
-          pngquant: {
-            quality: [0.65, 0.90],
-            speed: 4
-          },
-          gifsicle: {
-            interlaced: false
+        test: /\.(woff|woff2)$/,
+        include: path.resolve(__dirname, 'src/fonts/'),
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]',
+              outputPath: './'
+            }
           }
-        }
+        ]
+      },
+      {
+        test: /masonry-layout/,
+        loader: 'imports?define=>false&this=>window'
+      },
+      {
+        test: /\.js$/,
+        include: path.resolve(__dirname, 'src/scripts/'),
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env'],
+              plugins: [
+                [
+                  '@babel/plugin-transform-runtime',
+                  {
+                    regenerator: true
+                  }
+                ]
+              ]
+            }
+          },
+          'eslint-loader'
+        ]
+      },
+      {
+        test: /\.svg$/,
+        include: path.resolve(__dirname, 'src/icons/'),
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              extract: true
+            }
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                {
+                  removeAttrs: {
+                    attrs: '*:(stroke|fill):((?!^none$).)*'
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        include: path.resolve(__dirname, 'src/images/'),
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+              publicPath: '/images/'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: true
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              }
+            }
+          }
+        ]
       }
-      ]
-    }
     ]
   },
   plugins: [
@@ -150,14 +153,18 @@ module.exports = {
       // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
       cleanStaleWebpackAssets: false
     }),
-    new CopyPlugin([{
-      from: 'src/static',
-      to: ''
-    }]),
-    new CopyPlugin([{
-      from: 'src/media',
-      to: 'media'
-    }]),
+    new CopyPlugin([
+      {
+        from: 'src/static',
+        to: ''
+      }
+    ]),
+    new CopyPlugin([
+      {
+        from: 'src/media',
+        to: 'media'
+      }
+    ]),
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {}

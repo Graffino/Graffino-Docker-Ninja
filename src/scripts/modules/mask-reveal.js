@@ -9,17 +9,19 @@ export default class MaskReveal extends Component {
   }
 
   init () {
-    this.state.element.parentNode.querySelector('.js-reveal-mask').click(function (e) {
-      e.preventDefault()
-      this.toggleClass('is-revealed')
+    this.state.element.parentNode
+      .querySelector('.js-reveal-mask')
+      .click(function (e) {
+        e.preventDefault()
+        this.toggleClass('is-revealed')
 
-      const $el = this.parentNode.querySelector('input')
+        const $el = this.parentNode.querySelector('input')
 
-      if ($el.attr('type') === 'password') {
-        $el.attr('type', 'text')
-      } else {
-        $el.attr('type', 'password')
-      }
-    })
+        if ($el.attr('type') === 'password') {
+          $el.attr('type', 'text')
+        } else {
+          $el.attr('type', 'password')
+        }
+      })
   }
 }

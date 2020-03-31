@@ -8,7 +8,9 @@ export default class MasonryLayout extends Component {
 
   init () {
     setTimeout(() => {
-      this.setState({ instance: new window.Masonry('.masonry', this.state.masonrySettings) })
+      this.setState({
+        instance: new window.Masonry('.masonry', this.state.masonrySettings)
+      })
     }, 0)
   }
 }

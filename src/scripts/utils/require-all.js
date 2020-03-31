@@ -1,4 +1,4 @@
-const requireAll = r => {
+const requireAll = (r) => {
   r.keys().forEach(r)
 }
 

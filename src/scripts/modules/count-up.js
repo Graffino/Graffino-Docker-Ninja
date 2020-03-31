@@ -11,10 +11,13 @@ export default class Countup extends Component {
   init () {
     this.state.element.countUpHandler = this
 
-    this.state.instance = new CountUp(this.state.element, this.state.targetNumber)
+    this.state.instance = new CountUp(
+      this.state.element,
+      this.state.targetNumber
+    )
 
     const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           this.start()
         } else {

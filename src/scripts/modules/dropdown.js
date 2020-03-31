@@ -18,7 +18,7 @@ export default class Dropdown extends Component {
 
     const { triggers } = this.state
     for (const element of triggers) {
-      element.addEventListener('click', e => {
+      element.addEventListener('click', (e) => {
         e.stopPropagation()
         e.preventDefault()
         this.setState({

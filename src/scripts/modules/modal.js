@@ -38,7 +38,9 @@ export default class Modal extends Component {
       Array.from = (function () {
         var toStr = Object.prototype.toString
         var isCallable = function (fn) {
-          return typeof fn === 'function' || toStr.call(fn) === '[object Function]'
+          return (
+            typeof fn === 'function' || toStr.call(fn) === '[object Function]'
+          )
         }
         var toInteger = function (value) {
           var number = Number(value)
@@ -102,9 +104,12 @@ export default class Modal extends Component {
   }
 
   handleMarkup () {
-    document.addEventListener('click', event => {
+    document.addEventListener('click', (event) => {
       setTimeout(() => {
-        if (event.target.matches('.js-open-modal') || !!event.target.closest('.js-open-modal')) {
+        if (
+          event.target.matches('.js-open-modal') ||
+          !!event.target.closest('.js-open-modal')
+        ) {
           let target
           if (event.target.matches('.js-open-modal')) {
             target = event.target.dataset.modalTarget

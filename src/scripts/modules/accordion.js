@@ -9,7 +9,7 @@ export default class Accordion extends Component {
 
   init () {
     const { element } = this.state
-    element.addEventListener('click', e => {
+    element.addEventListener('click', (e) => {
       if (!Array.from(element.classList).includes(stateClass.open)) {
         element.classList.add(stateClass.open)
       } else {
@@ -17,12 +17,14 @@ export default class Accordion extends Component {
       }
     })
 
-    dom.window.addEventListener('click', e => {
+    dom.window.addEventListener('click', (e) => {
       const check = dom.document.getElementsByClassName('js-sidebar-menu')
 
       if (check.length > 0) {
         if (
-          !dom.document.getElementsByClassName('js-sidebar-menu')[0].contains(e.target)
+          !dom.document
+            .getElementsByClassName('js-sidebar-menu')[0]
+            .contains(e.target)
         ) {
           element.classList.remove(stateClass.open)
         }

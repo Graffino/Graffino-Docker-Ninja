@@ -33,7 +33,10 @@ export default class Header extends Component {
             element.classList.add(classes.pinned)
           }
         } else if (data.currentScrollY > data.lastKnownScrollY) {
-          if (element.classList.contains(classes.pinned) || !element.classList.contains(classes.unpinned)) {
+          if (
+            element.classList.contains(classes.pinned) ||
+            !element.classList.contains(classes.unpinned)
+          ) {
             element.classList.remove(classes.pinned)
             element.classList.add(classes.unpinned)
           }

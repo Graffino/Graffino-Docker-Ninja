@@ -27,7 +27,7 @@ export default class Validate extends Component {
 
     const pristine = new Pristine(form, config, live)
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault()
       const valid = pristine.validate()
 
@@ -38,7 +38,7 @@ export default class Validate extends Component {
       }
     })
 
-    submitButton.addEventListener('animationend', e => {
+    submitButton.addEventListener('animationend', (e) => {
       e.preventDefault()
       submitButton.classList.remove('animation-shake')
     })

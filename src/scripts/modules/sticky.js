@@ -39,7 +39,9 @@ export default class Sticky extends Component {
     }
 
     if (Object.keys(this.state).includes('stickyBottomLimit')) {
-      data.$bottomLimit = dom.document.querySelector(`.${this.state.stickyBottomLimit}`)
+      data.$bottomLimit = dom.document.querySelector(
+        `.${this.state.stickyBottomLimit}`
+      )
     }
 
     if (Object.keys(this.state).includes('stickyParent')) {
@@ -72,14 +74,22 @@ export default class Sticky extends Component {
     data.offset = data.$parent.getBoundingClientRect().top
 
     // Calculate top limit
-    data.topLimit = this.state.element.getBoundingClientRect().top + dom.document.documentElement.scrollTop
+    data.topLimit =
+      this.state.element.getBoundingClientRect().top +
+      dom.document.documentElement.scrollTop
 
     // Calculate bottom limit from parent div if prop not present
     if (typeof data.$bottomLimit === 'undefined') {
-      data.bottomLimit = data.$parent.getBoundingClientRect().top + dom.document.documentElement.scrollTop + data.$parent.offsetHeight
+      data.bottomLimit =
+        data.$parent.getBoundingClientRect().top +
+        dom.document.documentElement.scrollTop +
+        data.$parent.offsetHeight
     } else {
       // Calculate bottom limit
-      data.bottomLimit = dom.document.body.offsetHeight - data.viewportHeight - data.$bottomLimit.offsetHeight
+      data.bottomLimit =
+        dom.document.body.offsetHeight -
+        data.viewportHeight -
+        data.$bottomLimit.offsetHeight
     }
 
     // Save state
@@ -123,7 +133,7 @@ export default class Sticky extends Component {
       if (scrollPos >= data.topLimit && scrollPos <= data.bottomLimit) {
         data.newTop = scrollPos - data.topLimit + 12 + data.pushTop
 
-      // If scroll position is below the bottom limit
+        // If scroll position is below the bottom limit
       } else if (scrollPos > data.bottomLimit) {
         data.newTop = data.$parent.offsetHeight - element.offsetHeight
       } else {
@@ -135,9 +145,15 @@ export default class Sticky extends Component {
 
       // If scroll position is above bot limit
       if (scrollPos < data.topLimit) {
-        data.newTop = data.topLimit + element.offsetHeight + data.pushTop + data.delta
+        data.newTop =
+          data.topLimit + element.offsetHeight + data.pushTop + data.delta
       } else if (scrollPos > data.topLimit && scrollPos < data.bottomLimit) {
-        data.newTop = scrollPos - data.topLimit + data.viewportHeight - element.offsetHeight - data.delta
+        data.newTop =
+          scrollPos -
+          data.topLimit +
+          data.viewportHeight -
+          element.offsetHeight -
+          data.delta
       } else if (scrollPos > data.bottomLimit) {
         data.newTop = dataParentOffset + data.deltaBottom
       }
@@ -148,8 +164,8 @@ export default class Sticky extends Component {
 
     // If when passing delta add/remove floating class
     if (
-      scrollPos > (data.topLimit + data.deltaTop) &&
-      scrollPos < (data.bottomLimit + data.deltaBottom)
+      scrollPos > data.topLimit + data.deltaTop &&
+      scrollPos < data.bottomLimit + data.deltaBottom
     ) {
       element.classList.remove(stateClass.floating)
       element.classList.add(stateClass.sticky)

@@ -18,12 +18,14 @@ module.exports = merge(common, {
       {
         test: /\.html$/,
         include: path.resolve(__dirname, 'src/views/'),
-        use: [{
-          loader: 'html-loader',
-          options: {
-            minimize: true
+        use: [
+          {
+            loader: 'html-loader',
+            options: {
+              minimize: true
+            }
           }
-        }]
+        ]
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -99,14 +101,33 @@ module.exports = merge(common, {
       chunkFilename: 'css/[id].css'
     }),
     new PurgecssPlugin({
-      paths: glob.sync(
-        path.join(__dirname, './src/views/**/*.handlebars')
-      ),
-      extractors: [{
-        extractor: content => content.match(/[A-z0-9-:/]+/g) || [],
-        extensions: ['handlebars', 'html', 'js', 'php', 'vue']
-      }],
-      whitelistPatterns: [/^is-/, /^has-/, /^animation-/, /^debug/, /^h-/, /^d-/, /^nav/, /^-nav/, /^-submenu/, /^submenu/, /^nwp-/, /^post-/, /^page-/, /^slide-/, /^icon/, /^noUi/, /^choices/, /data-.*/]
+      paths: glob.sync(path.join(__dirname, './src/views/**/*.handlebars')),
+      extractors: [
+        {
+          extractor: (content) => content.match(/[A-z0-9-:/]+/g) || [],
+          extensions: ['handlebars', 'html', 'js', 'php', 'vue']
+        }
+      ],
+      whitelistPatterns: [
+        /^is-/,
+        /^has-/,
+        /^animation-/,
+        /^debug/,
+        /^h-/,
+        /^d-/,
+        /^nav/,
+        /^-nav/,
+        /^-submenu/,
+        /^submenu/,
+        /^nwp-/,
+        /^post-/,
+        /^page-/,
+        /^slide-/,
+        /^icon/,
+        /^noUi/,
+        /^choices/,
+        /data-.*/
+      ]
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
@@ -114,12 +135,14 @@ module.exports = merge(common, {
       gifsicle: {
         optimizationLevel: 9
       },
-      pngquant: ({
+      pngquant: {
         quality: '65-90'
-      }),
-      plugins: [imageminMozjpeg({
-        quality: '75'
-      })]
+      },
+      plugins: [
+        imageminMozjpeg({
+          quality: '75'
+        })
+      ]
     })
   ],
   output: {

@@ -12,7 +12,7 @@ $font-weights: (
   semibold: 600,
   bold: 700,
   black: 800,
-  extrablack: 900
+  extrablack: 900,
 );
 
 $font-colors: (
@@ -23,7 +23,7 @@ $font-colors: (
   success: $color-success,
   info: $color-info,
   warning: $color-warning,
-  danger: $color-danger
+  danger: $color-danger,
 );
 
 /**
@@ -146,6 +146,31 @@ $font-colors: (
   $ease: cubic-bezier(0.25, 0.46, 0.45, 0.94)
 ) {
   @return $property $duration $ease;
+}
+
+// Block level state. Eg.: .target.is-pinned {}
+@mixin block-state($state-class, $parent-class: '') {
+  @at-root #{$parent-class}#{$state-class}#{&} {
+    @content;
+  }
+}
+
+// Root level state. Eg.: .header.is-pinned .target {}
+@mixin root-state($state-class, $parent-class: '') {
+  @at-root #{$parent-class}#{$state-class} #{&} {
+    @content;
+  }
+}
+
+// Root level sibling state. Eg.: .header.is-pinned + .sibling .target {}
+@mixin root-sibling-state(
+  $state-class,
+  $sibling-class: '.main',
+  $parent-class: ''
+) {
+  @at-root #{$parent-class}#{$state-class} + #{$sibling-class} #{&} {
+    @content;
+  }
 }
 
 // Easy Media Queries
