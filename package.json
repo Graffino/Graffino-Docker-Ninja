@@ -136,7 +136,7 @@
     "pristinejs": "^0.1.6",
     "stickybits": "^3.7.6",
     "swiper": "^5.3.6",
-    "vanilla-lazyload": "^15.0.0",
+    "vanilla-lazyload": "^15.1.1",
     "video.js": "^7.7.5",
     "wnumb": "^1.2.0"
   }
