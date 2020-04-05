@@ -5,22 +5,27 @@ const path = require('path')
 const cpy = require('cpy')
 
 // Copy files
-const copy = async () => {
-  console.log('(1) Syncing files...')
+const copyTo = async () => {
+  console.log('(1) Syncing files from dist to repo...')
+  return await cpy(['**/*'], path.resolve(__dirname, '../wordpress/uploads/'), {
+    cwd: path.resolve(__dirname, '../dist-wp/wp-content/uploads/'),
+    overwrite: false,
+    parents: true
+  }).then(console.log('(2) Operation finished.'))
+}
 
-  try {
-    await cpy(['**/*'],
-      path.resolve(__dirname, '../dist-wp/wp-content/uploads/'),
-      {
-        cwd: path.resolve(__dirname, '../wordpress/uploads/'),
-        overwrite: false,
-        parents: true
-      }
-    )
-    console.log('(2) Files synced.')
-  } catch (e) {
-    console.log('(2) No files to sync.')
-  }
+// Copy files
+const copyFrom = async () => {
+  console.log('(3) Syncing files from repo to dist...')
+  return await cpy(
+    ['**/*'],
+    path.resolve(__dirname, '../dist-wp/wp-content/uploads'),
+    {
+      cwd: path.resolve(__dirname, '../wordpress/uploads/'),
+      overwrite: false,
+      parents: true
+    }
+  ).then(console.log('(4) Operation finished.'))
 }
 
 // Start async
@@ -30,14 +35,19 @@ async function start () {
 
   if (process.argv[2] !== '--no-confirm') {
     confirmation = await yesno({
-      question: 'WARNING: The repository Uploads folder will be synced with your local Uploads folder! Are you sure you want to continue?\n'
+      question:
+        'WARNING: The repository Uploads folder will be synced with your dist Uploads folder! Are you sure you want to continue?\n'
     })
   }
 
   // If yes
   if (confirmation) {
-    // Wait for unarchive to finish
-    await copy()
+    // Wait for sync
+    try {
+      await Promise.all([copyTo(), copyFrom()])
+    } catch (e) {
+      console.log('(!) No sync possible. Make sure yarn wp:setup has ran.')
+    }
   } else {
     console.log('Stopping ... no changes were made. \n')
   }

@@ -15,7 +15,9 @@ export default class Animatable extends Component {
     this.state.element.exitAnimationName = this.state.exitAnimationName
     this.state.element.animationStep = this.state.animationStep
 
-    if (this.state.animationOnLoad === 'true') { this.state.element.classList.add(...this.state.animationName.split(' ')) }
+    if (this.state.animationOnLoad === 'true') {
+      this.state.element.classList.add(...this.state.animationName.split(' '))
+    }
   }
 
   animate (className) {

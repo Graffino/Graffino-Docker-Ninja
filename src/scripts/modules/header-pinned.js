@@ -42,6 +42,9 @@ export default class Header extends Component {
           }
         }
         data.lastKnownScrollY = data.currentScrollY
+      } else {
+        element.classList.remove(classes.unpinned)
+        element.classList.remove(classes.pinned)
       }
     }
   }
