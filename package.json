@@ -117,23 +117,27 @@
     "three": "^0.115.0",
     "typi": "^3.2.0",
     "unzipper": "^0.10.10",
-    "video.js": "^7.7.5",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-merge": "^4.2.2",
-    "wnumb": "^1.2.0",
     "yesno": "^0.3.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.8.7",
     "animejs": "^3.1.0",
+    "body-scroll-lock": "^3.0.1",
     "countup.js": "^2.0.4",
+    "fontfaceobserver": "^2.1.0",
+    "intersection-observer": "^0.7.0",
     "jump.js": "^1.0.2",
     "micromodal": "^0.4.6",
     "nouislider": "^14.2.0",
+    "pristinejs": "^0.1.6",
+    "stickybits": "^3.7.6",
     "swiper": "^5.3.6",
-    "vanilla-lazyload": "^15.1.1"
+    "vanilla-lazyload": "^15.0.0",
+    "video.js": "^7.7.5",
+    "wnumb": "^1.2.0"
   }
 }

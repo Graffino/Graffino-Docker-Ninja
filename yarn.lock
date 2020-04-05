@@ -635,14 +635,6 @@
     "@babel/helper-create-regexp-features-plugin" "^7.8.3"
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/polyfill@^7.8.7":
-  version "7.8.7"
-  resolved "https://registry.yarnpkg.com/@babel/polyfill/-/polyfill-7.8.7.tgz#151ec24c7135481336168c3bd8b8bf0cf91c032f"
-  integrity sha512-LeSfP9bNZH2UOZgcGcZ0PIHUt1ZuHub1L3CVmEyqLxCeDLm4C5Gi8jRH8ZX2PNpDhQCo0z6y/+DIs2JlliXW8w==
-  dependencies:
-    core-js "^2.6.5"
-    regenerator-runtime "^0.13.4"
-
 "@babel/preset-env@^7.9.0":
   version "7.9.0"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.9.0.tgz#a5fc42480e950ae8f5d9f8f2bbc03f52722df3a8"
@@ -2121,6 +2113,11 @@ body-parser@1.19.0, body-parser@^1.18.2:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
+body-scroll-lock@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/body-scroll-lock/-/body-scroll-lock-3.0.1.tgz#bacb9ebf64fef2498392a3b779f4943af2004fad"
+  integrity sha512-BYcnBAv6r3iKFDeYgG3ZMiOtxHDcHaev84he4vU4nB062A9MSUHsbVkrgsiSZlGCcWqoqGKCKTytSUhzuEjiCQ==
+
 bonjour@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bonjour/-/bonjour-3.5.0.tgz#8e890a183d8ee9a2393b3844c691a42bcf7bc9f5"
@@ -3378,7 +3375,7 @@ core-js-compat@^3.6.2:
     browserslist "^4.8.3"
     semver "7.0.0"
 
-core-js@^2.4.0, core-js@^2.6.5:
+core-js@^2.4.0:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.11.tgz#38831469f9922bded8ee21c9dc46985e0399308c"
   integrity sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
@@ -12486,6 +12483,11 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
+stickybits@^3.7.6:
+  version "3.7.6"
+  resolved "https://registry.yarnpkg.com/stickybits/-/stickybits-3.7.6.tgz#1a390d85bab017128436720e361c1d7cd358777b"
+  integrity sha512-A4HvuQdVlLzzkd0A1SJUC5N4AEvTxgrS3vr9k1iNL/bDUEH8arykrKcRHF29d/9Xomy//WpJAHxcCgDNCMk53Q==
+
 stream-browserify@^2.0.0, stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -14085,7 +14087,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vanilla-lazyload@^15.1.1:
+vanilla-lazyload@^15.0.0:
   version "15.1.1"
   resolved "https://registry.yarnpkg.com/vanilla-lazyload/-/vanilla-lazyload-15.1.1.tgz#8b465f8f5af602a6058bc10403cea939ae3e7073"
   integrity sha512-psVgA+X9bp/VsSbxx5VMxg9VJOV1MwFYqig47d55pDBGVs5rBDy9O5CXF3uCZPEEMy7fa6J40AGfkuNNOy6zBg==
