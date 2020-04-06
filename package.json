@@ -125,6 +125,7 @@
     "yesno": "^0.3.1"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.4.1",
     "animejs": "^3.1.0",
     "body-scroll-lock": "^3.0.1",
     "countup.js": "^2.0.4",
@@ -135,7 +136,6 @@
     "nouislider": "^14.2.0",
     "pristinejs": "^0.1.6",
     "stickybits": "^3.7.6",
-    "swiper": "^5.3.6",
     "vanilla-lazyload": "^15.1.1",
     "video.js": "^7.7.5",
     "wnumb": "^1.2.0"
