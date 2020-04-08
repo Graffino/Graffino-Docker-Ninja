@@ -77,7 +77,8 @@ export default class Hamburger extends Component {
 
   // Check for mobile breakpoint
   isMobile () {
-    return dom.window.innerWidth <= breakpoints.large === true
+    const check = dom.window.innerWidth <= breakpoints.xlarge
+    return check === true
   }
 
   // Prevent link on first tap
