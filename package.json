@@ -26,8 +26,9 @@
     "fix:js": "./node_modules/.bin/prettier-eslint --write \"$(pwd)/src/**/*.js\" --eslint-config-path \"$(pwd)/.eslintrc\"",
     "fix:scss": "./node_modules/.bin/prettier-stylelint --write 'src/**/*.{css,scss}'",
     "composer:install": "composer install --prefer-dist && composer update",
-    "deploy": "yarn wp:dump; yarn wp:sync:uploads; git add -A; git commit -m 'Staging changes'; git fetch --all; git pull; git diff --name-only --diff-filter=U | xargs git checkout origin/develop; git commit -m 'Resolve conflicts'; git push; yarn; yarn composer:install; yarn run build",
-    "bump": "node bin/bump.js"
+    "deploy": "yarn wp:dump; yarn wp:sync:uploads --no-confirm; git add -A; git commit -m 'Staging changes'; git pull -s recursive -X theirs --no-edit; git push; yarn; yarn composer:install; yarn run wp",
+    "deploy:wp": "yarn wp:dump; yarn wp:sync:uploads --no-confirm; git add -A; git commit -m 'Staging changes'; git pull -s recursive -X theirs --no-edit; git push; yarn; yarn composer:install; yarn run",
+      "bump": "node bin/bump.js"
   },
   "repository": "git@github.com:Graffino/ninja.git",
   "author": "team@graffino.com",
