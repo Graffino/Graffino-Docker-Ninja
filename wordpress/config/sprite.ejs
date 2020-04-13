@@ -1,7 +1,5 @@
-<% if (htmlWebpackPlugin.files.sprites) { %>
+<% if (compilation.assets["icons/\sprite.svg"]) { %>
   <div class="h-visually-hidden">
-  <% for (var spriteFileName in htmlWebpackPlugin.files.sprites) { %>
-    <%= htmlWebpackPlugin.files.sprites[spriteFileName] %>
-  <% } %>
+    <%= compilation.assets["icons/\sprite.svg"]._value %>
   </div>
 <% } %>

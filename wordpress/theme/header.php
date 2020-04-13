@@ -73,6 +73,7 @@
 	<!-- End Google Analytics -->
 </head>
 <body class="home" <?php body_class(); ?>>
+	<?php get_template_part( 'partials/sprite' ); ?>
 	<header class="header js-header is-visible">
 		<div class="container js-header-inside">
 			<!-- Header Logo -->

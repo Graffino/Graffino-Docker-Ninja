@@ -3,9 +3,9 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line no-path-concat
@@ -104,9 +104,11 @@ module.exports = {
         include: path.resolve(__dirname, 'src/icons/'),
         use: [
           {
-            loader: 'svg-sprite-loader',
+            loader: 'file-loader',
             options: {
-              extract: true
+              name: '[name].[ext]',
+              outputPath: 'icons/',
+              publicPath: '../icons/'
             }
           },
           {
@@ -114,9 +116,7 @@ module.exports = {
             options: {
               plugins: [
                 {
-                  removeAttrs: {
-                    attrs: '*:(stroke|fill):((?!^none$).)*'
-                  }
+                  removeAttrs: {}
                 }
               ]
             }
@@ -162,7 +162,29 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': dotenv.parsed
     }),
-    new HtmlPlugin({
+    new SVGSpritemapPlugin(['src/icons/*.svg'], {
+      output: {
+        filename: 'icons/sprite.svg',
+        chunk: {
+          name: 'sprite.svg',
+          keep: true
+        },
+        svgo: {
+          plugins: [
+            {
+              removeAttrs: {}
+            }
+          ]
+        }
+      },
+      sprite: {
+        prefix: false
+      },
+      styles: {
+        filename: 'src/styles/vendor/sprite.scss'
+      }
+    }),
+    new HtmlWebpackPlugin({
       filename: path.resolve(
         __dirname,
         `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`
@@ -215,9 +237,6 @@ module.exports = {
       filename: 'css/main.css'
     }),
     new StyleLintPlugin(),
-    new SpriteLoaderPlugin({
-      plainSprite: true
-    }),
     new BrowserSyncPlugin({
       files: [
         'dist/**/*.css',

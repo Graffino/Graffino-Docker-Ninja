@@ -140,7 +140,7 @@ module.exports = merge(common, {
       },
       plugins: [
         imageminMozjpeg({
-          quality: '75'
+          quality: '80'
         })
       ]
     })
