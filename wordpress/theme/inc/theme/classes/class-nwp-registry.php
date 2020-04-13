@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class NWP_Registry {
 	/** @var array $_objects Class objects */
-	protected $_objects = array();
+	protected $_objects = [];
 
 	/**
 	 * Method to add object to registry via reference

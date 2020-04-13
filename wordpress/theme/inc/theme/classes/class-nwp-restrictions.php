@@ -76,7 +76,7 @@ class NWP_Restrictions {
 
 					});
 				</script>
-				EOT;
+EOT;
 		}
 	}
 
@@ -84,8 +84,8 @@ class NWP_Restrictions {
 	public function remove_menus() {
 		global $simple_admin, $simple_plugins, $simple_updates, $simple_settings, $simple_acf, $simple_wpml, $menu, $submenu;
 
-		$restricted = array( __( 'Settings' ), __( 'Plugins' ), __( 'Links' ), __( 'Tools' ), __( 'Posts' ), __( 'Comments' ) );
-		// $restricted = array( __( 'Links' ), __( 'Posts' ), __( 'Links' ),  __( 'Users' ), __( 'Tools' ), __( 'Module' ),  __( 'Appearance' ),  __( 'Users' ),  __( 'Settings', __( 'Comments' ),   __( 'Posts' ));
+		$restricted = [ __( 'Settings' ), __( 'Plugins' ), __( 'Links' ), __( 'Tools' ), __( 'Posts' ), __( 'Comments' ) ];
+		// $restricted = [ __( 'Links' ), __( 'Posts' ), __( 'Links' ),  __( 'Users' ), __( 'Tools' ), __( 'Module' ),  __( 'Appearance' ),  __( 'Users' ),  __( 'Settings', __( 'Comments' ),   __( 'Posts' )];
 
 		// Add plugins
 		if ( $simple_admin && ! $simple_plugins ) {
@@ -161,9 +161,9 @@ class NWP_Restrictions {
 		global $wp_admin_bar, $simple_admin;
 
 		if ( $simple_admin ) {
-			// $remove = array( 'appearance', 'new-content', 'comments', 'new-static-box', 'themes', 'wp-logo', 'themes', 'widgets', 'new-link', 'new-post', 'new-static-box', 'new-user', 'wp-logo-external' );
+			// $remove = [ 'appearance', 'new-content', 'comments', 'new-static-box', 'themes', 'wp-logo', 'themes', 'widgets', 'new-link', 'new-post', 'new-static-box', 'new-user', 'wp-logo-external' ];
 
-			$remove = array( 'new-static-box', 'wp-logo', 'new-link', 'wp-logo-external', 'wpseo-menu' );
+			$remove = [ 'new-static-box', 'wp-logo', 'new-link', 'wp-logo-external', 'wpseo-menu' ];
 
 			if ( empty( $remove ) ) {
 				return;
@@ -181,7 +181,7 @@ class NWP_Restrictions {
 		$current_user = wp_get_current_user();
 
 		if ( $simple_admin ) {
-			$actions = array();
+			$actions = [];
 		}
 		return $actions;
 	}

@@ -14,8 +14,8 @@ class NWP_Admin {
 	public function __construct() {
 	}
 
-	// Load custom admin styles & scripts
-	public function admin_load() {
+	// Load custom login styles & scripts
+	public function login_load() {
 		wp_enqueue_style( 'customAdminStyle', get_bloginfo( 'template_url' ) . '/inc/admin/login.css' );
 	}
 
