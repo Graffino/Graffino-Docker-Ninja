@@ -17,17 +17,22 @@ const Migration = process.env.DB_MIGRATION
 const app = process
 
 // Path to migration
-const MigrationFile = path.join(__dirname, `../wordpress/migrations/${process.env.DB_MIGRATION}.sql`)
+const MigrationFile = path.join(
+  __dirname,
+  `../wordpress/migrations/${process.env.DB_MIGRATION}.sql`
+)
 
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
-  console.log('Database configuration values not set. Please edit your .env file!\n')
+  console.log(
+    '\n[Ninja] Migrate DB => Database configuration values not set. Please edit your .env file! Stopping...\n'
+  )
   app.exit()
 }
 
 // Unarchive zip file
 const unarchive = async () => {
-  console.log(`(1) Unzipping "${Migration}" file...`)
+  console.log(`    => Unzipping migration file "${Migration}.zip"...`)
 
   // Read zip file
   fs.createReadStream(`${MigrationFile}.zip`)
@@ -48,7 +53,7 @@ const unarchive = async () => {
     .promise()
     .then(() => {
       migrate()
-      console.log(`(2) Migration "${Migration}" file unzipped ...`)
+      console.log(`    => Migration file "${Migration}.zip" unzipped...`)
     })
 }
 
@@ -63,36 +68,36 @@ const migrate = async () => {
     multipleStatements: true
   })
 
-  pool.getConnection()
-    .then(connection => {
-      console.log(`(3) Starting "${Migration}" migration ...`)
+  pool.getConnection().then((connection) => {
+    console.log(`    => Starting migration of "${Migration}.sql" file...`)
 
-      // Read sql file and split it by newline
-      const query = fs.readFileSync(
-        `${MigrationFile}`, {
-          encoding: 'UTF-8'
-        }
-      )
-
-      connection.query(query)
-        .then(() => {
-          console.log(`(5) Migration "${Migration}" finished.\n`)
-          // Run terminate()
-          terminate()
-        })
-        .catch(err => {
-          console.log(`Cannot connect to database. Error: ${err}`)
-          // Run terminate()
-          terminate()
-        })
+    // Read sql file and split it by newline
+    const query = fs.readFileSync(`${MigrationFile}`, {
+      encoding: 'UTF-8'
     })
+
+    connection
+      .query(query)
+      .then(() => {
+        console.log(`    => Migration of "${Migration}.sql" file finished...`)
+        // Run terminate()
+        terminate()
+      })
+      .catch((err) => {
+        console.log(`    => Cannot connect to database. Error: ${err}`)
+        // Run terminate()
+        terminate()
+      })
+  })
 }
 
 // Terminate app
 const terminate = () => {
-  console.log('Temporary files deleted.')
+  console.log('    => Deleting temporary files...')
   // Delete remaining sql file
   fs.unlink(`${MigrationFile}`, () => {})
+
+  console.log('\n[Ninja] Migrate DB => Finished.\n')
   // Exit app
   app.exit()
 }
@@ -104,8 +109,12 @@ async function start () {
 
   if (process.argv[2] !== '--no-confirm') {
     confirmation = await yesno({
-      question: `WARNING: Migration file "${Migration}.zip" will overwrite your database! Are you sure you want to continue?\n`
+      question: `\n[Ninja] Migrate DB => Imports "${Migration}.zip" file\n\n    WARNING:\n    This will overwrite your database!\n    Make sure to run "wp:dump" first! \n\n    => Do you want to continue? (Y/N)\n`
     })
+  } else {
+    console.log(
+      `\n[Ninja] Migrate DB => Imports "${Migration}.zip" file (--no-confirm)\n`
+    )
   }
 
   // If yes
@@ -113,7 +122,7 @@ async function start () {
     // Wait for unarchive to finish
     await unarchive()
   } else {
-    console.log('Stopping ... no changes were made. \n')
+    console.log('    => Stopping ... no changes were made.')
     terminate()
   }
 }
