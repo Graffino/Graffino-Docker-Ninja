@@ -1,6 +1,6 @@
 {
   "name": "ninja",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
   "private": true,
   "scripts": {
