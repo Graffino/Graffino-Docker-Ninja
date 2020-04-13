@@ -4,14 +4,13 @@
 /cache
 /dist
 /dist-wp
-/cache
-.DS_Store
 .env
+.DS_Store
+.idea
 /certs/privkey.pem
 /certs/chain.pem
 /certs/cert.pem
 /nohup.out
-/tests/reports
-/.idea
 /cypress/screenshots
 /cypress/videos
+/vendor/
