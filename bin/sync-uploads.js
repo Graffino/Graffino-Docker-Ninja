@@ -6,17 +6,17 @@ const cpy = require('cpy')
 
 // Copy files
 const copyTo = async () => {
-  console.log('(1) Syncing files from dist to repo...')
+  console.log('    => Syncing files from dist to repo...')
   return await cpy(['**/*'], path.resolve(__dirname, '../wordpress/uploads/'), {
     cwd: path.resolve(__dirname, '../dist-wp/wp-content/uploads/'),
     overwrite: false,
     parents: true
-  }).then(console.log('(2) Operation finished.'))
+  }).then(console.log('    => Syncing from dist to repo finished.'))
 }
 
 // Copy files
 const copyFrom = async () => {
-  console.log('(3) Syncing files from repo to dist...')
+  console.log('    => Syncing files from repo to dist...')
   return await cpy(
     ['**/*'],
     path.resolve(__dirname, '../dist-wp/wp-content/uploads'),
@@ -25,7 +25,7 @@ const copyFrom = async () => {
       overwrite: false,
       parents: true
     }
-  ).then(console.log('(4) Operation finished.'))
+  ).then(console.log('    => Syncing from repo to dist finished...'))
 }
 
 // Start async
@@ -36,8 +36,12 @@ async function start () {
   if (process.argv[2] !== '--no-confirm') {
     confirmation = await yesno({
       question:
-        'WARNING: The repository Uploads folder will be synced with your dist Uploads folder! Are you sure you want to continue?\n'
+        '\n[Ninja] Sync Uploads => Syncs repo uploads folder with wp-dist uploads folder.\n\n    => Do you want to continue? (Y/N)\n'
     })
+  } else {
+    console.log(
+      '\n[Ninja] Sync Uploads =>  Syncs WordPress uploads with wp-dist uploads folder (--no-confirm)\n'
+    )
   }
 
   // If yes
@@ -45,11 +49,16 @@ async function start () {
     // Wait for sync
     try {
       await Promise.all([copyTo(), copyFrom()])
+      console.log('\n[Ninja] Sync Uploads => Syncing finished.\n')
     } catch (e) {
-      console.log('(!) No sync possible. Make sure yarn wp:setup has ran.')
+      console.log(
+        '\n[Ninja] Sync Uploads => No sync possible. Make sure yarn wp:setup has been executed.\n'
+      )
     }
   } else {
-    console.log('Stopping ... no changes were made. \n')
+    console.log(
+      '\n[Ninja] Sync Uploads => Stopping ... no changes were made.\n'
+    )
   }
 }
 

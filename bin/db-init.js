@@ -1,5 +1,6 @@
 // Require modules
 const mariadb = require('mariadb')
+const yesno = require('yesno')
 
 // Get vars from env
 require('dotenv').config()
@@ -13,12 +14,14 @@ const app = process
 
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
-  console.log('Database configuration values not set. Please edit your .env file!')
+  console.log(
+    '\n[Ninja] Init DB => Database configuration values not set. Please edit your .env file! Stopping...'
+  )
   app.exit()
 }
 
-// Start
-const start = () => {
+// Init Database
+const init = () => {
   // Connect to database
   const pool = mariadb.createPool({
     host: DatabaseHost,
@@ -27,23 +30,28 @@ const start = () => {
   })
 
   // Create database
-  pool.getConnection()
-    .then(connection => {
-      connection.query(`CREATE DATABASE \`${DatabaseName}\``)
+  pool
+    .getConnection()
+    .then((connection) => {
+      connection
+        .query(`CREATE DATABASE \`${DatabaseName}\``)
         .then((res) => {
-          console.log(`Database ${DatabaseName} created!`)
+          console.log(`    => Database ${DatabaseName} created!`)
           // Close connection
           connection.end()
           // Run terminate()
           terminate()
         })
-        .catch(err => {
-          console.log(`Database ${DatabaseName} already exists or incorrect permisions! Error: ${err.code}`)
+        .catch((err) => {
+          console.log(
+            `    => Database ${DatabaseName} already exists or incorrect permisions! Error: ${err.code}`
+          )
           // Run terminate()
           terminate()
         })
-    }).catch(err => {
-      console.log(`Cannot connect to database. Error: ${err.code}`)
+    })
+    .catch((err) => {
+      console.log(`    => Cannot connect to database. Error: ${err.code}`)
       // Run terminate()
       terminate()
     })
@@ -51,9 +59,34 @@ const start = () => {
 
 // Terminate app
 const terminate = () => {
-  console.log('Temporary files deleted.')
+  console.log('\n[Ninja] Init DB => Finished.\n')
   // Exit app
   app.exit()
+}
+
+// Start async
+async function start () {
+  // Implement confirmation
+  let confirmation = true
+
+  if (process.argv[2] !== '--no-confirm') {
+    confirmation = await yesno({
+      question:
+        '\n[Ninja] Init DB => Initialize database \n\n    => Do you want to continue? (Y/N)\n'
+    })
+  } else {
+    console.log(
+      '\n[Ninja] Init DB => Initialize database file (--no-confirm)\n'
+    )
+  }
+
+  // If yes
+  if (confirmation) {
+    // Initialize database
+    init()
+  } else {
+    console.log('\n[Ninja] Init DB => Stopping ... no changes were made. \n')
+  }
 }
 
 start()
