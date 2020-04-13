@@ -5,7 +5,7 @@
 //
 ?>
 <!DOCTYPE html>
-<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts" data-component="avoid-foit">
+<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts" data-component="avoid-fout">
 
 <head>
 	<title>
