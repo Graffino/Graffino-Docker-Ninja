@@ -16,7 +16,12 @@ class NWP_Admin {
 
 	// Load custom login styles & scripts
 	public function login_load() {
-		wp_enqueue_style( 'customAdminStyle', get_bloginfo( 'template_url' ) . '/inc/admin/login.css' );
+		wp_enqueue_style( 'customLoginStyle', get_bloginfo( 'template_url' ) . '/inc/admin/login.css' );
+	}
+
+	// Load custom login styles & scripts
+	public function admin_load() {
+		wp_enqueue_style( 'customAdminStyle', get_bloginfo( 'template_url' ) . '/inc/admin/admin.css' );
 	}
 
 	// Insert into admin header
@@ -45,7 +50,7 @@ class NWP_Admin {
 	}
 
 	// Post Admin Links
-	public function edit_content_link( $id = null ) {
+	public static function edit_content_link( $id = null ) {
 		global $post;
 		if ( current_user_can( 'level_10' ) ) {
 
@@ -60,7 +65,7 @@ class NWP_Admin {
 	}
 
 	// Category Admin Links
-	public function edit_taxonomy_category_link( $id = null ) {
+	public static function edit_taxonomy_category_link( $id = null ) {
 		$taxonomy_id = get_queried_object()->term_id;
 
 		if ( current_user_can( 'level_10' ) ) {
@@ -76,7 +81,7 @@ class NWP_Admin {
 	}
 
 	// Tag Admin Links
-	public function edit_taxonomy_tag_link( $id = null ) {
+	public static function edit_taxonomy_tag_link( $id = null ) {
 		$taxonomy_id = get_queried_object()->term_id;
 
 		if ( current_user_can( 'level_10' ) ) {
@@ -92,13 +97,13 @@ class NWP_Admin {
 	}
 
 	// Menu Admin Links
-	public function edit_menu_link( $theme_location = 'nav-main', $echo = true ) {
+	public static function edit_menu_link( $theme_location = 'nav-main', $echo = true ) {
 		global $registry;
 		$menus = $registry->get( 'NWP_Menus' );
 		$id    = $menus->get_menu_id( $theme_location );
 
 		if ( current_user_can( 'level_10' ) ) {
-			$link = '<div class="nwp-admin is-menu"><div class="nwp-admin__icon -menu"><a class="post-edit-link" href="' . site_url() . '/wp-admin/nav-menus.php?action=edit&menu=' . $id . '" title="Edit Menu"></a></div></div>';
+			$link = '<div class="nwp-admin is-menu"><div class="nwp-admin__icon -edit-menu"><a class="post-edit-link" href="' . site_url() . '/wp-admin/nav-menus.php?action=edit&menu=' . $id . '" title="Edit Menu"></a></div></div>';
 		} else {
 			$link = null;
 		}
@@ -110,9 +115,9 @@ class NWP_Admin {
 	}
 
 	// Admin edit links
-	public function edit_admin_link( $echo = true ) {
+	public static function edit_admin_link( $echo = true ) {
 		if ( current_user_can( 'level_10' ) ) {
-			$link = '<div class="nwp-admin is-admin"><div class="nwp-admin__icon -admin-panel"><a class="post-edit-link" href="' . site_url() . '/wp-admin/" title="Edit Admin"></a></div></div>';
+			$link = '<div class="nwp-admin is-admin"><div class="nwp-admin__icon -panel"><a class="post-edit-link" href="' . site_url() . '/wp-admin/" title="Edit Admin"></a></div></div>';
 		} else {
 			$link = null;
 		}
@@ -124,7 +129,7 @@ class NWP_Admin {
 	}
 
 	// Admin option edit links
-	public function edit_option_link( $slug, $echo = true ) {
+	public static function edit_option_link( $slug, $echo = true ) {
 		if ( current_user_can( 'level_10' ) ) {
 			$link = '<div class="nwp-admin is-option"><div class="nwp-admin__icon -edit"><a class="post-edit-link" href="' . site_url() . '/wp-admin/admin.php?page=' . $slug . '" title="Edit Admin"></a></div></div>';
 		} else {

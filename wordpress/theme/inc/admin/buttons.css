@@ -8,95 +8,97 @@ Author: Graffino (http://www.graffino.com)
 
 @font-face {
   font-family: 'nwp-admin';
-  src: url('font/admin.eot?25922992');
-  src: url('font/admin.eot?25922992#iefix') format('embedded-opentype'),
-       url('font/admin.woff?25922992') format('woff'),
-       url('font/admin.ttf?25922992') format('truetype'),
-       url('font/admin.svg?25922992#admin') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="nwp-admin__icon"]:before, [class*=" nwp-admin__icon"]:before {
-  font-family: "nwp-admin";
   font-style: normal;
   font-weight: normal;
-  cursor: pointer;
-
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  pointer-events:none;
-
-  background-color: white;
-  border-radius: 40px;
-  padding: 10px;
-
-  text-decoration: inherit;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1em;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
-  transition: 0.2s ease-in-out;
+  src: url('../../inc/admin/icons/admin.woff2') format("woff2"),
+       url('../../inc/admin/icons/admin.woff2') format("woff");
 }
-
-.nwp-admin__icon-panel:before { content: '\61'; } /* 'a' */
-.nwp-admin__icon-edit:before { content: '\65'; } /* 'e' */
-.nwp-admin__icon-edit-menu:before { content: '\6d'; } /* 'm' */
-.nwp-admin__icon-select:before { content: '\73'; } /* 's' */
 
 .nwp-admin {
-  position: absolute;
-  bottom: 10%;
-  right: 45px;
-  z-index: 99999;
-  display: inline-block;
-  cursor: pointer;
+  position: relative;
 }
-    .nwp-admin.-menu {
-        bottom: 0;
-    }
+  .nwp-admin.is-admin {
+    position: absolute;
+    z-index: 999999;
+  }
 
-    .nwp-admin.-admin {
-        top: 65px;
-        left: 45px;
-        right: auto;
-        font-size: 20px;
-    }
-
-  .icon-adm-edit,
-  .icon-adm-edit-menu,
-  .icon-adm-panel {
-    position: relative;
+  .nwp-admin__icon {
+    right: 45px;
+    bottom: 10%;
+    z-index: 99999;
     display: inline-block;
-    color: #000;
-    font-size: 12px;
     cursor: pointer;
   }
-  .icon-adm-edit a,
-  .icon-adm-panel a,
-  .icon-adm-edit-menu a {
+
+  .nwp-admin__icon::before {
+    pointer-events:none;
     position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 40px;
+    padding: 10px;
+    background-color: #fff;
+    font-family: "nwp-admin";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1em;
+    text-align: center;
+    text-transform: none;
+    text-decoration: inherit;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+    transition: 0.2s ease-in-out;
+    font-variant: normal;
+  }
+
+  .nwp-admin__icon:hover::before {
+    background: #000;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.2);
+    transition: 0.2s ease-in-out;
+  }
+
+  .nwp-admin__icon.-edit,
+  .nwp-admin__icon.-edit-menu,
+  .nwp-admin__icon.-panel,
+  .nwp-admin__icon.-select {
+    color: #000;
+  }
+
+  .nwp-admin__icon.-edit:hover,
+  .nwp-admin__icon.-edit-menu:hover,
+  .nwp-admin__icon.-panel:hover,
+  .nwp-admin__icon.-select:hover {
+    color:#fff;
+  }
+
+  .nwp-admin__icon.-edit a,
+  .nwp-admin__icon.-edit-menu a,
+  .nwp-admin__icon.-panel a,
+  .nwp-admin__icon.-select a {
     top: 3px;
     left: 4px;
     display: block;
     width: 30px;
     height: 35px;
   }
-  .icon-adm-edit:hover,
-  .icon-adm-edit-menu:hover,
-  .icon-adm-panel:hover {
-    color:white;
+
+  .nwp-admin__icon.-edit::before {
+    content: '\65';
   }
-  .icon-adm-panel {
-    font-size: 20px;
+  .nwp-admin__icon.-edit-menu::before {
+    content: '\6d';
   }
-  [class^="icon-adm"]:hover:before,
-  [class*=" icon-adm"]:hover:before {
-    background: black;
-    transition: 0.2s ease-in-out;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.2);
+  .nwp-admin__icon.-panel::before {
+    content: '\61';
+    font-size: 16px;
   }
+  .nwp-admin__icon.-select::before {
+    content: '\73';
+  }
+
+
+
+

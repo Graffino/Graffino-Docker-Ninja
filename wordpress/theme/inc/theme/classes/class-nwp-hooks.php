@@ -122,6 +122,8 @@ class NWP_Hooks {
 		$admin = $registry->get( 'NWP_Admin' );
 		// Load custom admin styles & scripts
 		add_action( 'login_init', [ $admin, 'login_load' ] );
+		// Load custom admin styles & scripts
+		add_action( 'admin_init', [ $admin, 'admin_load' ] );
 		// Insert into admin header
 		add_action( 'admin_head', [ $admin, 'insert_into_admin_header' ] );
 		// Add custom syle for edit button
