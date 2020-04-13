@@ -56,62 +56,23 @@ class NWP_Forms {
 		if ( ! $anti_spam ) {
 			// Check form type
 			switch ( $form_type ) {
-				case 'calculator':
+				case 'hubspot':
 					// Vars
-					$calculator_country   = $this->get_post_var( 'calculator_country' );
-					$calculator_salary    = $this->get_post_var( 'calculator_salary' );
-					$calculator_currency  = $this->get_post_var( 'calculator_currency' );
-					$calculator_name      = $this->get_post_var( 'calculator_name' );
-					$calculator_title     = $this->get_post_var( 'calculator_title' );
-					$calculator_company   = $this->get_post_var( 'calculator_company' );
-					$calculator_email     = $this->get_post_var( 'calculator_email', false, false, FILTER_VALIDATE_EMAIL );
-					$calculator_staff     = $this->get_post_var( 'calculator_staff' );
-					$calculator_sick      = $this->get_post_var( 'calculator_sickness' );
-					$calculator_employees = $this->get_post_Var( 'calculator_employees' );
-					$survey1              = $this->get_post_var( 'defined_roles_percent' );
-					$survey2              = $this->get_post_var( 'collaboration_percent' );
-					$survey3              = $this->get_post_var( 'customer_facing_percent' );
-					$survey4              = $this->get_post_var( 'remote_working_percent' );
-					$result_savings       = $this->get_post_var( 'roi_calculator_savings' );
-					$result_costs         = $this->get_post_var( 'roi_calculator_costs' );
-					$result_roi           = $this->get_post_var( 'roi_calculator_roi' );
-					$result_productivity  = $this->get_post_var( 'roi_calculator_productivity' );
-					$result_sickness      = $this->get_post_var( 'roi_calculator_sickness' );
-					$result_retention     = $this->get_post_var( 'roi_calculator_retention' );
-					$calculator_results   = [
-						$result_savings,
-						$result_costs,
-						$result_roi,
-						$result_productivity,
-						$result_sickness,
-						$result_retention,
-					];
-
-					$answers = [
-						$survey1,
-						$survey2,
-						$survey3,
-						$survey4,
-					];
+					$hubspot_name    = $this->get_post_var( 'hubspot_name' );
+					$hubspot_title   = $this->get_post_var( 'hubspot_title' );
+					$hubspot_company = $this->get_post_var( 'hubspot_company' );
+					$hubspot_email   = $this->get_post_var( 'hubspot_email', false, false, FILTER_VALIDATE_EMAIL );
 
 					$form_data = [
-						'calculator_country'   => $calculator_country,
-						'calculator_salary'    => $calculator_salary,
-						'calculator_currency'  => $calculator_currency,
-						'calculator_name'      => $calculator_name,
-						'calculator_email'     => $calculator_email,
-						'calculator_company'   => $calculator_company,
-						'calculator_title'     => $calculator_title,
-						'answers'              => $answers,
-						'calculator_staff'     => $calculator_staff,
-						'calculator_sick'      => $calculator_sick,
-						'calculator_employees' => $calculator_employees,
-						'calculator_results'   => $calculator_results,
+						'hubspot_name'    => $hubspot_name,
+						'hubspot_email'   => $hubspot_email,
+						'hubspot_company' => $hubspot_company,
+						'hubspot_title'   => $hubspot_title,
 					];
 
-					if ( $calculator_name && $calculator_email && $calculator_company && $calculator_title ) {
+					if ( $hubspot_name && $hubspot_email && $hubspot_company && $hubspot_title ) {
 						// Send data
-						if ( $this->calculator_form( $form_data ) ) {
+						if ( $this->hubspot_form( $form_data ) ) {
 							echo '{"result":"success","message":"Your report was sent :)"}';
 						} else {
 							echo '{"result":"error","message":"Something went wrong :("}';
@@ -148,18 +109,18 @@ class NWP_Forms {
 	}
 
 	// Contact form
-	public function calculator_form( $form_data ) {
+	public function hubspot_form( $form_data ) {
 		// phpcs:disable WordPress.PHP.DontExtract.extract_extract
 		extract( $form_data );
 
 		$timestamp = round( microtime( true ) * 1000 );
 
-		$cookie               = '51057972c9d39f6444ba83eaceeb0470';
-		$property_id          = '5478872';
-		$form_id              = 'bca6a2cf-ebf9-4208-a730-dd256e88707f';
-		$form_url             = 'https://preview.fridaypulse.com/calculator/';
-		$form_title           = 'Friday Pulse | Calculator';
-		$subscription_type_id = '5919021';
+		$cookie               = '';
+		$property_id          = '';
+		$form_id              = '';
+		$form_url             = '';
+		$form_title           = 'Hubspot';
+		$subscription_type_id = '';
 
 		$url = "https://api.hsforms.com/submissions/v3/integration/submit/{$property_id}/{$form_id}";
 
@@ -167,84 +128,20 @@ class NWP_Forms {
 			'submittedAt'         => $timestamp,
 			'fields'              => [
 				[
-					'name'  => 'country',
-					'value' => $calculator_country,
-				],
-				[
-					'name'  => 'salary',
-					'value' => $calculator_salary,
-				],
-				[
-					'name'  => 'currency',
-					'value' => $calculator_currency,
-				],
-				[
 					'name'  => 'name',
-					'value' => $calculator_name,
+					'value' => $hubspot_name,
 				],
 				[
 					'name'  => 'email',
-					'value' => $calculator_email,
+					'value' => $hubspot_email,
 				],
 				[
 					'name'  => 'title',
-					'value' => $calculator_title,
+					'value' => $hubspot_title,
 				],
 				[
 					'name'  => 'company',
-					'value' => $calculator_company,
-				],
-				[
-					'name'  => 'roi_calculator_costs',
-					'value' => $calculator_results[1],
-				],
-				[
-					'name'  => 'roi_calculator_retention',
-					'value' => $calculator_results[5],
-				],
-				[
-					'name'  => 'roi_calculator_savings',
-					'value' => $calculator_results[0],
-				],
-				[
-					'name'  => 'roi_calculator_sickness',
-					'value' => $calculator_results[4],
-				],
-				[
-					'name'  => 'roi_calculator_productivity',
-					'value' => $calculator_results[3],
-				],
-				[
-					'name'  => 'roi_calculator_roi',
-					'value' => $calculator_results[2],
-				],
-				[
-					'name'  => 'roles_percent',
-					'value' => $answers[0],
-				],
-				[
-					'name'  => 'collaboration_percent',
-					'value' => $answers[1],
-				],
-				[
-					'name'  => 'customer_facing_percent',
-					'value' => $answers[2],
-				],
-				[
-					'name'  => 'remote_working_percent',
-					'value' => $answers[3],
-				],
-				[
-					'name'  => 'no_of_employees',
-					'value' => $calculator_employees,
-				],
-				[
-					'name'  => 'staff_turnover_percent',
-					'value' => $calculator_staff,
-				],
-				[
-					'name'  => 'average_sickness_days',
-					'value' => $calculator_sick,
+					'value' => $hubspot_company,
 				],
 			],
 			'context'             => [
@@ -255,12 +152,12 @@ class NWP_Forms {
 			'legalConsentOptions' => [
 				'consent' => [
 					'consentToProcess' => true,
-					'text'             => 'I agree to receive marketing communications from FridayPulse',
+					'text'             => 'I agree to receive marketing communications.',
 					'communications'   => [
 						[
 							'value'              => true,
 							'subscriptionTypeId' => $subscription_type_id,
-							'text'               => 'I agree to receive marketing communications from FridayPulse',
+							'text'               => 'I agree to receive marketing communications.',
 						],
 					],
 				],
