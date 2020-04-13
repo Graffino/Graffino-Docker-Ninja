@@ -207,7 +207,7 @@ class NWP_Restrictions {
 	public function wp_support_dashboard() {
 		if ( function_exists( 'get_field' ) ) {
 			$widget_title = get_field( 'dashboard_title', 'options' );
-			wp_add_dashboard_widget( 'nwp_support_dashboard', $widget_title, 'wp_support_dashboard_content' );
+			wp_add_dashboard_widget( 'nwp_support_dashboard', $widget_title, array( $this, 'wp_support_dashboard_content' ) );
 		}
 	}
 
