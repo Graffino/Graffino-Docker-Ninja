@@ -1,5 +1,6 @@
 import Component from '../utils/component'
 import Pristine from 'pristinejs'
+import { dom } from '../utils/globals'
 
 export default class Validate extends Component {
   constructor (props) {
@@ -10,37 +11,67 @@ export default class Validate extends Component {
   }
 
   init () {
-    const form = this.state.element
-
-    const live = true
-
     const config = {
-      classTo: 'form__field',
+      classTo: 'js-validate-field',
       errorClass: 'is-invalid',
       successClass: 'is-valid',
-      errorTextParent: 'form__field',
-      errorTextTag: 'div',
-      errorTextClass: 'form__error'
+      errorTextParent: 'js-validate-field',
+      errorTextClass: 'h-display-none',
+      errorTextTag: 'div'
     }
+    const $form = this.state.element
 
-    const submitButton = form.querySelector('button[type="submit"]')
+    $form.pristineInstance = new Pristine(this.state.element, config, true)
+    $form.Pristine = Pristine
+    $form.pristineConfig = config
 
-    const pristine = new Pristine(form, config, live)
+    const $lockAction = dom.document.querySelector('.js-lock-action')
+    $form.classList.add('js-validate')
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault()
-      const valid = pristine.validate()
+    $lockAction.addEventListener('click', (e) => {
+      const $container = dom.document.querySelector('.js-lock-container')
+      const $locks = dom.document.querySelectorAll('.js-lock')
+      const $elements = dom.document.querySelectorAll('.js-lock-validate')
+      const $turnOvers = dom.document.querySelectorAll('.js-turnover-validate')
+      const valid = $form.pristineInstance.validate()
+
+      if ($lockAction.getAttribute('type') !== 'submit') {
+        e.preventDefault()
+      }
 
       if (valid) {
-        form.submit()
+        Array.from($turnOvers).forEach(($turnOver) =>
+          $turnOver.classList.remove('is-valid')
+        )
+        $elements.forEach(($element) => {
+          $element.setAttribute('required', 'required')
+        })
+
+        $locks.forEach(($lock) => {
+          $lock.classList.add('is-active')
+        })
+
+        $container.classList.add('is-active')
+        $lockAction.setAttribute('type', 'submit')
+        $lockAction.setAttribute('tabindex', '10')
+        $lockAction.innerHTML = 'Email me the full report'
       } else {
-        submitButton.classList.add('animation-shake')
+        $elements.forEach(($element) => {
+          $element.removeAttribute('required')
+        })
+
+        $locks.forEach(($lock) => {
+          $lock.classList.remove('is-active')
+        })
       }
     })
 
-    submitButton.addEventListener('animationend', (e) => {
-      e.preventDefault()
-      submitButton.classList.remove('animation-shake')
+    $form.addEventListener('submit', (e) => {
+      const valid = $form.pristineInstance.validate()
+
+      if (!valid) {
+        e.preventDefault()
+      }
     })
   }
 }

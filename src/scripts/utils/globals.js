@@ -1,8 +1,12 @@
 const stateClass = {
   open: 'is-open',
+  expanded: 'is-expanded',
   active: 'is-active',
   hidden: 'is-hidden',
   sticky: 'is-sticky',
+  floating: 'is-floating',
+  top: 'is-top',
+  bottom: 'is-bottom',
   notValid: 'not-valid',
   current: 'is-current',
   visible: 'is-visible',
@@ -14,11 +18,16 @@ const stateClass = {
   animated: 'is-animated',
   submitted: 'is-submitted',
   minimized: 'is-minimized',
-  scrollable: 'is-scrollable'
+  scrollable: 'is-scrollable',
+  overflow: 'is-overflow',
+  pinned: 'is-pinned',
+  unpinned: 'is-unpinned',
+  error: 'is-error',
+  disabled: 'is-disabled'
 }
 
 const breakpoints = {
-  xlarge: '1250',
+  xlarge: '1280',
   desktop: '1120',
   large: '1050',
   medium: '940',

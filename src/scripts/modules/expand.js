@@ -1,5 +1,6 @@
 import Component from '../utils/component'
 import { dom, stateClass } from '../utils/globals'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default class Expand extends Component {
   constructor (props) {
@@ -20,6 +21,12 @@ export default class Expand extends Component {
       )
     }
 
+    if (Object.keys(this.state).includes('collapseOnHeader')) {
+      data.$collapseOnHeader = dom.document.querySelector(
+        `.${this.state.collapseOnHeader}`
+      )
+    }
+
     data.height = this.state.element.getBoundingClientRect().top
 
     // Add State classes
@@ -34,7 +41,7 @@ export default class Expand extends Component {
       element.classList.add(stateClass.disabled)
       data.expand.classList.add(stateClass.hidden)
       data.collapse.classList.remove(stateClass.hidden)
-      this.scrollTo('expand')
+      disableBodyScroll(element)
     })
 
     data.collapse.addEventListener('click', () => {
@@ -45,26 +52,19 @@ export default class Expand extends Component {
       element.classList.remove(stateClass.disabled)
       data.expand.classList.remove(stateClass.hidden)
       data.collapse.classList.add(stateClass.hidden)
-      this.scrollTo('collapse')
+      enableBodyScroll(element)
+    })
+
+    data.$collapseOnHeader.addEventListener('click', () => {
+      const { element, data } = this.state
+      element.classList.remove(stateClass.expanded)
+      element.classList.remove(stateClass.disabled)
+      data.expand.classList.remove(stateClass.hidden)
+      data.collapse.classList.add(stateClass.hidden)
+      enableBodyScroll(element)
     })
 
     // Save state
-  }
-
-  scrollTo (type) {
-    const data = this.state.data
-    const scrollTop = dom.document.documentElement.scrollTop
-    let scrollTo = 0
-
-    if (type === 'expand') {
-      scrollTo = scrollTop + data.height
-    } else {
-      scrollTo = scrollTop + data.height
-    }
-
-    requestAnimationFrame(() =>
-      window.scrollTo({ top: scrollTo, behavior: 'smooth' })
-    )
   }
 
   // Close expand on resize
@@ -76,6 +76,6 @@ export default class Expand extends Component {
     data.expand.classList.remove(stateClass.hidden)
     data.collapse.classList.add(stateClass.hidden)
 
-    this.scrollTo('collapse')
+    enableBodyScroll(element)
   }
 }
