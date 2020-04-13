@@ -10,18 +10,14 @@ Author: Graffino (http://www.graffino.com)
   font-family: 'nwp-admin';
   font-style: normal;
   font-weight: normal;
-  src: url('../../inc/admin/icons/admin.woff2') format("woff2"),
-       url('../../inc/admin/icons/admin.woff2') format("woff");
+  src: url(../../inc/admin/icons/admin.woff2) format('woff2'),
+       url(../../inc/admin/icons/admin.woff2) format('woff');
 }
 
 .nwp-admin {
-  position: relative;
+  position: absolute;
+  z-index: 999999;
 }
-  .nwp-admin.is-admin {
-    position: absolute;
-    z-index: 999999;
-  }
-
   .nwp-admin__icon {
     right: 45px;
     bottom: 10%;
@@ -60,6 +56,15 @@ Author: Graffino (http://www.graffino.com)
     transition: 0.2s ease-in-out;
   }
 
+  .nwp-admin__icon a {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    display: block;
+    width: 35px;
+    height: 35px;
+  }
+
   .nwp-admin__icon.-edit,
   .nwp-admin__icon.-edit-menu,
   .nwp-admin__icon.-panel,
@@ -72,17 +77,6 @@ Author: Graffino (http://www.graffino.com)
   .nwp-admin__icon.-panel:hover,
   .nwp-admin__icon.-select:hover {
     color:#fff;
-  }
-
-  .nwp-admin__icon.-edit a,
-  .nwp-admin__icon.-edit-menu a,
-  .nwp-admin__icon.-panel a,
-  .nwp-admin__icon.-select a {
-    top: 3px;
-    left: 4px;
-    display: block;
-    width: 30px;
-    height: 35px;
   }
 
   .nwp-admin__icon.-edit::before {
