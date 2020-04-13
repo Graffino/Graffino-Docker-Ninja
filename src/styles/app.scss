@@ -11,8 +11,14 @@
 @import '~normalize.css/normalize.css';
 // Typi
 @import '~typi/scss/typi';
+// Animate.css
+@import '~animate.css/animate.min.css';
+// Choices
+@import '~choices.js/public/assets/styles/choices.min.css';
+// noUiSlider
+@import '~nouislider/distribute/nouislider.css';
 // Glide
-@import '~@glidejs/glide/dist/css/glide.core.min.css';
+@import '~@glidejs/glide/src/assets/sass/glide.core';
 
 /**
  * Variables
