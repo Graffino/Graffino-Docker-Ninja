@@ -14,7 +14,8 @@ export default class RangeSlider extends Component {
     const slider = this.state.element
 
     noUiSlider.create(slider, {
-      start: 2475,
+      start: 2500,
+      step: 50,
       connect: 'lower',
       tooltips: wNumb({ decimals: 0 }),
       range: {

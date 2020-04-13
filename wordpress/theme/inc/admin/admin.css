@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+/*
+Custom Admin CSS Style file
+Author: Graffino (http://www.graffino.com)
+*/
+
+/* stylelint-disable selector-max-id */
+/* stylelint-disable selector-no-qualifying-type */
+
+
+/* Wordpress */
+#footer-thankyou,
+#footer-upgrade,
+#dashboard_primary,
+.wordpress-feed {
+  display: none !important;
+}
+
+/* Yoast */
+.yoast-sidebar,
+.yoast_premium_upsell,
+#wpseo-local-seo-upsell,
+#yoast-helpscout-beacon,
+a[href$='wpseo_licenses'] {
+  display: none !important;
+}

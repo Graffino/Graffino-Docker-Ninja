@@ -18,9 +18,9 @@ class NWP_Shortcodes {
 	public function icon_shortcode( $atts ) {
 		// Attributes
 		$atts = shortcode_atts(
-			array(
+			[
 				'name' => '',
-			),
+			],
 			$atts,
 			'icon'
 		);

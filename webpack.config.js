@@ -5,7 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
-const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -93,21 +93,19 @@ module.exports = {
         include: path.resolve(__dirname, 'src/icons/'),
         use: [
           {
-            loader: 'svg-sprite-loader',
+            loader: 'file-loader',
             options: {
-              extract: true
+              name: '[name].[ext]',
+              outputPath: 'icons/',
+              publicPath: '/icons/'
             }
           },
           {
             loader: 'svgo-loader',
             options: {
-              plugins: [
-                {
-                  removeAttrs: {
-                    attrs: '*:(stroke|fill):((?!^none$).)*'
-                  }
-                }
-              ]
+              plugins: {
+                removeAttrs: {}
+              }
             }
           }
         ]
@@ -180,14 +178,33 @@ module.exports = {
       filename: '404.html',
       template: './src/views/404.handlebars'
     }),
+    new SVGSpritemapPlugin(['src/icons/*.svg'], {
+      output: {
+        filename: 'icons/sprite.svg',
+        chunk: {
+          name: 'sprite',
+          keep: true
+        },
+        svgo: {
+          plugins: [
+            {
+              removeAttrs: {}
+            }
+          ]
+        }
+      },
+      sprite: {
+        prefix: false
+      },
+      styles: {
+        filename: 'src/styles/vendor/sprite.scss'
+      }
+    }),
     new MiniCssExtractPlugin({
       filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
       chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css'
     }),
     new StyleLintPlugin(),
-    new SpriteLoaderPlugin({
-      plainSprite: true
-    }),
     new PreloadWebpackPlugin({
       rel: 'preload',
       as (entry) {

@@ -5,7 +5,7 @@
 //
 ?>
 <!DOCTYPE html>
-<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts" data-component="avoid-foit">
+<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts" data-component="avoid-fout">
 
 <head>
 	<title>
@@ -73,6 +73,8 @@
 	<!-- End Google Analytics -->
 </head>
 <body class="home" <?php body_class(); ?>>
+	<?php get_template_part( 'partials/sprite' ); ?>
+	<?php NWP_Admin::edit_admin_link(); ?>
 	<header class="header js-header is-visible">
 		<div class="container js-header-inside">
 			<!-- Header Logo -->
@@ -80,11 +82,6 @@
 			<a href="<?php echo site_url(); ?>" class="logo__anchor">
 				<img class="logo__image js-logo" src="<?php bloginfo( 'template_directory' ); ?>/images/logo.svg" alt="Logo of <?php bloginfo( 'name' ); ?>">
 			</a>
-			<?php
-				global $registry;
-				$admin = $registry->get( 'NWP_Admin' );
-				$admin->edit_admin_link();
-			?>
 			</div>
 			<!-- /Header Logo -->
 
@@ -93,17 +90,17 @@
 			<ul class="nav__items">
 				<?php
 				wp_nav_menu(
-					array(
+					[
 						'theme_location' => 'primary-right',
 						'container'      => false,
 						'items_wrap'     => '%3$s',
 						'walker'         => new NWP_Main_Menu_Walker,
 						'block'          => 'nav',
-					)
+					]
 				);
 				?>
 			</ul>
-			<?php $admin->edit_menu_link( 'primary-right' ); ?>
+			<?php NWP_Admin::edit_menu_link( 'primary-right' ); ?>
 			</div>
 			<!-- /Header Navigation -->
 		</div><!-- .container -->

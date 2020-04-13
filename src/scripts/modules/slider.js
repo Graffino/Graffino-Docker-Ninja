@@ -1,5 +1,5 @@
 import Component from '../utils/component'
-import Swiper from 'swiper'
+import Glide from '@glidejs/glide'
 
 export default class Slider extends Component {
   constructor (props) {
@@ -17,32 +17,11 @@ export default class Slider extends Component {
       data.slides = parseInt(element.dataset.slides, 10)
     }
 
-    const galleryThumbs = new Swiper('.gallery-thumbs', {
-      spaceBetween: 24,
-      slidesPerView: data.slides,
-      observer: true,
-      observeParents: true,
-      watchSlidesVisibility: true,
-      watchSlidesProgress: true,
-      breakpoints: {
-        640: {
-          spaceBetween: 10
-        }
-      }
-    })
-
     // eslint-disable-next-line no-unused-vars
-    const gallery = new Swiper('.gallery', {
-      spaceBetween: 10,
-      observer: true,
-      observeParents: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      thumbs: {
-        swiper: galleryThumbs
-      }
-    })
+    const sliderInstance = new Glide(element, {
+      type: 'carousel',
+      startAt: 0,
+      perView: data.slides
+    }).mount()
   }
 }

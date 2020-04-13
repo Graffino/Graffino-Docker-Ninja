@@ -10,14 +10,15 @@ export default class Hamburger extends Component {
   init () {
     // Targets elements and sets them for all script.
     this.setState({
-      trigger: this.state,
-      header: dom.document.querySelector('.js-header'),
-      hamburger: dom.document.querySelector('.js-hamburger'),
-      menu: dom.document.querySelector('.js-menu'),
-      actionsAll: dom.document.querySelectorAll('.js-menu-action'),
-      dropdownsAll: dom.document.querySelectorAll('.js-menu-dropdown'),
-      unscroll: dom.document.body,
-      touchedAll: dom.document.querySelectorAll(`.${stateClass.touched}`)
+      $trigger: this.state,
+      $header: dom.document.querySelector('.js-header'),
+      $hamburger: dom.document.querySelector('.js-hamburger'),
+      $hamburgerText: dom.document.querySelector('.js-hamburger-text'),
+      $menu: dom.document.querySelector('.js-menu'),
+      $actionsAll: dom.document.querySelectorAll('.js-menu-action'),
+      $dropdownsAll: dom.document.querySelectorAll('.js-menu-dropdown'),
+      $unscroll: dom.document.body,
+      $touchedAll: dom.document.querySelectorAll(`.${stateClass.touched}`)
     })
 
     const component = this.state
@@ -38,7 +39,7 @@ export default class Hamburger extends Component {
         if (this.isMobile() && item.className === component.element.className) {
           e.preventDefault()
 
-          if (component.menu.classList.contains(stateClass.active)) {
+          if (component.$menu.classList.contains(stateClass.active)) {
             this.close()
           } else {
             this.open()
@@ -77,7 +78,8 @@ export default class Hamburger extends Component {
 
   // Check for mobile breakpoint
   isMobile () {
-    return dom.window.innerWidth <= breakpoints.large === true
+    const check = dom.window.innerWidth <= breakpoints.xlarge
+    return check === true
   }
 
   // Prevent link on first tap
@@ -93,12 +95,12 @@ export default class Hamburger extends Component {
         e.preventDefault()
         // Check for other touches
         this.setState({
-          touchedAll: dom.document.querySelectorAll(`.${stateClass.touched}`)
+          $touchedAll: dom.document.querySelectorAll(`.${stateClass.touched}`)
         })
 
         // Remove all other touched elements
-        if (component.touchedAll !== null) {
-          const touchedAll = Array.from(component.touchedAll)
+        if (component.$touchedAll !== null) {
+          const touchedAll = Array.from(component.$touchedAll)
           for (const touched of touchedAll) {
             touched.classList.remove(stateClass.touched)
           }
@@ -123,8 +125,8 @@ export default class Hamburger extends Component {
 
   collapseAll () {
     const component = this.state
-    const dropdownsAll = Array.from(component.dropdownsAll)
-    const actionsAll = Array.from(component.actionsAll)
+    const dropdownsAll = Array.from(component.$dropdownsAll)
+    const actionsAll = Array.from(component.$actionsAll)
 
     for (const dropdown of dropdownsAll) {
       dropdown.classList.remove(stateClass.open)
@@ -137,23 +139,25 @@ export default class Hamburger extends Component {
 
   open () {
     const component = this.state
-    component.hamburger.classList.add(stateClass.open)
-    component.menu.classList.add(stateClass.active)
-    component.header.classList.add(stateClass.active)
-    component.header.classList.add(stateClass.open)
-    component.unscroll.classList.add(stateClass.overflow)
+    component.$hamburger.classList.add(stateClass.open)
+    component.$menu.classList.add(stateClass.active)
+    component.$header.classList.add(stateClass.active)
+    component.$header.classList.add(stateClass.open)
+    component.$unscroll.classList.add(stateClass.overflow)
+    component.$hamburgerText.innerHTML = component.$hamburgerText.dataset.close
     this.setState({
-      menu: dom.document.querySelector('.js-menu')
+      $menu: dom.document.querySelector('.js-menu')
     })
   }
 
   close () {
     const component = this.state
     this.collapseAll()
-    component.hamburger.classList.remove(stateClass.open)
-    component.menu.classList.remove(stateClass.active)
-    component.header.classList.remove(stateClass.open)
-    component.header.classList.remove(stateClass.active)
-    component.unscroll.classList.remove(stateClass.overflow)
+    component.$hamburger.classList.remove(stateClass.open)
+    component.$menu.classList.remove(stateClass.active)
+    component.$header.classList.remove(stateClass.open)
+    component.$header.classList.remove(stateClass.active)
+    component.$unscroll.classList.remove(stateClass.overflow)
+    component.$hamburgerText.innerHTML = component.$hamburgerText.dataset.menu
   }
 }

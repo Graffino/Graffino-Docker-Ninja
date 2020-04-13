@@ -5,6 +5,7 @@
     "scss/at-extend-no-missing-placeholder": null,
     "scss/selector-no-redundant-nesting-selector": null,
     "selector-max-compound-selectors": null,
+    "function-url-quotes": "never",
     "max-nesting-depth": null,
     "selector-class-pattern": null,
     "order/order": [
