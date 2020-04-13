@@ -4,7 +4,7 @@ The coolest boilerplate you've ever seen in your whole life.
 
 All up in the interwebs, world wide!
 
-2019, futuristic.
+2020, futuristic.
 
 ## Enter the Ninja
 
@@ -47,13 +47,9 @@ yarn run dev
 
 ## Tests
 
-[hermione.js](https://github.com/gemini-testing/hermione) is a testing framework developed a
-<https://mochajs.org/>
+[Cyoress](https://cypress.io)
 
-Is based on [mochajs](https://mochajs.org/) and uses [chai.js](https://www.chaijs.com/) for assertions.
-
-1. Run `yarn test:setup`
+1. Run `yarn test:regression:approve`
 2. Run `yarn test`
 
 Regression testing requires that you have previously 'approved' the desired design.
-You can do so by running `yarn test:approve`
