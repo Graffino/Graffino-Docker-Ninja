@@ -27,6 +27,8 @@ class NWP_Hooks {
 		 */
 		$images = $registry->get( 'NWP_Images' );
 		add_action( 'after_setup_theme', [ $images, 'nwp_images' ] );
+		add_filter( 'max_srcset_image_width', [ $images, 'acf_max_srcset_image_width' ], 10, 2 );
+		add_filter( 'jpeg_quality', [ $images, 'jpeg_compression' ] );
 
 		/**
 		 * Restrictions
@@ -71,6 +73,7 @@ class NWP_Hooks {
 		 */
 		$utilities = $registry->get( 'NWP_Utilities' );
 		add_action( 'wp_enqueue_scripts', [ $utilities, 'enqueue_theme_assets' ] );
+		add_action( 'upload_mimes', [ $utilities, 'my_custom_upload_mimes' ] );
 
 		/**
 		 * ACF
