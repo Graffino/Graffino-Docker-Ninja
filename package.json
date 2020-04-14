@@ -1,6 +1,6 @@
 {
   "name": "ninja",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
   "private": true,
   "scripts": {
@@ -14,8 +14,8 @@
     "webpack:wp:dev": "echo '\n[Ninja] => Running WordPress development build... \n'; webpack --progress --watch --config webpack.wordpress.js",
     "webpack:wp:build": "echo '\n[Ninja] => Running WordPress production build... \n'; webpack --config webpack.wordpress.prod.js",
     "[Ninja] => Wordpress Management": "Wordpress management scripts for dev, build, setup, database scripts, file syncing, etc. Remote syncing *requires* rsync (brew install rsync).",
-    "wp:dev": "yarn wp:sync:uploads --no-confirm; yarn webpack:dev",
-    "wp:build": "yarn node:install; yarn composer:install; yarn wp:sync:uploads --no-confirm; yarn webpack:build",
+    "wp:dev": "yarn wp:sync:uploads --no-confirm; yarn webpack:wp:dev",
+    "wp:build": "yarn node:install; yarn composer:install; yarn wp:sync:uploads --no-confirm; yarn webpack:wp:build",
     "wp:setup": "echo '\n[Ninja] => Installing WordPress... \n'; yarn node:install; yarn composer:install; yarn wp:db:init --no-confirm; yarn wp:sync:uploads --no-confirm; yarn wp:clean --no-confirm",
     "wp:update": "echo '\n[Ninja] => Updating WordPress... \n'; yarn composer:install; yarn wp:sync:uploads --no-confirm",
     "wp:clean": "node bin/clean-wp.js",
