@@ -14,7 +14,7 @@
         "johnpbloch/wordpress": "^5.4",
         "vlucas/phpdotenv": "^4.1",
         "advanced-custom-fields/advanced-custom-fields-pro": "^5.8",
-        "wpml/acfml": "^1.4",
+        "wpml/acfml": "^1.6",
         "wpml/sitepress-multilingual-cms": "^4.2",
         "wpml/wpml-media-translation": "^2.5",
         "wpml/wpml-string-translation": "^3.0",
@@ -61,7 +61,7 @@
             "type": "package",
             "package": {
                 "name": "wpml/acfml",
-                "version": "1.4.0",
+                "version": "1.6.1",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
