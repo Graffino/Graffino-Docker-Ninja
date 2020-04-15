@@ -63,12 +63,12 @@ class NWP_Forms {
 					$hubspot_company = $this->get_post_var( 'hubspot_company' );
 					$hubspot_email   = $this->get_post_var( 'hubspot_email', false, false, FILTER_VALIDATE_EMAIL );
 
-					$form_data = [
+					$form_data = array(
 						'hubspot_name'    => $hubspot_name,
 						'hubspot_email'   => $hubspot_email,
 						'hubspot_company' => $hubspot_company,
 						'hubspot_title'   => $hubspot_title,
-					];
+					);
 
 					if ( $hubspot_name && $hubspot_email && $hubspot_company && $hubspot_title ) {
 						// Send data
@@ -87,9 +87,9 @@ class NWP_Forms {
 				case 'mailchimp':
 					// Vars
 					$name         = $this->get_post_var( 'mailchimp_name' );
-					$merge_fields = [
+					$merge_fields = array(
 						'LNAME' => $name,
-					];
+					);
 					$email        = $this->get_post_var( 'mailchimp_email', false, false, FILTER_VALIDATE_EMAIL );
 
 					if ( $name && $email ) {
@@ -124,51 +124,51 @@ class NWP_Forms {
 
 		$url = "https://api.hsforms.com/submissions/v3/integration/submit/{$property_id}/{$form_id}";
 
-		$data = [
+		$data = array(
 			'submittedAt'         => $timestamp,
-			'fields'              => [
-				[
+			'fields'              => array(
+				array(
 					'name'  => 'name',
 					'value' => $hubspot_name,
-				],
-				[
+				),
+				array(
 					'name'  => 'email',
 					'value' => $hubspot_email,
-				],
-				[
+				),
+				array(
 					'name'  => 'title',
 					'value' => $hubspot_title,
-				],
-				[
+				),
+				array(
 					'name'  => 'company',
 					'value' => $hubspot_company,
-				],
-			],
-			'context'             => [
+				),
+			),
+			'context'             => array(
 				'hutk'     => $cookie,
 				'pageUri'  => $form_url,
 				'pageName' => $form_title,
-			],
-			'legalConsentOptions' => [
-				'consent' => [
+			),
+			'legalConsentOptions' => array(
+				'consent' => array(
 					'consentToProcess' => true,
 					'text'             => 'I agree to receive marketing communications.',
-					'communications'   => [
-						[
+					'communications'   => array(
+						array(
 							'value'              => true,
 							'subscriptionTypeId' => $subscription_type_id,
 							'text'               => 'I agree to receive marketing communications.',
-						],
-					],
-				],
-			],
-		];
+						),
+					),
+				),
+			),
+		);
 
 		// Initiate curl
 		$ch = curl_init();
 		// Set the url
 		curl_setopt( $ch, CURLOPT_URL, $url );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, [ 'Content-Type: application/json' ] );
+		curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json' ) );
 		curl_setopt( $ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0' );
 		// Will return the response, if false it print the response
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
@@ -202,18 +202,18 @@ class NWP_Forms {
 				$list_id = get_sub_field( 'list_id' );
 			endwhile;
 		endif;
-		$data = [
+		$data = array(
 			'apikey'        => $api_key,
 			'status'        => 'subscribed',
 			'email_address' => $email,
 			'merge_fields'  => $merge_fields,
-		];
+		);
 
 		//  Initiate curl
 		$ch = curl_init();
 		// Set the url
 		curl_setopt( $ch, CURLOPT_URL, 'https://' . substr( $api_key, strpos( $api_key, '-' ) + 1 ) . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . md5( strtolower( $data['email_address'] ) ) );
-		curl_setopt( $ch, CURLOPT_HTTPHEADER, [ 'Content-Type: application/json', 'Authorization: Basic ' . base64_encode( 'user:' . $api_key ) ] );
+		curl_setopt( $ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Authorization: Basic ' . base64_encode( 'user:' . $api_key ) ) );
 		curl_setopt( $ch, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0' );
 		// Will return the response, if false it print the response
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
@@ -241,10 +241,10 @@ class NWP_Forms {
 		}
 
 		$response = json_encode(
-			[
+			array(
 				'result'  => $status,
 				'message' => $message,
-			]
+			)
 		);
 
 		return $response;

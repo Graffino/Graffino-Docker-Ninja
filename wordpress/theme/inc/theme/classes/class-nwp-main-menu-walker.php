@@ -8,23 +8,23 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Main menu walker
  */
 class NWP_Main_Menu_Walker extends Walker_Nav_Menu {
-	public function start_lvl( &$output, $depth = 0, $args = [] ) {
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$block   = isset( $args->block ) ? $args->block : explode( ' ', $args->menu_class );
 		$block   = is_array( $block ) ? $block[0] : $block;
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "\n$indent<ul class= \"submenu\">\n";
 	}
 
-	public function end_lvl( &$output, $depth = 0, $args = [] ) {
+	public function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent  = str_repeat( "\t", $depth );
 		$output .= "$indent</ul>\n";
 	}
 
-	public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 		if ( is_object( $args ) ) {
 			$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 			$this->prepare_el_classes( $item, $args, $depth );
-			$classes = empty( $item->classes ) ? [] : (array) $item->classes;
+			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 
 			// Filter Classes
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
@@ -33,7 +33,7 @@ class NWP_Main_Menu_Walker extends Walker_Nav_Menu {
 			$output .= $indent . '<li' . $class_names . '>';
 
 			// Filter Attributes
-			$atts           = [];
+			$atts           = array();
 			$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
@@ -57,14 +57,14 @@ class NWP_Main_Menu_Walker extends Walker_Nav_Menu {
 		}
 	}
 
-	public function end_el( &$output, $item, $depth = 0, $args = [] ) {
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</li>\n";
 	}
 
-	public function prepare_el_classes( &$item, $args = [], $depth = 0 ) {
+	public function prepare_el_classes( &$item, $args = array(), $depth = 0 ) {
 		$block   = isset( $args->block ) ? $args->block : explode( ' ', $args->menu_class );
 		$block   = is_array( $block ) ? $block[0] : $block;
-		$classes = [ $block . '__item' ];
+		$classes = array( $block . '__item' );
 
 		if ( $item->current ) {
 			$classes[] = 'is-current';

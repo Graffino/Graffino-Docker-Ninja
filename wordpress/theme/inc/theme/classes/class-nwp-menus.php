@@ -18,9 +18,9 @@ class NWP_Menus {
 
 	public function nwp_register_menus() {
 		register_nav_menus(
-			[
+			array(
 				'primary-right' => __( 'Primary Right' ),
-			]
+			)
 		);
 	}
 
