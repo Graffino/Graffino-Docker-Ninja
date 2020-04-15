@@ -74,6 +74,12 @@ $values: (0, 1, 2); //values for line height
     }
   }
 
+  // Disable click
+  &-disable-click {
+    pointer-events: none;
+    cursor: pointer;
+  }
+
   // Text alignment for breakpoints
   &-align {
     @each $position in (left center right) {

@@ -258,3 +258,18 @@ $font-colors: (
     left: 0;
   }
 }
+
+@mixin clickable-area($padding) {
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: rem($padding);
+    will-change: transform;
+    transform: translate(-50%, -50%);
+  }
+}
