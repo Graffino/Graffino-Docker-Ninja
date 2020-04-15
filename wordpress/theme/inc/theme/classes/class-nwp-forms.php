@@ -32,7 +32,7 @@ class NWP_Forms {
 	public function get_post_var( $var, $default = false, $empty = false, $filter = FILTER_SANITIZE_STRING ) {
 
 		if ( isset( $_POST[ $var ] ) ) {
-			if ( 'ARRAY' == $filter ) {
+			if ( 'ARRAY' === $filter ) {
 				$post_var = $_POST[ $var ];
 			} else {
 				$post_var = filter_var( $_POST[ $var ], $filter );
@@ -101,6 +101,25 @@ class NWP_Forms {
 						exit;
 					}
 					break;
+				case 'contact':
+					// Vars
+					$contact_name    = $this->get_post_var( 'contact_name' );
+					$contact_email   = $this->get_post_var( 'contact_email', false, false, FILTER_VALIDATE_EMAIL );
+					$contact_message = $this->get_post_var( 'contact_message' );
+
+					if ( $contact_name && $contact_email && $contact_message ) {
+						$result = $this->contact_form( compact( $contact_email, $contact_name, $contact_message ) );
+
+						if ( 1 === $result ) {
+							echo '{"result":"success","msg":"Your message was sent."}';
+						} else {
+							echo '{"result":"error","msg":"An error has occured."}';
+						}
+					} else {
+						echo '{"result":"error","message":"Required fields not sent."}';
+						exit;
+					}
+					break;
 			}
 		} else {
 			echo '{"result":"error","message":"Spam detected."}';
@@ -111,7 +130,7 @@ class NWP_Forms {
 	// Contact form
 	public function hubspot_form( $form_data ) {
 		// phpcs:disable WordPress.PHP.DontExtract.extract_extract
-		extract( $form_data );
+		extract( $form_data[0] );
 
 		$timestamp = round( microtime( true ) * 1000 );
 
@@ -185,7 +204,7 @@ class NWP_Forms {
 		curl_close( $ch );
 
 		$result = json_decode( $result );
-		// phpcs:disable WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+		// phpcs:disable WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		if ( 'Thanks for submitting the form.' === $result->inlineMessage ) {
 			return true;
 		} else {
@@ -248,5 +267,38 @@ class NWP_Forms {
 		);
 
 		return $response;
+	}
+
+	// Contact form
+	public function contact_form( ...$params ) {
+		extract( $params[0] );
+
+		// Set subject
+		$mail_subject = 'New contact request from ' . $contact_name;
+		// Set to the defined address in ACF Generated Options
+		$mail_to = get_field( 'email', 'options' );
+		// Set to the default blog name
+		$mail_to_name = get_field( 'name', 'options' );
+		// Store sender IP
+		$mail_ip = $_SERVER['REMOTE_ADDR'];
+		// Generate from address
+		$mail_headers = "From: {$contact_name} <{$contact_email}>";
+		// Generate body
+		$mail_body = "
+			Hello,
+
+			$contact_name sent a message via {$mail_to_name} website.
+
+			Name: {$contact_name}
+			E-mail: {$contact_email}
+
+			Message:
+			{$contact_message}
+
+			Have a nice day!
+			$mail_to_name.
+		";
+		// Send it via WP Mailer
+		return wp_mail( $mail_to, $mail_subject, $mail_body, $mail_headers );
 	}
 }

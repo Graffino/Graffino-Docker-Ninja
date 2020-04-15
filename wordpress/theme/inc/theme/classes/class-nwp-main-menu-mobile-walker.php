@@ -77,15 +77,15 @@ class NWP_Main_Menu_Mobile_Walker extends Walker_Nav_Menu {
 			$classes[] = 'is-current-parent';
 		}
 
-		if ( in_array( 'current-item', (array) $item->classes ) ) {
+		if ( in_array( 'current-item', (array) $item->classes, true ) ) {
 			$classes[] = 'is-current';
 		}
 
-		if ( in_array( 'menu-item-has-children', (array) $item->classes ) ) {
+		if ( in_array( 'menu-item-has-children', (array) $item->classes, true ) ) {
 			$classes[] = 'is-parent';
 		}
 
-		if ( in_array( 'menu', (array) $item->classes ) ) {
+		if ( in_array( 'menu', (array) $item->classes, true ) ) {
 			$classes[] = $block . '__list -submenu';
 		}
 

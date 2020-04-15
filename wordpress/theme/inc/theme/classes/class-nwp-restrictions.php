@@ -90,7 +90,7 @@ EOT;
 		// Add plugins
 		if ( $simple_admin && ! $simple_plugins ) {
 			$plugins = __( 'Plugins' );
-			$key     = array_search( $plugins, $restricted );
+			$key     = array_search( $plugins, $restricted, true );
 
 			if ( false !== $key ) {
 				unset( $restricted[ $key ] );
@@ -100,9 +100,9 @@ EOT;
 		// Add settings
 		if ( $simple_admin && ! $simple_settings ) {
 			$plugins = __( 'Settings' );
-			$search  = array_search( $plugins, $restricted );
+			$search  = array_search( $plugins, $restricted, true );
 
-			if ( ( $key == $search ) !== false ) {
+			if ( ( $key === $search ) !== false ) {
 				unset( $restricted[ $key ] );
 			}
 		}
@@ -112,7 +112,7 @@ EOT;
 			end( $menu );
 			while ( prev( $menu ) ) {
 				$value = explode( ' ', $menu[ key( $menu ) ][0] );
-				if ( in_array( null != $value[0] ? $value[0] : '', $restricted ) ) {
+				if ( in_array( null !== $value[0] ? $value[0] : '', $restricted, true ) ) {
 					unset( $menu[ key( $menu ) ] );
 				}
 			}

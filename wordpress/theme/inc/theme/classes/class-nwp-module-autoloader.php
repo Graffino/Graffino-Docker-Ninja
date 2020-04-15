@@ -32,7 +32,7 @@ class NWP_Module_AutoLoader {
 		$files = new \FilesystemIterator( $autoload_path, \FilesystemIterator::SKIP_DOTS );
 		try {
 			foreach ( $files as $file ) {
-				if ( $file->isFile() && $file->getExtension() == $autoload_extension ) {
+				if ( $file->isFile() && $file->getExtension() === $autoload_extension ) {
 					include $file->getRealPath();
 				}
 			}

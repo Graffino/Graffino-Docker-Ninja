@@ -64,14 +64,14 @@ class NWP_Custom_Post_Type_Archive_Menu_Walker {
 	public static function cpt_archive_menu_filter( $items, $menu, $args ) {
 		// Alter the URL for cpt-archive objects
 		foreach ( $items as &$item ) {
-			if ( 'cpt-archive' != $item->object ) {
+			if ( 'cpt-archive' !== $item->object ) {
 				continue;
 			}
 
 			$item->url = get_post_type_archive_link( $item->type );
 
 			// Set current
-			if ( get_query_var( 'post_type' ) == $item->type ) {
+			if ( get_query_var( 'post_type' ) === $item->type ) {
 				$item->classes[] = 'current-item';
 				$item->current   = true;
 			}
