@@ -7,11 +7,13 @@
     "indent": ["error", 2, {
       "ignoredNodes": ["TemplateLiteral"]
     }],
-    "import/no-duplicates": "off"
+    "import/no-duplicates": "off",
+    "no-case-declarations": "off"
   },
   "globals": {
     "describe": "readonly",
     "it": "readonly",
+    "expect": "readonly",
     "context": "readonly",
     "cy": "readonly"
   },
