@@ -23,7 +23,7 @@ class NWP_Pagination {
 		if ( empty( $paged ) ) {
 			$paged = 1;
 		}
-		if ( '' == $numpages ) {
+		if ( '' === $numpages ) {
 			global $wp_query;
 			$numpages = $wp_query->max_num_pages;
 			if ( ! $numpages ) {

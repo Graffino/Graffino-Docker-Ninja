@@ -130,7 +130,7 @@ class NWP_Forms {
 	// Contact form
 	public function hubspot_form( $form_data ) {
 		// phpcs:disable WordPress.PHP.DontExtract.extract_extract
-		extract( $form_data[0] );
+		extract( $form_data );
 
 		$timestamp = round( microtime( true ) * 1000 );
 
