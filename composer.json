@@ -25,7 +25,8 @@
         "wpackagist-plugin/force-regenerate-thumbnails": "^2.0",
         "wpackagist-plugin/wordpress-seo": "^13.4",
         "wpackagist-plugin/redirection": "^4.7",
-        "wpackagist-plugin/safe-svg": "^1.9"
+        "wpackagist-plugin/safe-svg": "^1.9",
+        "wpackagist-plugin/post-smtp": "^2.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",

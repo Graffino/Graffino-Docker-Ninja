@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "187fa1fee0d4f19f3f392b807b32a1b1",
+    "content-hash": "8b11f9c0edc14097a1b9a9bc45575707",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -909,6 +909,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/force-regenerate-thumbnails/"
+        },
+        {
+            "name": "wpackagist-plugin/post-smtp",
+            "version": "2.0.11",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/post-smtp/",
+                "reference": "tags/2.0.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/post-smtp.2.0.11.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/post-smtp/"
         },
         {
             "name": "wpackagist-plugin/redirection",
