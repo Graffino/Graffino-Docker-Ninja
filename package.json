@@ -150,6 +150,7 @@
     "countup.js": "^2.0.4",
     "fontfaceobserver": "^2.1.0",
     "intersection-observer": "^0.8.0",
+    "is-mobile": "^2.2.1",
     "jump.js": "^1.0.2",
     "leaflet": "^1.6.0",
     "leaflet.tilelayer.colorfilter": "^1.2.5",
