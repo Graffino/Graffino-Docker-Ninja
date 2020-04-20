@@ -1,4 +1,5 @@
 import Component from '../utils/component'
+import { stateClass } from '../utils/globals'
 const mobile = require('is-mobile')
 
 export default class MobileDetect extends Component {
@@ -16,9 +17,9 @@ export default class MobileDetect extends Component {
     const isMobile = mobile(options)
 
     if (isMobile) {
-      this.state.element.classList.add('is-mobile')
+      this.state.element.classList.add(stateClass.mobile)
     } else {
-      this.state.element.classList.add('is-desktop')
+      this.state.element.classList.add(stateClass.desktop)
     }
   }
 }

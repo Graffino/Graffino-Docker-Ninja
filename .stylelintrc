@@ -80,6 +80,7 @@
       "color",
       "font",
       "font-family",
+      "font-display",
       "font-size",
       "font-style",
       "font-weight",

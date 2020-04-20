@@ -23,7 +23,9 @@ const stateClass = {
   pinned: 'is-pinned',
   unpinned: 'is-unpinned',
   error: 'is-error',
-  disabled: 'is-disabled'
+  disabled: 'is-disabled',
+  desktop: 'is-desktop',
+  mobile: 'is-mobile'
 }
 
 const breakpoints = {
@@ -41,7 +43,8 @@ const breakpoints = {
 
 const dom = {
   window,
-  document
+  document,
+  html: document.querySelector('html')
 }
 
 const ease = {

@@ -1,7 +1,7 @@
 import Component from '../utils/component'
 const FontFaceObserver = require('fontfaceobserver')
 
-export default class AvoidFOIT extends Component {
+export default class AvoidFout extends Component {
   constructor (props) {
     super(props)
     this.state = { ...props }
