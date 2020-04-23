@@ -1,7 +1,7 @@
 import '../styles/app.scss'
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import loadPolyfills from 'polyfill-io-loader!?Promise,NodeList.prototype.forEach,Object.assign'
+import loadPolyfills from 'polyfill-io-loader!?Promise,NodeList.prototype.forEach,Object.assign,smoothscroll'
 import requireAll from './utils/require-all'
 import autoInitComponents from './utils/auto-init-components'
 
