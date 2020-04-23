@@ -7,6 +7,7 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -59,6 +60,14 @@ module.exports = merge(common, {
         /^choices/,
         /data-.*/
       ]
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(
+        __dirname,
+        `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`
+      ),
+      template: path.resolve(__dirname, 'wordpress/config/sprite.ejs'),
+      inject: false
     }),
     new ImageminPlugin({
       test: './src/**/*',
