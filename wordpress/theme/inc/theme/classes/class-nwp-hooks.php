@@ -135,5 +135,6 @@ class NWP_Hooks {
 		add_filter( 'login_headerurl', array( $admin, 'custom_login_url' ) );
 		// De-register print styles
 		add_action( 'wp_print_styles', array( $admin, 'my_deregister_styles' ), 100 );
+		add_action( 'get_header', array( $admin, 'remove_admin_bar_bump' ) );
 	}
 }
