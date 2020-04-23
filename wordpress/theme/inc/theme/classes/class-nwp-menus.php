@@ -20,6 +20,7 @@ class NWP_Menus {
 		register_nav_menus(
 			array(
 				'primary-right' => __( 'Primary Right' ),
+				'footer'        => __( 'Footer' ),
 			)
 		);
 	}

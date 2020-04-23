@@ -1,6 +1,7 @@
 import Component from '../utils/component'
 import { dom } from '../utils/globals'
 import axios from 'axios'
+import Pristine from 'pristinejs'
 
 export default class AjaxForm extends Component {
   constructor (props) {
@@ -9,6 +10,17 @@ export default class AjaxForm extends Component {
   }
 
   init () {
+    const live = true
+
+    const config = {
+      classTo: 'form__field',
+      errorClass: 'is-invalid',
+      successClass: 'is-valid',
+      errorTextParent: 'form__field',
+      errorTextTag: 'div',
+      errorTextClass: 'form__error'
+    }
+
     const data = {}
     const $form = this.state.element
 
@@ -32,19 +44,16 @@ export default class AjaxForm extends Component {
     this.setState({
       ...this.state,
       data,
-      pristineInstance: this.state.element.pristineInstance
+      pristineInstance: new Pristine($form, config, live)
     })
+
+    $form.pristineInstance = this.state.pristineInstance
 
     $form.addEventListener('submit', (e) => {
       e.preventDefault()
 
       $form.pristineInstance.destroy()
-      const newForm = dom.document.querySelector('.js-ajax-form')
-      const newPristineInstance = new $form.Pristine(
-        newForm,
-        $form.pristineConfig,
-        true
-      )
+      const newPristineInstance = new Pristine($form, config, live)
 
       const valid = newPristineInstance.validate()
 
@@ -70,14 +79,14 @@ export default class AjaxForm extends Component {
                   .then((response) =>
                     data.callback({
                       result: response.data.result,
-                      message: response.data.message,
+                      message: response.data.msg,
                       state: this.state
                     })
                   )
                   .catch((response) =>
                     data.callback({
                       result: response.data.result,
-                      message: response.data.message,
+                      message: response.data.msg,
                       state: this.state
                     })
                   )
@@ -86,20 +95,22 @@ export default class AjaxForm extends Component {
         } else {
           axios
             .post(data.ajaxUrl, new FormData($form))
-            .then((response) =>
+            .then((response) => {
               data.callback({
+                form: $form,
                 result: response.data.result,
-                message: response.data.message,
+                message: response.data.msg,
                 state: this.state
               })
-            )
-            .catch((response) =>
+            })
+            .catch((response) => {
               data.callback({
+                form: $form,
                 result: response.data.result,
-                message: response.data.message,
+                message: response.data.msg,
                 state: this.state
               })
-            )
+            })
         }
       }
     })
@@ -113,5 +124,11 @@ export default class AjaxForm extends Component {
     $form.isAjax = () => true
   }
 
-  customCallback ({ result, message, state }) {}
+  contactRequestCallback ({ form, result, message, state }) {
+    form.reset()
+    const button = form.querySelector('.js-button-text')
+    const oldText = button.textContent
+    button.textContent = message
+    setTimeout(() => (button.textContent = oldText), 5000)
+  }
 }

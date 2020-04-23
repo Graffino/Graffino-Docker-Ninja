@@ -29,7 +29,7 @@ const stateClass = {
 }
 
 const breakpoints = {
-  xlarge: '1280',
+  xlarge: '1250',
   desktop: '1120',
   large: '1050',
   medium: '940',
@@ -52,4 +52,17 @@ const ease = {
   easeOutBack: [0.175, 0.885, 0.32, 1.275]
 }
 
-export { stateClass, breakpoints, ease, dom }
+const validateOptions = {
+  classTo: 'form__field',
+  errorClass: 'is-invalid',
+  successClass: 'is-valid',
+  errorTextParent: 'form__field',
+  errorTextTag: 'div',
+  errorTextClass: 'form__error text-danger'
+}
+
+const choicesOptions = {
+  searchEnabled: false
+}
+
+export { stateClass, breakpoints, ease, dom, validateOptions, choicesOptions }

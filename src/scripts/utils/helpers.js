@@ -79,6 +79,31 @@ const loadScript = (url, callback) => {
   document.getElementsByTagName('head')[0].appendChild(script)
 }
 
+const loadScriptAsync = (uri) => {
+  return new Promise((resolve, reject) => {
+    var tag = document.createElement('script')
+    tag.src = uri
+    tag.async = true
+    tag.id = 'google-maps'
+    tag.onload = () => {
+      resolve()
+    }
+    var firstScriptTag = document.getElementsByTagName('script')[0]
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+  })
+}
+
+const unicodeURLDecode = (str) => {
+  return decodeURIComponent(
+    atob(str)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      })
+      .join('')
+  )
+}
+
 export {
   wrap,
   getIndex,
@@ -87,5 +112,7 @@ export {
   isTrue,
   hasPassiveSupport,
   isTouchDevice,
-  loadScript
+  loadScript,
+  loadScriptAsync,
+  unicodeURLDecode
 }

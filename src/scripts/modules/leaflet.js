@@ -13,7 +13,10 @@ export default class LeafletMap extends Component {
   init () {
     const { element } = this.state
     const markers = element.children
-    const map = L.map(element.id).setView([45.9442858, 25.00943039], 7)
+    const map = L.map(element.id, {
+      scrollWheelZoom: false,
+      draggable: false
+    }).setView([45.9442858, 25.00943039], 7)
     const LeafIcon = L.Icon.extend({
       options: {
         iconSize: [36, 44],

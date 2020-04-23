@@ -1,4 +1,5 @@
 import Component from '../utils/component'
+import { stateClass, dom } from '../utils/globals'
 
 export default class Header extends Component {
   constructor (props) {
@@ -7,56 +8,44 @@ export default class Header extends Component {
   }
 
   init () {
-    const data = {
-      elHeight: 0,
-      elTop: 0,
-      dHeight: 0,
-      wHeight: 0,
-      wScrollCurrent: 0,
-      wScrollBefore: 0,
-      wScrollDiff: 0
-    }
-    this.setState({ data })
+    this.state.element.style.position = 'fixed'
+    this.state.lastScrollTop = 0
+    this.state.delta = 200
+    this.state.scrolled = 0
+    this.state.headerHeight = this.state.element.offsetHeight
   }
 
   onScroll () {
-    const {
-      element,
-      wScrollDiff,
-      dHeight = '100px',
-      elHeight,
-      wHeight,
-      wScrollBefore,
-      wScrollCurrent
-    } = this.state
+    this.state.scrolled = document.documentElement.scrollTop || pageYOffset
+    const windowHeight = dom.window.innerHeight
+    const documentHeight = dom.document.body.clientHeight
+    const $headerWrapper = this.state.element.querySelector(
+      '.js-header-container'
+    )
+    const $navWrapper = this.state.element.querySelector('.js-nav')
+    const $hamburgerWrapper = this.state.element.querySelector('.js-hamburger')
 
-    this.setState({
-      elHeight: element.offsetHeight,
-      dHeight: document.body.offsetHeight,
-      wHeight: window.innerHeight,
-      wScrollCurrent: window.pageYOffset,
-      wScrollDiff: wScrollBefore - wScrollCurrent
-    })
+    if (this.state.scrolled > this.state.delta) {
+      $headerWrapper.classList.add(stateClass.floating)
+      $navWrapper.classList.add(stateClass.floating)
+      $hamburgerWrapper.classList.add(stateClass.floating)
 
-    let elTop =
-      parseInt(
-        window.getComputedStyle(this.state.element).getPropertyValue('top')
-      ) + this.state.wScrollDiff
-
-    if (wScrollCurrent <= 0) {
-      element.style.top = '0px'
-    } else if (wScrollDiff > 0) {
-      element.style.top = (elTop > 0 ? 0 : elTop) + 'px'
-    } else if (wScrollDiff < 0) {
-      if (wScrollCurrent + wHeight >= dHeight - elHeight) {
-        element.style.top =
-          ((elTop = wScrollCurrent + wHeight - dHeight) < 0 ? elTop : 0) + 'px'
-      } else {
-        element.style.top =
-          (Math.abs(elTop) > elHeight ? -elHeight : elTop) + 'px'
+      if (
+        this.state.scrolled > this.state.lastScrollTop &&
+        this.state.scrolled > this.state.headerHeight
+      ) {
+        $headerWrapper.classList.remove(stateClass.visible)
+        $headerWrapper.classList.add(stateClass.hidden)
+      } else if (this.state.scrolled + windowHeight < documentHeight) {
+        $headerWrapper.classList.remove(stateClass.hidden)
+        $headerWrapper.classList.add(stateClass.visible)
       }
+    } else if (this.state.scrolled <= this.state.delta) {
+      $headerWrapper.classList.remove(stateClass.floating)
+      $navWrapper.classList.remove(stateClass.floating)
+      $hamburgerWrapper.classList.remove(stateClass.floating)
     }
 
-    this.setState({ wScrollBefore: wScrollCurrent })
+    this.state.lastScrollTop = this.state.scrolled
   }
 }

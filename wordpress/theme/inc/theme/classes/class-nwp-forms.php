@@ -14,7 +14,15 @@ class NWP_Forms {
 	public function __construct() {
 	}
 
-	// Get GET var
+	/**
+	 * Get GET variable
+	 *
+	 * @param string $var
+	 * @param boolean $default
+	 * @param boolean $empty
+	 * @param string $filter
+	 * @return string Variable content
+	 */
 	public function get_get_var( $var, $default = false, $empty = false, $filter = FILTER_SANITIZE_STRING ) {
 
 		if ( isset( $_GET[ $var ] ) && ! empty( $_GET[ $var ] ) ) {
@@ -28,7 +36,15 @@ class NWP_Forms {
 		return $get_var;
 	}
 
-	// Get POST var
+	/**
+	 * Get POST variable
+	 *
+	 * @param string $var
+	 * @param boolean $default
+	 * @param boolean $empty
+	 * @param string $filter
+	 * @return string Variable content
+	 */
 	public function get_post_var( $var, $default = false, $empty = false, $filter = FILTER_SANITIZE_STRING ) {
 
 		if ( isset( $_POST[ $var ] ) ) {
@@ -46,16 +62,49 @@ class NWP_Forms {
 		return $post_var;
 	}
 
-
+	/**
+	 * Check if POST was initiated
+	 *
+	 * @return void
+	 */
 	public function check_for_post() {
 		// Form type
 		$form_type = $this->get_post_var( 'form_type' );
 		$anti_spam = $this->get_post_var( 'email_v', true, false );
-
 		// If anti-span is empty
 		if ( ! $anti_spam ) {
 			// Check form type
 			switch ( $form_type ) {
+				case 'contact_request':
+					// Vars
+					$request_option  = $this->get_post_var( 'request_option' );
+					$request_details = $this->get_post_var( 'request_details' );
+					$request_message = $this->get_post_var( 'request_message' );
+
+					if ( $request_details ) {
+						$result = $this->request_form( $request_option, $request_details, $request_message );
+
+						if ( true === $result ) {
+							echo json_encode(
+								array(
+									'result' => 'success',
+									'msg'    => __( 'Trimis cu succes', 'migro' ),
+								)
+							);
+						} else {
+							echo json_encode(
+								array(
+									'result' => 'error',
+									'msg'    => __( 'A apărut o problemă', 'migro' ),
+								)
+							);
+						}
+						exit;
+					} else {
+						echo '{"result":"error","message":"Required fields not sent."}';
+						exit;
+					}
+					break;
 				case 'hubspot':
 					// Vars
 					$hubspot_name    = $this->get_post_var( 'hubspot_name' );
@@ -127,7 +176,12 @@ class NWP_Forms {
 		}
 	}
 
-	// Contact form
+	/**
+	 * Contact form
+	 *
+	 * @param array $form_data
+	 * @return boolean Submit result
+	 */
 	public function hubspot_form( $form_data ) {
 		// phpcs:disable WordPress.PHP.DontExtract.extract_extract
 		extract( $form_data );
@@ -212,7 +266,13 @@ class NWP_Forms {
 		}
 	}
 
-	// Mailchimp form
+	/**
+	 * Mailchimp subscription
+	 *
+	 * @param array $merge_fields
+	 * @param string $email
+	 * @return object JSON result
+	 */
 	public function mailchimp_form( $merge_fields, $email ) {
 		if ( have_rows( 'mailchimp', 'options' ) ) :
 			while ( have_rows( 'mailchimp', 'options' ) ) :
@@ -269,7 +329,12 @@ class NWP_Forms {
 		return $response;
 	}
 
-	// Contact form
+	/**
+	 * Contact form
+	 *
+	 * @param array ...$params
+	 * @return boolean Mail result
+	 */
 	public function contact_form( ...$params ) {
 		extract( $params[0] );
 
@@ -279,8 +344,6 @@ class NWP_Forms {
 		$mail_to = get_field( 'email', 'options' );
 		// Set to the default blog name
 		$mail_to_name = get_field( 'name', 'options' );
-		// Store sender IP
-		$mail_ip = $_SERVER['REMOTE_ADDR'];
 		// Generate from address
 		$mail_headers = "From: {$contact_name} <{$contact_email}>";
 		// Generate body
@@ -301,4 +364,45 @@ class NWP_Forms {
 		// Send it via WP Mailer
 		return wp_mail( $mail_to, $mail_subject, $mail_body, $mail_headers );
 	}
+	/**
+	 * Request form
+	 *
+	 * @param string $request_option
+	 * @param string $request_details
+	 * @param string $request_message
+	 * @return boolean Request result
+	 */
+	public function request_form( $request_option, $request_details, $request_message ) {
+
+		$request_message = ( $request_message ) ? "Here is what it says: \n" . $request_message : '';
+
+		// Set subject
+		$mail_subject = 'New contact request from the website';
+		// Set to the defined address in ACF Generated Options
+		$mail_to = get_field( 'email', 'options' );
+		// Set to the default blog name
+		$mail_to_name = get_field( 'name', 'options' );
+		// Generate from address
+		$mail_headers = "From: {$mail_to_name} <{$mail_to}>";
+		// Generate body
+		$mail_body = "
+			Hello,
+
+			You have a new request from one of your website visitors.
+
+			$request_option: $request_details
+
+			$request_message
+
+			This request has also been registered in the intranet.
+
+			Have a nice day!
+			$mail_to_name
+		";
+
+		// Also send it via WP Mailer
+		$mail = wp_mail( $mail_to, $mail_subject, $mail_body, $mail_headers );
+		return $request && $mail;
+	}
+
 }
