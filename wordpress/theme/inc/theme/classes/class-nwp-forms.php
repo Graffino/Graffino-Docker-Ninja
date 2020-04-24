@@ -48,7 +48,7 @@ class NWP_Forms {
 	public function get_post_var( $var, $default = false, $empty = false, $filter = FILTER_SANITIZE_STRING ) {
 
 		if ( isset( $_POST[ $var ] ) ) {
-			if ( 'ARRAY' === $filter ) {
+			if ( 'ARRAY' === $filter && ! empty( $_GET[ $var ] ) ) {
 				$post_var = $_POST[ $var ];
 			} else {
 				$post_var = filter_var( $_POST[ $var ], $filter );
@@ -402,7 +402,7 @@ class NWP_Forms {
 
 		// Also send it via WP Mailer
 		$mail = wp_mail( $mail_to, $mail_subject, $mail_body, $mail_headers );
-		return $request && $mail;
+		return $mail;
 	}
 
 }
