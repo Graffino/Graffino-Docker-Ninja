@@ -159,11 +159,12 @@ class NWP_Forms {
 					if ( $contact_name && $contact_email && $contact_message ) {
 						$result = $this->contact_form( compact( $contact_email, $contact_name, $contact_message ) );
 
-						if ( 1 === $result ) {
-							echo '{"result":"success","msg":"Your message was sent."}';
+						if ( true === $result ) {
+							echo '{"result":"success","message":"Your message was sent."}';
 						} else {
-							echo '{"result":"error","msg":"An error has occured."}';
+							echo '{"result":"error","message":"An error has occured."}';
 						}
+						exit;
 					} else {
 						echo '{"result":"error","message":"Required fields not sent."}';
 						exit;
