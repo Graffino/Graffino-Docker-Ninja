@@ -23,11 +23,11 @@ $dotenv->load();
  */
 
 // Fix SSL Redirect Loop
-if ( 'https' == $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
+if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X_FORWARDED_PROTO'] ) {
 	$_SERVER['HTTPS'] = 'on';
 }
 
-if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] )) {
+if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
 

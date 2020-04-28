@@ -1,5 +1,5 @@
 import Component from '../utils/component'
-import { stateClass, dom } from '../utils/globals'
+import { dom, stateClass } from '../utils/globals'
 
 export default class Accordion extends Component {
   constructor (props) {
@@ -9,26 +9,47 @@ export default class Accordion extends Component {
 
   init () {
     const { element } = this.state
+    const data = {}
+
+    if (Object.keys(this.state).includes('delta')) {
+      data.delta = this.state.delta
+    } else {
+      data.delta = 20
+    }
+    this.setState({ data })
+
+    // Add class
+    element.classList.add('js-accordion')
+
     element.addEventListener('click', (e) => {
-      if (!Array.from(element.classList).includes(stateClass.open)) {
+      e.preventDefault()
+      if (!element.classList.contains(stateClass.open)) {
+        this._removeClasses()
         element.classList.add(stateClass.open)
+        this.scrollTo(element)
       } else {
-        element.classList.remove(stateClass.open)
+        this._removeClasses()
       }
     })
+  }
 
-    dom.window.addEventListener('click', (e) => {
-      const check = dom.document.getElementsByClassName('js-sidebar-menu')
+  scrollTo (target) {
+    const { data } = this.state
 
-      if (check.length > 0) {
-        if (
-          !dom.document
-            .getElementsByClassName('js-sidebar-menu')[0]
-            .contains(e.target)
-        ) {
-          element.classList.remove(stateClass.open)
-        }
-      }
+    const offset =
+      document.documentElement.scrollTop +
+      target.getBoundingClientRect().top -
+      data.delta
+    requestAnimationFrame(() =>
+      window.scrollTo({ top: offset, behavior: 'smooth' })
+    )
+  }
+
+  _removeClasses () {
+    const allInstances = dom.document.querySelectorAll('.js-accordion')
+
+    Array.from(allInstances).forEach((instance) => {
+      instance.classList.remove(stateClass.open)
     })
   }
 }

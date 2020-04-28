@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df599483fc7dd12518f8c205b16d727a",
+    "content-hash": "22331c92a31db325f2ef8ac6616e8bff",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -14,7 +14,7 @@
                 "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t=5.8.9"
             },
             "require": {
-                "composer/installers": "^1.4",
+                "composer/installers": "^1.8",
                 "ffraenz/private-composer-installer": "^4.0"
             },
             "type": "wordpress-plugin"
@@ -143,16 +143,6 @@
                 "yawik",
                 "zend",
                 "zikula"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-04-07T06:57:05+00:00"
         },
@@ -867,6 +857,24 @@
             "homepage": "https://wordpress.org/plugins/ajax-load-more/"
         },
         {
+            "name": "wpackagist-plugin/complianz-gdpr",
+            "version": "4.4.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
+                "reference": "tags/4.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.4.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/complianz-gdpr/"
+        },
+        {
             "name": "wpackagist-plugin/custom-post-type-maker",
             "version": "1.1.9",
             "source": {
@@ -921,6 +929,24 @@
             "homepage": "https://wordpress.org/plugins/force-regenerate-thumbnails/"
         },
         {
+            "name": "wpackagist-plugin/post-smtp",
+            "version": "2.0.11",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/post-smtp/",
+                "reference": "tags/2.0.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/post-smtp.2.0.11.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/post-smtp/"
+        },
+        {
             "name": "wpackagist-plugin/redirection",
             "version": "4.7.1",
             "source": {
@@ -939,16 +965,34 @@
             "homepage": "https://wordpress.org/plugins/redirection/"
         },
         {
-            "name": "wpackagist-plugin/wordpress-seo",
-            "version": "13.4.1",
+            "name": "wpackagist-plugin/safe-svg",
+            "version": "1.9.8",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/13.4.1"
+                "url": "https://plugins.svn.wordpress.org/safe-svg/",
+                "reference": "tags/1.9.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.13.4.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.8.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/safe-svg/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "13.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/13.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.13.5.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -957,14 +1001,32 @@
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
-            "name": "wpml/acfml",
-            "version": "1.4.0",
+            "name": "wpackagist-plugin/wp-ses",
+            "version": "1.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-ses/",
+                "reference": "tags/1.4"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=1.4.0"
+                "url": "https://downloads.wordpress.org/plugin/wp-ses.1.4.zip"
             },
             "require": {
-                "composer/installers": "^1.4",
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-ses/"
+        },
+        {
+            "name": "wpml/acfml",
+            "version": "1.6.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=1.6.1"
+            },
+            "require": {
+                "composer/installers": "^1.8",
                 "ffraenz/private-composer-installer": "^4.0"
             },
             "type": "wordpress-plugin"
@@ -977,7 +1039,7 @@
                 "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=4.3.6"
             },
             "require": {
-                "composer/installers": "^1.4",
+                "composer/installers": "^1.8",
                 "ffraenz/private-composer-installer": "^4.0"
             },
             "type": "wordpress-plugin"
@@ -990,7 +1052,7 @@
                 "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=2.5.5"
             },
             "require": {
-                "composer/installers": "^1.4",
+                "composer/installers": "^1.8",
                 "ffraenz/private-composer-installer": "^4.0"
             },
             "type": "wordpress-plugin"
@@ -1003,7 +1065,7 @@
                 "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=3.0.6"
             },
             "require": {
-                "composer/installers": "^1.4",
+                "composer/installers": "^1.8",
                 "ffraenz/private-composer-installer": "^4.0"
             },
             "type": "wordpress-plugin"

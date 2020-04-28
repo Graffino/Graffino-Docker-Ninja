@@ -7,12 +7,13 @@ export default class Module extends Component {
   }
 
   init () {
-    this.state.element.addEventListener('input', (event) => {
-      const value = event.target.value
-        .replace(/[^\d]/g, '')
-        .match(/^([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)?$/gm)
-
-      event.target.value = value
+    this.state.element.addEventListener('input', (e) => {
+      const x = e.target.value
+        .replace(/\D/g, '')
+        .match(/(\d{0,3})(\d{0,3})(\d{0,4})/)
+      e.target.value = !x[2]
+        ? x[1]
+        : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '')
     })
   }
 }

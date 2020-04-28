@@ -1,5 +1,6 @@
 import Component from '../utils/component.js'
 import { dom, stateClass, breakpoints } from '../utils/globals.js'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default class Hamburger extends Component {
   constructor (props) {
@@ -13,12 +14,12 @@ export default class Hamburger extends Component {
       $trigger: this.state,
       $header: dom.document.querySelector('.js-header'),
       $hamburger: dom.document.querySelector('.js-hamburger'),
-      $hamburgerText: dom.document.querySelector('.js-hamburger-text'),
       $menu: dom.document.querySelector('.js-menu'),
-      $actionsAll: dom.document.querySelectorAll('.js-menu-action'),
+      $openItems: dom.document.querySelectorAll('.js-menu-action'),
       $dropdownsAll: dom.document.querySelectorAll('.js-menu-dropdown'),
       $unscroll: dom.document.body,
-      $touchedAll: dom.document.querySelectorAll(`.${stateClass.touched}`)
+      $touchedAll: dom.document.querySelectorAll(`.${stateClass.touched}`),
+      $caption: dom.document.querySelector('.js-hamburger-caption')
     })
 
     const component = this.state
@@ -27,16 +28,19 @@ export default class Hamburger extends Component {
     document.body.addEventListener(
       'click',
       (e) => {
-        const item = e.target
+        const $item = e.target
 
         // Listen for tap
-        if (item.classList.contains('js-double-tap')) {
+        if ($item.classList.contains('js-double-tap')) {
           // Prevent first tap
           this.doubleTap(e)
         }
 
         // Listen for menu class
-        if (this.isMobile() && item.className === component.element.className) {
+        if (
+          this.isMobile() &&
+          $item.className === component.element.className
+        ) {
           e.preventDefault()
 
           if (component.$menu.classList.contains(stateClass.active)) {
@@ -46,18 +50,18 @@ export default class Hamburger extends Component {
           }
         }
 
-        // Listen for submenu class
-        if (item.classList.contains('js-menu-action')) {
-          // If on mobile activate expand / collapse
-          const { actionsAll } = this.state
-          if (this.isMobile() && actionsAll[3] !== item) {
-            e.preventDefault()
+        if ($item.parentElement.classList.contains('js-disable-click')) {
+          e.preventDefault()
+          e.stopPropagation()
+        }
 
-            if (item.classList.contains(stateClass.active)) {
-              this.collapse(item)
-            } else {
-              this.expand(item)
-            }
+        // Listen for submenu class
+        if (this.isMobile() && $item.classList.contains('js-menu-action')) {
+          // If on mobile activate expand / collapse
+          if ($item.classList.contains(stateClass.active)) {
+            this.collapse($item)
+          } else {
+            this.expand($item)
           }
         }
       },
@@ -84,13 +88,13 @@ export default class Hamburger extends Component {
 
   // Prevent link on first tap
   doubleTap (e) {
-    const item = e.target
+    const $item = e.target
     const component = this.state
 
     // Prevent first click if on touch devices
     if (this.isTouch()) {
-      if (item.classList.contains(stateClass.touched)) {
-        item.classList.remove(stateClass.touched)
+      if ($item.classList.contains(stateClass.touched)) {
+        $item.classList.remove(stateClass.touched)
       } else {
         e.preventDefault()
         // Check for other touches
@@ -99,41 +103,44 @@ export default class Hamburger extends Component {
         })
 
         // Remove all other touched elements
-        if (component.$touchedAll !== null) {
-          const touchedAll = Array.from(component.$touchedAll)
-          for (const touched of touchedAll) {
-            touched.classList.remove(stateClass.touched)
+        if (
+          component.$touchedAll !== null &&
+          component.$touchedAll !== 'undefined'
+        ) {
+          const $touchedAll = Array.from(component.$touchedAll)
+          for (const $touched of $touchedAll) {
+            $touched.classList.remove(stateClass.touched)
           }
         }
 
         // Add current element as touched
-        item.classList.add(stateClass.touched)
+        $item.classList.add(stateClass.touched)
       }
     }
   }
 
-  expand (item) {
+  expand ($item) {
     this.collapseAll()
-    item.nextElementSibling.classList.add(stateClass.open)
-    item.classList.add(stateClass.active)
+    $item.nextElementSibling.classList.add(stateClass.open)
+    $item.classList.add(stateClass.active)
   }
 
-  collapse (item) {
-    item.nextElementSibling.classList.remove(stateClass.open)
-    item.classList.remove(stateClass.active)
+  collapse ($item) {
+    $item.nextElementSibling.classList.remove(stateClass.open)
+    $item.classList.remove(stateClass.active)
   }
 
   collapseAll () {
     const component = this.state
-    const dropdownsAll = Array.from(component.$dropdownsAll)
-    const actionsAll = Array.from(component.$actionsAll)
+    const $dropdownsAll = Array.from(component.$dropdownsAll)
+    const $openItems = Array.from(component.$openItems)
 
-    for (const dropdown of dropdownsAll) {
-      dropdown.classList.remove(stateClass.open)
+    for (const $dropdown of $dropdownsAll) {
+      $dropdown.classList.remove(stateClass.open)
     }
 
-    for (const action of actionsAll) {
-      action.classList.remove(stateClass.active)
+    for (const $openItem of $openItems) {
+      $openItem.classList.remove(stateClass.active)
     }
   }
 
@@ -144,7 +151,8 @@ export default class Hamburger extends Component {
     component.$header.classList.add(stateClass.active)
     component.$header.classList.add(stateClass.open)
     component.$unscroll.classList.add(stateClass.overflow)
-    component.$hamburgerText.innerHTML = component.$hamburgerText.dataset.close
+    component.$caption.innerText = this.state.closeMenuLabel
+    disableBodyScroll(this.state.$menu)
     this.setState({
       $menu: dom.document.querySelector('.js-menu')
     })
@@ -158,6 +166,7 @@ export default class Hamburger extends Component {
     component.$header.classList.remove(stateClass.open)
     component.$header.classList.remove(stateClass.active)
     component.$unscroll.classList.remove(stateClass.overflow)
-    component.$hamburgerText.innerHTML = component.$hamburgerText.dataset.menu
+    component.$caption.innerText = this.state.menuLabel
+    enableBodyScroll(this.state.$menu)
   }
 }

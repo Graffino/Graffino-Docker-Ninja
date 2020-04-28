@@ -10,6 +10,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
+const transpileDependencies = ['three']
 
 module.exports = {
   mode: 'development',
@@ -33,7 +34,9 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve(__dirname, 'src/scripts/'),
+        exclude: new RegExp(
+          `node_modules/(?!(${transpileDependencies.join('|')})/).*`
+        ),
         use: [
           {
             loader: 'babel-loader',

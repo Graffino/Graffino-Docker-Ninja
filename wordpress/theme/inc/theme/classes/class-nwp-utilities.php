@@ -23,7 +23,7 @@ class NWP_Utilities {
 		global $wp;
 		$wp->remove_query_var( 'paged', 'any' );
 
-		$current_url = home_url( remove_query_arg( [ 'paged' => false ], $wp->request ) );
+		$current_url = home_url( remove_query_arg( array( 'paged' => false ), $wp->request ) );
 
 		return $current_url;
 	}
@@ -35,7 +35,7 @@ class NWP_Utilities {
 	 * @return void
 	 */
 	public function convert_array_to_list( $var ) {
-		$array = count( $var ) ? $var : [];
+		$array = count( $var ) ? $var : array();
 		return count( $array ) ? implode( ', ', $array ) : 'Nothing';
 	}
 
@@ -54,10 +54,10 @@ class NWP_Utilities {
 	 * @return void
 	 */
 	public function enqueue_theme_assets() {
-		wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css', [], CACHE_BUSTING );
-		wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', [], CACHE_BUSTING, true );
+		wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css', array(), CACHE_BUSTING );
+		wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array(), CACHE_BUSTING, true );
 		if ( $this->is_debug() ) {
-			wp_enqueue_script( 'browser-sync-client', ':3000/browser-sync/browser-sync-client.js', [], CACHE_BUSTING, true );
+			wp_enqueue_script( 'browser-sync-client', ':3000/browser-sync/browser-sync-client.js', array(), CACHE_BUSTING, true );
 		}
 	}
 

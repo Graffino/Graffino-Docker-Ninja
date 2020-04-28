@@ -5,7 +5,7 @@
 //
 ?>
 <!DOCTYPE html>
-<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts" data-component="avoid-fout">
+<html lang="<?php bloginfo( 'language' ); ?>" class="no-js no-fonts" data-component="avoid-fout mobile-detect">
 
 <head>
 	<title>
@@ -90,13 +90,13 @@
 			<ul class="nav__items">
 				<?php
 				wp_nav_menu(
-					[
+					array(
 						'theme_location' => 'primary-right',
 						'container'      => false,
 						'items_wrap'     => '%3$s',
 						'walker'         => new NWP_Main_Menu_Walker,
 						'block'          => 'nav',
-					]
+					)
 				);
 				?>
 			</ul>

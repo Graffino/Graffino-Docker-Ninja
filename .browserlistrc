@@ -1,5 +1,5 @@
 # See supported browsers below
-# https://browserl.ist/?q=%3E0.25%25%2C+not+op_mini+all%2C+not+ie+11
+# https://browserl.ist/?q=%3E0.25%25%2C+not+op_mini+all%2Cie+11
 >0.25%
 not op_mini all
-not ie 11
+ie 11

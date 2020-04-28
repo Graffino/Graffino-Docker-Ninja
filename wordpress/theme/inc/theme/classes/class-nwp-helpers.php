@@ -10,8 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class NWP_Helpers
-{
+class NWP_Helpers {
+
 	// global $template;
 	public function __construct() {
 	}

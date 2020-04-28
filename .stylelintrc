@@ -8,6 +8,7 @@
     "function-url-quotes": "never",
     "max-nesting-depth": null,
     "selector-class-pattern": null,
+    "selector-max-id": 1,
     "order/order": [
       "custom-properties",
       "declarations"
@@ -79,6 +80,7 @@
       "color",
       "font",
       "font-family",
+      "font-display",
       "font-size",
       "font-style",
       "font-weight",

@@ -11,8 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @package annotext
  */
 class NWP_Registry {
+
+
 	/** @var array $_objects Class objects */
-	protected $_objects = [];
+	protected $_objects = array();
 
 	/**
 	 * Method to add object to registry via reference

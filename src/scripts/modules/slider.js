@@ -8,20 +8,20 @@ export default class Slider extends Component {
   }
 
   init () {
-    const data = {}
     const element = this.state.element
-    data.slides = 3
-
-    window.dataset = element.dataset
-    if (Object.keys(element.dataset).includes('slides')) {
-      data.slides = parseInt(element.dataset.slides, 10)
-    }
 
     // eslint-disable-next-line no-unused-vars
-    const sliderInstance = new Glide(element, {
+    const glide = new Glide(element, {
       type: 'carousel',
+      autoplay: 0,
+      animationDuration: 600,
+      animationTimingFunc: 'linear',
+      perView: 3,
+      slideToScroll: 1,
+      slideToShow: 3,
       startAt: 0,
-      perView: data.slides
+      gap: 24,
+      perTouch: 1
     }).mount()
   }
 }

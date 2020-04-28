@@ -141,4 +141,9 @@ class NWP_Admin {
 			return $link;
 		}
 	}
+
+	// Remove Admin Bar padding
+	public static function remove_admin_bar_bump() {
+		remove_action( 'wp_head', '_admin_bar_bump_cb' );
+	}
 }
