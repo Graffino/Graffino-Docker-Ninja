@@ -47,7 +47,7 @@ yarn run dev
 
 ## Tests
 
-[Cyoress](https://cypress.io)
+[Cypress](https://cypress.io)
 
 1. Run `yarn test:regression:approve`
 2. Run `yarn test`
