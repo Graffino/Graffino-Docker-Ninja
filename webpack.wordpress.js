@@ -10,7 +10,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
-const transpileDependencies = ['three']
+const transpileDependencies = []
 
 module.exports = {
   mode: 'development',

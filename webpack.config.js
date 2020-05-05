@@ -8,7 +8,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
-const transpileDependencies = ['three']
+const transpileDependencies = []
 
 module.exports = {
   entry: {
