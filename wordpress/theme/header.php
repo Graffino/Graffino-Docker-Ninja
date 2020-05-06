@@ -73,7 +73,7 @@
 	<!-- End Google Analytics -->
 </head>
 <body class="home" <?php body_class(); ?>>
-	<?php get_template_part( 'partials/sprite' ); ?>
+	<?php NWP_Images::inject_sprite(); ?>
 	<?php NWP_Admin::edit_admin_link(); ?>
 	<header class="header js-header is-visible">
 		<div class="container js-header-inside">

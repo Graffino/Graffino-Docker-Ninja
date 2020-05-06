@@ -58,16 +58,9 @@ module.exports = merge(common, {
         /^icon/,
         /^noUi/,
         /^choices/,
+        /^glide-/,
         /data-.*/
       ]
-    }),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(
-        __dirname,
-        `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`
-      ),
-      template: path.resolve(__dirname, 'wordpress/config/sprite.ejs'),
-      inject: false
     }),
     new ImageminPlugin({
       test: './src/**/*',
