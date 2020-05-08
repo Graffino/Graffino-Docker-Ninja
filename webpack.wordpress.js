@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
@@ -186,14 +185,6 @@ module.exports = {
       styles: {
         filename: 'src/styles/vendor/sprite.scss'
       }
-    }),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(
-        __dirname,
-        `dist-wp/wp-content/themes/${process.env.THEME_NAME}/partials/sprite.php`
-      ),
-      template: path.resolve(__dirname, 'wordpress/config/sprite.ejs'),
-      inject: false
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),

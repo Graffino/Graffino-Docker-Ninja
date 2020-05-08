@@ -77,4 +77,34 @@ class NWP_Images {
 			echo 'src="' . $image_src . '" srcset="' . $image_srcset . '" sizes="(max-width: ' . $max_width . ') 100vw, ' . $max_width . '"';
 		}
 	}
+
+	/**
+	 * Inject SVG Sprite into header
+	 *
+	 * @return mixed Sprite or false
+	 */
+	public static function inject_sprite() {
+		$sprite = file_get_contents( get_template_directory() . '/icons/sprite.svg' );
+
+		if ( $sprite ) {
+			echo '<div class="h-visually-hidden"> ' . $sprite . ' </div>';
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Inject SVG contents
+	 *
+	 * @return mixed SVG or false
+	 */
+	public static function inject_svg( $element, $path = 'icons' ) {
+		$sprite = file_get_contents( get_template_directory() . "/$path/" . $element . '.svg' );
+
+		if ( $sprite ) {
+			echo $sprite;
+		} else {
+			return false;
+		}
+	}
 }

@@ -157,7 +157,7 @@ class NWP_Forms {
 					$contact_message = $this->get_post_var( 'contact_message' );
 
 					if ( $contact_name && $contact_email && $contact_message ) {
-						$result = $this->contact_form( compact( $contact_email, $contact_name, $contact_message ) );
+						$result = $this->contact_form( compact( 'contact_email', 'contact_name', 'contact_message' ) );
 
 						if ( true === $result ) {
 							echo '{"result":"success","message":"Your message was sent."}';
@@ -336,8 +336,8 @@ class NWP_Forms {
 	 * @param array ...$params
 	 * @return boolean Mail result
 	 */
-	public function contact_form( ...$params ) {
-		extract( $params[0] );
+	public function contact_form( $params ) {
+		extract( $params );
 
 		// Set subject
 		$mail_subject = 'New contact request from ' . $contact_name;
