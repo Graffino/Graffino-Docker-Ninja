@@ -187,8 +187,6 @@ class NWP_Forms {
 		// phpcs:disable WordPress.PHP.DontExtract.extract_extract
 		extract( $form_data );
 
-		$timestamp = round( microtime( true ) * 1000 );
-
 		$cookie               = '';
 		$property_id          = '';
 		$form_id              = '';
@@ -199,7 +197,6 @@ class NWP_Forms {
 		$url = "https://api.hsforms.com/submissions/v3/integration/submit/{$property_id}/{$form_id}";
 
 		$data = array(
-			'submittedAt'         => $timestamp,
 			'fields'              => array(
 				array(
 					'name'  => 'name',
