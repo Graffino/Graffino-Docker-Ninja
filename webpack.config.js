@@ -8,7 +8,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
-const transpileDependencies = []
 
 module.exports = {
   entry: {
@@ -17,6 +16,22 @@ module.exports = {
   },
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
+  },
+  stats: {
+    colors: true,
+    hash: false,
+    version: false,
+    timings: true,
+    assets: false,
+    chunks: false,
+    modules: false,
+    reasons: false,
+    children: false,
+    source: false,
+    errors: true,
+    errorDetails: false,
+    warnings: true,
+    publicPath: false
   },
   module: {
     rules: [
@@ -70,9 +85,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: new RegExp(
-          `node_modules/(?!(${transpileDependencies.join('|')})/).*`
-        ),
+        include: path.resolve(__dirname, 'src/scripts/'),
         use: [
           {
             loader: 'babel-loader',
@@ -150,22 +163,14 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      // TODO: Temp fix until next version of CopyPlugin to prevent conflicts
-      // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
       cleanStaleWebpackAssets: false
     }),
-    new CopyPlugin([
-      {
-        from: 'src/static',
-        to: ''
-      }
-    ]),
-    new CopyPlugin([
-      {
-        from: 'src/media',
-        to: 'media'
-      }
-    ]),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/static', to: '' },
+        { from: 'src/media', to: 'media' }
+      ]
+    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {}

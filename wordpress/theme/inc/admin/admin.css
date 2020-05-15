@@ -25,3 +25,8 @@ Author: Graffino (http://www.graffino.com)
 a[href$='wpseo_licenses'] {
   display: none !important;
 }
+
+/* Offload SES */
+.wposes-sidebar {
+  display: none !important;
+}

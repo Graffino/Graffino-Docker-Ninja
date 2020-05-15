@@ -74,6 +74,8 @@ class NWP_Hooks {
 		$utilities = $registry->get( 'NWP_Utilities' );
 		add_action( 'wp_enqueue_scripts', array( $utilities, 'enqueue_theme_assets' ) );
 		add_action( 'upload_mimes', array( $utilities, 'my_custom_upload_mimes' ) );
+		add_filter( 'pre_get_posts', array( $utilities, 'search_filter' ) );
+		add_action( 'template_redirect', array( $utilities, 'change_search_url' ) );
 
 		/**
 		 * ACF

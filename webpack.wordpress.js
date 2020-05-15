@@ -9,7 +9,6 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line no-path-concat
 })
-const transpileDependencies = []
 
 module.exports = {
   mode: 'development',
@@ -29,13 +28,27 @@ module.exports = {
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
+  stats: {
+    colors: true,
+    hash: false,
+    version: false,
+    timings: true,
+    assets: false,
+    chunks: false,
+    modules: false,
+    reasons: false,
+    children: false,
+    source: false,
+    errors: true,
+    errorDetails: false,
+    warnings: true,
+    publicPath: false
+  },
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: new RegExp(
-          `node_modules/(?!(${transpileDependencies.join('|')})/).*`
-        ),
+        include: path.resolve(__dirname, 'src/scripts/'),
         use: [
           {
             loader: 'babel-loader',
@@ -189,44 +202,44 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({
-      // TODO: Temp fix until next version of CopyPlugin to prevent conflicts
-      // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
       cleanStaleWebpackAssets: false
     }),
-    new CopyPlugin([
-      {
-        from: path.resolve(__dirname, 'src/static'),
-        to: path.resolve(
-          __dirname,
-          `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
-        ),
-        force: true
-      },
-      {
-        from: path.resolve(__dirname, 'wordpress/theme'),
-        to: path.resolve(
-          __dirname,
-          `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
-        ),
-        force: true
-      },
-      {
-        from: path.resolve(__dirname, 'wordpress/config/*.php'),
-        to: path.resolve(__dirname, 'dist-wp/'),
-        force: true,
-        flatten: true
-      },
-      {
-        from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
-        to: path.resolve(__dirname, 'dist-wp/')
-      },
-      {
-        from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
-        to: path.resolve(__dirname, 'wordpress/uploads'),
-        toType: 'dir',
-        force: true
-      }
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/static'),
+          to: path.resolve(
+            __dirname,
+            `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+          ),
+          force: true
+        },
+        {
+          from: path.resolve(__dirname, 'wordpress/theme'),
+          to: path.resolve(
+            __dirname,
+            `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+          ),
+          force: true
+        },
+        {
+          from: path.resolve(__dirname, 'wordpress/config/*.php'),
+          to: path.resolve(__dirname, 'dist-wp/'),
+          force: true,
+          flatten: true
+        },
+        {
+          from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
+          to: path.resolve(__dirname, 'dist-wp/')
+        },
+        {
+          from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
+          to: path.resolve(__dirname, 'wordpress/uploads'),
+          toType: 'dir',
+          force: true
+        }
+      ]
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/main.css'
     }),
@@ -255,7 +268,8 @@ module.exports = {
       },
       watchOptions: {
         ignored: ['sprite.php']
-      }
+      },
+      logLevel: 'silent'
     }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
