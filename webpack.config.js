@@ -8,7 +8,6 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
-const transpileDependencies = []
 
 module.exports = {
   entry: {
@@ -86,9 +85,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: new RegExp(
-          `node_modules/(?!(${transpileDependencies.join('|')})/).*`
-        ),
+        include: path.resolve(__dirname, 'src/scripts/'),
         use: [
           {
             loader: 'babel-loader',
