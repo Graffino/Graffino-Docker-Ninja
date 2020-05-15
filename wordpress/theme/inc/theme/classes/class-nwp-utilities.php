@@ -68,7 +68,7 @@ class NWP_Utilities {
 	 * @return void
 	 */
 	public static function clean_phone_number( $phone ) {
-		return preg_replace( '/\D+/', '', $phone );
+		return preg_replace( '/[^+\d+]/', '', $phone );
 	}
 
 	/**
