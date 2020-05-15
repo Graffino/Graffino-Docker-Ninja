@@ -163,22 +163,14 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      // TODO: Temp fix until next version of CopyPlugin to prevent conflicts
-      // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
       cleanStaleWebpackAssets: false
     }),
-    new CopyPlugin([
-      {
-        from: 'src/static',
-        to: ''
-      }
-    ]),
-    new CopyPlugin([
-      {
-        from: 'src/media',
-        to: 'media'
-      }
-    ]),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/static', to: '' },
+        { from: 'src/media', to: 'media' }
+      ]
+    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         handlebarsLoader: {}

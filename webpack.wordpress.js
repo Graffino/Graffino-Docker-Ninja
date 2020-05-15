@@ -202,44 +202,44 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({
-      // TODO: Temp fix until next version of CopyPlugin to prevent conflicts
-      // https://github.com/webpack-contrib/copy-webpack-plugin/issues/385
       cleanStaleWebpackAssets: false
     }),
-    new CopyPlugin([
-      {
-        from: path.resolve(__dirname, 'src/static'),
-        to: path.resolve(
-          __dirname,
-          `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
-        ),
-        force: true
-      },
-      {
-        from: path.resolve(__dirname, 'wordpress/theme'),
-        to: path.resolve(
-          __dirname,
-          `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
-        ),
-        force: true
-      },
-      {
-        from: path.resolve(__dirname, 'wordpress/config/*.php'),
-        to: path.resolve(__dirname, 'dist-wp/'),
-        force: true,
-        flatten: true
-      },
-      {
-        from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
-        to: path.resolve(__dirname, 'dist-wp/')
-      },
-      {
-        from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
-        to: path.resolve(__dirname, 'wordpress/uploads'),
-        toType: 'dir',
-        force: true
-      }
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/static'),
+          to: path.resolve(
+            __dirname,
+            `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+          ),
+          force: true
+        },
+        {
+          from: path.resolve(__dirname, 'wordpress/theme'),
+          to: path.resolve(
+            __dirname,
+            `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
+          ),
+          force: true
+        },
+        {
+          from: path.resolve(__dirname, 'wordpress/config/*.php'),
+          to: path.resolve(__dirname, 'dist-wp/'),
+          force: true,
+          flatten: true
+        },
+        {
+          from: path.resolve(__dirname, 'wordpress/config/.htaccess'),
+          to: path.resolve(__dirname, 'dist-wp/')
+        },
+        {
+          from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
+          to: path.resolve(__dirname, 'wordpress/uploads'),
+          toType: 'dir',
+          force: true
+        }
+      ]
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/main.css'
     }),
