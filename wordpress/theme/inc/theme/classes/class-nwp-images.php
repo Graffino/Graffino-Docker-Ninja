@@ -107,4 +107,19 @@ class NWP_Images {
 			return false;
 		}
 	}
+
+	/**
+	 * Get SVG contents
+	 *
+	 * @return mixed SVG or false
+	 */
+	public static function get_svg( $element, $path = 'icons' ) {
+		$sprite = file_get_contents( get_template_directory() . "/$path/" . $element . '.svg' );
+
+		if ( $sprite ) {
+			return $sprite;
+		} else {
+			return false;
+		}
+	}
 }
