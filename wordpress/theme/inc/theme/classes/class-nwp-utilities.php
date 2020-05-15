@@ -92,4 +92,69 @@ class NWP_Utilities {
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
 	}
+
+	/**
+	 * Search Filter for posts only
+	 *
+	 * @param $query
+	 * @return void
+	 */
+	public function search_filter( $query ) {
+		if ( $query->is_search ) {
+			$query->set( 'post_type', 'post' );
+			$query->set( 'paged', ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1 );
+			$query->set( 'posts_per_page', 4 );
+		}
+		return $query;
+	}
+
+	/**
+	 * Change default search results URL
+	 *
+	 * @return void
+	 */
+	public function change_search_url() {
+		if ( is_search() && ! empty( $_GET['s'] ) ) {
+			wp_redirect( home_url( '/search/' ) . urlencode( get_query_var( 's' ) ) );
+			exit();
+		}
+	}
+
+	/**
+	 * Share to Facebook
+	 *
+	 * @return void
+	 */
+	public function share_to_facebook( $url, $class, $icon_name ) {
+		global $registry;
+		$href = 'http://m.facebook.com/sharer.php?u=' . $url;
+
+		$link = '<a href="' . $href .
+			'" title="' . __( 'Share on Facebook' ) .
+			'" class="' . $class . ' js-social-popup' .
+			'" target="_blank" rel="external">' . $registry->get( 'NWP_Images' )->get_svg( $icon_name ) .
+			'</a>';
+
+		return $link;
+	}
+
+
+	/**
+	 * Share to Whatsapp
+	 *
+	 * @return void
+	 */
+	public function share_to_whatsapp( $url, $class, $icon_name ) {
+		global $registry;
+		$href = 'whatsapp://send?text=' . $url;
+
+		$link = '<a href="' . $href .
+			'" title="' . __( 'Share on Whatsapp' ) .
+			'" class="' . $class . ' js-social-popup' .
+			'" data-action="share/whatsapp/share"' .
+			'" target="_blank" rel="external">' . $registry->get( 'NWP_Images' )->get_svg( $icon_name ) .
+			'</a>';
+
+		return $link;
+	}
 }
