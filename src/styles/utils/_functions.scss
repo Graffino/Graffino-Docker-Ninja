@@ -163,11 +163,8 @@ $font-colors: (
 }
 
 // Root level sibling state. Eg.: .header.is-pinned + .sibling .target {}
-@mixin root-sibling-state(
-  $state-class,
-  $sibling-class: '.main',
-  $parent-class: ''
-) {
+// prettier-ignore
+@mixin root-sibling-state( $state-class, $sibling-class: '.main', $parent-class: '') {
   @at-root #{$parent-class}#{$state-class} + #{$sibling-class} #{&} {
     @content;
   }
