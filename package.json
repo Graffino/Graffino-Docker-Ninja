@@ -156,6 +156,7 @@
     "jump.js": "^1.0.2",
     "leaflet": "^1.6.0",
     "leaflet.tilelayer.colorfilter": "^1.2.5",
+    "masonry-layout": "^4.2.2",
     "micromodal": "^0.4.6",
     "nouislider": "^14.5.0",
     "pristinejs": "^0.1.6",
@@ -163,7 +164,7 @@
     "smoothscroll-polyfill": "^0.4.4",
     "stickybits": "^3.7.7",
     "svg-spritemap-webpack-plugin": "^3.5.5",
-    "swiper": "^5.3.8",
+    "swiper": "^5.4.0",
     "vanilla-lazyload": "^16.0.0",
     "video.js": "^7.8.1",
     "wnumb": "^1.2.0"
