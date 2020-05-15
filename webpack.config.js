@@ -18,6 +18,22 @@ module.exports = {
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
+  stats: {
+    colors: true,
+    hash: false,
+    version: false,
+    timings: true,
+    assets: false,
+    chunks: false,
+    modules: false,
+    reasons: false,
+    children: false,
+    source: false,
+    errors: true,
+    errorDetails: false,
+    warnings: true,
+    publicPath: false
+  },
   module: {
     rules: [
       {
