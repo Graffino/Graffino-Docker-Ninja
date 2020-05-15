@@ -22,22 +22,26 @@ const autoInitComponents = () => {
         props = { ...props, [`${propKey}`]: element.dataset[key] }
       })
 
-    Array.from(element.querySelectorAll('[data-ref]'))
-      .map(el => {
-        // eslint-disable-next-line no-prototype-builtins
-        if (refs.hasOwnProperty(camelCase(el.dataset.ref))) {
-          refs = { ...refs, [`${camelCase(el.dataset.ref)}`]: [...refs[`${camelCase(el.dataset.ref)}`], el] }
-        } else {
-          refs = { ...refs, [`${camelCase(el.dataset.ref)}`]: [el] }
+    Array.from(element.querySelectorAll('[data-ref]')).map((el) => {
+      // eslint-disable-next-line no-prototype-builtins
+      if (refs.hasOwnProperty(camelCase(el.dataset.ref))) {
+        refs = {
+          ...refs,
+          [`${camelCase(el.dataset.ref)}`]: [
+            ...refs[`${camelCase(el.dataset.ref)}`],
+            el
+          ]
         }
-      })
+      } else {
+        refs = { ...refs, [`${camelCase(el.dataset.ref)}`]: [el] }
+      }
+    })
 
-    Object.keys(refs)
-      .map(key => {
-        if (refs[key].length === 1) {
-          refs[key] = refs[key][0]
-        }
-      })
+    Object.keys(refs).map((key) => {
+      if (refs[key].length === 1) {
+        refs[key] = refs[key][0]
+      }
+    })
 
     if (componentName.length === 1) {
       moduleLoader(componentName[0]).then((Component) => {
