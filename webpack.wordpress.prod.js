@@ -58,8 +58,10 @@ module.exports = merge(common, {
         /^noUi/,
         /^choices/,
         /^glide-/,
-        /data-.*/
-      ]
+        /data-.*/,
+        /^-weight-*/,
+        /^-size-*/,
+      ],
     }),
     new ImageminPlugin({
       test: './src/**/*',
