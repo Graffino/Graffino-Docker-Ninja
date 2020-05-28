@@ -119,9 +119,11 @@ module.exports = {
           {
             loader: 'svgo-loader',
             options: {
-              plugins: {
-                removeAttrs: {}
-              }
+              plugins: [
+                {
+                  removeAttrs: {}
+                }
+              ]
             }
           }
         ]
