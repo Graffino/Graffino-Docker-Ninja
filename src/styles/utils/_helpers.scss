@@ -113,6 +113,10 @@ $values: (0, 1, 2); //values for line height
         margin-#{$side}: #{$space}px !important;
       }
 
+      &-n-m-#{str-slice($side, 0, 1)}-#{$space} {
+        margin-#{$side}: -#{$space}px !important;
+      }
+
       &-p-#{str-slice($side, 0, 1)}-#{$space} {
         padding-#{$side}: #{$space}px !important;
       }
@@ -121,6 +125,12 @@ $values: (0, 1, 2); //values for line height
         &-m-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
           @include below($name) {
             margin-#{$side}: #{$space}px !important;
+          }
+        }
+
+        &-n-m-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
+          @include below($name) {
+            margin-#{$side}: -#{$space}px !important;
           }
         }
 
