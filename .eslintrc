@@ -14,6 +14,7 @@
     "describe": "readonly",
     "it": "readonly",
     "expect": "readonly",
+    "beforeEach": "readonly",
     "context": "readonly",
     "cy": "readonly"
   },
