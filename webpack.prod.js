@@ -1,5 +1,5 @@
 const path = require('path')
-const glob = require('glob')
+const glob = require('glob-all')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.config.js')
@@ -101,12 +101,20 @@ module.exports = merge(common, {
       chunkFilename: 'css/[id].css'
     }),
     new PurgecssPlugin({
-      paths: glob.sync(path.join(__dirname, './src/views/**/*.handlebars')),
+      paths: glob.sync(
+        [
+          path.join(__dirname, './src/**/*.html'),
+          path.join(__dirname, './src/**/*.handlebars'),
+          path.join(__dirname, './src/**/*.js'),
+          path.join(__dirname, './src/**/*.vue'),
+        ],
+        { nodir: true }
+      ),
       extractors: [
         {
           extractor: (content) => content.match(/[A-z0-9-:/]+/g) || [],
-          extensions: ['handlebars', 'html', 'js', 'php', 'vue']
-        }
+          extensions: ['handlebars', 'html', 'js', 'vue'],
+        },
       ],
       whitelistPatterns: [
         /^is-/,
@@ -126,8 +134,11 @@ module.exports = merge(common, {
         /^icon/,
         /^noUi/,
         /^choices/,
-        /data-.*/
-      ]
+        /^glide-/,
+        /data-.*/,
+        /^-weight-*/,
+        /^-size-*/,
+      ],
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,

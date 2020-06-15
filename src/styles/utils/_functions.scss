@@ -5,8 +5,9 @@
 
 // Generate color themeing for headings
 $font-weights: (
-  ultraligt: 200,
-  light: 300,
+  extralight: 100,
+  light: 200,
+  book: 300,
   regular: 400,
   medium: 500,
   semibold: 600,
@@ -163,11 +164,8 @@ $font-colors: (
 }
 
 // Root level sibling state. Eg.: .header.is-pinned + .sibling .target {}
-@mixin root-sibling-state(
-  $state-class,
-  $sibling-class: '.main',
-  $parent-class: ''
-) {
+// prettier-ignore
+@mixin root-sibling-state( $state-class, $sibling-class: '.main', $parent-class: '') {
   @at-root #{$parent-class}#{$state-class} + #{$sibling-class} #{&} {
     @content;
   }
