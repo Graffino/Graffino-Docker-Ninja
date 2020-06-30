@@ -44,12 +44,4 @@ yarn run dev
 - SVG Sprite Generation
 - Sourcemaps
 - Webpack Config Split
-
-## Tests
-
-[Cypress](https://cypress.io)
-
-1. Run `yarn test:regression:approve`
-2. Run `yarn test`
-
-Regression testing requires that you have previously 'approved' the desired design.
+- Regression testing
