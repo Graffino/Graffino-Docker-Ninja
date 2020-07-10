@@ -1,6 +1,6 @@
 const path = require('path')
 const glob = require('glob-all')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.wordpress.js')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
@@ -60,8 +60,8 @@ module.exports = merge(common, {
         /^glide-/,
         /data-.*/,
         /^-weight-*/,
-        /^-size-*/,
-      ],
+        /^-size-*/
+      ]
     }),
     new ImageminPlugin({
       test: './src/**/*',
