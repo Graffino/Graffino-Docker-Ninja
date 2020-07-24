@@ -2,14 +2,14 @@ import Component from '../utils/component'
 import browserUpdate from 'browser-update'
 
 export default class BrowserUpdate extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init() {
+  init () {
     const configurationOptions = {
       required: {
         i: 11,
