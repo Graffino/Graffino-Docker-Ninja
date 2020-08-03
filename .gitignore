@@ -11,7 +11,5 @@
 /certs/chain.pem
 /certs/cert.pem
 /nohup.out
-/cypress/screenshots
-/cypress/videos
 /vendor/
 /wordpress/uploads/alm_templates

@@ -1,7 +1,7 @@
 const path = require('path')
 const glob = require('glob-all')
 const webpack = require('webpack')
-const merge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.config.js')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -106,15 +106,15 @@ module.exports = merge(common, {
           path.join(__dirname, './src/**/*.html'),
           path.join(__dirname, './src/**/*.handlebars'),
           path.join(__dirname, './src/**/*.js'),
-          path.join(__dirname, './src/**/*.vue'),
+          path.join(__dirname, './src/**/*.vue')
         ],
         { nodir: true }
       ),
       extractors: [
         {
           extractor: (content) => content.match(/[A-z0-9-:/]+/g) || [],
-          extensions: ['handlebars', 'html', 'js', 'vue'],
-        },
+          extensions: ['handlebars', 'html', 'js', 'vue']
+        }
       ],
       whitelistPatterns: [
         /^is-/,
@@ -137,8 +137,8 @@ module.exports = merge(common, {
         /^glide-/,
         /data-.*/,
         /^-weight-*/,
-        /^-size-*/,
-      ],
+        /^-size-*/
+      ]
     }),
     new ImageminPlugin({
       test: /\.(jpe?g|png|gif|svg)$/i,
