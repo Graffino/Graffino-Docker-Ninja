@@ -884,7 +884,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1596215623"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1597326279"
             },
             "require": {
                 "composer/installers": "~1.0"
