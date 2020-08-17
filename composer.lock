@@ -894,15 +894,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "4.6.10",
+            "version": "4.7.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/4.6.10"
+                "reference": "tags/4.7.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.6.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.7.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
