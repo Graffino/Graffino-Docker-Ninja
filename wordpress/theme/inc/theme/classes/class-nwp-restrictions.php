@@ -128,6 +128,10 @@ EOT;
 
 			unset( $submenu['plugin-editor.php'] ); // Remove Plugins Editor
 
+			remove_menu_page( 'ajax-load-more' ); // Load more
+			remove_menu_page( 'postman' ); // Post SMTP
+			remove_menu_page( 'complianz' ); // Post SMTP
+
 			// Remove Themes Editor
 			remove_submenu_page( 'themes.php', 'theme-editor.php' );
 

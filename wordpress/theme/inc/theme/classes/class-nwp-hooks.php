@@ -98,6 +98,7 @@ class NWP_Hooks {
 			register_options_page( 'API Settings' );
 			register_options_page( 'Admin Settings' );
 		}
+		add_action( 'init', array( $acf, 'register_default_acf_fields' ) );
 		add_filter( 'acf/load_value/type=textarea', array( $acf, 'text_field_shortcode' ), 10, 3 );
 		add_filter( 'acf/load_value/type=text', array( $acf, 'text_field_shortcode' ), 10, 3 );
 
