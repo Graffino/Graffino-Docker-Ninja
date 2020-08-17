@@ -2476,7 +2476,7 @@ browser-sync@^2.26.12:
     ua-parser-js "^0.7.18"
     yargs "^15.4.1"
 
-browser-update@^3.3.19:
+browser-update@^3.3.21:
   version "3.3.21"
   resolved "https://registry.yarnpkg.com/browser-update/-/browser-update-3.3.21.tgz#e32c12a45565d304c65d5a61e05144492dfa583c"
   integrity sha512-uoYVjWpjioyqLGbdY4F/uSA9ZYyxM1gVP7e/+d0OEafMcMP5XOOpmE5erXZdnUuigfevWXhDTseU5+84E2Hp2A==
@@ -4991,7 +4991,7 @@ eslint@^6.8.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-eslint@^7.6.0:
+eslint@^7.7.0:
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.7.0.tgz#18beba51411927c4b64da0a8ceadefe4030d6073"
   integrity sha512-1KUxLzos0ZVsyL81PnRN335nDtQ8/vZUD6uMtWbF+5zDtjKcsklIi78XoE0MVL93QvWTu+E5y44VyyCsOMBrIg==
@@ -9412,7 +9412,7 @@ npm-bundled@^1.1.1:
   dependencies:
     npm-normalize-package-bin "^1.0.1"
 
-npm-check-updates@^7.1.0:
+npm-check-updates@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/npm-check-updates/-/npm-check-updates-7.1.1.tgz#1644a4df8b05958621b23dd669bf09442afa1c27"
   integrity sha512-mTth44/DK4EmTecdyqEzt6C76sSYdCnDrOo39lNcN1/JWOEkcb+uLQ2CRt0gqkCp6DohALs4RpVBVp+E2i+h8Q==
