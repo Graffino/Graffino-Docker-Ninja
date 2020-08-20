@@ -23,9 +23,7 @@ export default class ScrollTo extends Component {
     element.addEventListener('click', (e) => {
       e.preventDefault()
       // Get offset
-      data.offset = dom.document
-        .querySelector(data.target)
-        .getBoundingClientRect().offset
+      data.offset = this.getElementOffset(data.target)
 
       // Save state
       this.setState({ data })
@@ -36,9 +34,14 @@ export default class ScrollTo extends Component {
   }
 
   scrollTo () {
-    const offset = this.state.data
+    const offset = this.state.data.offset
     requestAnimationFrame(() =>
       window.scrollTo({ top: offset, behavior: 'smooth' })
     )
+  }
+
+  getElementOffset (selector) {
+    const element = dom.document.querySelector(selector)
+    return element.getBoundingClientRect().top + window.scrollY
   }
 }
