@@ -14,14 +14,14 @@ services:
         ports:
             - '9001:9001'
             - '9000:9000'
-        depends_on: 
+        depends_on:
             - mariadb
     nginx:
         image: graffino/ninja_nginx:v1
         build:
             context: .
             dockerfile: .docker/nginx/Dockerfile
-        volumes: 
+        volumes:
             - ./dist-wp/:/var/www
             - ./.docker/logs/nginx/:/var/log/nginx
             - ./.docker/nginx/conf.d:/etc/nginx/templates
@@ -29,20 +29,29 @@ services:
             - servers
         ports:
             - '8080:80'
-        depends_on: 
+        depends_on:
             - php-fpm
     mariadb:
         image: graffino/ninja_mariadb:v1
         build:
             context: .
             dockerfile: .docker/mariadb/Dockerfile
-        volumes: 
+        volumes:
             - ./.docker/logs/mariadb:/var/log/mysql
             - mariadb:/var/lib/mysql
         networks:
             - servers
         ports:
             - '8306:3306'
+    node:
+      image: graffino/ninja_node:v1
+      build:
+          context: .
+          dockerfile: .docker/node/Dockerfile
+      volumes:
+          - ./node_modules:/var/www/node_modules
+      networks:
+          - servers
 configs:
     env_config:
         file: ./.env

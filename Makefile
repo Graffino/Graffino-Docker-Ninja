@@ -2,9 +2,14 @@ CONTAINER_NGINX=docker-compose exec -T nginx sh -c
 CONTAINER_PHP=docker-compose exec -T php-fpm sh -c
 CONTAINER_MARIADB=docker-compose exec -T mariadb sh -c
 
-startup:
+start:
 	docker-compose up -d
-	$(CONTAINER_PHP) "yarn wp"
+
+stop:
+	docker-compose stop
+
+compile:
+	$(CONTAINER_NGINX) "yarn wp"
 
 setup:
 	docker-compose stop
