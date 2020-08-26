@@ -19,6 +19,11 @@
 @import '~nouislider/distribute/nouislider.css';
 // Glide
 @import '~@glidejs/glide/src/assets/sass/glide.core';
+//Plyr
+/* stylelint-disable */
+@import '~plyr/src/sass/plyr.scss';
+@import 'vendor/plyr';
+/* stylelint-enable */
 
 /**
  * Sprite

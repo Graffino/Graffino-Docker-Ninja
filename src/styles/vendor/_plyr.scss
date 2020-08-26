@@ -1,0 +1,51 @@
+/**
+ * Player
+ * Author: Graffino (http://www.graffino.com)
+ */
+
+ .plyr {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: rem(1064px);
+  height: 100%;
+  max-height: rem(600px);
+  margin: 0 auto;
+
+  &__control--overlaid {
+    background-color: #dac19d;
+
+    &:hover {
+      background: darken(#dac19d, 10%);
+    }
+  }
+
+  &__control {
+    &:hover {
+      background: darken(#dac19d, 10%);
+    }
+  }
+
+  &__controls {
+    color: #dac19d;
+  }
+}
+
+.plyr--full-ui [type='range'] {
+  color: #dac19d !important;
+}
+
+.plyr__control--overlaid {
+  background: rgba(#dac19d, 0.5) !important;
+}
+
+.plyr--video .plyr__control.plyr__tab-focus,
+.plyr--video .plyr__control:hover,
+.plyr--video .plyr__control[aria-expanded='true'] {
+  background: #dac19d !important;
+}
+
+.plyr__menu__container
+  .plyr__control[role='menuitemradio'][aria-checked='true']::before {
+  background: #dac19d !important;
+}
