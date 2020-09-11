@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2c709bc8d7a875cd7b50708c8759285",
+    "content-hash": "a28f0cc7410014980fcce6792cf8d8df",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -213,20 +213,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "5.5.0",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "d8a952dd4aa7f7d4d8be6fa145840fde4e248450"
+                "reference": "0973abd5c01ecce0b60bc1c81a6dd072827de930"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/d8a952dd4aa7f7d4d8be6fa145840fde4e248450",
-                "reference": "d8a952dd4aa7f7d4d8be6fa145840fde4e248450",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/0973abd5c01ecce0b60bc1c81a6dd072827de930",
+                "reference": "0973abd5c01ecce0b60bc1c81a6dd072827de930",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.5.0",
+                "johnpbloch/wordpress-core": "5.5.1",
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -248,20 +248,20 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2020-08-11T18:47:19+00:00"
+            "time": "2020-09-01T19:07:41+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.5.0",
+            "version": "5.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "c49d46de4e4c8972b8ed2aebe3e850f4f218186f"
+                "reference": "fa5bcb1579eae33baef6c04355f8d6657e5bd349"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/c49d46de4e4c8972b8ed2aebe3e850f4f218186f",
-                "reference": "c49d46de4e4c8972b8ed2aebe3e850f4f218186f",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/fa5bcb1579eae33baef6c04355f8d6657e5bd349",
+                "reference": "fa5bcb1579eae33baef6c04355f8d6657e5bd349",
                 "shasum": ""
             },
             "require": {
@@ -269,7 +269,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.5.0"
+                "wordpress/core-implementation": "5.5.1"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -289,7 +289,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2020-08-11T18:47:13+00:00"
+            "time": "2020-09-01T19:07:35+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -503,7 +503,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.4",
+            "version": "v5.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -876,7 +876,7 @@
         },
         {
             "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.3.7",
+            "version": "5.3.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
@@ -884,7 +884,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1597326279"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1599742291"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -894,15 +894,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "4.7.0",
+            "version": "4.7.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/4.7.0"
+                "reference": "tags/4.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.7.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.7.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1038,15 +1038,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "14.8.1",
+            "version": "14.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/14.8.1"
+                "reference": "tags/14.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.14.8.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.14.9.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
