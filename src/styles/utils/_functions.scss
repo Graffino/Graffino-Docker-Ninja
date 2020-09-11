@@ -257,7 +257,7 @@ $font-colors: (
   }
 }
 
-@mixin clickable-area($padding) {
+@mixin clickable-area($y, $x) {
   position: relative;
   cursor: pointer;
 
@@ -266,7 +266,7 @@ $font-colors: (
     position: absolute;
     top: 50%;
     left: 50%;
-    padding: rem($padding);
+    padding: rem($y) rem($x);
     will-change: transform;
     transform: translate(-50%, -50%);
   }
