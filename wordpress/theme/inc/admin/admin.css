@@ -25,3 +25,10 @@ Author: Graffino (http://www.graffino.com)
 a[href$='wpseo_licenses'] {
   display: none !important;
 }
+
+/* Complianz */
+.cmplz-dashboard-documents,
+.cmplz-dashboard-footer,
+.cmplz-submenu {
+  display: none !important;
+}
