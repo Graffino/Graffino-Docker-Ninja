@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a28f0cc7410014980fcce6792cf8d8df",
+    "content-hash": "2a30572de1336807468ff2db79904d50",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.8.12",
+            "version": "5.9.1",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t=5.8.12"
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t=5.9.1"
             },
             "require": {
                 "composer/installers": "^1.9",
@@ -966,15 +966,15 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.15.0",
+            "version": "1.16.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.15.0"
+                "reference": "tags/1.16.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.15.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.16.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1056,10 +1056,10 @@
         },
         {
             "name": "wpml/acfml",
-            "version": "1.7.1",
+            "version": "1.7.3",
             "dist": {
                 "type": "zip",
-                "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=1.7.1"
+                "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=1.7.3"
             },
             "require": {
                 "composer/installers": "^1.9",
@@ -1069,10 +1069,10 @@
         },
         {
             "name": "wpml/sitepress-multilingual-cms",
-            "version": "4.3.16",
+            "version": "4.3.19",
             "dist": {
                 "type": "zip",
-                "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=4.3.16"
+                "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=4.3.19"
             },
             "require": {
                 "composer/installers": "^1.9",
@@ -1082,10 +1082,10 @@
         },
         {
             "name": "wpml/wpml-media-translation",
-            "version": "2.5.5",
+            "version": "2.5.6",
             "dist": {
                 "type": "zip",
-                "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=2.5.5"
+                "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=2.5.6"
             },
             "require": {
                 "composer/installers": "^1.9",
@@ -1095,10 +1095,10 @@
         },
         {
             "name": "wpml/wpml-string-translation",
-            "version": "3.0.12",
+            "version": "3.0.14",
             "dist": {
                 "type": "zip",
-                "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=3.0.12"
+                "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version=3.0.14"
             },
             "require": {
                 "composer/installers": "^1.9",
