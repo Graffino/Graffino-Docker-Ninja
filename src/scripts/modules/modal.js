@@ -112,9 +112,9 @@ export default class Modal extends Component {
         ) {
           let target
           if (event.target.matches('.js-open-modal')) {
-            target = event.target.dataset.modalTarget
+            target = event.target.dataset.modaltarget
           } else {
-            target = event.target.closest('.js-open-modal').dataset.modalTarget
+            target = event.target.closest('.js-open-modal').dataset.modaltarget
           }
           MicroModal.show(target)
         }
