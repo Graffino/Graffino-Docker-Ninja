@@ -13,7 +13,14 @@ module.exports = merge(common, {
   devtool: 'source-map',
   optimization: {
     minimizer: [
-      new OptimizeCSSAssetsPlugin(),
+      new OptimizeCSSAssetsPlugin({
+        assetNameRegExp: /^((?!style).)*\.css$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorPluginOptions: {
+          preset: ['default', { discardComments: { removeAll: true } }]
+        },
+        canPrint: true
+      }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
         parallel: true,

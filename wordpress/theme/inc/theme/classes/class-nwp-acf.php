@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class NWP_ACF {
 	public function __construct() {
-		$this->register_default_fields();
+		$this->register_default_acf_fields();
 	}
 
 	/**
@@ -36,7 +36,7 @@ class NWP_ACF {
 	 *
 	 * @return void
 	 */
-	public function register_default_fields() {
+	public function register_default_acf_fields() {
 		if ( function_exists( 'acf_add_local_field_group' ) ) :
 			acf_add_local_field_group(
 				array(
@@ -244,132 +244,136 @@ class NWP_ACF {
 				)
 			);
 
-			acf_add_local_field_group(array(
-				'key' => 'group_5e4d0c93db430',
-				'title' => '[Options] Social & contact',
-				'fields' => array(
-					array(
-						'key' => 'field_5e4d0ca57c8c0',
-						'label' => 'Mail',
-						'name' => 'mail',
-						'type' => 'text',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'maxlength' => '',
-					),
-					array(
-						'key' => 'field_5e4d0cad7c8c1',
-						'label' => 'Phone Number',
-						'name' => 'phone_number',
-						'type' => 'text',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'maxlength' => '',
-					),
-					array(
-						'key' => 'field_5e71fe27b9b2c',
-						'label' => 'Name',
-						'name' => 'name',
-						'type' => 'text',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'maxlength' => '',
-					),
-				),
-				'location' => array(
-					array(
+			acf_add_local_field_group(
+				array(
+					'key'                   => 'group_5e4d0c93db430',
+					'title'                 => '[Options] Social & contact',
+					'fields'                => array(
 						array(
-							'param' => 'options_page',
-							'operator' => '==',
-							'value' => 'acf-options-social-contact',
+							'key'               => 'field_5e4d0ca57c8c0',
+							'label'             => 'Mail',
+							'name'              => 'mail',
+							'type'              => 'text',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'placeholder'       => '',
+							'prepend'           => '',
+							'append'            => '',
+							'maxlength'         => '',
+						),
+						array(
+							'key'               => 'field_5e4d0cad7c8c1',
+							'label'             => 'Phone Number',
+							'name'              => 'phone_number',
+							'type'              => 'text',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'placeholder'       => '',
+							'prepend'           => '',
+							'append'            => '',
+							'maxlength'         => '',
+						),
+						array(
+							'key'               => 'field_5e71fe27b9b2c',
+							'label'             => 'Name',
+							'name'              => 'name',
+							'type'              => 'text',
+							'instructions'      => '',
+							'required'          => 0,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'default_value'     => '',
+							'placeholder'       => '',
+							'prepend'           => '',
+							'append'            => '',
+							'maxlength'         => '',
 						),
 					),
-				),
-				'menu_order' => 0,
-				'position' => 'normal',
-				'style' => 'default',
-				'label_placement' => 'top',
-				'instruction_placement' => 'label',
-				'hide_on_screen' => '',
-				'active' => true,
-				'description' => '',
-			));
+					'location'              => array(
+						array(
+							array(
+								'param'    => 'options_page',
+								'operator' => '==',
+								'value'    => 'acf-options-social-contact',
+							),
+						),
+					),
+					'menu_order'            => 0,
+					'position'              => 'normal',
+					'style'                 => 'default',
+					'label_placement'       => 'top',
+					'instruction_placement' => 'label',
+					'hide_on_screen'        => '',
+					'active'                => true,
+					'description'           => '',
+				)
+			);
 
-			acf_add_local_field_group(array(
-				'key' => 'group_5f153d3b8a8d4',
-				'title' => '[Options] Page Links',
-				'fields' => array(
-					array(
-						'key' => 'field_5f153d4076d9d',
-						'label' => 'Posts Page',
-						'name' => 'posts_page',
-						'type' => 'post_object',
-						'instructions' => 'Link to the posts page.',
-						'required' => 1,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '',
-							'class' => '',
-							'id' => '',
-						),
-						'post_type' => array(
-							0 => 'page',
-						),
-						'taxonomy' => '',
-						'allow_null' => 0,
-						'multiple' => 0,
-						'return_format' => 'id',
-						'ui' => 1,
-					),
-				),
-				'location' => array(
-					array(
+			acf_add_local_field_group(
+				array(
+					'key'                   => 'group_5f153d3b8a8d4',
+					'title'                 => '[Options] Page Links',
+					'fields'                => array(
 						array(
-							'param' => 'options_page',
-							'operator' => '==',
-							'value' => 'acf-options-page-links',
+							'key'               => 'field_5f153d4076d9d',
+							'label'             => 'Posts Page',
+							'name'              => 'posts_page',
+							'type'              => 'post_object',
+							'instructions'      => 'Link to the posts page.',
+							'required'          => 1,
+							'conditional_logic' => 0,
+							'wrapper'           => array(
+								'width' => '',
+								'class' => '',
+								'id'    => '',
+							),
+							'post_type'         => array(
+								0 => 'page',
+							),
+							'taxonomy'          => '',
+							'allow_null'        => 0,
+							'multiple'          => 0,
+							'return_format'     => 'id',
+							'ui'                => 1,
 						),
 					),
-				),
-				'menu_order' => 0,
-				'position' => 'normal',
-				'style' => 'default',
-				'label_placement' => 'top',
-				'instruction_placement' => 'label',
-				'hide_on_screen' => '',
-				'active' => true,
-				'description' => '',
-			));
+					'location'              => array(
+						array(
+							array(
+								'param'    => 'options_page',
+								'operator' => '==',
+								'value'    => 'acf-options-page-links',
+							),
+						),
+					),
+					'menu_order'            => 0,
+					'position'              => 'normal',
+					'style'                 => 'default',
+					'label_placement'       => 'top',
+					'instruction_placement' => 'label',
+					'hide_on_screen'        => '',
+					'active'                => true,
+					'description'           => '',
+				)
+			);
 
 			acf_add_local_field_group(
 				array(
