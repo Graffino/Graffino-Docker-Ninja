@@ -115,7 +115,7 @@ module.exports = merge(common, {
           extensions: ['handlebars', 'html', 'js', 'vue']
         }
       ],
-      whitelistPatterns: [
+      safelist: [
         /^is-/,
         /^has-/,
         /^animation-/,
