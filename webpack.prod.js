@@ -136,7 +136,9 @@ module.exports = merge(common, {
         /^glide-/,
         /data-.*/,
         /^-weight-*/,
-        /^-size-*/
+        /^-size-*/,
+        /^animate__*/,
+        /^-profile-*/
       ]
     }),
     new ImageminPlugin({

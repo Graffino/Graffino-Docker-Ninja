@@ -2,14 +2,29 @@
   "id": "backstop_default",
   "viewports": [
     {
-      "label": "phone",
-      "width": 320,
-      "height": 480
+      "label": "mobile-medium",
+      "width": 375,
+      "height": 667
     },
     {
       "label": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "label": "desktop-small",
       "width": 1024,
       "height": 768
+    },
+    {
+      "label": "desktop-medium",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "label": "desktop-large",
+      "width": 1920,
+      "height": 1080
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -18,7 +33,7 @@
     {
       "label": "BackstopJS Homepage",
       "cookiePath": "backstop_data/engine_scripts/cookies.json",
-      "url": "https://garris.github.io/BackstopJS/",
+      "url": "http://ninja.graffino.dev",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",

@@ -73,10 +73,7 @@ module.exports = merge(common, {
       }
     ]
   },
-  plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name][hash].js',
