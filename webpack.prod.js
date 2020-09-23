@@ -115,7 +115,7 @@ module.exports = merge(common, {
           extensions: ['handlebars', 'html', 'js', 'vue']
         }
       ],
-      whitelistPatterns: [
+      safelist: [
         /^is-/,
         /^has-/,
         /^animation-/,
@@ -136,7 +136,9 @@ module.exports = merge(common, {
         /^glide-/,
         /data-.*/,
         /^-weight-*/,
-        /^-size-*/
+        /^-size-*/,
+        /^animate__*/,
+        /^-profile-*/
       ]
     }),
     new ImageminPlugin({

@@ -199,7 +199,6 @@ module.exports = {
         filename: 'src/styles/vendor/sprite.scss'
       }
     }),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false

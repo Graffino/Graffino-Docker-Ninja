@@ -109,32 +109,32 @@ $values: (0, 1, 2); //values for line height
   // Margin and Padding scale modifier classes
   @each $space in $spaceamounts {
     @each $side in $sides {
-      &-m-#{str-slice($side, 0, 1)}-#{$space} {
+      &-margin-#{$side}-#{$space} {
         margin-#{$side}: #{$space}px !important;
       }
 
-      &-n-m-#{str-slice($side, 0, 1)}-#{$space} {
+      &-margin-negative-#{$side}-#{$space} {
         margin-#{$side}: -#{$space}px !important;
       }
 
-      &-p-#{str-slice($side, 0, 1)}-#{$space} {
+      &-padding-#{$side}-#{$space} {
         padding-#{$side}: #{$space}px !important;
       }
 
       @each $name, $size in $breakpoints {
-        &-m-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
+        &-margin-#{$side}-#{$space}-#{$name} {
           @include below($name) {
             margin-#{$side}: #{$space}px !important;
           }
         }
 
-        &-n-m-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
+        &-margin-negative-#{$side}-#{$space}-#{$name} {
           @include below($name) {
             margin-#{$side}: -#{$space}px !important;
           }
         }
 
-        &-p-#{str-slice($side, 0, 1)}-#{$space}-#{$name} {
+        &-padding-#{$side}-#{$space}-#{$name} {
           @include below($name) {
             padding-#{$side}: #{$space}px !important;
           }
@@ -148,7 +148,7 @@ $values: (0, 1, 2); //values for line height
     margin: 0 !important;
 
     @each $side in $sides {
-      &-#{str-slice($side, 0, 1)} {
+      &-#{$side} {
         margin-#{$side}: 0 !important;
       }
     }
@@ -159,7 +159,7 @@ $values: (0, 1, 2); //values for line height
     border: 0 !important;
 
     @each $side in $sides {
-      &-#{str-slice($side, 0, 1)} {
+      &-#{$side} {
         border-#{$side}: 0 !important;
       }
     }
@@ -170,7 +170,7 @@ $values: (0, 1, 2); //values for line height
     padding: 0 !important;
 
     @each $side in $sides {
-      &-#{str-slice($side, 0, 1)} {
+      &-#{$side} {
         padding-#{$side}: 0 !important;
       }
     }
