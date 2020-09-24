@@ -36,7 +36,7 @@
     "node:update": "echo '\n[Ninja] => Update node modules... \n'; ncu -u; yarn node:install",
     "[Ninja] Git Scripts": "Several more comple git scripts used in deployment.",
     "git:pull-merge-push": "echo '\n[Ninja] => Commiting changes...\n'; git add -A; git commit -m '[Ninja] Automatic deploy merge'; git pull -s recursive -X theirs --no-edit; echo '\n[Ninja] => Pushing changes...\n'; git push",
-    "git:pull-reset": "echo '\n[Ninja] => Pulling changes...\n'; git fetch --all; git reset --hard HEAD; git clean -f",
+    "git:pull-reset": "echo '\n[Ninja] => Pulling changes...\n'; git fetch --all; git clean -f; git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)",
     "[Ninja] => Regression Testing": "Regression testing suite.",
     "test": "yarn cypress run",
     "test:interactive": "yarn cypress open",
