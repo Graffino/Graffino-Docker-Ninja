@@ -54,7 +54,7 @@
     "fix:scss": "echo '\n[Ninja] => Start fixing SCSS...\n'; ./node_modules/.bin/prettier-stylelint --write 'src/**/*.{css,scss}'",
     "fix:php": "echo '\n[Ninja] => Start fixing PHP...\n'; ./composer/vendor/bin/phpcbf --standard=WordPress-Core  --extensions=php wordpress/",
     "[Ninja] Deployment Management": "Static and WordPress deployment scripts.",
-    "deploy:build": "echo '\n[Ninja] => Start static deploy... \n'; yarn git:pull-reset yarn node:install; yarn webpack:build",
+    "deploy:build": "echo '\n[Ninja] => Start static deploy... \n'; yarn git:pull-reset; yarn node:install; yarn webpack:build",
     "deploy:wp": "echo '\n[Ninja] => Start WordPress deploy... \n'; yarn wp:db:dump --no-confirm; yarn wp:sync:uploads --no-confirm; yarn git:pull-merge-push; yarn wp:build",
     "deploy:wp:nodump": "echo '\n[Ninja] => Start WordPress deploy... \n'; yarn wp:sync:uploads --no-confirm; yarn git:pull-merge-push; yarn wp:build"
   },
