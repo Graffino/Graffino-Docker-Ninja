@@ -11,7 +11,7 @@
 	<title>
 		<?php
 		// Page title | Site name | Site description
-		wp_title( '|', true, true );
+		wp_title( '|', true, "right" );
 		bloginfo( 'name' );
 		$site_description = get_bloginfo( 'description', 'display' );
 		if ( $site_description && ( is_home() || is_front_page() ) ) {
