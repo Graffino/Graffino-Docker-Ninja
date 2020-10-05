@@ -84,10 +84,12 @@ const migrate = async () => {
         terminate()
       })
       .catch((err) => {
-        console.log(`    => Cannot connect to database. Error: ${err}`)
+        console.log(`    => Cannot connect to database. Error: ${err.code }`)
         // Run terminate()
         terminate()
       })
+  }).catch(err => {
+    console.log(` => Cannot execute querry. Error: ${err.message}`)
   })
 }
 
