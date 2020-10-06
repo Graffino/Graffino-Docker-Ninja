@@ -19,17 +19,20 @@ setup:
 	docker-compose up --build -d
 	$(CONTAINER_WORKER) "yarn wp:setup"
 	$(CONTAINER_WORKER) "yarn wp:update"
-	$(CONTAINER_WORKER) "yarn wp:clean"
+	$(CONTAINER_WORKER) "yarn wp:clean --no-confirm"
 	$(CONTAINER_WORKER) "yarn wp:db:init --no-confirm"
 	$(CONTAINER_WORKER) "yarn wp:db:migrate --no-confirm"
 	$(CONTAINER_WORKER) "yarn wp:sync:uploads --no-confirm"
 	$(CONTAINER_WORKER) "yarn webpack:wp:build"
 
 reset:
+	yarn clean:all
 	docker-compose -f docker-compose.yml down
 	docker image prune --all --force
 
 erase:
+	yarn clean:all
+	docker-compose -f docker-compose.yml down
 	docker system prune --volumes
 
 
