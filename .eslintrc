@@ -8,7 +8,8 @@
       "ignoredNodes": ["TemplateLiteral"]
     }],
     "import/no-duplicates": "off",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "space-before-function-paren": 0
   },
   "globals": {
     "describe": "readonly",
