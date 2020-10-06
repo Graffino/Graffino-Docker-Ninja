@@ -27,22 +27,28 @@ COPY .docker/php/php-fpm.d/www.conf /usr/local/etc/php-fpm.d
 COPY .docker/php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug-dev.ini
 COPY .docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
-# Install PHP Extensions
-COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
-
-RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions ${PHP_EXTENSIONS}
-
-# Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 # Logs
 RUN mkdir -p /var/log/php-fpm/ && \
     chown -R www-data:www-data /var/log/php-fpm
 
-RUN apk add --update nodejs npm
+# Install PHP Extensions
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
+RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
+    install-php-extensions ${PHP_EXTENSIONS}
 
-RUN apk add --no-cache nodejs yarn --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
+# Development Tools
+RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm
+
+# Git
+RUN apk add git
+
+# Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# NodeJS
+RUN apk add nodejs npm
+# Yarn
+RUN apk add yarn --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
 
 WORKDIR /var/www
 
