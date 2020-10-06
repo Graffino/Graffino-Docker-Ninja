@@ -6,6 +6,7 @@ const yesno = require('yesno')
 require('dotenv').config()
 const DatabaseName = process.env.DB_NAME
 const DatabaseHost = process.env.DB_HOST
+const DatabasePort = process.env.DB_PORT
 const DatabaseUser = process.env.DB_USER
 const DatabasePassword = process.env.DB_PASSWORD
 
@@ -26,6 +27,7 @@ const init = () => {
   const pool = mariadb.createPool({
     host: DatabaseHost,
     user: DatabaseUser,
+    port: DatabasePort,
     password: DatabasePassword
   })
 
@@ -65,7 +67,7 @@ const terminate = () => {
 }
 
 // Start async
-async function start () {
+async function start() {
   // Implement confirmation
   let confirmation = true
 
