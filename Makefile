@@ -7,12 +7,12 @@ start:
 	docker-compose up -d
 	$(CONTAINER_WORKER) "yarn wp"
 
+stop:
+	docker-compose stop
+
 build:
 	docker-compose up -d
 	$(CONTAINER_WORKER) "yarn webpack:wp:build"
-
-stop:
-	docker-compose stop
 
 setup:
 	docker-compose stop
@@ -23,6 +23,7 @@ setup:
 	$(CONTAINER_WORKER) "yarn wp:db:init --no-confirm"
 	$(CONTAINER_WORKER) "yarn wp:db:migrate --no-confirm"
 	$(CONTAINER_WORKER) "yarn wp:sync:uploads --no-confirm"
+	$(CONTAINER_WORKER) "yarn webpack:wp:build"
 
 reset:
 	docker-compose -f docker-compose.yml down
