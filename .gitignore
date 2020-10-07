@@ -16,3 +16,4 @@
 /cypress/videos
 /wordpress/uploads/alm_templates
 /.docker/logs
+/certs/fullchain.pem

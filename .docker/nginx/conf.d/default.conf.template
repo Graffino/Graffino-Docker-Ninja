@@ -1,6 +1,7 @@
 server {
 	listen 80;
-	server_name localhost;
+
+  server_name localhost;
 	root /var/www/dist-wp;
 
 	index index.php;
@@ -22,8 +23,8 @@ server {
 		fastcgi_param PATH_INFO       $fastcgi_path_info;
 		fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
 
-		fastcgi_pass   php-fpm:9000;
-		fastcgi_index  index.php;
+		fastcgi_pass  php-fpm:9000;
+		fastcgi_index index.php;
 	}
 
 	access_log /var/log/nginx/access.log main;
