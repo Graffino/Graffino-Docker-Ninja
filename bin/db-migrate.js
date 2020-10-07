@@ -9,6 +9,7 @@ const mariadb = require('mariadb')
 require('dotenv').config()
 const DatabaseName = process.env.DB_NAME
 const DatabaseHost = process.env.DB_HOST
+const DatabasePort = process.env.DB_PORT
 const DatabaseUser = process.env.DB_USER
 const DatabasePassword = process.env.DB_PASSWORD
 const Migration = process.env.DB_MIGRATION
@@ -62,6 +63,7 @@ const migrate = async () => {
   // Connect to database
   const pool = mariadb.createPool({
     host: DatabaseHost,
+    port: DatabasePort,
     database: DatabaseName,
     user: DatabaseUser,
     password: DatabasePassword,
@@ -84,10 +86,12 @@ const migrate = async () => {
         terminate()
       })
       .catch((err) => {
-        console.log(`    => Cannot connect to database. Error: ${err}`)
+        console.log(`    => Cannot connect to database. Error: ${err.code }`)
         // Run terminate()
         terminate()
       })
+  }).catch(err => {
+    console.log(` => Cannot execute querry. Error: ${err.message}`)
   })
 }
 
@@ -103,7 +107,7 @@ const terminate = () => {
 }
 
 // Start async
-async function start () {
+async function start() {
   // Implement confirmation
   let confirmation = true
 
