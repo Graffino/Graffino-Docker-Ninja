@@ -1,11 +1,11 @@
 FROM alpine:latest
 
-ENV MYSQL_ADDRESS ${MYSQL_ADDRESS:-127.0.0.1} 
-ENV MYSQL_PORT ${MYSQL_PORT:-3306} 
-ENV MYSQL_ROOT_PASSWORD ${DB_PASSWORD:-"admin"}
-ENV MYSQL_DATABASE ${DB_NAME:-"ninja"}
-ENV MYSQL_USER ${DB_USER:-"ninja"}
-ENV MYSQL_PASSWORD ${DB_PASSWORD:-"ninja"}
+ENV MYSQL_ADDRESS ${MYSQL_ADDRESS:-127.0.0.1}
+ENV MYSQL_PORT ${MYSQL_PORT:-3306}
+ENV MYSQL_ROOT_PASSWORD ${DB_PASSWORD:-""}
+ENV MYSQL_DATABASE ${DB_NAME:-""}
+ENV MYSQL_USER ${DB_USER:-""}
+ENV MYSQL_PASSWORD ${DB_PASSWORD:-""}
 
 RUN apk add --update --no-cache mariadb mariadb-client mariadb-server-utils pwgen && \
     rm -f /var/cache/apk/*

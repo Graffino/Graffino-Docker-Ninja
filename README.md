@@ -45,3 +45,8 @@ yarn run dev
 - Sourcemaps
 - Webpack Config Split
 - Regression testing
+
+## Docker
+
+- Complete development environment
+- Compilation worker for bamboo

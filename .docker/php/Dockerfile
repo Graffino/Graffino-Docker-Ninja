@@ -50,7 +50,7 @@ RUN apk add nodejs npm
 # Yarn
 RUN apk add yarn --repository="http://dl-cdn.alpinelinux.org/alpine/edge/community"
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 EXPOSE 9001
 

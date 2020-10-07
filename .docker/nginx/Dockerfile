@@ -5,6 +5,6 @@ RUN mkdir -p /var/log/nginx/ && \
 
 EXPOSE 80
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 CMD ["nginx", "-g", "daemon off;"]
