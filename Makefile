@@ -2,10 +2,9 @@ CONTAINER_NGINX=docker-compose exec -T nginx sh -c
 CONTAINER_PHP=docker-compose exec -T php-fpm sh -c
 CONTAINER_MARIADB=docker-compose exec -T mariadb sh -c
 
-start:
-dev:
+dev start:
 	docker-compose up -d
-	$(CONTAINER_PHP) "yarn wp"
+	$(CONTAINER_PHP) "yarn wp --no-progress"
 
 stop:
 	docker-compose stop
@@ -18,7 +17,7 @@ build:
 	$(CONTAINER_PHP) "yarn wp:db:init --no-confirm"
 	$(CONTAINER_PHP) "yarn wp:db:migrate --no-confirm"
 	$(CONTAINER_PHP) "yarn wp:sync:uploads --no-confirm"
-	$(CONTAINER_PHP) "yarn webpack:wp:build"
+	$(CONTAINER_PHP) "yarn webpack:wp:build --no-progress"
 
 setup:
 	docker-compose up --build -d
