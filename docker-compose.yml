@@ -1,26 +1,15 @@
 version: '3.8'
 
 services:
-    worker:
-      image: graffino/ninja_php:v1
-      build:
-          context: .
-          dockerfile: .docker/php/Dockerfile
-      volumes:
-          - ./.docker/logs/php-fpm/:/var/log/php-fpm/
-          - ./:/var/www
-      networks:
-          - servers
-      depends_on:
-          - php-fpm
     php-fpm:
         image: graffino/ninja_php:v1
         build:
             context: .
             dockerfile: .docker/php/Dockerfile
         volumes:
+            - ./:/var/www
+            - ./dist-wp:/var/www/html
             - ./.docker/logs/php-fpm/:/var/log/php-fpm/
-            - ./dist-wp/:/var/www
         networks:
             - servers
         ports:
@@ -34,7 +23,8 @@ services:
             context: .
             dockerfile: .docker/nginx/Dockerfile
         volumes:
-            - ./dist-wp/:/var/www
+            - ./:/var/www
+            - ./dist-wp/:/var/www/html/
             - ./.docker/logs/nginx/:/var/log/nginx
             - ./.docker/nginx/conf.d:/etc/nginx/templates
         networks:
