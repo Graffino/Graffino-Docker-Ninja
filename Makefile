@@ -3,6 +3,7 @@ CONTAINER_PHP=docker-compose exec -T php-fpm sh -c
 CONTAINER_MARIADB=docker-compose exec -T mariadb sh -c
 
 start:
+dev:
 	docker-compose up -d
 	$(CONTAINER_PHP) "yarn wp"
 
@@ -11,11 +12,6 @@ stop:
 
 build:
 	docker-compose up -d
-	$(CONTAINER_PHP) "yarn webpack:wp:build"
-
-setup:
-	docker-compose stop
-	docker-compose up --build -d
 	$(CONTAINER_PHP) "yarn wp:setup"
 	$(CONTAINER_PHP) "yarn wp:update"
 	$(CONTAINER_PHP) "yarn wp:clean --no-confirm"
@@ -24,14 +20,17 @@ setup:
 	$(CONTAINER_PHP) "yarn wp:sync:uploads --no-confirm"
 	$(CONTAINER_PHP) "yarn webpack:wp:build"
 
+setup:
+	docker-compose stop
+	docker-compose up --build -d
+
 reset:
 	docker-compose -f docker-compose.yml down
 	docker image prune --all --force
 
-erase:
+delete:
 	docker-compose -f docker-compose.yml down
 	docker system prune --volumes
 
 clean:
-	yarn clean:all --no-confirm
-
+	$(CONTAINER_PHP) "yarn clean:all --no-confirm"

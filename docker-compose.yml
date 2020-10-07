@@ -31,6 +31,7 @@ services:
             - servers
         ports:
             - '8080:80'
+            - '8433:443'
         depends_on:
             - php-fpm
     mariadb:
