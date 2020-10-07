@@ -1,0 +1,15 @@
+[mysqld]
+character-set-server=utf8
+max_allowed_packet=500M
+
+skip-networking=0
+skip-name-resolve
+
+innodb_log_buffer_size=32M
+innodb_log_file_size=80M
+innodb-use-native-aio=0
+innodb-flush-method=fsync
+
+slow_query_log=1
+log-error=/var/log/mysql/mysql_error.log
+slow_query_log_file=/var/log/mysql/mysql_slow.log
