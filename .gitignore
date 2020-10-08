@@ -8,10 +8,10 @@
 .DS_Store
 .idea
 /certs/privkey.pem
+/certs/fullchain.pem
 /certs/chain.pem
 /certs/cert.pem
 /nohup.out
 /vendor/
-/cypress/screenshots
-/cypress/videos
 /wordpress/uploads/alm_templates
+/.docker/logs

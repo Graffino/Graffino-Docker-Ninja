@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en_US" class="no-js" data-component="mobile-detect">
+
 <head>
-  <title>Graffino Ninja</title>
-  <meta name="description" content="Graffino Ninja. Website building webpack flow we use at Graffino.">
+  <title>{{package 'name'}}</title>
+  <meta name="description" content="{{package 'description'}}">
 
   <!-- // Configuration meta -->
   <meta charset="utf-8">
@@ -12,23 +13,30 @@
 
   <!-- // Application title - iOS / macOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Graffino Ninja">
+  <meta name="apple-mobile-web-app-title" content="{{package 'name'}}">
+  <meta name="apple-mobile-web-app-title" content="{{package 'description'}}">
 
   <!-- // Facebook Meta -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="/">
   <meta property="og:title" content="Graffino Ninja">
+  <meta property="og:title" content="{{package 'name'}}">
   <meta property="og:locale" content="en_US">
   <meta property="og:description" content="Graffino Ninja">
+  <meta property="og:description" content="{{package 'description'}}">
   <meta property="og:image" content="/social.jpg">
   <meta property="og:image:alt" content="Graffino Ninja. Website building webpack flow we use at Graffino.">
+  <meta property="og:image:alt" content="{{package 'description'}}">
 
   <!-- // Twitter Meta -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Graffino Ninja">
   <meta name="twitter:description" content="Graffino Ninja. Website building webpack flow we use at Graffino.">
+  <meta name="twitter:title" content="{{package 'name'}}">
+  <meta name="twitter:description" content="{{package 'description'}}">
   <meta name="twitter:image" content="/social.jpg">
   <meta name="twitter:image:alt" content="Graffino Ninja. Website building webpack flow we use at Graffino.">
+  <meta name="twitter:image:alt" content="{{package 'description'}}">
 
   <!-- // Favicon -->
   <link rel="icon" href="/favicon.ico">
@@ -48,34 +56,12 @@
   <link type="text/plain" rel="author" href="/humans.txt">
 
   <!-- // Preconnect / Prefetch -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="preconnect" href="//fonts.googleapis.com">
+  <!--
+  <link rel="dns-prefetch" href="//example.com">
+  <link rel="preconnect" href="//example.com">
+  -->
 </head>
 <body data-component="browser-update">
   <div class="h-visually-hidden">
    {{{sprite compilation.assets}}}
   </div>
-  <header class="header" data-component="header" data-prop-test-prop="test-prop">
-    <div class="js-header-container">
-      <div class="header__logo">
-        <a data-ref="test-ref" class="link h-display-block" href="/" aria-label="Graffino logo">
-          <img markup-inline src="../../images/svgs/logo.svg" alt="Logo of Graffino">
-        </a>
-      </div>
-      <nav class="header__navigation js-nav">
-        <ul class="navigation__menu list">
-          <li class="navigation__item list__item">
-            <a class="navigation__link link" href="https://github.com/Graffino/Ninja">
-              Source Code
-            </a>
-          </li>
-          <li class="navigation__item list__item">
-            <a class="navigation__link link" href="https://github.com/Graffino/Ninja">
-              Documentation
-            </a>
-          </li>
-          <li class="js-hamburger"></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
