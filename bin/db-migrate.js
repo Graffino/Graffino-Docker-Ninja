@@ -70,29 +70,32 @@ const migrate = async () => {
     multipleStatements: true
   })
 
-  pool.getConnection().then((connection) => {
-    console.log(`    => Starting migration of "${Migration}.sql" file...`)
+  pool
+    .getConnection()
+    .then((connection) => {
+      console.log(`    => Starting migration of "${Migration}.sql" file...`)
 
-    // Read sql file and split it by newline
-    const query = fs.readFileSync(`${MigrationFile}`, {
-      encoding: 'UTF-8'
+      // Read sql file and split it by newline
+      const query = fs.readFileSync(`${MigrationFile}`, {
+        encoding: 'UTF-8'
+      })
+
+      connection
+        .query(query)
+        .then(() => {
+          console.log(`    => Migration of "${Migration}.sql" file finished...`)
+          // Run terminate()
+          terminate()
+        })
+        .catch((err) => {
+          console.log(`    => Cannot connect to database. Error: ${err.code}`)
+          // Run terminate()
+          terminate()
+        })
     })
-
-    connection
-      .query(query)
-      .then(() => {
-        console.log(`    => Migration of "${Migration}.sql" file finished...`)
-        // Run terminate()
-        terminate()
-      })
-      .catch((err) => {
-        console.log(`    => Cannot connect to database. Error: ${err.code }`)
-        // Run terminate()
-        terminate()
-      })
-  }).catch(err => {
-    console.log(` => Cannot execute querry. Error: ${err.message}`)
-  })
+    .catch((err) => {
+      console.log(` => Cannot execute querry. Error: ${err.message}`)
+    })
 }
 
 // Terminate app

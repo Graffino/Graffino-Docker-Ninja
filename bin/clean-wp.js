@@ -38,7 +38,7 @@ const cleanWP = async () => {
 }
 
 // Start async
-async function start () {
+async function start() {
   // Implement confirmation
   let confirmation = true
 

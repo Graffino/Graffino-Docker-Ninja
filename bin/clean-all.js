@@ -7,7 +7,7 @@ const fse = require('fs-extra')
 // Clean files
 const clean = async () => {
   await fse.remove(path.resolve(__dirname, '../dist-wp/'))
-  console.log('    => Wordpress dist folder removed...')
+  console.log('    => WordPress dist folder removed...')
 
   await fse.remove(path.resolve(__dirname, '../dist/'))
   console.log('    => HTML dist folder removed...')
@@ -23,14 +23,14 @@ const clean = async () => {
 }
 
 // Start async
-async function start () {
+async function start() {
   // Implement confirmation
   let confirmation = true
 
   if (process.argv[2] !== '--no-confirm') {
     confirmation = await yesno({
       question:
-        '\n[Ninja] Clean All => Clean all temporary files\n\n    WARNING:\n    Cleaning all removes all temporary files, \n    Composer & Node packages, Wordpress installation, including the wp-dist/wp-content/uploads folder. \n    Make sure to run `wp:sync` first! \n\n    => Do you want to continue? (Y/N)\n'
+        '\n[Ninja] Clean All => Clean all temporary files\n\n    WARNING:\n    Cleaning all removes all temporary files, \n    Composer & Node packages, WordPress installation, including the wp-dist/wp-content/uploads folder. \n    Make sure to run `wp:sync` first! \n\n    => Do you want to continue? (Y/N)\n'
     })
   } else {
     console.log(

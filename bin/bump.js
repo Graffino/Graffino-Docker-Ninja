@@ -48,7 +48,7 @@ const bump = (version) => {
 }
 
 // Start async
-async function start () {
+async function start() {
   // Get bump type & version
   const type = process.argv[2] ? process.argv[2].replace('--', '') : 'patch'
   const version = semver.inc(pkg.version, type)
