@@ -22,13 +22,13 @@ build:
 setup:
 	docker-compose up --build -d
 
-reset:
+resetall:
 	docker-compose -f docker-compose.yml down
 	docker rm -f $(docker ps -a -q)
 	docker volume rm $(docker volume ls -q)
 	docker-compose up --build -d
 
-delete:
+deleteall:
 	docker-compose -f docker-compose.yml down
 	docker image prune --all --force
 	docker system prune --volumes
