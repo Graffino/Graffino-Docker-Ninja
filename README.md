@@ -16,6 +16,7 @@ The feature packed, lightning fast boilerplate we use at [Graffino](https://graf
   - [Prerequisites](#prerequisites)
   - [Features And Usage](#features-and-usage)
   - [Vanilla Javascript Compoments](#vanilla-javascript-compoments)
+  - [Regression Testing](#regression-testing-1)
   - [WordPress Theme Development](#wordpress-theme-development)
   - [Docker environment](#docker-environment)
   - [Other tools](#other-tools)
@@ -95,6 +96,10 @@ To find out more about what Ninja's features and project structure: <https://git
 ## Vanilla Javascript Compoments
 
 How to use Ninja's vanilla JS compoments: <https://github.com/Graffino/Ninja/tree/master/docs/javascript-components.md>
+
+## Regression Testing
+
+Ninja includes regression testing utilities that help you find out if you broke already developed components: <https://github.com/Graffino/Ninja/tree/master/docs/regression-testing.md>
 
 ## WordPress Theme Development
 

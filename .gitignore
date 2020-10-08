@@ -13,7 +13,5 @@
 /certs/cert.pem
 /nohup.out
 /vendor/
-/cypress/screenshots
-/cypress/videos
 /wordpress/uploads/alm_templates
 /.docker/logs
