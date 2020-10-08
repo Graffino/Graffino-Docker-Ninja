@@ -19,6 +19,13 @@ git init
 # Install Dependencies
 yarn install
 
+# Initialize static project or WordPress project
+yarn init
+# or
+yarn wp:init
+
 # Start Dev Server
 yarn dev
+# or
+yarn wp
 ```
