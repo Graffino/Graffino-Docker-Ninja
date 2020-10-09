@@ -4,6 +4,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const prompts = require('prompts')
 const packageJson = require('../package.json')
+const composerJson = require('../composer.json')
 
 const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -79,9 +80,18 @@ const promptUserForInfo = async () => {
   }
   packageJson.version = '1.0.0'
 
-  await fs.writeJson(path.resolve(__dirname, '../package.json'), packageJson, {
-    spaces: 2
-  })
+  composerJson.description = generalProjectInfo.description
+  composerJson.name = `graffino/${generalProjectInfo.name.replace(/-/g, '_')}`
+
+  // Modify package.json and composer.json with the received information
+  await Promise.all([
+    fs.writeJson(path.resolve(__dirname, '../package.json'), packageJson, {
+      spaces: 2
+    }),
+    fs.writeJson(path.resolve(__dirname, '../composer.json'), composerJson, {
+      spaces: 2
+    })
+  ])
 
   console.log('\n[Ninja] Init Project => Overwriting package.json...\n')
 
