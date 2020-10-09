@@ -38,7 +38,14 @@ const replaceNameInWebpack = async () => {
 async function start() {
   try {
     await promptUserForInfo()
-    // await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
+    await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
+    if (packageJson.isWordpress) {
+      const setupWp = require('./init-wp')
+      await setupWp()
+    } else {
+      const setupStatic = require('./init-static')
+      await setupStatic()
+    }
     console.log('\n[Ninja] Init Project => Project initialized!\n')
     process.exit(0)
   } catch (e) {

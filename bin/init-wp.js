@@ -5,7 +5,7 @@ const replace = require('replace-in-file')
 const { parsed: env } = require('dotenv').config()
 
 // Replace style.css theme info
-const searchAndReplace = async () => {
+const setupWpStyle = async () => {
   return replace(
     {
       files: [path.resolve(__dirname, '../wordpress/theme/style.css')],
@@ -26,14 +26,4 @@ const searchAndReplace = async () => {
   )
 }
 
-async function start() {
-  try {
-    await Promise.all([searchAndReplace()])
-    console.log('\n[Ninja] Init Project => Project initialized!\n')
-    process.exit(0)
-  } catch (e) {
-    console.log('\n[Ninja] Init Project => Oops, something happened...\n')
-  }
-}
-
-start()
+module.exports = setupWpStyle

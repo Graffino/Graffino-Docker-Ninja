@@ -1,7 +1,7 @@
 
-const replace = require('replace-in-file')
 const path = require('path')
 const fs = require('fs-extra')
+const removeWordpress = require('./remove-wordpress')
 
 // Clean handlebars files
 const cleanHandlebars = async () => {
@@ -30,11 +30,10 @@ const cleanHandlebars = async () => {
   )
 }
 
-const start = async () => {
-  cleanHandlebars()
-
-  // Remove php related files
+module.exports = async () => {
   await Promise.all([
+    cleanHandlebars(),
+    removeWordpress(),
     fs.remove(path.resolve(__dirname, '../phpcs.xml')),
     fs.remove(path.resolve(__dirname, '../composer.json')),
     fs.remove(path.resolve(__dirname, '../composer.lock'))
