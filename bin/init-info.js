@@ -60,6 +60,12 @@ const promptUserForInfo = async () => {
       message: 'What is the description of the project?'
     },
     {
+      type: 'text',
+      name: 'license',
+      initial: 'MIT',
+      message: 'What sort of licence does the project have?'
+    },
+    {
       type: 'confirm',
       name: 'isWordpress',
       message: 'Will you be using wordpress for this project?'
