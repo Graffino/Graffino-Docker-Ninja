@@ -3,14 +3,14 @@ import L from 'leaflet'
 import 'leaflet.tilelayer.colorfilter'
 
 export default class LeafletMap extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     const { element } = this.state
     const markers = element.children
     const map = L.map(element.id, {

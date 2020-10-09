@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import Glide from '@glidejs/glide'
 
 export default class Slider extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const element = this.state.element
 
     // eslint-disable-next-line no-unused-vars

@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { stateClass, dom } from '../utils/globals'
 
 export default class Header extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.state.element.style.position = 'fixed'
     this.state.lastScrollTop = 0
     this.state.delta = 200
@@ -15,7 +15,7 @@ export default class Header extends Component {
     this.state.headerHeight = this.state.element.offsetHeight
   }
 
-  onScroll () {
+  onScroll() {
     this.state.scrolled = document.documentElement.scrollTop || pageYOffset
     const windowHeight = dom.window.innerHeight
     const documentHeight = dom.document.body.clientHeight

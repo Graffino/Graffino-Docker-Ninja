@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { dom } from '../utils/globals'
 
 export default class ScrollTo extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const data = {}
     const element = this.state.element
 
@@ -33,14 +33,14 @@ export default class ScrollTo extends Component {
     })
   }
 
-  scrollTo () {
+  scrollTo() {
     const offset = this.state.data.offset
     requestAnimationFrame(() =>
       window.scrollTo({ top: offset, behavior: 'smooth' })
     )
   }
 
-  getElementOffset (selector) {
+  getElementOffset(selector) {
     const element = dom.document.querySelector(selector)
     return element.getBoundingClientRect().top + window.scrollY
   }

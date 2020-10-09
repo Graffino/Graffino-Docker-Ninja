@@ -3,12 +3,12 @@ import stickybits from 'stickybits'
 import { dom, breakpoints, stateClass } from '../utils/globals'
 
 export default class Sticky extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const $header = dom.document.querySelector('.js-header')
 
     this.setState({
@@ -16,7 +16,7 @@ export default class Sticky extends Component {
     })
   }
 
-  onScroll () {
+  onScroll() {
     const { $header } = this.state
 
     if (dom.window.innerWidth > breakpoints.large) {
@@ -32,7 +32,7 @@ export default class Sticky extends Component {
     }
   }
 
-  onResize () {
+  onResize() {
     stickybits('.js-sticky-element').cleanup()
   }
 }

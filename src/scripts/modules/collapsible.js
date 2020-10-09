@@ -2,18 +2,18 @@ import Component from '../utils/component'
 import { dom, breakpoints, stateClass } from '../utils/globals'
 
 export default class Collapsible extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     if (dom.window.innerWidth <= breakpoints.xxlarge) {
       this.handler()
     }
   }
 
-  handler () {
+  handler() {
     this.setState({
       triggers: dom.document.querySelectorAll('.js-collapsible-trigger')
     })
@@ -31,7 +31,7 @@ export default class Collapsible extends Component {
     }
   }
 
-  open () {
+  open() {
     if (dom.window.innerWidth <= breakpoints.xxlarge) {
       const { current } = this.state
       current.querySelector('.js-hamburger').classList.toggle(stateClass.active)
