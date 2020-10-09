@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "[Ninja] => Resonable Defaults": "Reasonable defaults: dev, static, build for quick access.",
-    "init-project": "yarn init; node bin/init.js",
-    "init:repo": "node bin/init-repo.js",
+    "ninja:init": "node bin/init.js",
     "dev": "yarn webpack:dev",
     "build": "yarn webpack:build",
     "wp": "yarn wp:dev",
