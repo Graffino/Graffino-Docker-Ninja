@@ -5,6 +5,7 @@ const fs = require('fs-extra')
 const prompts = require('prompts')
 const packageJson = require('../package.json')
 const composerJson = require('../composer.json')
+const getTime = require('./set-cache-busting.js')
 
 const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -163,6 +164,8 @@ const setUpEnv = async () => {
   ]
 
   const envInfo = await prompts(envQuestions)
+
+  envInfo.CACHE_BUSTING = getTime()
 
   await fs.copy(
     path.resolve(__dirname, '../.env.example'),
