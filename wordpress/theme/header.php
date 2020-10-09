@@ -11,7 +11,7 @@
 	<title>
 		<?php
 		// Page title | Site name | Site description
-		wp_title( '|', true, "right" );
+		wp_title( '|', true, 'right' );
 		bloginfo( 'name' );
 		$site_description = get_bloginfo( 'description', 'display' );
 		if ( $site_description && ( is_home() || is_front_page() ) ) {
@@ -80,7 +80,7 @@
 			<!-- Header Logo -->
 			<div class="header__logo logo">
 			<a href="<?php echo site_url(); ?>" class="logo__anchor">
-				<img class="logo__image js-logo" src="<?php bloginfo( 'template_directory' ); ?>/images/logo.svg" alt="Logo of <?php bloginfo( 'name' ); ?>">
+				<img class="logo__image js-logo" src="<?php bloginfo( 'template_directory' ); ?>/images/placeholder.svg" alt="Logo of <?php bloginfo( 'name' ); ?>">
 			</a>
 			</div>
 			<!-- /Header Logo -->
