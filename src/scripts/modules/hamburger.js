@@ -3,12 +3,12 @@ import { dom, stateClass, breakpoints } from '../utils/globals.js'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default class Hamburger extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     // Targets elements and sets them for all script.
     this.setState({
       $trigger: this.state,
@@ -69,25 +69,25 @@ export default class Hamburger extends Component {
     )
   }
 
-  onResize () {
+  onResize() {
     if (!this.isMobile()) {
       this.close()
     }
   }
 
   // Check if device supports touch
-  isTouch () {
+  isTouch() {
     return matchMedia('(hover: none)').matches === true
   }
 
   // Check for mobile breakpoint
-  isMobile () {
+  isMobile() {
     const check = dom.window.innerWidth <= breakpoints.xlarge
     return check === true
   }
 
   // Prevent link on first tap
-  doubleTap (e) {
+  doubleTap(e) {
     const $item = e.target
     const component = this.state
 
@@ -119,18 +119,18 @@ export default class Hamburger extends Component {
     }
   }
 
-  expand ($item) {
+  expand($item) {
     this.collapseAll()
     $item.nextElementSibling.classList.add(stateClass.open)
     $item.classList.add(stateClass.active)
   }
 
-  collapse ($item) {
+  collapse($item) {
     $item.nextElementSibling.classList.remove(stateClass.open)
     $item.classList.remove(stateClass.active)
   }
 
-  collapseAll () {
+  collapseAll() {
     const component = this.state
     const $dropdownsAll = Array.from(component.$dropdownsAll)
     const $openItems = Array.from(component.$openItems)
@@ -144,7 +144,7 @@ export default class Hamburger extends Component {
     }
   }
 
-  open () {
+  open() {
     const component = this.state
     component.$hamburger.classList.add(stateClass.open)
     component.$menu.classList.add(stateClass.active)
@@ -158,7 +158,7 @@ export default class Hamburger extends Component {
     })
   }
 
-  close () {
+  close() {
     const component = this.state
     this.collapseAll()
     component.$hamburger.classList.remove(stateClass.open)

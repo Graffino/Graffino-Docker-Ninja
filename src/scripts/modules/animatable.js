@@ -1,12 +1,12 @@
 import Component from '../utils/component'
 
 export default class Animatable extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     // eslint-disable-next-line new-cap
     this.state.element.commitAnimation = this.animate
     this.state.element.commitCleaning = this.clean
@@ -20,20 +20,20 @@ export default class Animatable extends Component {
     }
   }
 
-  animate (className) {
+  animate(className) {
     requestAnimationFrame(() => {
       this.classList.add(...className.split(' '))
     })
   }
 
-  animateExit (className, exitClassName) {
+  animateExit(className, exitClassName) {
     requestAnimationFrame(() => {
       this.classList.remove(...className.split(' '))
       this.classList.add(...exitClassName.split(' '))
     })
   }
 
-  clean (className) {
+  clean(className) {
     requestAnimationFrame(() => {
       this.classList.remove(...className.split(' '))
     })

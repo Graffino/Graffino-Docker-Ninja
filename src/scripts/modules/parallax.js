@@ -2,14 +2,14 @@ import Component from '../utils/component'
 import Rellax from 'rellax'
 
 export default class Parallax extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     // eslint-disable-next-line no-unused-vars
     const rellax = new Rellax(this.state.element, {
       speed: this.state.speed || -2,

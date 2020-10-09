@@ -2,14 +2,14 @@ import Component from '../utils/component'
 import { loadScript } from '../utils/helpers'
 
 export default class GoogleMap extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     const { element } = this.state
     const apiKey = element.dataset.apikey
 

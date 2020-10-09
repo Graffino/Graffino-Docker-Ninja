@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { loadScript } from '../utils/helpers'
 
 export default class Recaptcha extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     var recaptchaApi = this.state.element.dataset.recaptcha
     window.recaptchaCode = {}
     // eslint-disable-next-line no-undef

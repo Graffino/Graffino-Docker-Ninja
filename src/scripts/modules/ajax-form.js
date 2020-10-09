@@ -4,12 +4,12 @@ import axios from 'axios'
 import Pristine from 'pristinejs'
 
 export default class AjaxForm extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const live = true
 
     const config = {
@@ -116,15 +116,15 @@ export default class AjaxForm extends Component {
     })
   }
 
-  callback ({ result, message, state }) {
+  callback({ result, message, state }) {
     this.state.element.reset()
   }
 
-  addAjaxFlag ($form) {
+  addAjaxFlag($form) {
     $form.isAjax = () => true
   }
 
-  contactRequestCallback ({ form, result, message, state }) {
+  contactRequestCallback({ form, result, message, state }) {
     form.reset()
     const button = form.querySelector('.js-button-text')
     const oldText = button.textContent

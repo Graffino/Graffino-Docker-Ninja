@@ -12,31 +12,31 @@ const animations = {
   })
 }
 export default class Animation extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.state.element.animationHandler = this
   }
 
-  play (element) {
+  play(element) {
     const animation = animations[element.dataset.stepAnimation]
     animation.play()
   }
 
-  pause (element) {
+  pause(element) {
     const animation = animations[element.dataset.stepAnimation]
     animation.pause()
   }
 
-  seek (element, progress) {
+  seek(element, progress) {
     const animation = animations[element.dataset.stepAnimation]
     animation.seek(progress * animation.duration)
   }
 
-  playStep (element, step) {
+  playStep(element, step) {
     const animation = animations[`${element.dataset.stepAnimation}_${step}`]
     animation.play()
   }

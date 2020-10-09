@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { dom } from '../utils/globals'
 
 export default class Header extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const data = {}
     data.lastKnownScrollY = 0
     data.currentScrollY = 0
@@ -17,7 +17,7 @@ export default class Header extends Component {
     })
   }
 
-  onScroll () {
+  onScroll() {
     const { element, data } = this.state
     const classes = {
       pinned: 'is-pinned',
@@ -46,7 +46,7 @@ export default class Header extends Component {
     }
   }
 
-  onResize () {
+  onResize() {
     if (dom.window.innerWidth > 1050) {
       const { element } = this.state
       const classes = {

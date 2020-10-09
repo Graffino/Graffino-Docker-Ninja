@@ -2,14 +2,14 @@ import Component from '../utils/component'
 import { dom, stateClass } from '../utils/globals'
 
 export default class Tabs extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     const $tabs = dom.document.querySelectorAll('.js-tab')
     const $contents = dom.document.querySelectorAll('.js-content')
 

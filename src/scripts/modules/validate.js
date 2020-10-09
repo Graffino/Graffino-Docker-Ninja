@@ -2,14 +2,14 @@ import Component from '../utils/component'
 import Pristine from 'pristinejs'
 
 export default class Validate extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     const form = this.state.element
 
     const live = true

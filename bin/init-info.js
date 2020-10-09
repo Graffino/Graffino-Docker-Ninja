@@ -4,27 +4,28 @@ const path = require('path')
 const fs = require('fs-extra')
 const prompts = require('prompts')
 const packageJson = require('../package.json')
-
-const capitalize = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
+const composerJson = require('../composer.json')
+const getTime = require('./set-cache-busting.js')
 
 const promptUserForInfo = async () => {
   const pathComponents = __dirname.split('/')
   const projectfolderName = pathComponents[
     pathComponents.length - 2
   ].toLocaleLowerCase()
+  let name = ''
 
   const generalQuestions = [
     {
       type: 'text',
       name: 'name',
       initial: projectfolderName,
-      format: (val) =>
-        val
+      format: (val) => {
+        name = val
+        return val
           .replace(/^[.,_]/, '')
           .replace(/[ ]/g, '-')
-          .toLowerCase(), // format required by package.json
+          .toLowerCase() // format required by package.json
+      },
       message: 'What is the name of the project?'
     },
     {
@@ -47,14 +48,7 @@ const promptUserForInfo = async () => {
     {
       type: 'text',
       name: 'title',
-      initial: (prev, values) => {
-        return `${capitalize(
-          values.name
-            .replace(/^[^a-zA-Z]/, '')
-            .replace(/[^a-zA-Z]$/, '')
-            .replace(/[-]/g, ' ')
-        )}`
-      },
+      initial: () => name,
       message: 'What is the title of the project?'
     },
     {
@@ -64,6 +58,12 @@ const promptUserForInfo = async () => {
         return `${values.title}, made with love by Graffino`
       },
       message: 'What is the description of the project?'
+    },
+    {
+      type: 'text',
+      name: 'license',
+      initial: 'MIT',
+      message: 'What sort of licence does the project have?'
     },
     {
       type: 'confirm',
@@ -79,14 +79,23 @@ const promptUserForInfo = async () => {
   }
   packageJson.version = '1.0.0'
 
-  await fs.writeJson(path.resolve(__dirname, '../package.json'), packageJson, {
-    spaces: 2
-  })
+  composerJson.description = generalProjectInfo.description
+  composerJson.name = `graffino/${generalProjectInfo.name.replace(/-/g, '_')}`
+
+  // Modify package.json and composer.json with the received information
+  await Promise.all([
+    fs.writeJson(path.resolve(__dirname, '../package.json'), packageJson, {
+      spaces: 2
+    }),
+    fs.writeJson(path.resolve(__dirname, '../composer.json'), composerJson, {
+      spaces: 2
+    })
+  ])
 
   console.log('\n[Ninja] Init Project => Overwriting package.json...\n')
 
   if (generalProjectInfo.isWordpress) {
-    setUpEnv()
+    await setUpEnv()
   }
 }
 
@@ -113,6 +122,11 @@ const setUpEnv = async () => {
       type: 'text',
       name: 'DB_HOST',
       message: 'Database host:'
+    },
+    {
+      type: 'number',
+      name: 'DB_PORT',
+      message: 'Database port:'
     },
     {
       type: 'text',
@@ -148,10 +162,23 @@ const setUpEnv = async () => {
   ]
 
   const envInfo = await prompts(envQuestions)
+
+  envInfo.CACHE_BUSTING = getTime()
+
+  await fs.copy(
+    path.resolve(__dirname, '../.env.example'),
+    path.resolve(__dirname, '../.env')
+  )
+
+  const { parsed: env } = require('dotenv').config()
+
+  for (const propery in envInfo) {
+    env[propery] = envInfo[propery]
+  }
   const { stringify } = require('envfile')
 
-  await fs.outputFile(path.resolve(__dirname, '../.env'), stringify(envInfo))
+  await fs.outputFile(path.resolve(__dirname, '../.env'), stringify(env))
   console.log('\n[Ninja] Init Project => Creating .env...\n')
 }
 
-promptUserForInfo()
+module.exports = { promptUserForInfo }

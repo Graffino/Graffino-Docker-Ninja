@@ -1,12 +1,12 @@
 import Component from '../utils/component'
 
 export default class CustomCursor extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.setState({
       clientX: -100,
       clientY: -100
@@ -15,7 +15,7 @@ export default class CustomCursor extends Component {
     this.initCursor()
   }
 
-  initCursor () {
+  initCursor() {
     document
       .querySelectorAll('canvas')[0]
       .addEventListener('mousemove', (e) => {

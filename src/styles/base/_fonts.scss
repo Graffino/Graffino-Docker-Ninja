@@ -30,26 +30,10 @@ $extra-black: 900;
  * Montserrat
  */
 
-// Light - 200
-@include webfont(
-  'Montserrat',
-  'montserrat-light',
-  $regular,
-  normal,
-  'U+0000-007F'
-);
-
-// Bold - 700
-@include webfont('Montserrat', 'montserrat-bold', $bold, normal, 'U+0000-007F');
-
-/**
- * Inconsolata
- */
-
 // Regular - 400
 @include webfont(
-  'Inconsolata',
-  'inconsolata-regular',
+  'Adobe Blank',
+  'adobe-blank-regular',
   $regular,
   normal,
   'U+0000-007F'
@@ -59,14 +43,14 @@ $extra-black: 900;
  * Fontfaces
  */
 
-$sans-fontface: 'Montserrat';
+$sans-fontface: 'Adobe Blank';
 $serif-fontface: 'Georgia';
-$cursive-fontface: 'Zapfino';
-$mono-fontface: 'Inconsolata';
+$cursive-fontface: 'Comic Sans MS';
+$mono-fontface: 'Courier';
 
 // Font-families stack
 $sans-fontface-stack: $sans-fontface, Helvetica, Arial, sans-serif;
-$serif-fontface-stack: $serif-fontface, Georgia, 'Times New Roman', Times, serif;
+$serif-fontface-stack: $serif-fontface, 'Times New Roman', Times, serif;
 $cursive-fontface-stack: $cursive-fontface, cursive;
 $mono-fontface-stack: $mono-fontface, monospace;
 

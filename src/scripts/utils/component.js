@@ -2,7 +2,7 @@
 import { dom } from './globals.js'
 
 class Component {
-  constructor (props) {
+  constructor(props) {
     if (!props.element) {
       console.log(
         'Component: You did not provide an element to make into a component.'
@@ -24,7 +24,7 @@ class Component {
     })
   }
 
-  setState (props) {
+  setState(props) {
     // eslint-disable-next-line no-unused-vars
     for (const key in props) {
       if (Object.prototype.hasOwnProperty.call(props, key)) {
@@ -33,15 +33,15 @@ class Component {
     }
   }
 
-  init () {
+  init() {
     console.log('Components Init')
   }
 
-  destroy () {}
+  destroy() {}
 
-  onResize () {}
+  onResize() {}
 
-  onScroll () {}
+  onScroll() {}
 }
 
 export default Component

@@ -3,12 +3,12 @@ import { CountUp } from 'countup.js'
 import 'intersection-observer'
 
 export default class Countup extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.state.element.countUpHandler = this
 
     this.state.instance = new CountUp(
@@ -29,11 +29,11 @@ export default class Countup extends Component {
     observer.observe(this.state.element)
   }
 
-  start () {
+  start() {
     this.state.instance.start()
   }
 
-  reset () {
+  reset() {
     this.state.instance.reset()
   }
 }

@@ -15,3 +15,5 @@
 /vendor/
 /wordpress/uploads/alm_templates
 /.docker/logs
+/backstop_data/bitmaps_test/*
+/backstop_data/html_report/*

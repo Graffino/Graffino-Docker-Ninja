@@ -1,12 +1,11 @@
 {
   "name": "ninja",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
   "private": true,
   "scripts": {
     "[Ninja] => Resonable Defaults": "Reasonable defaults: dev, static, build for quick access.",
-    "init-project": "yarn init; node bin/init.js",
-    "init:repo": "node bin/init-repo.js",
+    "ninja:init": "node bin/init.js",
     "dev": "yarn webpack:dev",
     "build": "yarn webpack:build",
     "wp": "yarn wp:dev",
@@ -83,6 +82,7 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "dotenv": "^8.2.0",
+    "envfile": "^6.14.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-config-standard": "^14.1.1",

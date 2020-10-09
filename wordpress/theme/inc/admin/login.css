@@ -17,7 +17,7 @@ Author: Graffino (http://www.graffino.com)
 #login h1 a {
   width: 100%;
   height: 80px;
-  background: url(../../images/logo.svg) no-repeat center center;
+  background: url(../../images/placeholder.svg) no-repeat center center;
   background-size: contain;
 }
 

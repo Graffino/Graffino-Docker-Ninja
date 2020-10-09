@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { dom, stateClass } from '../utils/globals'
 
 export default class CategoryFilter extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.setState({
       currentFilter: 'all'
     })
@@ -26,7 +26,7 @@ export default class CategoryFilter extends Component {
     })
   }
 
-  filterQuestions () {
+  filterQuestions() {
     const $accordionWrapper = dom.document.querySelector(
       '.js-accordion-wrapper'
     )
