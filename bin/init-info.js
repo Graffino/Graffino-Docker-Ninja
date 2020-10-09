@@ -125,6 +125,11 @@ const setUpEnv = async () => {
       message: 'Database host:'
     },
     {
+      type: 'number',
+      name: 'DB_PORT',
+      message: 'Database port:'
+    },
+    {
       type: 'text',
       name: 'DB_USER',
       message: 'Database user:'
@@ -158,9 +163,20 @@ const setUpEnv = async () => {
   ]
 
   const envInfo = await prompts(envQuestions)
+
+  await fs.copy(
+    path.resolve(__dirname, '../.env.example'),
+    path.resolve(__dirname, '../.env')
+  )
+
+  const { parsed: env } = require('dotenv').config()
+
+  for (const propery in envInfo) {
+    env[propery] = envInfo[propery]
+  }
   const { stringify } = require('envfile')
 
-  await fs.outputFile(path.resolve(__dirname, '../.env'), stringify(envInfo))
+  await fs.outputFile(path.resolve(__dirname, '../.env'), stringify(env))
   console.log('\n[Ninja] Init Project => Creating .env...\n')
 }
 
