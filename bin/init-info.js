@@ -16,17 +16,20 @@ const promptUserForInfo = async () => {
   const projectfolderName = pathComponents[
     pathComponents.length - 2
   ].toLocaleLowerCase()
+  let name = ''
 
   const generalQuestions = [
     {
       type: 'text',
       name: 'name',
       initial: projectfolderName,
-      format: (val) =>
-        val
+      format: val => {
+        name = val
+        return val
           .replace(/^[.,_]/, '')
           .replace(/[ ]/g, '-')
-          .toLowerCase(), // format required by package.json
+          .toLowerCase() // format required by package.json
+      },
       message: 'What is the name of the project?'
     },
     {
@@ -49,14 +52,7 @@ const promptUserForInfo = async () => {
     {
       type: 'text',
       name: 'title',
-      initial: (prev, values) => {
-        return `${capitalize(
-          values.name
-            .replace(/^[^a-zA-Z]/, '')
-            .replace(/[^a-zA-Z]$/, '')
-            .replace(/[-]/g, ' ')
-        )}`
-      },
+      initial: () => name,
       message: 'What is the title of the project?'
     },
     {
@@ -183,4 +179,4 @@ const setUpEnv = async () => {
   console.log('\n[Ninja] Init Project => Creating .env...\n')
 }
 
-promptUserForInfo()
+module.exports = { promptUserForInfo }
