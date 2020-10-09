@@ -7,10 +7,6 @@ const packageJson = require('../package.json')
 const composerJson = require('../composer.json')
 const getTime = require('./set-cache-busting.js')
 
-const capitalize = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
 const promptUserForInfo = async () => {
   const pathComponents = __dirname.split('/')
   const projectfolderName = pathComponents[

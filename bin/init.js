@@ -5,6 +5,7 @@ const fs = require('fs-extra')
 const replace = require('replace-in-file')
 const packageJson = require('../package.json')
 const { promptUserForInfo } = require('./init-info')
+const initRepo = require('./init-repo')
 const siteManifest = fs.readJsonSync(path.resolve(__dirname, '../src/static/site.webmanifest'))
 
 const configureSiteManifest = async () => {
@@ -37,8 +38,10 @@ const replaceNameInWebpack = async () => {
 
 async function start() {
   try {
+    // await initRepo()
     await promptUserForInfo()
     await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
+
     if (packageJson.isWordpress) {
       const setupWp = require('./init-wp')
       await setupWp()
@@ -46,6 +49,7 @@ async function start() {
       const setupStatic = require('./init-static')
       await setupStatic()
     }
+
     console.log('\n[Ninja] Init Project => Project initialized!\n')
     process.exit(0)
   } catch (e) {
