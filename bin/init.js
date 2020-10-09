@@ -3,42 +3,45 @@
 const path = require('path')
 const fs = require('fs-extra')
 const replace = require('replace-in-file')
-const pjson = require('../package.json')
+const siteManifest = require('../src/static/site.webmanifest')
+const packageJson = require('../package.json')
 
-const searchAndReplace = async () => {
-  const projectName = pjson.name
+const configureSiteManifest = async () => {
+  siteManifest.name = packageJson.name
+  const nameParts = packageJson.name.split(' ')
+  siteManifest.short_name = nameParts[nameParts.length - 1] // Last part of the name
+  siteManifest.start_url = packageJson.homepage
 
-  await replace(
+  return fs.writeJson(path.resolve(__dirname, '../src/static/site.webmanifest'), siteManifest, {
+    spaces: 2
+  })
+}
+
+const replaceNameInWebpack = async () => {
+  return replace(
     {
-      files: [
-        path.resolve(__dirname, '../src/static/site.webmanifest'),
-        path.resolve(__dirname, '../webpack.config.js')
-      ],
-      from: [/ninja/g, /Ninja/g, /Graffino Ninja/g],
-      to: projectName
+      files: [path.resolve(__dirname, '../webpack.config.js')],
+      from: /Ninja/i,
+      to: packageJson.name,
+      countMatches: true
     },
     (error, results) => {
       if (error) {
         return console.error('Error occurred:', error)
       }
+      console.log('Replacement results:', results)
     }
-  )
-
-  await fs.outputFile(
-    path.resolve(__dirname, '../src/views/index.handlebars'),
-    `{{> layout/header}}
-{{> layout/footer}}`
   )
 }
 
 async function start() {
-  console.log(pjson)
   try {
-    await Promise.all([searchAndReplace()])
+    await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
     console.log('\n[Ninja] Init Project => Project initialized!\n')
     process.exit(0)
   } catch (e) {
     console.log('\n[Ninja] Init Project => Oops, something happened...\n')
+    console.log(e.message)
   }
 }
 
