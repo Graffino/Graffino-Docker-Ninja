@@ -38,8 +38,8 @@ const replaceNameInWebpack = async () => {
 
 async function start() {
   try {
-    // await initRepo()
     await promptUserForInfo()
+    // await initRepo()
     await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
 
     if (packageJson.isWordpress) {
