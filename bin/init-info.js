@@ -89,7 +89,7 @@ const promptUserForInfo = async () => {
   console.log('\n[Ninja] Init Project => Overwriting package.json...\n')
 
   if (generalProjectInfo.isWordpress) {
-    setUpEnv()
+    await setUpEnv()
   }
 }
 
