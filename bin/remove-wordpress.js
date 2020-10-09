@@ -6,6 +6,7 @@ const exec = require('child_process').exec
 
 // Removes all WordPress related files
 const removeWordpress = async () => {
+  console.log('[Ninja] Init Project => Removing WordPress folders...\n')
   return Promise.all([
     fs.remove(path.resolve(__dirname, '../dist-wp')),
     fs.remove(path.resolve(__dirname, '../wordpress')),
@@ -26,15 +27,4 @@ const removeTasks = async () => {
   })
 }
 
-async function start() {
-  try {
-    await removeWordpress()
-    console.log('\n[Ninja] Init Project => Removing WordPress...\n')
-  } catch (e) {
-    console.log(
-      '\n[Ninja] Init Project => Oops, something happened when attempting to remove WordPress files...\n'
-    )
-  }
-}
-
-start()
+module.exports = removeWordpress

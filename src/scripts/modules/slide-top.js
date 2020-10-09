@@ -2,14 +2,14 @@ import Component from '../utils/component.js'
 import { stateClass } from '../utils/globals.js'
 
 export default class SlideTop extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     const { element } = this.state
     element.addEventListener('click', (e) => {
       e.preventDefault()
@@ -19,7 +19,7 @@ export default class SlideTop extends Component {
     })
   }
 
-  onScroll () {
+  onScroll() {
     const { element } = this.state
     if (window.pageYOffset > 100) {
       element.classList.add(stateClass.active)

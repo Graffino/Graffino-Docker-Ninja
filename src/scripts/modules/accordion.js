@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { dom, stateClass } from '../utils/globals'
 
 export default class Accordion extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const { element } = this.state
     const data = {}
 
@@ -33,7 +33,7 @@ export default class Accordion extends Component {
     })
   }
 
-  scrollTo (target) {
+  scrollTo(target) {
     const { data } = this.state
 
     const offset =
@@ -45,7 +45,7 @@ export default class Accordion extends Component {
     )
   }
 
-  _removeClasses () {
+  _removeClasses() {
     const allInstances = dom.document.querySelectorAll('.js-accordion')
 
     Array.from(allInstances).forEach((instance) => {

@@ -1,14 +1,14 @@
 import Component from '../utils/component'
 
 export default class MaskReveal extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     this.state.element.parentNode
       .querySelector('.js-reveal-mask')
       .click(function (e) {

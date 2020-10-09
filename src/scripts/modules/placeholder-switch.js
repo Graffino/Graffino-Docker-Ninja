@@ -1,12 +1,12 @@
 import Component from '../utils/component'
 
 export default class PlaceholderSwitch extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.state.element.addEventListener('click', (e) => {
       Array.from(
         document.querySelectorAll(

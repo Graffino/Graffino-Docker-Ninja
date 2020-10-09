@@ -3,14 +3,14 @@ import noUiSlider from 'nouislider'
 import wNumb from 'wnumb'
 
 export default class RangeSlider extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     const slider = this.state.element
 
     noUiSlider.create(slider, {

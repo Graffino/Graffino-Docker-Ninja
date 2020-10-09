@@ -18,4 +18,4 @@ const initRepo = async () => {
   }
 }
 
-initRepo()
+module.exports = initRepo

@@ -1,12 +1,12 @@
 import Component from '../utils/component'
 
 export default class Module extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const data = {
       data: 42
     }
@@ -14,7 +14,7 @@ export default class Module extends Component {
     this.setState({ data })
   }
 
-  destroy () {
+  destroy() {
     const { data = null } = this.state
 
     this.setState({
@@ -22,7 +22,7 @@ export default class Module extends Component {
     })
   }
 
-  onResize () {}
+  onResize() {}
 
-  onScroll () {}
+  onScroll() {}
 }

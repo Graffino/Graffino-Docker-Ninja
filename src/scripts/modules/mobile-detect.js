@@ -3,12 +3,12 @@ import { stateClass } from '../utils/globals'
 const mobile = require('is-mobile')
 
 export default class MobileDetect extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const options = {
       tablet: true,
       features: true

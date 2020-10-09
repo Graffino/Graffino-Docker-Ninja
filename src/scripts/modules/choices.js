@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import Choices from 'choices.js'
 
 export default class Module extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.state.element.choicesHandler = this
 
     const options = {

@@ -2,16 +2,16 @@ import Component from '../utils/component'
 import { dom } from '../utils/globals'
 
 export default class Dropdown extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     this.handler()
   }
 
-  handler () {
+  handler() {
     this.setState({
       triggers: dom.document.querySelectorAll('.js-dropdown-trigger')
     })
@@ -29,7 +29,7 @@ export default class Dropdown extends Component {
     }
   }
 
-  open () {
+  open() {
     if (this.state.element.style.maxHeight) {
       this.state.element.style.maxHeight = null
     } else {

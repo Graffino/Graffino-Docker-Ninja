@@ -3,42 +3,64 @@
 const path = require('path')
 const fs = require('fs-extra')
 const replace = require('replace-in-file')
-const pjson = require('../package.json')
+const packageJson = require('../package.json')
+const { promptUserForInfo } = require('./init-info')
+const initRepo = require('./init-repo')
+const siteManifest = fs.readJsonSync(
+  path.resolve(__dirname, '../src/static/site.webmanifest')
+)
 
-const searchAndReplace = async () => {
-  const projectName = pjson.name
+const configureSiteManifest = async () => {
+  siteManifest.name = packageJson.title
+  const nameParts = packageJson.title.split(' ')
+  siteManifest.short_name = nameParts[nameParts.length - 1] // Last part of the name
+  siteManifest.start_url = packageJson.homepage
 
-  await replace(
+  return fs.writeJson(
+    path.resolve(__dirname, '../src/static/site.webmanifest'),
+    siteManifest,
     {
-      files: [
-        path.resolve(__dirname, '../src/static/site.webmanifest'),
-        path.resolve(__dirname, '../webpack.config.js')
-      ],
-      from: [/ninja/g, /Ninja/g, /Graffino Ninja/g],
-      to: projectName
+      spaces: 2
+    }
+  )
+}
+
+const replaceNameInWebpack = async () => {
+  return replace(
+    {
+      files: [path.resolve(__dirname, '../webpack.config.js')],
+      from: /Ninja/gi,
+      to: packageJson.title,
+      countMatches: true
     },
     (error, results) => {
       if (error) {
         return console.error('Error occurred:', error)
       }
+      console.log('Replacement results:', results)
     }
-  )
-
-  await fs.outputFile(
-    path.resolve(__dirname, '../src/views/index.handlebars'),
-    `{{> layout/header}}
-{{> layout/footer}}`
   )
 }
 
 async function start() {
-  console.log(pjson)
   try {
-    await Promise.all([searchAndReplace()])
+    await promptUserForInfo()
+    await initRepo()
+    await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
+
+    if (packageJson.isWordpress) {
+      const setupWp = require('./init-wp')
+      await setupWp()
+    } else {
+      const setupStatic = require('./init-static')
+      await setupStatic()
+    }
+
     console.log('\n[Ninja] Init Project => Project initialized!\n')
     process.exit(0)
   } catch (e) {
     console.log('\n[Ninja] Init Project => Oops, something happened...\n')
+    console.log(e.message)
   }
 }
 

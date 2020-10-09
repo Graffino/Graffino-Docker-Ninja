@@ -2,12 +2,12 @@ import Component from '../utils/component'
 import { loadScriptAsync } from '../utils/helpers'
 
 export default class MessengerFacebook extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const data = {}
 
     if (Object.keys(this.state).includes('language')) {

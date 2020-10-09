@@ -3,12 +3,12 @@ import { dom } from '../utils/globals'
 import { loadScriptAsync, unicodeURLDecode } from '../utils/helpers'
 
 export default class GoogleMaps extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const { element } = this.state
     const data = {}
 

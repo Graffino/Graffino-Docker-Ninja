@@ -3,12 +3,12 @@ import { dom, stateClass } from '../utils/globals'
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default class Expand extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     const data = {}
 
     if (Object.keys(this.state).includes('expandOpen')) {
@@ -68,7 +68,7 @@ export default class Expand extends Component {
   }
 
   // Close expand on resize
-  onResize () {
+  onResize() {
     const { element, data } = this.state
 
     element.classList.remove(stateClass.expanded)

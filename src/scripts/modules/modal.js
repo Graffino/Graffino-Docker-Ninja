@@ -2,16 +2,16 @@ import Component from '../utils/component'
 import MicroModal from 'micromodal'
 
 export default class Modal extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { ...props }
   }
 
-  init () {
+  init() {
     // eslint-disable-next-line eqeqeq
     if (typeof Object.assign != 'function') {
       Object.defineProperty(Object, 'assign', {
-        value: function assign (target, varArgs) {
+        value: function assign(target, varArgs) {
           'use strict'
           if (target == null) {
             throw new TypeError('Cannot convert undefined or null to object')
@@ -58,7 +58,7 @@ export default class Modal extends Component {
           return Math.min(Math.max(len, 0), maxSafeInteger)
         }
 
-        return function from (arrayLike) {
+        return function from(arrayLike) {
           var C = this
           var items = Object(arrayLike)
           if (arrayLike == null) {
@@ -103,7 +103,7 @@ export default class Modal extends Component {
     this.handleMarkup()
   }
 
-  handleMarkup () {
+  handleMarkup() {
     document.addEventListener('click', (event) => {
       setTimeout(() => {
         if (

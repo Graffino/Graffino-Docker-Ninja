@@ -3,14 +3,14 @@ import { isTouchDevice } from '../utils/helpers'
 import jump from 'jump.js'
 
 export default class Module extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       ...props
     }
   }
 
-  init () {
+  init() {
     this.changeIcon()
 
     this.state.element.addEventListener('click', (e) => {
@@ -19,7 +19,7 @@ export default class Module extends Component {
     })
   }
 
-  changeIcon () {
+  changeIcon() {
     const icons = this.state.element.querySelectorAll('.js-slide-icon')
     const type = isTouchDevice() ? 'touch' : 'mouse'
 
