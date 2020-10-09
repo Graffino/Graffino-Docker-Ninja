@@ -6,7 +6,9 @@ const replace = require('replace-in-file')
 const packageJson = require('../package.json')
 const { promptUserForInfo } = require('./init-info')
 const initRepo = require('./init-repo')
-const siteManifest = fs.readJsonSync(path.resolve(__dirname, '../src/static/site.webmanifest'))
+const siteManifest = fs.readJsonSync(
+  path.resolve(__dirname, '../src/static/site.webmanifest')
+)
 
 const configureSiteManifest = async () => {
   siteManifest.name = packageJson.title
@@ -14,16 +16,20 @@ const configureSiteManifest = async () => {
   siteManifest.short_name = nameParts[nameParts.length - 1] // Last part of the name
   siteManifest.start_url = packageJson.homepage
 
-  return fs.writeJson(path.resolve(__dirname, '../src/static/site.webmanifest'), siteManifest, {
-    spaces: 2
-  })
+  return fs.writeJson(
+    path.resolve(__dirname, '../src/static/site.webmanifest'),
+    siteManifest,
+    {
+      spaces: 2
+    }
+  )
 }
 
 const replaceNameInWebpack = async () => {
   return replace(
     {
       files: [path.resolve(__dirname, '../webpack.config.js')],
-      from: /Ninja/ig,
+      from: /Ninja/gi,
       to: packageJson.title,
       countMatches: true
     },
@@ -39,7 +45,7 @@ const replaceNameInWebpack = async () => {
 async function start() {
   try {
     await promptUserForInfo()
-    // await initRepo()
+    await initRepo()
     await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
 
     if (packageJson.isWordpress) {

@@ -19,7 +19,7 @@ const promptUserForInfo = async () => {
       type: 'text',
       name: 'name',
       initial: projectfolderName,
-      format: val => {
+      format: (val) => {
         name = val
         return val
           .replace(/^[.,_]/, '')

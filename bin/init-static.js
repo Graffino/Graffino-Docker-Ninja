@@ -1,4 +1,3 @@
-
 const path = require('path')
 const fs = require('fs-extra')
 const removeWordpress = require('./remove-wordpress')
@@ -6,14 +5,6 @@ const removeWordpress = require('./remove-wordpress')
 // Clean handlebars files
 const cleanHandlebars = async () => {
   // Remove all partials but header and footer
-  await Promise.all([
-    fs.remove(path.resolve(__dirname, '../src/views/partials/hero.handlebars')),
-    fs.remove(
-      path.resolve(__dirname, '../src/views/partials/features.handlebars')
-    ),
-    fs.remove(path.resolve(__dirname, '../src/views/partials/setup.handlebars'))
-  ])
-
   await fs.outputFile(
     path.resolve(__dirname, '../src/views/index.handlebars'),
     `{{> header}}
