@@ -24,7 +24,7 @@ const replaceNameInWebpack = async () => {
     {
       files: [path.resolve(__dirname, '../webpack.config.js')],
       from: /Ninja/ig,
-      to: packageJson.name,
+      to: packageJson.title,
       countMatches: true
     },
     (error, results) => {
