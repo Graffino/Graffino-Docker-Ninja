@@ -48,7 +48,7 @@ module.exports = merge(common, {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development'
+              esModule: false
             }
           },
           {
