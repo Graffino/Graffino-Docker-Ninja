@@ -34,7 +34,7 @@ To start a the development environment, run `make dev` or simply `make`
 
 ## Erase All Temporary Files
 
-To erase all _dist-wp_ files, _cache_ and _node_modules_ run `make clean`.
+To erase all _dist-wp_ files, _cache_ and _node_modules_ run `make cleanall`.
 
 ## Reinstall Environment
 

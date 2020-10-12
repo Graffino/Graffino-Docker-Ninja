@@ -1,6 +1,6 @@
 {
   "name": "ninja",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
   "private": true,
   "scripts": {
@@ -18,8 +18,8 @@
     "wp:init": "node bin/wp-init.js",
     "wp:dev": "yarn wp:sync:uploads --no-confirm; yarn webpack:wp:dev",
     "wp:build": "yarn node:install; yarn composer:install; yarn wp:clean; yarn wp:sync:uploads --no-confirm; yarn webpack:wp:build",
-    "wp:setup": "echo '\n[Ninja] => Installing WordPress... \n'; yarn node:install; yarn composer:install; yarn wp:clean; yarn wp:db:init --no-confirm; yarn wp:sync:uploads --no-confirm",
-    "wp:update": "echo '\n[Ninja] => Updating WordPress... \n'; yarn composer:update; yarn wp:clean; yarn wp:sync:uploads --no-confirm",
+    "wp:setup": "echo '\n[Ninja] => Installing WordPress... \n'; yarn node:install; yarn composer:install; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:db:init --no-confirm; yarn wp:sync:uploads --no-confirm",
+    "wp:update": "echo '\n[Ninja] => Updating WordPress... \n'; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:sync:uploads --no-confirm",
     "wp:clean": "node bin/clean-wp.js",
     "wp:db:init": "node bin/db-init.js",
     "wp:db:migrate": "node bin/db-migrate.js",

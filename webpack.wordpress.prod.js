@@ -14,7 +14,7 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
-        assetNameRegExp: /^((?!style).)*\.css$/g,
+        assetNameRegExp: /^(?!style|global).*\.css$/g,
         cssProcessor: require('cssnano'),
         cssProcessorPluginOptions: {
           preset: ['default', { discardComments: { removeAll: true } }]

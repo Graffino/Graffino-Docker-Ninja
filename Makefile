@@ -10,17 +10,20 @@ stop:
 	docker-compose stop
 
 build:
-	docker-compose up -d
-	$(CONTAINER_PHP) "yarn wp:setup"
-	$(CONTAINER_PHP) "yarn wp:update"
-	$(CONTAINER_PHP) "yarn wp:clean --no-confirm"
-	$(CONTAINER_PHP) "yarn wp:db:init --no-confirm"
-	$(CONTAINER_PHP) "yarn wp:db:migrate --no-confirm"
-	$(CONTAINER_PHP) "yarn wp:sync:uploads --no-confirm"
-	$(CONTAINER_PHP) "yarn webpack:wp:build --no-progress"
+	$(CONTAINER_PHP) 'yarn node:install'
+	$(CONTAINER_PHP) 'yarn composer:install'
+	$(CONTAINER_PHP) 'yarn composer:update'
+	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:sync:uploads --no-confirm'
+	$(CONTAINER_PHP) 'yarn webpack:wp:build --no-progress'
 
 setup:
 	docker-compose up --build -d
+
+cleanall:
+	$(CONTAINER_PHP) 'yarn clean:all --no-confirm'
 
 resetall:
 	docker-compose -f docker-compose.yml down
@@ -33,5 +36,3 @@ deleteall:
 	docker image prune --all --force
 	docker system prune --volumes
 
-clean:
-	$(CONTAINER_PHP) "yarn clean:all --no-confirm"
