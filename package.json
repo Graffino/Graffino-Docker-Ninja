@@ -17,7 +17,7 @@
     "[Ninja] => WordPress Management": "WordPress management scripts for dev, build, setup, wp database scripts, file syncing, etc. Remote syncing *requires* rsync (brew install rsync).",
     "wp:init": "node bin/wp-init.js",
     "wp:dev": "yarn wp:sync:uploads --no-confirm; yarn webpack:wp:dev",
-    "wp:build": "yarn node:install; yarn composer:install; yarn wp:clean; yarn wp:sync:uploads --no-confirm; yarn webpack:wp:build",
+    "wp:build": "yarn node:install; yarn composer:install; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:sync:uploads --no-confirm; yarn webpack:wp:build",
     "wp:setup": "echo '\n[Ninja] => Installing WordPress... \n'; yarn node:install; yarn composer:install; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:db:init --no-confirm; yarn wp:sync:uploads --no-confirm",
     "wp:update": "echo '\n[Ninja] => Updating WordPress... \n'; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:sync:uploads --no-confirm",
     "wp:clean": "node bin/clean-wp.js",
