@@ -22,17 +22,15 @@ build:
 setup:
 	docker-compose up --build -d
 
-cleanall:
+clean:
 	$(CONTAINER_PHP) 'yarn clean:all --no-confirm'
 
-resetall:
+reset:
 	docker-compose -f docker-compose.yml down
-	docker rm -f $(docker ps -a -q)
-	docker volume rm $(docker volume ls -q)
-	docker-compose up --build -d
+	docker system prune --all --force
+	make setup
 
-deleteall:
+delete:
 	docker-compose -f docker-compose.yml down
-	docker image prune --all --force
-	docker system prune --volumes
+	docker system prune --all --volumes --force
 
