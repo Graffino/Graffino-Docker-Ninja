@@ -65,7 +65,7 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
-        assetNameRegExp: /^(?!style|global).*\.css$/g
+        assetNameRegExp: /^(?!style|global|post-).*\.css$/g
       }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,

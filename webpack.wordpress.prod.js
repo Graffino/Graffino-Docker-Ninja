@@ -14,8 +14,11 @@ module.exports = merge(common, {
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
-        assetNameRegExp: /^(?!style|global).*\.css$/g,
+        // Bug report: https://github.com/webpack-contrib/mini-css-extract-plugin/issues/617
+        // assetNameRegExp: /^(?!style|global|post-).*\.css$/g,
+        assetNameRegExp: /css\/main\.css$/g,
         cssProcessor: require('cssnano'),
+        cssProcessorOptions: { map: { inline: false, annotations: true } },
         cssProcessorPluginOptions: {
           preset: ['default', { discardComments: { removeAll: true } }]
         },
