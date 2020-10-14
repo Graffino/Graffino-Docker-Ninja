@@ -23,12 +23,12 @@
         "wpackagist-plugin/custom-post-type-maker": "^1.1",
         "wpackagist-plugin/debug-bar": "^1.0",
         "wpackagist-plugin/force-regenerate-thumbnails": "^2.0",
-        "wpackagist-plugin/wordpress-seo": "^15",
+        "wpackagist-plugin/wordpress-seo": "^15.1",
         "wpackagist-plugin/redirection": "^4.7",
         "wpackagist-plugin/safe-svg": "^1.9",
         "wpackagist-plugin/post-smtp": "^2.0",
         "wpackagist-plugin/complianz-gdpr": "^4.7",
-        "wpackagist-plugin/google-site-kit": "^1.15"
+        "wpackagist-plugin/google-site-kit": "^1.18"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
