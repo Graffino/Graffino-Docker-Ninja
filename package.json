@@ -78,7 +78,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",
     "cpy": "^8.1.1",
-    "css-loader": "^4.3.0",
+    "css-loader": "^5.0.0",
     "css-minimizer-webpack-plugin": "^1.1.5",
     "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
