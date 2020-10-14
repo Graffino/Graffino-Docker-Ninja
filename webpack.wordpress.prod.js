@@ -2,7 +2,7 @@ const path = require('path')
 const glob = require('glob-all')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.wordpress.js')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
@@ -11,18 +11,22 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
+  watch: false,
   optimization: {
+    minimize: true,
     minimizer: [
-      new OptimizeCSSAssetsPlugin({
-        // Bug report: https://github.com/webpack-contrib/mini-css-extract-plugin/issues/617
-        // assetNameRegExp: /^(?!style|global|post-).*\.css$/g,
-        assetNameRegExp: /css\/main\.css$/g,
-        cssProcessor: require('cssnano'),
-        cssProcessorOptions: { map: { inline: false, annotations: true } },
-        cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }]
-        },
-        canPrint: true
+      new CssMinimizerPlugin({
+        test: /^(?!style).*\.css$/g,
+        sourceMap: true,
+        exclude: /\/uploads/,
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true }
+            }
+          ]
+        }
       }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,

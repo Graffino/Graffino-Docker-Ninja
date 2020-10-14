@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44be5d1633a802f2edbf6b2cefc1c3b9",
+    "content-hash": "c6b04959ba28a7efcf0626fbe3b70b4a",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -966,15 +966,15 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.17.0",
+            "version": "1.18.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.17.0"
+                "reference": "tags/1.18.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.17.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.18.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1038,15 +1038,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "15.0",
+            "version": "15.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/15.0"
+                "reference": "tags/15.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
