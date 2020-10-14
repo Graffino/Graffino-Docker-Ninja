@@ -10,7 +10,7 @@
     "build": "yarn webpack:build",
     "wp": "yarn wp:dev",
     "[Ninja] => Webpack Builds": "All available Webpack builds.",
-    "webpack:dev": "echo '\n[Ninja] => Running static development build... \n'; webpack-dev-server --progress --config webpack.dev.js",
+    "webpack:dev": "echo '\n[Ninja] => Running static development build... \n'; webpack serve --progress --config webpack.dev.js",
     "webpack:build": "echo '\n[Ninja] => Running static production build... \n'; webpack --config webpack.prod.js --env.production",
     "webpack:wp:dev": "echo '\n[Ninja] => Running WordPress development build... \n'; webpack --watch --progress --config webpack.wordpress.js",
     "webpack:wp:build": "echo '\n[Ninja] => Running WordPress production build... \n'; webpack --config webpack.wordpress.prod.js --env.production",
