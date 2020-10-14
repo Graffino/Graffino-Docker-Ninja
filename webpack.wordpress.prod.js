@@ -11,6 +11,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
+  watch: false,
   optimization: {
     minimize: true,
     minimizer: [

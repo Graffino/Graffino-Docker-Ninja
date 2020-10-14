@@ -14,6 +14,7 @@ module.exports = {
     main: path.resolve(__dirname, 'src/scripts/index.js'),
     vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
   },
+  watch: true,
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
@@ -217,7 +218,7 @@ module.exports = {
     new StyleLintPlugin(),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      as (entry) {
+      as(entry) {
         if (/\.(woff|woff2|ttf|otf)$/.test(entry)) return 'font'
       },
       fileWhitelist: [/\.(woff|woff2|ttf|otf)$/],
