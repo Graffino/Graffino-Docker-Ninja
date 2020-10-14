@@ -2,8 +2,8 @@ const path = require('path')
 const glob = require('glob-all')
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const common = require('./webpack.config.js')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
@@ -64,8 +64,17 @@ module.exports = merge(common, {
   },
   optimization: {
     minimizer: [
-      new OptimizeCSSAssetsPlugin({
-        assetNameRegExp: /^(?!style|global|post-).*\.css$/g
+      new CssMinimizerPlugin({
+        test: /^(?!style).*\.css$/g,
+        sourceMap: true,
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true }
+            }
+          ]
+        }
       }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
