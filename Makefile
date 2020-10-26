@@ -4,10 +4,10 @@ CONTAINER_MARIADB=docker-compose exec -T mariadb sh -c
 
 dev start:
 	docker-compose up -d
-	$(CONTAINER_PHP) "yarn wp --no-progress"
+	$(CONTAINER_PHP) "yarn wp"
 
 stop:
-	docker-compose stop
+	docker-compose -f docker-compose.yml down
 
 build:
 	$(CONTAINER_PHP) 'yarn node:install'
@@ -17,7 +17,10 @@ build:
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:sync:uploads --no-confirm'
-	$(CONTAINER_PHP) 'yarn webpack:wp:build --no-progress'
+	$(CONTAINER_PHP) 'yarn webpack:wp:build'
+
+artifact:
+	tar -czvf release.tar.gz dist-wp composer wordpress/migrations/latest.sql.zip
 
 setup:
 	docker-compose up --build -d
