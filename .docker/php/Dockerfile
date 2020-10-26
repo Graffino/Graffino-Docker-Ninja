@@ -43,7 +43,7 @@ RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm
 RUN apk add git
 
 # Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=1.10.16
 
 # NodeJS
 RUN apk add nodejs npm
