@@ -81,14 +81,14 @@ const loadScript = (url, callback) => {
 
 const loadScriptAsync = (uri) => {
   return new Promise((resolve, reject) => {
-    var tag = document.createElement('script')
+    const tag = document.createElement('script')
     tag.src = uri
     tag.async = true
     tag.id = 'google-maps'
     tag.onload = () => {
       resolve()
     }
-    var firstScriptTag = document.getElementsByTagName('script')[0]
+    const firstScriptTag = document.getElementsByTagName('script')[0]
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
   })
 }

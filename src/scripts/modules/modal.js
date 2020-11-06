@@ -11,16 +11,16 @@ export default class Modal extends Component {
     // eslint-disable-next-line eqeqeq
     if (typeof Object.assign != 'function') {
       Object.defineProperty(Object, 'assign', {
-        value: function assign(target, varArgs) {
+        value: function assign(target, letArgs) {
           'use strict'
           if (target == null) {
             throw new TypeError('Cannot convert undefined or null to object')
           }
-          var to = Object(target)
-          for (var index = 1; index < arguments.length; index++) {
-            var nextSource = arguments[index]
+          const to = Object(target)
+          for (let index = 1; index < arguments.length; index++) {
+            const nextSource = arguments[index]
             if (nextSource != null) {
-              for (var nextKey in nextSource) {
+              for (const nextKey in nextSource) {
                 if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
                   to[nextKey] = nextSource[nextKey]
                 }
@@ -36,14 +36,14 @@ export default class Modal extends Component {
 
     if (!Array.from) {
       Array.from = (function () {
-        var toStr = Object.prototype.toString
-        var isCallable = function (fn) {
+        const toStr = Object.prototype.toString
+        const isCallable = function (fn) {
           return (
             typeof fn === 'function' || toStr.call(fn) === '[object Function]'
           )
         }
-        var toInteger = function (value) {
-          var number = Number(value)
+        const toInteger = function (value) {
+          const number = Number(value)
           if (isNaN(number)) {
             return 0
           }
@@ -52,23 +52,23 @@ export default class Modal extends Component {
           }
           return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number))
         }
-        var maxSafeInteger = Math.pow(2, 53) - 1
-        var toLength = function (value) {
-          var len = toInteger(value)
+        const maxSafeInteger = Math.pow(2, 53) - 1
+        const toLength = function (value) {
+          const len = toInteger(value)
           return Math.min(Math.max(len, 0), maxSafeInteger)
         }
 
         return function from(arrayLike) {
-          var C = this
-          var items = Object(arrayLike)
+          const C = this
+          const items = Object(arrayLike)
           if (arrayLike == null) {
             throw new TypeError(
               'Array.from requires an array-like object - not null or undefined'
             )
           }
           // eslint-disable-next-line no-void
-          var mapFn = arguments.length > 1 ? arguments[1] : void undefined
-          var T
+          const mapFn = arguments.length > 1 ? arguments[1] : void undefined
+          let T
           if (typeof mapFn !== 'undefined') {
             if (!isCallable(mapFn)) {
               throw new TypeError(
@@ -79,10 +79,10 @@ export default class Modal extends Component {
               T = arguments[2]
             }
           }
-          var len = toLength(items.length)
-          var A = isCallable(C) ? Object(new C(len)) : new Array(len)
-          var k = 0
-          var kValue
+          const len = toLength(items.length)
+          const A = isCallable(C) ? Object(new C(len)) : new Array(len)
+          let k = 0
+          let kValue
           while (k < len) {
             kValue = items[k]
             if (mapFn) {

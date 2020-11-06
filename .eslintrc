@@ -10,7 +10,8 @@
     }],
     "import/no-duplicates": "off",
     "no-case-declarations": "off",
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0,
+    "array-callback-return": "off"
   },
   "globals": {
     "describe": "readonly",
