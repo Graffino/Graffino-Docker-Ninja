@@ -8,7 +8,7 @@ export default class Recaptcha extends Component {
   }
 
   init() {
-    var recaptchaApi = this.state.element.dataset.recaptcha
+    const recaptchaApi = this.state.element.dataset.recaptcha
     window.recaptchaCode = {}
     // eslint-disable-next-line no-undef
     recaptchaCode.code = recaptchaApi
