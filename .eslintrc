@@ -4,8 +4,9 @@
   "plugins": ["prettier", "standard"],
   "rules": {
     "template-curly-spacing" : "off",
-    "indent": ["error", 2, {
-      "ignoredNodes": ["TemplateLiteral"]
+    "indent": [2, 2, {
+      "ignoredNodes": ["TemplateLiteral"],
+      "SwitchCase": 1
     }],
     "import/no-duplicates": "off",
     "no-case-declarations": "off",
