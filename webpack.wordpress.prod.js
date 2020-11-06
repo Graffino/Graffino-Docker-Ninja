@@ -73,10 +73,14 @@ module.exports = merge(common, {
         /^choices/,
         /^glide-/,
         /data-.*/,
+        /^page-template-/,
+        /^single/,
+        /^search/,
         /^-weight-*/,
         /^-size-*/,
         /^animate__*/,
-        /^-profile-*/
+        /^-profile-*/,
+        /^-weight-*/
       ]
     }),
     new ImageminPlugin({

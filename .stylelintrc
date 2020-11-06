@@ -8,7 +8,6 @@
     "function-url-quotes": "never",
     "max-nesting-depth": null,
     "selector-class-pattern": null,
-    "selector-max-id": 1,
     "order/order": [
       "custom-properties",
       "declarations"
