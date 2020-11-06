@@ -12,7 +12,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: false,
   watch: false,
   module: {
     rules: [
@@ -39,15 +39,11 @@ module.exports = merge(common, {
             }
           },
           {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true
-            }
+            loader: 'css-loader'
           },
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
               postcssOptions: {
                 config: path.join(__dirname, '/postcss.config.js')
               }
@@ -55,9 +51,7 @@ module.exports = merge(common, {
           },
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true
-            }
+            options: {}
           }
         ]
       }
@@ -67,7 +61,6 @@ module.exports = merge(common, {
     minimizer: [
       new CssMinimizerPlugin({
         test: /^(?!style).*\.css$/g,
-        sourceMap: true,
         minimizerOptions: {
           preset: [
             'default',
@@ -79,8 +72,7 @@ module.exports = merge(common, {
       }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
-        parallel: true,
-        sourceMap: true
+        parallel: true
       })
     ],
     runtimeChunk: 'single',
