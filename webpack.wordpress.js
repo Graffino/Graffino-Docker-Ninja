@@ -14,15 +14,14 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    main: path.resolve(__dirname, 'src/scripts/index.js'),
-    vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
+    main: path.resolve(__dirname, 'src/scripts/index.js')
   },
   output: {
     path: path.resolve(
       __dirname,
       `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
     ),
-    filename: 'js/main.js',
+    filename: 'js/[name].js',
     publicPath: '../'
   },
   watch: false,
