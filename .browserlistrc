@@ -1,4 +1,6 @@
 # See supported browsers below
-# https://browserl.ist/?q=%3E0.25%25%2C+not+op_mini+all%2C
->0.25%
-not op_mini all
+defaults
+not IE 11
+not IE_Mob 11
+not dead
+maintained node versions

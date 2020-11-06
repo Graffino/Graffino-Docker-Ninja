@@ -11,8 +11,7 @@ const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   entry: {
-    main: path.resolve(__dirname, 'src/scripts/index.js'),
-    vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
+    main: path.resolve(__dirname, 'src/scripts/index.js')
   },
   watch: true,
   watchOptions: {

@@ -21,16 +21,16 @@ const getInitialTransformValue = (element, property) => {
   const scale = /scale\(\s*([^\s,)]+)\)/.exec(transform)
 
   switch (property) {
-  case 'X':
-    return translate[1]
-  case 'Y':
-    return translate[2]
-  case 'rotate':
-    return rotate
-  case 'scale':
-    return scale[1]
-  default:
-    return ''
+    case 'X':
+      return translate[1]
+    case 'Y':
+      return translate[2]
+    case 'rotate':
+      return rotate
+    case 'scale':
+      return scale[1]
+    default:
+      return ''
   }
 }
 
@@ -81,14 +81,14 @@ const loadScript = (url, callback) => {
 
 const loadScriptAsync = (uri) => {
   return new Promise((resolve, reject) => {
-    var tag = document.createElement('script')
+    const tag = document.createElement('script')
     tag.src = uri
     tag.async = true
     tag.id = 'google-maps'
     tag.onload = () => {
       resolve()
     }
-    var firstScriptTag = document.getElementsByTagName('script')[0]
+    const firstScriptTag = document.getElementsByTagName('script')[0]
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
   })
 }

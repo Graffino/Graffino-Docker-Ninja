@@ -1,4 +1,5 @@
 import './utils/polyfills'
+import './vendor'
 import '@babel/polyfill'
 import smoothscroll from 'smoothscroll-polyfill'
 

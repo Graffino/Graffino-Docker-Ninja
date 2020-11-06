@@ -10,14 +10,13 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: false,
   watch: false,
   optimization: {
     minimize: true,
     minimizer: [
       new CssMinimizerPlugin({
         test: /^(?!style).*\.css$/g,
-        sourceMap: true,
         exclude: /\/uploads/,
         minimizerOptions: {
           preset: [
@@ -30,8 +29,7 @@ module.exports = merge(common, {
       }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
-        parallel: true,
-        sourceMap: true
+        parallel: true
       })
     ]
   },
@@ -71,12 +69,17 @@ module.exports = merge(common, {
         /^icon/,
         /^noUi/,
         /^choices/,
+        /^glide/,
         /^glide-/,
         /data-.*/,
+        /^page-template-/,
+        /^single/,
+        /^search/,
         /^-weight-*/,
         /^-size-*/,
         /^animate__*/,
-        /^-profile-*/
+        /^-profile-*/,
+        /^-weight-*/
       ]
     }),
     new ImageminPlugin({

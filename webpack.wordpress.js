@@ -7,22 +7,21 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
-  path: __dirname + '/.env' // eslint-disable-line no-path-concat
+  path: __dirname + '/.env' // eslint-disable-line node/no-path-concat
 })
 
 module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: {
-    main: path.resolve(__dirname, 'src/scripts/index.js'),
-    vendor: path.resolve(__dirname, 'src/scripts/vendor.js')
+    main: path.resolve(__dirname, 'src/scripts/index.js')
   },
   output: {
     path: path.resolve(
       __dirname,
       `dist-wp/wp-content/themes/${process.env.THEME_NAME}`
     ),
-    filename: 'js/main.js',
+    filename: 'js/[name].js',
     publicPath: '../'
   },
   watch: false,

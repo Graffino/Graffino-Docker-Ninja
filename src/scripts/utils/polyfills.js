@@ -13,7 +13,7 @@ if (!Element.prototype.matches) {
 if ('NodeList' in window && !NodeList.prototype.forEach) {
   NodeList.prototype.forEach = function (callback, thisArg) {
     thisArg = thisArg || window
-    for (var i = 0; i < this.length; i++) {
+    for (let i = 0; i < this.length; i++) {
       callback.call(thisArg, this[i], i, this)
     }
   }
@@ -24,7 +24,7 @@ if ('NodeList' in window && !NodeList.prototype.forEach) {
  */
 if (!Element.prototype.closest) {
   Element.prototype.closest = function (s) {
-    var el = this
+    let el = this
 
     do {
       if (Element.prototype.matches.call(el, s)) return el
@@ -40,7 +40,7 @@ if (!Element.prototype.closest) {
 ;(function () {
   function CustomEvent(event, params) {
     params = params || { bubbles: false, cancelable: false, detail: undefined }
-    var evt = document.createEvent('CustomEvent')
+    const evt = document.createEvent('CustomEvent')
     evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail)
     return evt
   }
@@ -68,20 +68,20 @@ if ('document' in self) {
 
       if (!('Element' in view)) return
 
-      var classListProp = 'classList'
-      var protoProp = 'prototype'
-      var elemCtrProto = view.Element[protoProp]
-      var objCtr = Object
-      var strTrim =
+      const classListProp = 'classList'
+      const protoProp = 'prototype'
+      const elemCtrProto = view.Element[protoProp]
+      const objCtr = Object
+      const strTrim =
         String[protoProp].trim ||
         function () {
           return this.replace(/^\s+|\s+$/g, '')
         }
-      var arrIndexOf =
+      const arrIndexOf =
         Array[protoProp].indexOf ||
         function (item) {
-          var i = 0
-          var len = this.length
+          let i = 0
+          const len = this.length
 
           for (; i < len; i++) {
             if (i in this && this[i] === item) {
@@ -91,12 +91,12 @@ if ('document' in self) {
           return -1
         }
 
-      var DOMEx = function (type, message) {
+      const DOMEx = function (type, message) {
         this.name = type
         this.code = DOMException[type]
         this.message = message
       }
-      var checkTokenAndGetIndex = function (classList, token) {
+      const checkTokenAndGetIndex = function (classList, token) {
         if (token === '') {
           throw new DOMEx('SYNTAX_ERR', 'The token must not be empty.')
         }
@@ -108,11 +108,11 @@ if ('document' in self) {
         }
         return arrIndexOf.call(classList, token)
       }
-      var ClassList = function (elem) {
-        var trimmedClasses = strTrim.call(elem.getAttribute('class') || '')
-        var classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
-        var i = 0
-        var len = classes.length
+      const ClassList = function (elem) {
+        const trimmedClasses = strTrim.call(elem.getAttribute('class') || '')
+        const classes = trimmedClasses ? trimmedClasses.split(/\s+/) : []
+        let i = 0
+        const len = classes.length
 
         for (; i < len; i++) {
           this.push(classes[i])
@@ -121,8 +121,8 @@ if ('document' in self) {
           elem.setAttribute('class', this.toString())
         }
       }
-      var classListProto = (ClassList[protoProp] = [])
-      var classListGetter = function () {
+      const classListProto = (ClassList[protoProp] = [])
+      const classListGetter = function () {
         return new ClassList(this)
       }
 
@@ -134,11 +134,11 @@ if ('document' in self) {
         return ~checkTokenAndGetIndex(this, token + '')
       }
       classListProto.add = function () {
-        var tokens = arguments
-        var i = 0
-        var l = tokens.length
-        var token
-        var updated = false
+        const tokens = arguments
+        let i = 0
+        const l = tokens.length
+        let token
+        let updated = false
 
         do {
           token = tokens[i] + ''
@@ -153,12 +153,12 @@ if ('document' in self) {
         }
       }
       classListProto.remove = function () {
-        var tokens = arguments
-        var i = 0
-        var l = tokens.length
-        var token
-        var updated = false
-        var index
+        const tokens = arguments
+        let i = 0
+        const l = tokens.length
+        let token
+        let updated = false
+        let index
 
         do {
           token = tokens[i] + ''
@@ -175,8 +175,8 @@ if ('document' in self) {
         }
       }
       classListProto.toggle = function (token, force) {
-        var result = this.contains(token)
-        var method = result
+        const result = this.contains(token)
+        const method = result
           ? force !== true && 'remove'
           : force !== false && 'add'
 
@@ -191,7 +191,7 @@ if ('document' in self) {
         }
       }
       classListProto.replace = function (token, replacementToken) {
-        var index = checkTokenAndGetIndex(token + '')
+        const index = checkTokenAndGetIndex(token + '')
         if (~index) {
           this.splice(index, 1, replacementToken)
           this._updateClassName()
@@ -202,7 +202,7 @@ if ('document' in self) {
       }
 
       if (objCtr.defineProperty) {
-        var classListPropDesc = {
+        const classListPropDesc = {
           get: classListGetter,
           enumerable: true,
           configurable: true
@@ -228,16 +228,16 @@ if ('document' in self) {
   ;(function () {
     'use strict'
 
-    var testElement = document.createElement('_')
+    let testElement = document.createElement('_')
     testElement.classList.add('c1', 'c2')
 
     if (!testElement.classList.contains('c2')) {
-      var createMethod = function (method) {
-        var original = DOMTokenList.prototype[method]
+      const createMethod = function (method) {
+        const original = DOMTokenList.prototype[method]
 
         DOMTokenList.prototype[method] = function (token) {
-          var i
-          var len = arguments.length
+          let i
+          const len = arguments.length
 
           for (i = 0; i < len; i++) {
             token = arguments[i]
@@ -252,7 +252,7 @@ if ('document' in self) {
     testElement.classList.toggle('c3', false)
 
     if (testElement.classList.contains('c3')) {
-      var _toggle = DOMTokenList.prototype.toggle
+      const _toggle = DOMTokenList.prototype.toggle
 
       DOMTokenList.prototype.toggle = function (token, force) {
         if (1 in arguments && !this.contains(token) === !force) {
@@ -265,8 +265,8 @@ if ('document' in self) {
 
     if (!('replace' in document.createElement('_').classList)) {
       DOMTokenList.prototype.replace = function (token, replacementToken) {
-        var tokens = this.toString().split(' ')
-        var index = tokens.indexOf(token + '')
+        let tokens = this.toString().split(' ')
+        const index = tokens.indexOf(token + '')
 
         if (~index) {
           tokens = tokens.slice(index)
