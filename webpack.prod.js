@@ -9,11 +9,11 @@ const PurgecssPlugin = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = merge(common, {
   mode: 'production',
   devtool: false,
-  watch: false,
   module: {
     rules: [
       {
@@ -96,10 +96,10 @@ module.exports = merge(common, {
     }
   },
   plugins: [
-    new webpack.HashedModuleIdsPlugin(),
+    new webpack.ids.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/style[contentHash].css',
-      chunkFilename: 'css/[id].css'
+      filename: devMode ? 'css/[name].css' : 'css/[name].[fullhash].css',
+      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[fullhash].css'
     }),
     new PurgecssPlugin({
       paths: glob.sync(
@@ -161,7 +161,7 @@ module.exports = merge(common, {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].[contenthash:8].js',
+    filename: devMode ? 'js/[name].js' : 'js/[name].[fullhash].js',
     publicPath: '/'
   }
 })
