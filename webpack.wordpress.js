@@ -24,7 +24,6 @@ module.exports = {
     filename: 'js/[name].js',
     publicPath: '../'
   },
-  watch: false,
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },

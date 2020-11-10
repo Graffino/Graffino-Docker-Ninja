@@ -13,7 +13,6 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src/scripts/index.js')
   },
-  watch: true,
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
@@ -81,7 +80,10 @@ module.exports = {
       },
       {
         test: /masonry-layout/,
-        loader: 'imports?define=>false&this=>window'
+        loader: 'imports-loader',
+        options: {
+          imports: 'define=>false&this=>window'
+        }
       },
       {
         test: /\.js$/,
@@ -211,8 +213,8 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
-      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css'
+      filename: devMode ? 'css/[name].css' : 'css/[name].[fullhash].css',
+      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[fullhash].css'
     }),
     new StyleLintPlugin(),
     new PreloadWebpackPlugin({
