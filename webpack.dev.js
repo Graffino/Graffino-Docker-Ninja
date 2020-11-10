@@ -3,6 +3,7 @@ const { merge } = require('webpack-merge')
 const webpack = require('webpack')
 const common = require('./webpack.config.js')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = merge(common, {
   mode: 'development',
@@ -76,7 +77,7 @@ module.exports = merge(common, {
   plugins: [new webpack.HotModuleReplacementPlugin()],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name][hash].js',
+    filename: devMode ? 'js/[name].js' : 'js/[name].[fullhash].js',
     publicPath: '/'
   }
 })

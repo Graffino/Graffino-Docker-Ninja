@@ -213,8 +213,8 @@ module.exports = {
       }
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
-      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css'
+      filename: devMode ? 'css/[name].css' : 'css/[name].[fullhash].css',
+      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[fullhash].css'
     }),
     new StyleLintPlugin(),
     new PreloadWebpackPlugin({
