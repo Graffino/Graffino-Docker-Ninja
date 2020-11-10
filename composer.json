@@ -27,7 +27,7 @@
     "wpackagist-plugin/post-smtp": "^2.0",
     "wpackagist-plugin/complianz-gdpr": "^4.7",
     "wpackagist-plugin/wp-super-cache": "^1.7",
-    "wpackagist-plugin/google-site-kit": "^1.19"
+    "wpackagist-plugin/google-site-kit": "^1.20"
   },
   "require-dev": {
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
