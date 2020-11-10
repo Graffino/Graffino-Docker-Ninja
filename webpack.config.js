@@ -13,7 +13,6 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src/scripts/index.js')
   },
-  watch: true,
   watchOptions: {
     ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
   },
