@@ -81,7 +81,10 @@ module.exports = {
       },
       {
         test: /masonry-layout/,
-        loader: 'imports?define=>false&this=>window'
+        loader: 'imports-loader',
+        options: {
+          imports: 'define=>false&this=>window'
+        }
       },
       {
         test: /\.js$/,
