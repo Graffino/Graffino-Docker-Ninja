@@ -8,7 +8,6 @@ services:
             dockerfile: .docker/php/Dockerfile
         volumes:
             - ./:/var/www
-            - ./dist-wp:/var/www/dist-wp
             - ./.docker/logs/php-fpm/:/var/log/php-fpm/
         networks:
             - servers
@@ -24,7 +23,6 @@ services:
             dockerfile: .docker/nginx/Dockerfile
         volumes:
             - ./:/var/www
-            - ./dist-wp/:/var/www/dist-wp/
             - ./.docker/logs/nginx/:/var/log/nginx
             - ./.docker/nginx/conf.d:/etc/nginx/templates
         networks:
