@@ -40,7 +40,7 @@ async function start() {
 
   // If yes
   if (confirmation) {
-    console.log('     => Cleaning all temporary files ...\n')
+    console.log('    => Cleaning all temporary files ...\n')
     await clean()
     console.log('\n[Ninja] Clean All => Cleaning finished.\n')
   } else {
