@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5980f31d78eeb4002fac401d89ac445e",
+    "content-hash": "886872701c183dc4c84c92e73a45ffa1",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -871,7 +871,7 @@
         },
         {
             "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.3.8",
+            "version": "5.4.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
@@ -879,7 +879,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1599742291"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1605238631"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -889,15 +889,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "4.7.7",
+            "version": "4.8.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/4.7.7"
+                "reference": "tags/4.8.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.7.7.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.8.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -907,15 +907,15 @@
         },
         {
             "name": "wpackagist-plugin/custom-post-type-maker",
-            "version": "1.1.10",
+            "version": "1.1.13",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/custom-post-type-maker/",
-                "reference": "tags/1.1.10"
+                "reference": "tags/1.1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/custom-post-type-maker.1.1.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/custom-post-type-maker.1.1.13.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -925,15 +925,15 @@
         },
         {
             "name": "wpackagist-plugin/debug-bar",
-            "version": "1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/debug-bar/",
-                "reference": "tags/1.1"
+                "reference": "tags/1.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/debug-bar.1.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/debug-bar.1.1.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1033,15 +1033,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "15.2.1",
+            "version": "15.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/15.2.1"
+                "reference": "tags/15.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.2.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.3.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
