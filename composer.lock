@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "886872701c183dc4c84c92e73a45ffa1",
+    "content-hash": "99506dc3e45a603612cb9024d59e9159",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -481,16 +481,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.8",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e70eb5a69c2ff61ea135a13d2266e8914a67b3a0"
+                "reference": "fd8305521692f27eae3263895d1ef1571c71a78d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e70eb5a69c2ff61ea135a13d2266e8914a67b3a0",
-                "reference": "e70eb5a69c2ff61ea135a13d2266e8914a67b3a0",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fd8305521692f27eae3263895d1ef1571c71a78d",
+                "reference": "fd8305521692f27eae3263895d1ef1571c71a78d",
                 "shasum": ""
             },
             "require": {
@@ -522,7 +522,7 @@
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.1.8"
+                "source": "https://github.com/symfony/finder/tree/v5.2.0"
             },
             "funding": [
                 {
@@ -538,7 +538,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-24T12:01:57+00:00"
+            "time": "2020-11-18T09:42:36+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -871,15 +871,15 @@
         },
         {
             "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.4.0",
+            "version": "5.4.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
-                "reference": "trunk"
+                "reference": "tags/5.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.zip?timestamp=1605238631"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.4.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -889,15 +889,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "4.8.0",
+            "version": "4.8.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/4.8.0"
+                "reference": "tags/4.8.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.8.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.8.1.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -961,39 +961,21 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.20.0"
+                "reference": "tags/1.21.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.20.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.21.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/google-site-kit/"
-        },
-        {
-            "name": "wpackagist-plugin/post-smtp",
-            "version": "2.0.15",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/post-smtp/",
-                "reference": "tags/2.0.15"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/post-smtp.2.0.15.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/post-smtp/"
         },
         {
             "name": "wpackagist-plugin/redirection",
@@ -1032,16 +1014,34 @@
             "homepage": "https://wordpress.org/plugins/safe-svg/"
         },
         {
-            "name": "wpackagist-plugin/wordpress-seo",
-            "version": "15.3",
+            "name": "wpackagist-plugin/smtp-mailer",
+            "version": "1.0.9",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/15.3"
+                "url": "https://plugins.svn.wordpress.org/smtp-mailer/",
+                "reference": "trunk"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/smtp-mailer.zip?timestamp=1607325759"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/smtp-mailer/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "15.4",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/15.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.15.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
