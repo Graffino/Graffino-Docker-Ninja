@@ -1,86 +1,78 @@
 $sprites: (
-  'placeholder':
-    "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'/%3e"
+    'placeholder': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'/%3e"
 );
 
 $sizes: (
-  'placeholder': (
-    'width': 32px,
-    'height': 32px
-  )
+    'placeholder': (
+        'width': 32px,
+        'height': 32px
+    )
 );
 
-$variables: (/* EMPTY */);
+$variables: (
+    /* EMPTY */
+);
 
 // https://github.com/waldemarfm/sass-svg-uri/blob/v1.0.0/_svg-uri.scss
 @function sprite-str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
+    $index: str-index($string, $search);
 
-  @if type-of($replace) == 'null' {
-    $replace: '';
-  }
+    @if type-of($replace) == 'null' {
+        $replace: '';
+    }
 
-  @if ($index) {
-    @return str-slice($string, 1, $index - 1) + $replace +
-      sprite-str-replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
-      );
-  }
+    @if ( $index ) {
+        @return str-slice($string, 1, $index - 1) + $replace + sprite-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
 
-  @return $string;
+    @return $string;
 }
 
 @function sprite-svg-uri($value) {
-  $encoded: '';
-  $slice: 2000;
-  $index: 0;
+    $encoded: '';
+    $slice: 2000;
+    $index: 0;
 
-  @for $i from 1 through ceil(str-length($value) / $slice) {
-    $chunk: str-slice($value, $index, $index + $slice - 1);
-    $chunk: sprite-str-replace($chunk, '"', "'");
-    $chunk: sprite-str-replace($chunk, '<', '%3C');
-    $chunk: sprite-str-replace($chunk, '>', '%3E');
-    $chunk: sprite-str-replace($chunk, '&', '%26');
-    $chunk: sprite-str-replace($chunk, '#', '%23');
-    $encoded: #{$encoded}#{$chunk};
-    $index: $index + $slice;
-  }
+    @for $i from 1 through ceil(str-length($value) / $slice) {
+        $chunk: str-slice($value, $index, $index + $slice - 1);
+        $chunk: sprite-str-replace($chunk, '"', "'");
+        $chunk: sprite-str-replace($chunk, '<', '%3C');
+        $chunk: sprite-str-replace($chunk, '>', '%3E');
+        $chunk: sprite-str-replace($chunk, '&', '%26');
+        $chunk: sprite-str-replace($chunk, '#', '%23');
+        $encoded: #{$encoded}#{$chunk};
+        $index: $index + $slice;
+    }
 
-  @return $encoded;
+    @return $encoded;
 }
 
 @mixin sprite($name, $user-variables: (), $include-size: false) {
-  $sprite: map-get($sprites, $name);
+    $sprite: map-get($sprites, $name);
 
-  // Inject variables
-  $default-variables: map-get($variables, $name);
-  @if type-of($default-variables) == 'map' {
-    @each $key, $value in map-merge($default-variables, $user-variables) {
-      @if (not map-has-key($default-variables, $key)) {
-        @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
-      }
+    // Inject variables
+    $default-variables: map-get($variables, $name);
+    @if type-of($default-variables) == 'map' {
+        @each $key, $value in map-merge($default-variables, $user-variables) {
+            @if ( not map-has-key($default-variables, $key) ) {
+                @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+            }
 
-      $sprite: sprite-str-replace(
-        $sprite,
-        '___#{$key}___',
-        sprite-svg-uri(quote(#{$value}))
-      );
+            $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote(#{$value})));
+        }
+    } @else if type-of($user-variables) == 'map' {
+        @warn 'Sprite \'#{$name}\' does not contain any variables';
     }
-  } @else if type-of($user-variables) == 'map' {
-    @warn 'Sprite \'#{$name}\' does not contain any variables';
-  }
 
-  background: url($sprite) center no-repeat;
+    background: url($sprite) center no-repeat;
 
-  @if $include-size {
-    $size: map-get($sizes, $name);
-    @if $include-size == true {
-      background-size: map-get($size, width) map-get($size, height);
-    } @else if $include-size == 'box' {
-      width: map-get($size, width);
-      height: map-get($size, height);
+    @if $include-size {
+        $size: map-get($sizes, $name);
+        @if $include-size == true {
+            background-size: map-get($size, width) map-get($size, height);
+        } @else if $include-size == 'box' {
+            width: map-get($size, width);
+            height: map-get($size, height);
+        }
     }
-  }
 }
