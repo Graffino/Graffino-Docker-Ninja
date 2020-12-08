@@ -21,19 +21,22 @@ Author: Graffino (http://www.graffino.com)
   background-size: contain;
 }
 
-.wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large {
+.wp-core-ui .button-group.button-large .button,
+.wp-core-ui .button.button-large {
   color: #ff5d2c;
 }
 
-.login #backtoblog a, .login #nav a {
+.login #backtoblog a,
+.login #nav a {
   color: #fff;
 }
 
-.login #backtoblog a:hover, .login #nav a:hover {
+.login #backtoblog a:hover,
+.login #nav a:hover {
   color: #ff5d2c;
 }
 
 .wp-core-ui .button-primary {
-  background-color: #31334E !important;
+  background-color: #31334e !important;
   color: #fff;
 }
