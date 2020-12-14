@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99506dc3e45a603612cb9024d59e9159",
+    "content-hash": "3b228f7052e99516fe3805302d141db3",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -161,20 +161,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "5.5.3",
+            "version": "5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "f706595a0be04446e1c6c4ff984be414d1a3064b"
+                "reference": "3055975734646c8d0b8caf7b5af168ced6ec4309"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/f706595a0be04446e1c6c4ff984be414d1a3064b",
-                "reference": "f706595a0be04446e1c6c4ff984be414d1a3064b",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/3055975734646c8d0b8caf7b5af168ced6ec4309",
+                "reference": "3055975734646c8d0b8caf7b5af168ced6ec4309",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.5.3",
+                "johnpbloch/wordpress-core": "5.6.0",
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -203,20 +203,20 @@
                 "source": "http://core.trac.wordpress.org/browser",
                 "wiki": "http://codex.wordpress.org/"
             },
-            "time": "2020-10-30T20:48:17+00:00"
+            "time": "2020-12-08T22:34:35+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.5.3",
+            "version": "5.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "6f25ae53f3d4058f8dd702c097d5a4a45667af61"
+                "reference": "f074617dd69f466302836d1ae5de75c0bd7b6dfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/6f25ae53f3d4058f8dd702c097d5a4a45667af61",
-                "reference": "6f25ae53f3d4058f8dd702c097d5a4a45667af61",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/f074617dd69f466302836d1ae5de75c0bd7b6dfd",
+                "reference": "f074617dd69f466302836d1ae5de75c0bd7b6dfd",
                 "shasum": ""
             },
             "require": {
@@ -224,7 +224,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.5.3"
+                "wordpress/core-implementation": "5.6.0"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -251,7 +251,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2020-10-30T20:48:12+00:00"
+            "time": "2020-12-08T22:34:23+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -889,15 +889,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "4.8.1",
+            "version": "4.8.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/4.8.1"
+                "reference": "tags/4.8.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.8.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.8.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -961,15 +961,15 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.21.0",
+            "version": "1.22.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.21.0"
+                "reference": "tags/1.22.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.21.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.22.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1119,22 +1119,22 @@
     "packages-dev": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v0.7.0",
+            "version": "v0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dealerdirect/phpcodesniffer-composer-installer.git",
-                "reference": "e8d808670b8f882188368faaf1144448c169c0b7"
+                "reference": "fe390591e0241955f22eb9ba327d137e501c771c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/e8d808670b8f882188368faaf1144448c169c0b7",
-                "reference": "e8d808670b8f882188368faaf1144448c169c0b7",
+                "url": "https://api.github.com/repos/Dealerdirect/phpcodesniffer-composer-installer/zipball/fe390591e0241955f22eb9ba327d137e501c771c",
+                "reference": "fe390591e0241955f22eb9ba327d137e501c771c",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0 || ^2.0",
                 "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2 || ^3 || 4.0.x-dev"
+                "squizlabs/php_codesniffer": "^2.0 || ^3.0 || ^4.0"
             },
             "require-dev": {
                 "composer/composer": "*",
@@ -1185,7 +1185,7 @@
                 "issues": "https://github.com/dealerdirect/phpcodesniffer-composer-installer/issues",
                 "source": "https://github.com/dealerdirect/phpcodesniffer-composer-installer"
             },
-            "time": "2020-06-25T14:57:39+00:00"
+            "time": "2020-12-07T18:04:37+00:00"
         },
         {
             "name": "ffraenz/private-composer-installer",
