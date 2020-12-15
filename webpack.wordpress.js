@@ -222,7 +222,7 @@ module.exports = {
         },
         {
           from: path.resolve(__dirname, 'wordpress/config/*.php'),
-          to: path.resolve(__dirname, 'dist-wp/'),
+          to: path.resolve(__dirname, 'dist-wp/[name].[ext]'),
           force: true
         },
         {
