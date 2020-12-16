@@ -1,7 +1,6 @@
 <?php
 //
 // Template Name: 404 Template
-// Author: Graffino (http://www.graffino.com)
 //
 ?>
 
