@@ -1,13 +1,7 @@
 <?xml version="1.0"?>
-<ruleset name="Coding Standard">
+<ruleset name="Ninja Coding Standard">
   <description>Coding standard</description>
   <rule ref="WordPress-Core"></rule>
-  <!-- <rule ref="Generic.Files.LineLength">
-     <properties>
-         <property name="lineLimit" value="120"/>
-         <property name="absoluteLineLimit" value="130"/>
-     </properties>
-  </rule> -->
   <file>wordpress</file>
   <exclude-pattern>*/dist-wp/*</exclude-pattern>
   <exclude-pattern>*/dist/*</exclude-pattern>
