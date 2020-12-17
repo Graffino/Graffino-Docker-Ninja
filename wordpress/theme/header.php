@@ -1,7 +1,6 @@
 <?php
 //
 // Name: Header Template
-// Author: Graffino (http://www.graffino.com)
 //
 ?>
 <!DOCTYPE html>
