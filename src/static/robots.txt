@@ -2,4 +2,4 @@
 
 User-agent: *
 
-Sitemap: https://graffino.ninja/sitemap.xml
+Sitemap: https://example.com/sitemap.xml

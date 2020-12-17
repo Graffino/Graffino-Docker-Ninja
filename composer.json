@@ -1,6 +1,6 @@
 {
   "name": "graffino/ninja",
-  "description": "Graffino Ninja. Website building webpack flow we use at Graffino.",
+  "description": "Ninja. Website building webpack flow.",
   "type": "project",
   "license": "MIT",
   "authors": [{

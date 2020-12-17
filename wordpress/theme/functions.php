@@ -1,7 +1,6 @@
 <?php
 //
 // Name: Functions file
-// Author: Graffino (http://www.graffino.com)
 //
 
 // If file is accessed directly, exit

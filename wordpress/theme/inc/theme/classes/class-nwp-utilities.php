@@ -15,6 +15,57 @@ class NWP_Utilities {
 	}
 
 	/**
+	 * Get page id by slug
+	 *
+	 * @since 1.0.0
+	 * @param  string $page_slug Slug name
+	 * @return mixed             POST id or null value.
+	 */
+	public function gwp_get_page_id_by_slug( $page_slug ) {
+		global $wpdb;
+
+		// CHeck all posts except attachments and revisions
+		$page = $wpdb->get_var(
+			$wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_type != 'revision' AND post_status != 'inherit' AND post_status != 'auto-draft'", $page_slug )
+		);
+
+		// Page might be deleted
+		if ( ! $page ) {
+			$page = $wpdb->get_var(
+				$wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE post_name = %s AND post_status = 'trash'", $page_slug . '__trashed' )
+			);
+		}
+
+		if ( $page ) {
+			return $page;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Get post slug
+	 *
+	 * @since 1.0.0
+	 * @return mixed POST slug or null value.
+	 */
+	function gwp_get_post_slug() {
+		$current_page = sanitize_post( $GLOBALS['wp_the_query']->get_queried_object() );
+
+		if ( ! $current_page ) {
+			return null;
+		}
+
+		$slug = $current_page->post_name;
+
+		if ( $slug ) {
+			return $slug;
+		}
+
+		return null;
+	}
+
+	/**
 	 * Get URL without any vars
 	 *
 	 * @return void

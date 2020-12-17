@@ -1,5 +1,5 @@
 {
-  "name": "Graffino Ninja",
+  "name": "Ninja",
   "short_name": "Ninja",
   "icons": [{
     "src": "/touch-icon.png",
@@ -9,5 +9,5 @@
   "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
-  "start_url": "https://graffino.ninja/"
+  "start_url": "https://example.com/"
 }
