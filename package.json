@@ -1,6 +1,6 @@
 {
   "name": "ninja",
-  "version": "5.1.7",
+  "version": "5.1.8",
   "description": "Ninja. Website building webpack flow.",
   "private": true,
   "scripts": {
