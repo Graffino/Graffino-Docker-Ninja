@@ -8,6 +8,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const PreloadWebpackPlugin = require('preload-webpack-plugin')
 const devMode = process.env.NODE_ENV !== 'production'
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -102,8 +103,7 @@ module.exports = {
                 ]
               ]
             }
-          },
-          'eslint-loader'
+          }
         ]
       },
       {
@@ -224,6 +224,7 @@ module.exports = {
       },
       fileWhitelist: [/\.(woff|woff2|ttf|otf)$/],
       include: 'allAssets'
-    })
+    }),
+    new ESLintPlugin()
   ]
 }

@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": ["standard", "prettier/standard"],
-  "plugins": ["prettier", "standard"],
+  "plugins": ["prettier"],
   "rules": {
     "template-curly-spacing" : "off",
     "indent": [2, 2, {
