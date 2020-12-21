@@ -6,10 +6,10 @@
       "type": "php",
       "request": "launch",
       "cwd": "${fileDirname}",
-      "port": 9000,
+      "port": 9003,
       "ignore": [
-        "**/vendor/**/*.php",
-        "**/.composer/**/*.php"
+        "**/vendor/**/*",
+        "**/.composer/**/*"
       ],
       "pathMappings": {
         "${workspaceRoot}/dist-wp/wp-content/themes/ninja": "${workspaceRoot}/wordpress/theme"
