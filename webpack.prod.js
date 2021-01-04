@@ -68,7 +68,7 @@ module.exports = merge(common, {
           const minifiedCss = await new CleanCSS({
             level: {
               2: {
-                all: true
+                mergeSemantically: true
               }
             }
           }).minify({
@@ -79,7 +79,8 @@ module.exports = merge(common, {
 
           return {
             css: minifiedCss.styles,
-            warnings: minifiedCss.warnings
+            warnings: minifiedCss.warnings,
+            errors: minifiedCss.errors
           }
         }
       }),
