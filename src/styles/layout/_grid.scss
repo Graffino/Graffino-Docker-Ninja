@@ -45,7 +45,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
   &.-align {
     &-start {
-      justify-content: start;
+      justify-content: flex-start;
     }
 
     &-center {
@@ -53,7 +53,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     }
 
     &-end {
-      justify-content: end;
+      justify-content: flex-end;
     }
 
     &-top {
