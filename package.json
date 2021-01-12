@@ -64,11 +64,11 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@degjs/module-loader": "^5.1.0",
     "autoprefixer": "^10.2.1",
-    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "backstopjs": "^5.0.7",
     "browser-sync": "^2.26.13",
