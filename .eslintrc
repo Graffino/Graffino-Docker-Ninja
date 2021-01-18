@@ -28,7 +28,8 @@
   "parserOptions": {
     "ecmaFeatures": {
       "modules": true
-    }
+    },
+    "requireConfigFile": false
   },
   "settings": {
     "import/resolver": {
