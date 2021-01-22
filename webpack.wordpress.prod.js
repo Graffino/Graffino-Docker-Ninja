@@ -40,7 +40,8 @@ module.exports = merge(common, {
       }),
       new TerserPlugin({
         test: /\.js(\?.*)?$/i,
-        parallel: true
+        parallel: true,
+        exclude: /\/uploads/
       })
     ]
   },
