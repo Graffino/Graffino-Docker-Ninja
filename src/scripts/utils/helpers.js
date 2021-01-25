@@ -80,7 +80,7 @@ const loadScript = (url, callback) => {
 }
 
 const loadScriptAsync = (uri) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const tag = document.createElement('script')
     tag.src = uri
     tag.async = true

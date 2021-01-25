@@ -16,7 +16,7 @@ export default class Countup extends Component {
       this.state.targetNumber
     )
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, _observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           this.start()

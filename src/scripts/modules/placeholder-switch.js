@@ -7,7 +7,7 @@ export default class PlaceholderSwitch extends Component {
   }
 
   init() {
-    this.state.element.addEventListener('click', (e) => {
+    this.state.element.addEventListener('click', (_e) => {
       Array.from(
         document.querySelectorAll(
           `[data-placeholder-switch-id="${this.state.element.dataset.placeholderSwitchTarget}"]`

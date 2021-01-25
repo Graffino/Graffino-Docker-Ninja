@@ -116,7 +116,7 @@ export default class AjaxForm extends Component {
     })
   }
 
-  callback({ result, message, state }) {
+  callback({ _result, _message, _state }) {
     this.state.element.reset()
   }
 
@@ -124,7 +124,7 @@ export default class AjaxForm extends Component {
     $form.isAjax = () => true
   }
 
-  contactRequestCallback({ form, result, message, state }) {
+  contactRequestCallback({ form, _result, message, _state }) {
     form.reset()
     const button = form.querySelector('.js-button-text')
     const oldText = button.textContent
