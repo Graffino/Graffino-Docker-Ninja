@@ -11,7 +11,8 @@
     "import/no-duplicates": "off",
     "no-case-declarations": "off",
     "space-before-function-paren": 0,
-    "array-callback-return": "off"
+    "array-callback-return": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
   },
   "globals": {
     "describe": "readonly",
@@ -23,7 +24,8 @@
   },
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
   "parserOptions": {
     "ecmaFeatures": {

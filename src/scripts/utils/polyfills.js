@@ -37,7 +37,7 @@ if (!Element.prototype.closest) {
 /**
  * CustomEvent Polyfill - IE 11
  */
-;(function () {
+(function () {
   function CustomEvent(event, params) {
     params = params || { bubbles: false, cancelable: false, detail: undefined }
     const evt = document.createEvent('CustomEvent')
@@ -63,7 +63,7 @@ if ('document' in self) {
         document.createElementNS('http://www.w3.org/2000/svg', 'g')
       ))
   ) {
-    ;(function (view) {
+    (function (view) {
       'use strict'
 
       if (!('Element' in view)) return
@@ -225,7 +225,7 @@ if ('document' in self) {
     })(self)
   }
 
-  ;(function () {
+  (function () {
     'use strict'
 
     let testElement = document.createElement('_')

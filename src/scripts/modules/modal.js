@@ -11,7 +11,7 @@ export default class Modal extends Component {
     // eslint-disable-next-line eqeqeq
     if (typeof Object.assign != 'function') {
       Object.defineProperty(Object, 'assign', {
-        value: function assign(target, letArgs) {
+        value: function assign(target, _letArgs) {
           'use strict'
           if (target == null) {
             throw new TypeError('Cannot convert undefined or null to object')
