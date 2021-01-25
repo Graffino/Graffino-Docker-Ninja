@@ -9,6 +9,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env' // eslint-disable-line node/no-path-concat
 })
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -62,8 +63,7 @@ module.exports = {
                 ]
               ]
             }
-          },
-          'eslint-loader'
+          }
         ]
       },
       {
@@ -270,6 +270,7 @@ module.exports = {
     }),
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
-    })
+    }),
+    new ESLintPlugin()
   ]
 }

@@ -43,12 +43,14 @@ const hasPassiveSupport = () => {
 
   try {
     const options = Object.defineProperty({}, 'passive', {
+      // eslint-disable-next-line getter-return
       get: function () {
-        passiveSupported = !0
+        passiveSupported = true
       }
     })
 
     window.addEventListener('test', null, options)
+  // eslint-disable-next-line no-empty
   } catch (err) {}
 
   return passiveSupported
@@ -80,7 +82,7 @@ const loadScript = (url, callback) => {
 }
 
 const loadScriptAsync = (uri) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const tag = document.createElement('script')
     tag.src = uri
     tag.async = true

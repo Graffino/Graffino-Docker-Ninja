@@ -16,14 +16,26 @@ module.exports = merge(common, {
     minimizer: [
       new CssMinimizerPlugin({
         test: /^(?!style).*\.css$/g,
-        exclude: /\/uploads/,
-        minimizerOptions: {
-          preset: [
-            'default',
-            {
-              discardComments: { removeAll: true }
+        minify: async (data, inputMap) => {
+          // eslint-disable-next-line global-require
+          const CleanCSS = require('clean-css')
+          const [[filename, input]] = Object.entries(data)
+          const minifiedCss = await new CleanCSS({
+            level: {
+              2: {
+                mergeSemantically: true
+              }
             }
-          ]
+          }).minify({
+            [filename]: {
+              styles: input
+            }
+          })
+          return {
+            css: minifiedCss.styles,
+            warnings: minifiedCss.warnings,
+            errors: minifiedCss.errors
+          }
         }
       }),
       new TerserPlugin({
