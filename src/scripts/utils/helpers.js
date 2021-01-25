@@ -45,7 +45,7 @@ const hasPassiveSupport = () => {
     const options = Object.defineProperty({}, 'passive', {
       // eslint-disable-next-line getter-return
       get: function () {
-        passiveSupported = !0
+        passiveSupported = true
       }
     })
 
