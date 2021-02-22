@@ -50,7 +50,7 @@ const hasPassiveSupport = () => {
     })
 
     window.addEventListener('test', null, options)
-  // eslint-disable-next-line no-empty
+    // eslint-disable-next-line no-empty
   } catch (err) {}
 
   return passiveSupported

@@ -1,6 +1,6 @@
 {
   "parser": "@babel/eslint-parser",
-  "extends": ["eslint:recommended", "prettier/standard"],
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "template-curly-spacing" : "off",
