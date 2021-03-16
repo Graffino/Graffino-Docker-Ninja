@@ -130,7 +130,8 @@ module.exports = {
             options: {
               plugins: [
                 {
-                  removeAttrs: {}
+                  name: 'removeAttrs',
+                  params: {}
                 }
               ]
             }
@@ -186,7 +187,8 @@ module.exports = {
         svgo: {
           plugins: [
             {
-              removeAttrs: {}
+              name: 'removeAttrs',
+              params: {}
             }
           ]
         }
@@ -222,7 +224,7 @@ module.exports = {
         },
         {
           from: path.resolve(__dirname, 'wordpress/config/*.php'),
-          to: path.resolve(__dirname, 'dist-wp/[name].[ext]'),
+          to: path.resolve(__dirname, 'dist-wp/[name][ext]'),
           force: true
         },
         {
