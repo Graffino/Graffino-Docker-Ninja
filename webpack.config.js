@@ -55,10 +55,12 @@ module.exports = {
               svgo: {
                 plugins: [
                   {
-                    cleanupIDs: true
+                    name: 'cleanupIDs',
+                    active: true
                   },
                   {
-                    prefixIds: true
+                    name: 'prefixIds',
+                    active: true
                   }
                 ]
               }
@@ -123,7 +125,8 @@ module.exports = {
             options: {
               plugins: [
                 {
-                  removeAttrs: {}
+                  name: 'removeAttrs',
+                  params: {}
                 }
               ]
             }
@@ -200,7 +203,8 @@ module.exports = {
         svgo: {
           plugins: [
             {
-              removeAttrs: {}
+              name: 'removeAttrs',
+              params: {}
             }
           ]
         }
