@@ -112,7 +112,3 @@ Ninja comes with an optional Docker environment: <https://github.com/Graffino/Ni
 ## Other tools
 
 We bundled some other cool scripts and tools into Ninja: <https://github.com/Graffino/Ninja/tree/master/docs/other-tools.md>
-
-## Warning
-
-Updated to the latest packages except for svgo. Due to breaking changes in the new 2.0.0 version, if we update it, svgo-loader breaks, as it wasn't updated to use the new svgo version. We'll continue using the old version for the moment.
