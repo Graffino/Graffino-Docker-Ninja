@@ -878,15 +878,15 @@
         },
         {
             "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.4.3",
+            "version": "5.4.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
-                "reference": "tags/5.4.3"
+                "reference": "tags/5.4.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.4.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.4.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -896,15 +896,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "4.9.10",
+            "version": "4.9.12",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/4.9.10"
+                "reference": "tags/4.9.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.9.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.4.9.12.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -968,15 +968,15 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.28.0",
+            "version": "1.29.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.28.0"
+                "reference": "tags/1.29.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.28.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.29.0.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -1040,15 +1040,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "16.0",
+            "version": "16.0.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/16.0"
+                "reference": "tags/16.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.16.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.16.0.2.zip"
             },
             "require": {
                 "composer/installers": "~1.0"

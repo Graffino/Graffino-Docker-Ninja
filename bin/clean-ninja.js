@@ -23,6 +23,9 @@ const cleanFiles = async () => {
 
   // Remove cypress tests
   await fs.remove(path.resolve(__dirname, '../cypress'))
+
+  // Remove Additional WP Content
+  await fs.remove(path.resolve(__dirname, '../dist-wp/wp-content/wp-content/'))
 }
 
 async function start() {

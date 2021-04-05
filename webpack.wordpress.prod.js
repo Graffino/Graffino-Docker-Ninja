@@ -16,7 +16,7 @@ module.exports = merge(common, {
     minimizer: [
       new CssMinimizerPlugin({
         test: /^(?!style).*\.css$/g,
-        minify: async (data, inputMap) => {
+        minify: async (data) => {
           // eslint-disable-next-line global-require
           const CleanCSS = require('clean-css')
           const [[filename, input]] = Object.entries(data)
