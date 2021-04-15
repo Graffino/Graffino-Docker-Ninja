@@ -1,8 +1,8 @@
 {
   "name": "ninja",
-  "version": "5.1.13",
-  "description": "Ninja. Website building webpack flow.",
-  "private": true,
+  "version": "6.0.0",
+  "description": "The feature packed, lightning fast boilerplate we use at Graffino for building modern responsive static and WordPress powered websites.",
+  "private": false,
   "scripts": {
     "[Ninja] => Resonable Defaults": "Reasonable defaults: dev, static, build for quick access.",
     "ninja:init": "node bin/init.js",
