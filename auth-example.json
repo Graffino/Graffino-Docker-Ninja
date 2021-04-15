@@ -1,0 +1,8 @@
+{
+  "http-basic": {
+    "git.example.com": {
+      "password": "",
+      "username": "__token__"
+    }
+  }
+}

@@ -1,11 +1,12 @@
 FROM alpine:latest
 
-ENV MYSQL_ADDRESS ${MYSQL_ADDRESS:-127.0.0.1}
-ENV MYSQL_PORT ${MYSQL_PORT:-3306}
-ENV MYSQL_ROOT_PASSWORD ${DB_PASSWORD:-"admin"}
-ENV MYSQL_DATABASE ${DB_NAME:-""}
-ENV MYSQL_USER ${DB_USER:-""}
-ENV MYSQL_PASSWORD ${DB_PASSWORD:-""}
+ENV DOCKER_DB_HOST=${DOCKER_DB_HOST:-127.0.0.1}
+ENV DOCKER_DB_PORT=${DOCKER_DB_PORT:-3306}
+ENV DOCKER_DB_PASSWORD=${DOCKER_DB_PASSWORD:-"admin"}
+ENV DOCKER_DB_NAME=${DOCKER_DB_NAME:-""}
+ENV DOCKER_DB_USER=${DOCKER_DB_USER:-""}
+ENV DOCKER_DB_PASSWORD=${DOCKER_DB_PASSWORD:-""}
+ENV DOCKER_DB_ROOT_PASSWORD=${DOCKER_DB_ROOT_PASSWORD:-""}
 
 RUN apk add --update --no-cache mariadb mariadb-client mariadb-server-utils pwgen && \
     rm -f /var/cache/apk/*
@@ -19,10 +20,13 @@ RUN mkdir /docker-entrypoint-initdb.d && \
 RUN mkdir -p /var/log/mysql/ && \
     chown -R mysql:mysql /var/log/mysql
 
-# Copy NGINX configuration
+RUN apk add vim
+RUN apk add mc
+
+# Copy MariaDB configuration
 COPY ./.docker/mariadb/my.cnf.d/server.cnf /etc/my.cnf.d/mariadb-server.cnf
 
-EXPOSE ${MYSQL_PORT}
+EXPOSE ${DOCKER_DB_PORT}
 
 VOLUME ["/var/lib/mysql"]
 

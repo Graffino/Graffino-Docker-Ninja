@@ -40,7 +40,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "5.9.3"
+        "version": "5.9.5"
       },
       "type": "package"
     },

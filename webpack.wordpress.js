@@ -7,7 +7,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const dotenv = require('dotenv').config({
-  path: __dirname + '/.env' // eslint-disable-line node/no-path-concat
+  path: __dirname + '/.env'
 })
 const ESLintPlugin = require('eslint-webpack-plugin')
 

@@ -20,6 +20,7 @@ The feature packed, lightning fast boilerplate we use at [Graffino](https://graf
   - [WordPress Theme Development](#wordpress-theme-development)
   - [Docker environment](#docker-environment)
   - [Other tools](#other-tools)
+  - [Default Password](#default-password)
 
 ## Features
 
@@ -87,32 +88,35 @@ The feature packed, lightning fast boilerplate we use at [Graffino](https://graf
 
 ## Prerequisites
 
-To install required software: <https://github.com/Graffino/Ninja/tree/master/docs/prerequisites.md>
+To install required software: <https://github.com/Graffino/Ninja/tree/master/documentation/prerequisites.md>
 
 ## Features And Usage
 
-To find out more about what Ninja's features and project structure: <https://github.com/Graffino/Ninja/tree/master/docs/features-and-usage.md>
+To find out more about what Ninja's features and project structure: <https://github.com/Graffino/Ninja/tree/master/documentation/features-and-usage.md>
 
 ## Vanilla Javascript Compoments
 
-How to use Ninja's vanilla JS compoments: <https://github.com/Graffino/Ninja/tree/master/docs/javascript-components.md>
+How to use Ninja's vanilla JS compoments: <https://github.com/Graffino/Ninja/tree/master/documentation/javascript-components.md>
 
 ## Regression Testing
 
-Ninja includes regression testing utilities that help you find out if you broke already developed components: <https://github.com/Graffino/Ninja/tree/master/docs/regression-testing.md>
+Ninja includes regression testing utilities that help you find out if you broke already developed components: <https://github.com/Graffino/Ninja/tree/master/documentation/regression-testing.md>
 
 ## WordPress Theme Development
 
-Info about Ninja's WordPress theme development toolset: <https://github.com/Graffino/Ninja/tree/master/docs/wordpress-theme-development.md>
+Info about Ninja's WordPress theme development toolset: <https://github.com/Graffino/Ninja/tree/master/documentation/wordpress-theme-development.md>
 
 ## Docker environment
 
-Ninja comes with an optional Docker environment: <https://github.com/Graffino/Ninja/tree/master/docs/docker-environment.md>
+Ninja comes with an optional Docker environment: <https://github.com/Graffino/Ninja/tree/master/documentation/docker-environment.md>
 
 ## Other tools
 
-We bundled some other cool scripts and tools into Ninja: <https://github.com/Graffino/Ninja/tree/master/docs/other-tools.md>
+We bundled some other cool scripts and tools into Ninja: <https://github.com/Graffino/Ninja/tree/master/documentation/other-tools.md>
 
-## Warning
+## Default Password
 
-Updated to the latest packages except for svgo. Due to breaking changes in the new 2.0.0 version, if we update it, svgo-loader breaks, as it wasn't updated to use the new svgo version. We'll continue using the old version for the moment.
+```bash
+username: graffino
+password: js#O^P#S3CYp$SpwIu
+```

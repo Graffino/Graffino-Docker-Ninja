@@ -3,8 +3,11 @@ FROM nginx:stable-alpine
 RUN mkdir -p /var/log/nginx/ && \
     chown -R nginx:nginx /var/log/nginx
 
-EXPOSE 80
+RUN apk add vim
+RUN apk add mc
 
-WORKDIR /var/www/dist-wp
+EXPOSE ${DOCKER_NGINX_PORT}
+
+WORKDIR /var/www/public
 
 CMD ["nginx", "-g", "daemon off;"]
