@@ -28,14 +28,10 @@ else
 
 	mysql_install_db --user=mysql --ldata=/var/lib/mysql > /dev/null
 
-	if [ "$MYSQL_ROOT_PASSWORD" = "" ]; then
-		MYSQL_ROOT_PASSWORD=`pwgen 16 1`
-		echo "[i] MySQL root Password: $MYSQL_ROOT_PASSWORD"
+	if [ "$DOCKER_DB_ROOT_PASSWORD" = "" ]; then
+		DOCKER_DB_ROOT_PASSWORD=`pwgen 16 1`
+		echo "[i] MySQL root Password: $DOCKER_DB_ROOT_PASSWORD"
 	fi
-
-	MYSQL_DATABASE=${MYSQL_DATABASE:-""}
-	MYSQL_USER=${MYSQL_USER:-""}
-	MYSQL_PASSWORD=${MYSQL_PASSWORD:-""}
 
 	tfile=`mktemp`
 	if [ ! -f "$tfile" ]; then
@@ -45,26 +41,21 @@ else
 	cat << EOF > $tfile
 USE mysql;
 FLUSH PRIVILEGES ;
-GRANT ALL ON *.* TO 'root'@'%' identified by '$MYSQL_ROOT_PASSWORD' WITH GRANT OPTION ;
-GRANT ALL ON *.* TO 'root'@'localhost' identified by '$MYSQL_ROOT_PASSWORD' WITH GRANT OPTION ;
-SET PASSWORD FOR 'root'@'localhost'=PASSWORD('${MYSQL_ROOT_PASSWORD}') ;
+GRANT ALL ON *.* TO 'root'@'%' identified by '$DOCKER_DB_ROOT_PASSWORD' WITH GRANT OPTION ;
+GRANT ALL ON *.* TO 'root'@'localhost' identified by '$DOCKER_DB_ROOT_PASSWORD' WITH GRANT OPTION ;
+SET PASSWORD FOR 'root'@'localhost'=PASSWORD('$DOCKER_DB_ROOT_PASSWORD') ;
 DROP DATABASE IF EXISTS test ;
 FLUSH PRIVILEGES ;
 EOF
 
-	if [ "$MYSQL_DATABASE" != "" ]; then
-	    echo "[i] Creating database: $MYSQL_DATABASE"
-		if [ "$MYSQL_CHARSET" != "" ] && [ "$MYSQL_COLLATION" != "" ]; then
-			echo "[i] with character set [$MYSQL_CHARSET] and collation [$MYSQL_COLLATION]"
-			echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET $MYSQL_CHARSET COLLATE $MYSQL_COLLATION;" >> $tfile
-		else
-			echo "[i] with character set: 'utf8' and collation: 'utf8_general_ci'"
-			echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8 COLLATE utf8_general_ci;" >> $tfile
-		fi
+	if [ "$DOCKER_DB_NAME" != "" ]; then
+	    echo "[i] Creating database: $DOCKER_DB_NAME"
+        echo "[i] with character set: 'utf8' and collation: 'utf8_general_ci'"
+        echo "CREATE DATABASE IF NOT EXISTS \`$DOCKER_DB_NAME\` CHARACTER SET utf8 COLLATE utf8_general_ci;" >> $tfile
 
-	 if [ "$MYSQL_USER" != "" ]; then
-		echo "[i] Creating user: $MYSQL_USER with password $MYSQL_PASSWORD"
-		echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $tfile
+	 if [ "$DOCKER_DB_USER" != "" ]; then
+		echo "[i] Creating user: $DOCKER_DB_USER with password $DOCKER_DB_PASSWORD"
+		echo "GRANT ALL ON \`$DOCKER_DB_NAME\`.* to '$DOCKER_DB_USER'@'%' IDENTIFIED BY '$DOCKER_DB_PASSWORD';" >> $tfile
 	    fi
 	fi
 

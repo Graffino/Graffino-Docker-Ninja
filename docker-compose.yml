@@ -2,37 +2,63 @@ version: '3.8'
 
 services:
     php-fpm:
-        image: graffino/ninja_php:v1
+        image: graffino/php:v1
         build:
             context: .
             dockerfile: .docker/php/Dockerfile
+            args:
+                DOCKER_PHP_EXTENSIONS: ${DOCKER_PHP_EXTENSIONS}
         volumes:
-            - ./:/var/www
+            - ./:/var/www:rw
             - ./.docker/logs/php-fpm/:/var/log/php-fpm/
+            - ./.docker/logs/cron/:/var/log/cron/
         networks:
             - servers
+            - proxy
         ports:
-            - '9001:9001'
-            - '9000:9000'
+            - '${DOCKER_PHP_XDEBUG_EXPOSED_PORT}:${DOCKER_PHP_XDEBUG_PORT}'
+            - '${DOCKER_PHP_EXPOSED_PORT}:${DOCKER_PHP_PORT}'
+        env_file:
+            - .env
         depends_on:
             - mariadb
     nginx:
-        image: graffino/ninja_nginx:v1
+        image: graffino/nginx:v1
         build:
             context: .
             dockerfile: .docker/nginx/Dockerfile
         volumes:
-            - ./:/var/www
+            - ./:/var/www:rw
             - ./.docker/logs/nginx/:/var/log/nginx
             - ./.docker/nginx/conf.d:/etc/nginx/templates
         networks:
             - servers
+            - proxy
         ports:
-            - '8080:80'
+            - '${DOCKER_NGINX_EXPOSED_PORT}:${DOCKER_NGINX_PORT}'
+        env_file:
+            - .env
         depends_on:
             - php-fpm
+        labels:
+            - traefik.enable=true
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=http
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${TRAEFIK_HOSTNAME}`)
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares=traefik-auth
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.entrypoints=https
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.rule=Host(`${TRAEFIK_HOSTNAME}`)
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.tls=true
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.tls.certresolver=${TRAEFIK_RESOLVER}
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.tls.domains[0].main=${TRAEFIK_HOSTNAME}
+            # - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.tls.domains[0].sans=${TRAEFIK_DOMAIN}
+            - traefik.http.routers.${COMPOSE_PROJECT_NAME}-secure.middlewares=traefik-auth
+            - traefik.http.middlewares.https_redirect.redirectscheme.scheme=https
+            - traefik.http.middlewares.https_redirect.redirectscheme.permanent=true
+            - traefik.http.middlewares.${COMPOSE_PROJECT_NAME}-auth.basicauth.users=${TRAEFIK_USER}:${TRAEFIK_PASSWORD}
+            - traefik.http.services.${COMPOSE_PROJECT_NAME}-secure.loadbalancer.server.port=80
+
     mariadb:
-        image: graffino/ninja_mariadb:v1
+        image: graffino/mariadb:v1
         build:
             context: .
             dockerfile: .docker/mariadb/Dockerfile
@@ -42,14 +68,15 @@ services:
         networks:
             - servers
         ports:
-            - '8306:3306'
-configs:
-    env_config:
-        file: ./.env
+            - '${DOCKER_DB_EXPOSED_PORT}:${DOCKER_DB_PORT}'
+        env_file:
+            - .env
 
 networks:
     servers:
         driver: bridge
+    proxy:
+        external: true
 
 volumes:
     mariadb:
