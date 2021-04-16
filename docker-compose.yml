@@ -10,6 +10,7 @@ services:
                 DOCKER_PHP_EXTENSIONS: ${DOCKER_PHP_EXTENSIONS}
         volumes:
             - ./:/var/www:rw
+            - /var/www/node_modules
             - ./.docker/logs/php-fpm/:/var/log/php-fpm/
             - ./.docker/logs/cron/:/var/log/cron/
         networks:
