@@ -64,6 +64,8 @@ RUN crontab /tmp/crontab
 
 WORKDIR /var/www/
 
+VOLUME /var/www/node_modules
+
 EXPOSE ${DOCKER_PHP_EXPOSED_PORT}
 
 CMD ["php-fpm"]
