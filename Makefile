@@ -1,22 +1,22 @@
 include .env
 export
 
-CONTAINER_NGINX=docker compose exec -T nginx sh -c
-CONTAINER_PHP=docker compose exec -T php-fpm sh -c
-CONTAINER_MARIADB=docker compose exec -T mariadb sh -c
+CONTAINER_NGINX=docker-compose exec -T nginx sh -c
+CONTAINER_PHP=docker-compose exec -T php-fpm sh -c
+CONTAINER_MARIADB=docker-compose exec -T mariadb sh -c
 
 .PHONY: start
 start:
-	docker compose up -d
+	docker-compose up -d
 
 .PHONY: stop
 stop:
-	docker compose -f docker-compose.yml down
+	docker-compose -f docker-compose.yml down
 
 .PHONY: setup
 setup:
 	make permissions
-	docker compose up --build -d
+	docker-compose up --build -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
 	$(CONTAINER_PHP) 'yarn composer:update'
@@ -38,7 +38,7 @@ staging-test:
 .PHONY: production
 production:
 	make permissions
-	docker compose up -d
+	docker-compose up -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
 	$(CONTAINER_PHP) 'yarn composer:update'
@@ -114,13 +114,13 @@ ssh-mariadb:
 
 .PHONY: rebuild-nginx
 rebuild-nginx:
-	docker compose up -d --no-deps  --force-recreate --build nginx
+	docker-compose up -d --no-deps  --force-recreate --build nginx
 
 .PHONY: rebuild-php
 rebuild-php:
-	docker compose up -d --no-deps  --force-recreate --build php-fpm
+	docker-compose up -d --no-deps  --force-recreate --build php-fpm
 
 .PHONY: rebuild-mariadb
 rebuild-mariadb:
-	docker compose up -d --no-deps  --force-recreate --build mariadb
+	docker-compose up -d --no-deps  --force-recreate --build mariadb
 
