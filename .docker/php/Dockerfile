@@ -29,7 +29,7 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions $(eval echo ${DOCKER_PHP_EXTENSIONS})
 
 # Development Tools
-RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm
+RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg-turbo-dev
 
 # Git
 RUN apk add git
@@ -63,6 +63,8 @@ RUN crontab /tmp/crontab
 
 
 WORKDIR /var/www/
+
+VOLUME /var/www/node_modules
 
 EXPOSE ${DOCKER_PHP_EXPOSED_PORT}
 
