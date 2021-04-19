@@ -17,7 +17,7 @@ insert_final_newline = false
 
 [*.yml]
 indent_size = 4
-indent_style = tab
+indent_style = space
 
 [Makefile]
 indent_size = 4
