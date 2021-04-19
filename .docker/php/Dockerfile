@@ -35,7 +35,7 @@ RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg-turbo-d
 RUN apk add git
 
 # Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=2.0.11
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Add Oauth Token for Composer
 RUN composer config -g github-oauth.github.com ${DOCKER_COMPOSER_GIT_TOKEN}
