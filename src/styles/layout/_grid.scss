@@ -138,24 +138,24 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
   padding-right: $columns-gutter * 0.5;
   padding-left: $columns-gutter * 0.5;
 
+  @for $column from 1 through $max-columns {
+    &.-spans-#{$column} {
+      flex-basis: 100% / $max-columns * $column;
+      max-width: 100% / $max-columns * $column;
+    }
+  }
+
+  @for $column from 0 through $max-columns {
+    &.-offsets-#{$column} {
+      @if $column==0 {
+        margin-left: 0;
+      } @else {
+        margin-left: 100% / $max-columns * $column;
+      }
+    }
+  }
+
   @each $name, $size in $breakpoints {
-    @for $column from 1 through $max-columns {
-      &.-spans-#{$column} {
-        flex-basis: 100% / $max-columns * $column;
-        max-width: 100% / $max-columns * $column;
-      }
-    }
-
-    @for $column from 0 through $max-columns {
-      &.-offsets-#{$column} {
-        @if $column==0 {
-          margin-left: 0;
-        } @else {
-          margin-left: 100% / $max-columns * $column;
-        }
-      }
-    }
-
     @for $column from 1 through $max-columns {
       &.-spans-#{$column}-#{$name} {
         @media only screen and (max-width: $size) {
