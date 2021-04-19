@@ -95,6 +95,10 @@ clean:
 	rm -rf ./dist-wp/
 	rm -rf ./dist/
 
+.PHONY: clean-force
+clean-force:
+	sudo make clean
+
 .PHONY: ssh-nginx
 ssh-nginx:
 	docker exec -it ${COMPOSE_PROJECT_NAME}_nginx_1 /bin/sh

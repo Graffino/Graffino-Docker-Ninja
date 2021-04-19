@@ -8,6 +8,6 @@ RUN apk add mc
 
 EXPOSE ${DOCKER_NGINX_PORT}
 
-WORKDIR /var/www/public
+WORKDIR /var/www/
 
 CMD ["nginx", "-g", "daemon off;"]
