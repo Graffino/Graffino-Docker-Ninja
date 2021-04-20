@@ -16,6 +16,7 @@ stop:
 .PHONY: setup
 setup:
 	make permissions
+	docker network create proxy || true
 	docker-compose up --build -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
