@@ -1,4 +1,4 @@
-FROM php:8.0.3-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 ENV DOCKER_PHP_XDEBUG_MODE=${DOCKER_PHP_XDEBUG_MODE:-"off"}
 ENV DOCKER_PHP_ERRORS=${DOCKER_PHP_ERRORS:-"off"}
@@ -7,7 +7,8 @@ ARG DOCKER_PHP_EXTENSIONS
 ENV DOCKER_PHP_EXTENSIONS=${DOCKER_PHP_EXTENSIONS:-"gd mysqli bcmath pdo_mysql zip xdebug"}
 ENV DOCKER_PHP_UPLOAD_SIZE=${DOCKER_PHP_UPLOAD_SIZE:-"32M"}
 
-ENV DOCKER_COMPOSER_GIT_TOKEN=${DOCKER_COMPOSER_GIT_TOKEN:-"c5bac6c5abf9f959876405ad6f77e1b89675fb40"}
+ARG DOCKER_COMPOSER_GIT_TOKEN
+ENV DOCKER_COMPOSER_GIT_TOKEN=${DOCKER_COMPOSER_GIT_TOKEN:-""}
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
@@ -29,7 +30,7 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions $(eval echo ${DOCKER_PHP_EXTENSIONS})
 
 # Development Tools
-RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg-turbo-dev
+RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg jpeg-dev libjpeg-turbo-dev
 
 # Git
 RUN apk add git
