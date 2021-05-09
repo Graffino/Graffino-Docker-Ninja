@@ -29,4 +29,4 @@ vendor
 .docker/logs/mariadb/*
 .docker/logs/cron/*
 .docker/logs/nginx/*
-.docker/logs/redis/*
+

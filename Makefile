@@ -68,7 +68,7 @@ permissions:
 
 .PHONY: reset
 reset:
-	make stop
+	docker-compose -f docker-compose.yml down
 	docker system prune --force
 	rm -rf ./.docker/logs/cron/*
 	rm -rf ./.docker/logs/mariadb/*
@@ -84,7 +84,7 @@ reset:
 
 .PHONY: clean
 clean:
-	make stop
+	docker-compose -f docker-compose.yml down
 	docker system prune --all --volumes --force
 	rm -rf ./.docker/logs/cron/*
 	rm -rf ./.docker/logs/mariadb/*

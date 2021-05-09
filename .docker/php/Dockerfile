@@ -1,4 +1,4 @@
-FROM php:8.0.3-fpm-alpine
+FROM php:7.4-fpm-alpine
 
 ENV DOCKER_PHP_XDEBUG_MODE=${DOCKER_PHP_XDEBUG_MODE:-"off"}
 ENV DOCKER_PHP_ERRORS=${DOCKER_PHP_ERRORS:-"off"}
@@ -30,7 +30,7 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
     install-php-extensions $(eval echo ${DOCKER_PHP_EXTENSIONS})
 
 # Development Tools
-RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg-turbo-dev
+RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg jpeg-dev libjpeg-turbo-dev
 
 # Git
 RUN apk add git

@@ -1,66 +1,73 @@
 {
-  "id": "backstop_default",
-  "viewports": [{
-      "label": "mobile-medium",
-      "width": 375,
-      "height": 667
-    },
-    {
-      "label": "tablet",
-      "width": 768,
-      "height": 1024
-    },
-    {
-      "label": "desktop-small",
-      "width": 1024,
-      "height": 768
-    },
-    {
-      "label": "desktop-medium",
-      "width": 1280,
-      "height": 720
-    },
-    {
-      "label": "desktop-large",
-      "width": 1920,
-      "height": 1080
-    }
-  ],
-  "onBeforeScript": "puppet/onBefore.js",
-  "onReadyScript": "puppet/onReady.js",
-  "scenarios": [{
-    "label": "BackstopJS Homepage",
-    "cookiePath": "backstop_data/engine_scripts/cookies.json",
-    "url": "http://ninja.graffino.dev",
-    "referenceUrl": "",
-    "readyEvent": "",
-    "readySelector": "",
-    "delay": 0,
-    "hideSelectors": [],
-    "removeSelectors": [],
-    "hoverSelector": "",
-    "clickSelector": "",
-    "postInteractionWait": 0,
-    "selectors": [],
-    "selectorExpansion": true,
-    "expect": 0,
-    "misMatchThreshold": 0.1,
-    "requireSameDimensions": true
-  }],
-  "paths": {
-    "bitmaps_reference": "backstop_data/bitmaps_reference",
-    "bitmaps_test": "backstop_data/bitmaps_test",
-    "engine_scripts": "backstop_data/engine_scripts",
-    "html_report": "backstop_data/html_report",
-    "ci_report": "backstop_data/ci_report"
-  },
-  "report": ["browser"],
-  "engine": "puppeteer",
-  "engineOptions": {
-    "args": ["--no-sandbox"]
-  },
   "asyncCaptureLimit": 5,
   "asyncCompareLimit": 50,
   "debug": false,
-  "debugWindow": false
+  "debugWindow": false,
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "id": "backstop_default",
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "ci_report": "backstop_data/ci_report",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report"
+  },
+  "report": [
+    "browser"
+  ],
+  "scenarios": [
+    {
+      "clickSelector": "",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "delay": 0,
+      "expect": 0,
+      "hideSelectors": [],
+      "hoverSelector": "",
+      "label": "BackstopJS Homepage",
+      "misMatchThreshold": 0.1,
+      "postInteractionWait": 0,
+      "readyEvent": "",
+      "readySelector": "",
+      "referenceUrl": "",
+      "removeSelectors": [],
+      "requireSameDimensions": true,
+      "selectorExpansion": true,
+      "selectors": [],
+      "url": "http://ninja-wordpress.graffino.dev"
+    }
+  ],
+  "viewports": [
+    {
+      "height": 667,
+      "label": "mobile-medium",
+      "width": 375
+    },
+    {
+      "height": 1024,
+      "label": "tablet",
+      "width": 768
+    },
+    {
+      "height": 768,
+      "label": "desktop-small",
+      "width": 1024
+    },
+    {
+      "height": 720,
+      "label": "desktop-medium",
+      "width": 1280
+    },
+    {
+      "height": 1080,
+      "label": "desktop-large",
+      "width": 1920
+    }
+  ]
 }
