@@ -15,9 +15,11 @@ const autoInitComponents = () => {
     Object.keys(element.dataset)
       .filter((prop) => prop.includes('prop'))
       .map((key) => {
-        const propKey = `${key.replace('prop', '').charAt(0).toLowerCase()}${key
+        // prettier-ignore
+        const propKey = `${key
           .replace('prop', '')
-          .substring(1)}`
+          .charAt(0)
+          .toLowerCase()}${key.replace('prop', '').substring(1)}`
         props = { ...props, [`${propKey}`]: element.dataset[key] }
       })
 
