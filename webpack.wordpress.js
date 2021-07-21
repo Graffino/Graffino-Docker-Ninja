@@ -103,73 +103,56 @@ module.exports = {
       {
         test: /\.(woff|woff2)$/,
         include: path.resolve(__dirname, 'src/fonts/'),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'fonts/[name].[ext]',
-              publicPath: '../'
-            }
-          }
-        ]
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name].[ext]'
+        }
       },
       {
         test: /\.svg$/,
         include: path.resolve(__dirname, 'src/icons/'),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'icons/',
-              publicPath: '../icons/'
-            }
-          },
-          {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                {
-                  name: 'removeAttrs',
-                  params: {}
-                }
-              ]
-            }
+        type: 'asset/resource',
+        generator: {
+          filename: 'icons/[name][ext]'
+        },
+        use: {
+          loader: 'svgo-loader',
+          options: {
+            plugins: [
+              {
+                name: 'removeAttrs',
+                params: {}
+              }
+            ]
           }
-        ]
+        }
       },
       {
         test: /\.(png|svg|jpe?g|gif)$/,
         include: path.resolve(__dirname, 'src/images/'),
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: '../images/'
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              optipng: {
-                enabled: true
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false
-              }
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        },
+        use: {
+          loader: 'image-webpack-loader',
+          options: {
+            mozjpeg: {
+              progressive: true,
+              quality: 65
+            },
+            optipng: {
+              enabled: true
+            },
+            pngquant: {
+              quality: [0.65, 0.9],
+              speed: 4
+            },
+            gifsicle: {
+              interlaced: false
             }
           }
-        ]
+        }
       }
     ]
   },

@@ -40,7 +40,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "5.9.5"
+        "version": "5.9.9"
       },
       "type": "package"
     },
@@ -137,7 +137,7 @@
   ],
   "require": {
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.9",
-    "johnpbloch/wordpress": "^5.7",
+    "johnpbloch/wordpress": "^5.8",
     "johnpbloch/wordpress-core-installer": "^2.0",
     "vlucas/phpdotenv": "^4.1",
     "wp-cli/wp-cli": "^2.4",
@@ -146,11 +146,11 @@
     "wpackagist-plugin/custom-post-type-maker": "^1.1",
     "wpackagist-plugin/debug-bar": "^1.1",
     "wpackagist-plugin/force-regenerate-thumbnails": "^2.0",
-    "wpackagist-plugin/google-site-kit": "^1.28",
-    "wpackagist-plugin/redirection": "^5.0",
+    "wpackagist-plugin/google-site-kit": "^1.31",
+    "wpackagist-plugin/redirection": "^5.1",
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/smtp-mailer": "1.1.2",
-    "wpackagist-plugin/wordpress-seo": "^16.0",
+    "wpackagist-plugin/wordpress-seo": "^16.2",
     "wpackagist-plugin/wp-super-cache": "^1.7",
     "wpml/acfml": "^1.8",
     "wpml/sitepress-multilingual-cms": "^4.4",
