@@ -21,6 +21,7 @@ The feature packed, lightning fast boilerplate we use at [Graffino](https://graf
   - [Docker environment](#docker-environment)
   - [Other tools](#other-tools)
   - [Default Password](#default-password)
+  - [Important](#important)
 
 ## Features
 
@@ -120,3 +121,8 @@ We bundled some other cool scripts and tools into Ninja: <https://github.com/Gra
 username: graffino
 password: js#O^P#S3CYp$SpwIu
 ```
+
+## Important
+
+- keep `eslint-webpack-plugin` at `2.5.4` until fix: <https://github.com/webpack-contrib/eslint-webpack-plugin/issues/106>
+- keep `stylelint-webpack-plugin` at `2.2.2` until fix: <https://github.com/webpack-contrib/stylelint-webpack-plugin/issues/239>
