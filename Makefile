@@ -24,7 +24,7 @@ setup:
 	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
-	$(CONTAINER_PHP) 'yarn wp:sync:uploads --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:symlink:uploads --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
 
 .PHONY: staging
@@ -46,7 +46,7 @@ production:
 	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
-	$(CONTAINER_PHP) 'yarn wp:sync:uploads --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:symlink:uploads --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
 
 .PHONY: composer

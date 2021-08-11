@@ -76,9 +76,7 @@ const migrate = async () => {
       console.log(`    => Starting migration of "${Migration}.sql" file...`)
 
       // Read sql file and split it by newline
-      const query = fs.readFileSync(`${MigrationFile}`, {
-        encoding: 'UTF-8'
-      })
+      const query = fs.readFileSync(`${MigrationFile}`)
 
       connection
         .query(query)

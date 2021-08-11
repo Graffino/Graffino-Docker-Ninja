@@ -93,7 +93,23 @@ module.exports = merge(common, {
         /^-size-*/,
         /^animate__*/,
         /^-profile-*/,
-        /^-weight-*/
+        /^wp-/,
+        /^hs-/,
+        /^hs_/,
+        /^grecaptcha-/,
+        /^submitted-/,
+        /^legal-/,
+        /^plyr.*/,
+        /^sprite.*/,
+        /^icon.*/,
+        /^label.*/,
+        /iframe/,
+        /^hbspt-/,
+        /^cta_/,
+        /^-weight-*/,
+        /ol/,
+        /h4/,
+        /^inputs-list*/
       ]
     }),
     new ImageminPlugin({

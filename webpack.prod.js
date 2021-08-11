@@ -155,7 +155,22 @@ module.exports = merge(common, {
         /^-weight-*/,
         /^-size-*/,
         /^animate__*/,
-        /^-profile-*/
+        /^-profile-*/,
+        /^wp-/,
+        /^hs-/,
+        /^hs_/,
+        /^grecaptcha-/,
+        /^submitted-/,
+        /^legal-/,
+        /^plyr.*/,
+        /^sprite.*/,
+        /^icon.*/,
+        /^label.*/,
+        /iframe/,
+        /^hbspt-/,
+        /^cta_/,
+        /^-weight-*/,
+        /^inputs-list*/
       ]
     }),
     new ImageminPlugin({

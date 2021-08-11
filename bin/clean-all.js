@@ -30,7 +30,7 @@ async function start() {
   if (process.argv[2] !== '--no-confirm') {
     confirmation = await yesno({
       question:
-        '\n[Ninja] Clean All => Clean all temporary files\n\n    WARNING:\n    Cleaning all removes all temporary files, \n    Composer & Node packages, WordPress installation, including the wp-dist/wp-content/uploads folder. \n    Make sure to run `wp:sync` first! \n\n    => Do you want to continue? (Y/N)\n'
+        '\n[Ninja] Clean All => Clean all temporary files\n\n    WARNING:\n    Cleaning all removes all temporary files, \n    Composer & Node packages, WordPress installation.\n\n    => Do you want to continue? (Y/N)\n'
     })
   } else {
     console.log(

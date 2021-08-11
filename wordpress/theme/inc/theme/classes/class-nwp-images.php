@@ -48,6 +48,15 @@ class NWP_Images {
 		return 85;
 	}
 
+		/**
+	 * Switch processing engine from Imagick to GD
+	 *
+	 * @return void
+	 */
+	function switch_processing_engine() {
+		return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
+	}
+
 	/**
 	 * Set the max image width
 	 *

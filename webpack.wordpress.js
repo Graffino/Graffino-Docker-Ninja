@@ -216,8 +216,9 @@ module.exports = {
         },
         {
           from: path.resolve(__dirname, 'dist-wp/wp-content/uploads/'),
-          to: path.resolve(__dirname, 'wordpress/uploads'),
+          to: path.resolve(__dirname, 'wordpress/uploads/'),
           toType: 'dir',
+          noErrorOnMissing: true,
           force: true
         }
       ]
