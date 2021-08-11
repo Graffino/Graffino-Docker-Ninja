@@ -12,8 +12,7 @@ nohup.out
 npm-debug.log
 yarn-error.log
 
-wordpress/uploads/alm_templates
-wordpress/uploads/complianz/tmp
+wordpress/uploads/
 
 backstop_data/bitmaps_test/*
 backstop_data/html_report/*

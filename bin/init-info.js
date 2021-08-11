@@ -9,9 +9,8 @@ const getTime = require('./set-cache-busting.js')
 
 const promptUserForInfo = async () => {
   const pathComponents = __dirname.split('/')
-  const projectfolderName = pathComponents[
-    pathComponents.length - 2
-  ].toLocaleLowerCase()
+  const projectfolderName =
+    pathComponents[pathComponents.length - 2].toLocaleLowerCase()
   let name = ''
 
   const generalQuestions = [
