@@ -151,6 +151,7 @@
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/smtp-mailer": "1.1.2",
     "wpackagist-plugin/wordpress-seo": "^16.2",
+    "wpackagist-plugin/wp-sentry-integration": "^4.5",
     "wpackagist-plugin/wp-super-cache": "^1.7",
     "wpml/acfml": "^1.8",
     "wpml/sitepress-multilingual-cms": "^4.4",
