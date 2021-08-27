@@ -18,9 +18,10 @@ services:
         networks:
             - servers
             - proxy
-        ports:
-            - '${DOCKER_PHP_XDEBUG_EXPOSED_PORT}:${DOCKER_PHP_XDEBUG_PORT}'
-            - '${DOCKER_PHP_EXPOSED_PORT}:${DOCKER_PHP_PORT}'
+        # Exposed ports are disabled by default you may enable them below
+        # ports:
+        #   - '${DOCKER_PHP_XDEBUG_EXPOSED_PORT}:${DOCKER_PHP_XDEBUG_PORT}'
+        #    - '${DOCKER_PHP_EXPOSED_PORT}:${DOCKER_PHP_PORT}'
         env_file:
             - .env
         depends_on:
@@ -39,8 +40,9 @@ services:
         networks:
             - servers
             - proxy
-        ports:
-            - '${DOCKER_NGINX_EXPOSED_PORT}:${DOCKER_NGINX_PORT}'
+        # Exposed ports are disabled by default you may enable them below
+        # ports:
+        #    - '${DOCKER_NGINX_EXPOSED_PORT}:${DOCKER_NGINX_PORT}'
         env_file:
             - .env
         depends_on:
