@@ -4,6 +4,7 @@ const path = require('path')
 const unzipper = require('unzipper')
 const yesno = require('yesno')
 const mariadb = require('mariadb')
+const languageEncoding = require('detect-file-encoding-and-language')
 
 // Get vars from env
 require('dotenv').config()
@@ -21,6 +22,11 @@ const app = process
 const MigrationFile = path.join(
   __dirname,
   `../wordpress/migrations/${process.env.DB_MIGRATION}.sql`
+)
+
+// Check file encoding
+const MigrationEncoding = languageEncoding(MigrationFile).then(
+  (fileInfo) => fileInfo.encoding
 )
 
 // Check if DB connection data is set
@@ -69,14 +75,16 @@ const migrate = async () => {
     password: DatabasePassword,
     multipleStatements: true
   })
-
+  const encoding = await MigrationEncoding
   pool
     .getConnection()
     .then((connection) => {
       console.log(`    => Starting migration of "${Migration}.sql" file...`)
 
       // Read sql file and split it by newline
-      const query = fs.readFileSync(`${MigrationFile}`)
+      const query = fs.readFileSync(`${MigrationFile}`, {
+        encoding: encoding
+      })
 
       connection
         .query(query)
