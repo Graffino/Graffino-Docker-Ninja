@@ -12,8 +12,11 @@ const createSymlink = async () => {
     path.resolve(__dirname, '../dist-wp/wp-content/uploads')
   )
     .then(console.log('    => Symlink has been created...'))
-    .catch((err) => console.error(err))
-    .then(console.log('    => Syncing from repo to dist finished...'))
+    .catch((err) => {
+      console.log(
+        `\n[Ninja] Symlink Uploads => No symlink can be created.${err}\n`
+      )
+    })
 }
 
 // Start async
@@ -35,12 +38,8 @@ async function start() {
   // If yes
   if (confirmation) {
     // Wait for sync
-    try {
-      await Promise.all(createSymlink())
-      console.log('\n[Ninja] Symlink Uploads => Finished.\n')
-    } catch (e) {
-      console.log('\n[Ninja] Symlink Uploads => No symlink can be created.\n')
-    }
+    await createSymlink()
+    console.log('\n[Ninja] Symlink Uploads => Finished.\n')
   } else {
     console.log(
       '\n[Ninja] Symlink Uploads => Stopping ... no changes were made.\n'
