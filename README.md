@@ -124,5 +124,4 @@ password: js#O^P#S3CYp$SpwIu
 
 ## Important
 
-- keep `eslint-webpack-plugin` at `2.5.4` until fix: <https://github.com/webpack-contrib/eslint-webpack-plugin/issues/106>
-- keep `stylelint-webpack-plugin` at `2.2.2` until fix: <https://github.com/webpack-contrib/stylelint-webpack-plugin/issues/239>
+- keep 'svg-spritemap-webpack-plugin' at '4.1.0' for now, otherwise it would cause this webpack error at build: 'caused by plugins in Compilation.hooks.processAssets TypeError: Cannot read property 'includes' of undefined';

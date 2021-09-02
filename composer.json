@@ -40,7 +40,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "5.9.9"
+        "version": "5.10.2"
       },
       "type": "package"
     },
@@ -55,7 +55,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "1.8.2"
+        "version": "1.9.0"
       },
       "type": "package"
     },
@@ -70,7 +70,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "4.4.10"
+        "version": "4.4.12"
       },
       "type": "package"
     },
@@ -85,7 +85,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "2.6.4"
+        "version": "2.6.5"
       },
       "type": "package"
     },
@@ -100,7 +100,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "3.1.8"
+        "version": "3.1.10"
       },
       "type": "package"
     },
@@ -115,7 +115,7 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "2.10.6"
+        "version": "2.10.8"
       },
       "type": "package"
     },
@@ -130,28 +130,28 @@
           "composer/installers": "^1.10"
         },
         "type": "wordpress-plugin",
-        "version": "2.0.0"
+        "version": "2.0.1"
       },
       "type": "package"
     }
   ],
   "require": {
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.9",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.10",
     "johnpbloch/wordpress": "^5.8",
     "johnpbloch/wordpress-core-installer": "^2.0",
     "vlucas/phpdotenv": "^4.1",
-    "wp-cli/wp-cli": "^2.4",
-    "wpackagist-plugin/ajax-load-more": "^5.4",
-    "wpackagist-plugin/complianz-gdpr": "^5.0",
+    "wp-cli/wp-cli": "^2.5",
+    "wpackagist-plugin/ajax-load-more": "^5.5",
+    "wpackagist-plugin/complianz-gdpr": "^5.3",
     "wpackagist-plugin/custom-post-type-maker": "^1.1",
     "wpackagist-plugin/debug-bar": "^1.1",
-    "wpackagist-plugin/google-site-kit": "^1.31",
+    "wpackagist-plugin/google-site-kit": "^1.40",
     "wpackagist-plugin/redirection": "^5.1",
     "wpackagist-plugin/regenerate-thumbnails": "^3.1",
     "wpackagist-plugin/safe-svg": "^1.9",
     "wpackagist-plugin/smtp-mailer": "1.1.2",
-    "wpackagist-plugin/wordpress-seo": "^16.2",
-    "wpackagist-plugin/wp-sentry-integration": "^4.5",
+    "wpackagist-plugin/wordpress-seo": "^17.0",
+    "wpackagist-plugin/wp-sentry-integration": "^4.6",
     "wpackagist-plugin/wp-super-cache": "^1.7",
     "wpml/acfml": "^1.8",
     "wpml/sitepress-multilingual-cms": "^4.4",
