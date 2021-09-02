@@ -3837,6 +3837,11 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
+detect-file-encoding-and-language@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/detect-file-encoding-and-language/-/detect-file-encoding-and-language-2.1.0.tgz#6a930889b429009b337ec82d5c5342d243f69b3c"
+  integrity sha512-gN+I5fAasgDKJ0XXZQUPh1vC6cTLsMhcTqu/eWKiBx5ikW5WwTZnMdI5wjSQ6q1KXghjUHst5f426x0Cst15/Q==
+
 detect-libc@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
