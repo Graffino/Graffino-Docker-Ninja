@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7-fpm-alpine
 
 ENV DOCKER_PHP_XDEBUG_MODE=${DOCKER_PHP_XDEBUG_MODE:-"off"}
 ENV DOCKER_PHP_ERRORS=${DOCKER_PHP_ERRORS:-"off"}
