@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fad3ca32bd5939fbed9cf05a35eeeb9",
+    "content-hash": "5e31e903bfc83bec30ac8c6a616148fe",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -14,44 +14,41 @@
                 "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t={%version}"
             },
             "require": {
-                "composer/installers": "^1.10"
+                "composer/installers": "^2.0"
             },
             "type": "wordpress-plugin"
         },
         {
             "name": "composer/installers",
-            "version": "v1.11.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "ae03311f45dfe194412081526be2e003960df74b"
+                "reference": "5a546a8cc4607f38cfbd8e20b3de234e45b2110f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/ae03311f45dfe194412081526be2e003960df74b",
-                "reference": "ae03311f45dfe194412081526be2e003960df74b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/5a546a8cc4607f38cfbd8e20b3de234e45b2110f",
+                "reference": "5a546a8cc4607f38cfbd8e20b3de234e45b2110f",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0 || ^2.0"
-            },
-            "replace": {
-                "roundcube/plugin-installer": "*",
-                "shama/baton": "*"
+                "composer-plugin-api": "^1.0 || ^2.0",
+                "php": "^7.2 || ^8.0"
             },
             "require-dev": {
                 "composer/composer": "1.6.* || ^2.0",
                 "composer/semver": "^1 || ^3",
                 "phpstan/phpstan": "^0.12.55",
                 "phpstan/phpstan-phpunit": "^0.12.16",
-                "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.3"
+                "symfony/phpunit-bridge": "^5.3",
+                "symfony/process": "^5"
             },
             "type": "composer-plugin",
             "extra": {
                 "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
-                    "dev-main": "1.x-dev"
+                    "dev-main": "2.x-dev"
                 }
             },
             "autoload": {
@@ -73,7 +70,6 @@
             "description": "A multi-framework Composer library installer",
             "homepage": "https://composer.github.io/installers/",
             "keywords": [
-                "Craft",
                 "Dolibarr",
                 "Eliasis",
                 "Hurad",
@@ -94,7 +90,6 @@
                 "Whmcs",
                 "WolfCMS",
                 "agl",
-                "aimeos",
                 "annotatecms",
                 "attogram",
                 "bitrix",
@@ -113,7 +108,6 @@
                 "grav",
                 "installer",
                 "itop",
-                "joomla",
                 "known",
                 "kohana",
                 "laravel",
@@ -128,6 +122,7 @@
                 "modx",
                 "moodle",
                 "osclass",
+                "pantheon",
                 "phpbb",
                 "piwik",
                 "ppi",
@@ -140,9 +135,7 @@
                 "silverstripe",
                 "sydes",
                 "sylius",
-                "symfony",
                 "tastyigniter",
-                "typo3",
                 "wordpress",
                 "yawik",
                 "zend",
@@ -150,7 +143,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v1.11.0"
+                "source": "https://github.com/composer/installers/tree/v2.0.0"
             },
             "funding": [
                 {
@@ -166,7 +159,68 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-28T06:42:17+00:00"
+            "time": "2021-08-04T13:56:36+00:00"
+        },
+        {
+            "name": "graham-campbell/result-type",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GrahamCampbell/Result-Type.git",
+                "reference": "84afea85c6841deeea872f36249a206e878a5de0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/84afea85c6841deeea872f36249a206e878a5de0",
+                "reference": "84afea85c6841deeea872f36249a206e878a5de0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0",
+                "phpoption/phpoption": "^1.8"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5.14 || ^7.5.20 || ^8.5.19 || ^9.5.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GrahamCampbell\\ResultType\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk"
+                }
+            ],
+            "description": "An Implementation Of The Result Type",
+            "keywords": [
+                "Graham Campbell",
+                "GrahamCampbell",
+                "Result Type",
+                "Result-Type",
+                "result"
+            ],
+            "support": {
+                "issues": "https://github.com/GrahamCampbell/Result-Type/issues",
+                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/graham-campbell/result-type",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-08-28T21:34:50+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -637,6 +691,86 @@
             "time": "2021-02-19T12:13:01+00:00"
         },
         {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.23.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "reference": "9174a3d80210dca8daa7f31fec659150bbeabfc6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.23-dev"
+                },
+                "thanks": {
+                    "name": "symfony/polyfill",
+                    "url": "https://github.com/symfony/polyfill"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.23.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-05-27T12:26:48+00:00"
+        },
+        {
             "name": "symfony/polyfill-php80",
             "version": "v1.23.1",
             "source": {
@@ -721,37 +855,39 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v4.2.0",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "da64796370fc4eb03cc277088f6fede9fde88482"
+                "reference": "b3eac5c7ac896e52deab4a99068e3f4ab12d9e56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/da64796370fc4eb03cc277088f6fede9fde88482",
-                "reference": "da64796370fc4eb03cc277088f6fede9fde88482",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/b3eac5c7ac896e52deab4a99068e3f4ab12d9e56",
+                "reference": "b3eac5c7ac896e52deab4a99068e3f4ab12d9e56",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0 || ^8.0",
-                "phpoption/phpoption": "^1.7.3",
-                "symfony/polyfill-ctype": "^1.17"
+                "ext-pcre": "*",
+                "graham-campbell/result-type": "^1.0.1",
+                "php": "^7.1.3 || ^8.0",
+                "phpoption/phpoption": "^1.7.4",
+                "symfony/polyfill-ctype": "^1.17",
+                "symfony/polyfill-mbstring": "^1.17",
+                "symfony/polyfill-php80": "^1.17"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-filter": "*",
-                "ext-pcre": "*",
-                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20"
+                "phpunit/phpunit": "^7.5.20 || ^8.5.14 || ^9.5.1"
             },
             "suggest": {
-                "ext-filter": "Required to use the boolean validator.",
-                "ext-pcre": "Required to use most of the library."
+                "ext-filter": "Required to use the boolean validator."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "5.3-dev"
                 }
             },
             "autoload": {
@@ -783,7 +919,7 @@
             ],
             "support": {
                 "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v4.2.0"
+                "source": "https://github.com/vlucas/phpdotenv/tree/v5.3.0"
             },
             "funding": [
                 {
@@ -795,7 +931,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-20T15:11:48+00:00"
+            "time": "2021-01-20T15:23:13+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
@@ -986,7 +1122,7 @@
                 "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.5.0.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/ajax-load-more/"
@@ -1004,7 +1140,7 @@
                 "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.5.3.0.1.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/complianz-gdpr/"
@@ -1022,7 +1158,7 @@
                 "url": "https://downloads.wordpress.org/plugin/custom-post-type-maker.1.1.15.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/custom-post-type-maker/"
@@ -1040,7 +1176,7 @@
                 "url": "https://downloads.wordpress.org/plugin/debug-bar.1.1.2.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/debug-bar/"
@@ -1058,7 +1194,7 @@
                 "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.40.0.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/google-site-kit/"
@@ -1076,7 +1212,7 @@
                 "url": "https://downloads.wordpress.org/plugin/redirection.5.1.3.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/redirection/"
@@ -1094,7 +1230,7 @@
                 "url": "https://downloads.wordpress.org/plugin/regenerate-thumbnails.3.1.5.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/regenerate-thumbnails/"
@@ -1112,7 +1248,7 @@
                 "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.9.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/safe-svg/"
@@ -1130,7 +1266,7 @@
                 "url": "https://downloads.wordpress.org/plugin/smtp-mailer.zip?timestamp=1626674442"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/smtp-mailer/"
@@ -1148,7 +1284,7 @@
                 "url": "https://downloads.wordpress.org/plugin/wordpress-seo.17.0.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
@@ -1166,7 +1302,7 @@
                 "url": "https://downloads.wordpress.org/plugin/wp-sentry-integration.4.6.0.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-sentry-integration/"
@@ -1184,7 +1320,7 @@
                 "url": "https://downloads.wordpress.org/plugin/wp-super-cache.1.7.4.zip"
             },
             "require": {
-                "composer/installers": "~1.0"
+                "composer/installers": "~1.0 || ~2.0"
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-super-cache/"
@@ -1197,7 +1333,7 @@
                 "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
             },
             "require": {
-                "composer/installers": "^1.10"
+                "composer/installers": "^2.0"
             },
             "type": "wordpress-plugin"
         },
@@ -1209,7 +1345,7 @@
                 "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
             },
             "require": {
-                "composer/installers": "^1.10"
+                "composer/installers": "^2.0"
             },
             "type": "wordpress-plugin"
         },
@@ -1221,7 +1357,7 @@
                 "url": "https://wpml.org/?download=3566177&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
             },
             "require": {
-                "composer/installers": "^1.10"
+                "composer/installers": "^2.0"
             },
             "type": "wordpress-plugin"
         },
@@ -1233,7 +1369,7 @@
                 "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
             },
             "require": {
-                "composer/installers": "^1.10"
+                "composer/installers": "^2.0"
             },
             "type": "wordpress-plugin"
         },
@@ -1245,7 +1381,7 @@
                 "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
             },
             "require": {
-                "composer/installers": "^1.10"
+                "composer/installers": "^2.0"
             },
             "type": "wordpress-plugin"
         }
