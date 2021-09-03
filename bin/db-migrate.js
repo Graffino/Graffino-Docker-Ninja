@@ -24,11 +24,6 @@ const MigrationFile = path.join(
   `../wordpress/migrations/${process.env.DB_MIGRATION}.sql`
 )
 
-// Check file encoding
-const MigrationEncoding = languageEncoding(MigrationFile).then(
-  (fileInfo) => fileInfo.encoding
-)
-
 // Check if DB connection data is set
 if (!DatabaseName || !DatabaseHost || !DatabaseUser) {
   console.log(
@@ -59,8 +54,11 @@ const unarchive = async () => {
     })
     .promise()
     .then(() => {
-      migrate()
       console.log(`    => Migration file "${Migration}.zip" unzipped...`)
+      migrate()
+    })
+    .catch((err) => {
+      console.log(`    => Error Log:${err}`)
     })
 }
 
@@ -75,7 +73,10 @@ const migrate = async () => {
     password: DatabasePassword,
     multipleStatements: true
   })
-  const encoding = await MigrationEncoding
+  // Check file encoding
+  const MigrationEncoding = await languageEncoding(MigrationFile).then(
+    (fileInfo) => fileInfo.encoding
+  )
   pool
     .getConnection()
     .then((connection) => {
@@ -83,7 +84,7 @@ const migrate = async () => {
 
       // Read sql file and split it by newline
       const query = fs.readFileSync(`${MigrationFile}`, {
-        encoding: encoding
+        encoding: MigrationEncoding
       })
 
       connection
@@ -133,7 +134,11 @@ async function start() {
   // If yes
   if (confirmation) {
     // Wait for unarchive to finish
-    await unarchive()
+    try {
+      await unarchive()
+    } catch (err) {
+      console.log(`    => Cannot unarchive file. Error: ${err.message}`)
+    }
   } else {
     console.log('    => Stopping ... no changes were made.')
     terminate()
