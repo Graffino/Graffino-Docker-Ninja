@@ -21,7 +21,6 @@ The feature packed, lightning fast boilerplate we use at [Graffino](https://graf
   - [Docker environment](#docker-environment)
   - [Other tools](#other-tools)
   - [Default Password](#default-password)
-  - [Important](#important)
 
 ## Features
 
@@ -121,7 +120,3 @@ We bundled some other cool scripts and tools into Ninja: <https://github.com/Gra
 username: graffino
 password: js#O^P#S3CYp$SpwIu
 ```
-
-## Important
-
-- keep 'svg-spritemap-webpack-plugin' at '4.1.0' for now, otherwise it would cause this webpack error at build: 'caused by plugins in Compilation.hooks.processAssets TypeError: Cannot read property 'includes' of undefined';
