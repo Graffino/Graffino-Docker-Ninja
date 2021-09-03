@@ -29,8 +29,8 @@ class NWP_Hooks {
 		add_action( 'after_setup_theme', array( $images, 'nwp_images' ) );
 		add_filter( 'max_srcset_image_width', array( $images, 'acf_max_srcset_image_width' ), 10, 2 );
 		add_filter( 'jpeg_quality', array( $images, 'jpeg_compression' ), 10, 2 );
-		add_filter(' wp_editor_set_quality', array( $images, 'jpeg_compression' ), 10, 2 );
-		add_filter( 'wp_image_editors', array( $images, 'switch_processing_engine' ), 10, 2);
+		add_filter( ' wp_editor_set_quality', array( $images, 'jpeg_compression' ), 10, 2 );
+		add_filter( 'wp_image_editors', array( $images, 'switch_processing_engine' ), 10, 2 );
 		/**
 		 * Restrictions
 		 */
