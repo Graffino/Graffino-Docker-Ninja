@@ -37,7 +37,7 @@
         },
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "5.10.2"
@@ -52,7 +52,7 @@
         },
         "name": "wpml/acfml",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "1.9.0"
@@ -67,7 +67,7 @@
         },
         "name": "wpml/sitepress-multilingual-cms",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "4.4.12"
@@ -82,7 +82,7 @@
         },
         "name": "wpml/wpml-media-translation",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "2.6.5"
@@ -97,7 +97,7 @@
         },
         "name": "wpml/wpml-string-translation",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "3.1.10"
@@ -112,7 +112,7 @@
         },
         "name": "wpml/wpml-translation-management",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "2.10.8"
@@ -127,7 +127,7 @@
         },
         "name": "wpml/wp-seo-multilingual",
         "require": {
-          "composer/installers": "^1.10"
+          "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
         "version": "2.0.1"
@@ -139,7 +139,7 @@
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.10",
     "johnpbloch/wordpress": "^5.8",
     "johnpbloch/wordpress-core-installer": "^2.0",
-    "vlucas/phpdotenv": "^4.1",
+    "vlucas/phpdotenv": "^5.3",
     "wp-cli/wp-cli": "^2.5",
     "wpackagist-plugin/ajax-load-more": "^5.5",
     "wpackagist-plugin/complianz-gdpr": "^5.3",
@@ -160,7 +160,7 @@
     "wpml/wpml-string-translation": "^3.1"
   },
   "require-dev": {
-    "composer/installers": "^1.10",
+    "composer/installers": "^2.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
     "ffraenz/private-composer-installer": "^5.0.1",
     "phpcompatibility/phpcompatibility-wp": "^2.1",
