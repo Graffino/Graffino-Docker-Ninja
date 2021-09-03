@@ -3,8 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const unzipper = require('unzipper')
 const yesno = require('yesno')
-const mariadb = require('mariadb')
-const languageEncoding = require('detect-file-encoding-and-language')
+const exec = require('child_process').exec
 
 // Get vars from env
 require('dotenv').config()
@@ -54,7 +53,7 @@ const unarchive = async () => {
     })
     .promise()
     .then(() => {
-      console.log(`    => Migration file "${Migration}.zip" unzipped...`)
+      console.log(`    => Migration file "${Migration}.zip" unzipped...\n`)
       migrate()
     })
     .catch((err) => {
@@ -62,47 +61,19 @@ const unarchive = async () => {
     })
 }
 
-// Load db file async
-const migrate = async () => {
-  // Connect to database
-  const pool = mariadb.createPool({
-    host: DatabaseHost,
-    port: DatabasePort,
-    database: DatabaseName,
-    user: DatabaseUser,
-    password: DatabasePassword,
-    multipleStatements: true
-  })
-  // Check file encoding
-  const MigrationEncoding = await languageEncoding(MigrationFile).then(
-    (fileInfo) => fileInfo.encoding
+const migrate = () => {
+  console.log(`    => Migrating ${Migration}.sql file to the Database...`)
+  exec(
+    `mysql -h ${DatabaseHost} -P ${DatabasePort} -u${DatabaseUser} -p${DatabasePassword} ${DatabaseName} < ${MigrationFile}`,
+    (err, stdout) => {
+      if (err) {
+        console.error(`    => Error log:\n\n${err}`)
+        return
+      }
+      console.log(`    => Migration finished successfully.\n${stdout}`)
+      terminate()
+    }
   )
-  pool
-    .getConnection()
-    .then((connection) => {
-      console.log(`    => Starting migration of "${Migration}.sql" file...`)
-
-      // Read sql file and split it by newline
-      const query = fs.readFileSync(`${MigrationFile}`, {
-        encoding: MigrationEncoding
-      })
-
-      connection
-        .query(query)
-        .then(() => {
-          console.log(`    => Migration of "${Migration}.sql" file finished...`)
-          // Run terminate()
-          terminate()
-        })
-        .catch((err) => {
-          console.log(`    => Cannot connect to database. Error: ${err.code}`)
-          // Run terminate()
-          terminate()
-        })
-    })
-    .catch((err) => {
-      console.log(` => Cannot execute querry. Error: ${err.message}`)
-    })
 }
 
 // Terminate app
