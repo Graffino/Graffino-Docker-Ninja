@@ -75,8 +75,9 @@ services:
         restart: unless-stopped
         networks:
             - servers
-        ports:
-            - '${DOCKER_DB_EXPOSED_PORT}:${DOCKER_DB_PORT}'
+        # Exposed ports are disabled by default you may enable them below
+        # ports:
+        #    - '${DOCKER_DB_EXPOSED_PORT}:${DOCKER_DB_PORT}'
         env_file:
             - .env
 
