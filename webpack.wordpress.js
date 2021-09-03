@@ -117,14 +117,7 @@ module.exports = {
         },
         use: {
           loader: 'svgo-loader',
-          options: {
-            plugins: [
-              {
-                name: 'removeAttrs',
-                params: {}
-              }
-            ]
-          }
+          options: {}
         }
       },
       {
@@ -171,7 +164,9 @@ module.exports = {
           plugins: [
             {
               name: 'removeAttrs',
-              params: {}
+              params: {
+                attrs: 'path:fill'
+              }
             }
           ]
         }
