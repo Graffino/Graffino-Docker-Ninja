@@ -13,30 +13,33 @@ const app = process
 dotenv.config()
 const remoteUser = 'assets.graffino.net'
 const remoteServer = 'connect.graffino.net'
-const remotePath = 'docroot/artifacts/' + process.env.DOCKER_HOSTNAME
-const localPath = path.join(__dirname, '../wordpress/uploads')
+const remotePath = 'docroot/artifacts/' + process.env.STAGING_ARTIFACT_PATH
+const localPath = path.join(__dirname, '../wordpress/')
 const localFile = path.join(__dirname, '../wordpress/uploads.zip')
 
 // Check if DB connection data is set
-if (!process.env.DOCKER_HOSTNAME) {
+if (!process.env.STAGING_ARTIFACT_PATH) {
   console.log(
-    '\n[Ninja] Push Uploads to Staging => Sync configuration values (DOCKER_HOSTNAME) not set. Please edit your .env file! Stopping...\n'
+    '\n[Ninja] Push Uploads to Staging => Sync configuration values (STAGING_ARTIFACT_PATH) not set. Please edit your .env file! Stopping...\n'
   )
   app.exit()
 }
 
 const zipFiles = async () => {
   console.log(`    => Archiving files\n\n`)
-  await exec(`zip -r -q ${localFile} ${localPath}`, (err, stdout) => {
-    if (err) {
-      console.error(`    => Error log:\n\n${err}`)
-      return
+  await exec(
+    `cd ${localPath} && zip -r -q uploads.zip uploads`,
+    (err, stdout) => {
+      if (err) {
+        console.error(`    => Error log:\n\n${err}`)
+        return
+      }
+      console.log(
+        `[Ninja] Push Uploads to Staging => Archving Finished. ${stdout}\n`
+      )
+      createRemoteFolder()
     }
-    console.log(
-      `[Ninja] Push Uploads to Staging => Archving Finished. ${stdout}\n`
-    )
-    createRemoteFolder()
-  })
+  )
 }
 
 const createRemoteFolder = async () => {
