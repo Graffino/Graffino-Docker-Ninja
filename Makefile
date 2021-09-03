@@ -20,7 +20,6 @@ setup:
 	docker-compose up --build -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
-	$(CONTAINER_PHP) 'yarn composer:update'
 	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
@@ -42,7 +41,6 @@ production:
 	docker-compose up -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
-	$(CONTAINER_PHP) 'yarn composer:update'
 	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
