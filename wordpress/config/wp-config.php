@@ -31,22 +31,22 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
 	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
 
-define( 'WP_HOME', $_ENV[ 'THEME_URL' ] );
-define( 'WP_SITEURL', $_ENV[ 'THEME_URL' ] );
-define( 'WP_CONTENT_URL', $_ENV[ 'THEME_URL' ] . '/wp-content' );
+define( 'WP_HOME', $_ENV['THEME_URL'] );
+define( 'WP_SITEURL', $_ENV['THEME_URL'] );
+define( 'WP_CONTENT_URL', $_ENV['THEME_URL'] . '/wp-content' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', $_ENV[ 'DB_NAME' ] );
+define( 'DB_NAME', $_ENV['DB_NAME'] );
 
 /** MySQL database username */
-define( 'DB_USER', $_ENV[ 'DB_USER' ] );
+define( 'DB_USER', $_ENV['DB_USER'] );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', $_ENV[ 'DB_PASSWORD' ] );
+define( 'DB_PASSWORD', $_ENV['DB_PASSWORD'] );
 
 /** MySQL hostname */
-define( 'DB_HOST', $_ENV[ 'DB_HOST' ] . ':' . $_ENV[ 'DB_PORT' ] );
+define( 'DB_HOST', $_ENV['DB_HOST'] . ':' . $_ENV['DB_PORT'] );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -94,8 +94,8 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', filter_var( $_ENV[ 'DEBUG' ], FILTER_VALIDATE_BOOLEAN ) );
-define( 'CACHE_BUSTING', $_ENV[ 'CACHE_BUSTING' ] );
+define( 'WP_DEBUG', filter_var( $_ENV['DEBUG'], FILTER_VALIDATE_BOOLEAN ) );
+define( 'CACHE_BUSTING', $_ENV['CACHE_BUSTING'] );
 
 /* That's all, stop editing! Happy publishing. */
 
