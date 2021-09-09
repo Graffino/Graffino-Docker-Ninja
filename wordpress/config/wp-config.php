@@ -3,6 +3,19 @@ require_once( __DIR__ . '/../composer/vendor/autoload.php' );
 $dotenv = Dotenv\Dotenv::createImmutable( dirname( __DIR__, 1 ) );
 $dotenv->load();
 
+/* WP Super Cache */
+define( 'WP_CACHE', true );
+define( 'WPCACHEHOME', __DIR__ . '/wp-content/plugins/wp-super-cache/' );
+
+
+/* WP Sentry */
+if ( isset( $_ENV['WP_SENTRY_ENVIRONMENT'] ) && 'staging' === $_ENV['WP_SENTRY_ENVIRONMENT'] ) {
+	define( 'WP_SENTRY_PHP_DSN', $_ENV['WP_SENTRY_PHP_DSN'] );
+	define( 'WP_SENTRY_SEND_DEFAULT_PII', (bool) $_ENV['WP_SENTRY_SEND_DEFAULT_PII'] );
+	define( 'WP_SENTRY_VERSION', $_ENV['WP_SENTRY_VERSION'] );
+	define( 'WP_SENTRY_ENV', $_ENV['APP_ENV'] );
+}
+
 /**
  * The base configuration for WordPress
  *
