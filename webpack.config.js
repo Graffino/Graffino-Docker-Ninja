@@ -176,16 +176,7 @@ module.exports = {
           name: 'sprite',
           keep: true
         },
-        svgo: {
-          plugins: [
-            {
-              name: 'removeAttrs',
-              params: {
-                attrs: 'path:fill'
-              }
-            }
-          ]
-        }
+        svgo: {}
       },
       sprite: {
         prefix: false
