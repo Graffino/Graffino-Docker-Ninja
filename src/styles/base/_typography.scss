@@ -2,59 +2,6 @@
  * Typography
  */
 
-$typi: (
-  base: (
-    null: (
-      $base-font-size-px,
-      $default-line-height
-    )
-  ),
-  text: (
-    null: (
-      $body-font-size,
-      $body-line-height
-    )
-  ),
-  h1: (
-    null: (
-      $h1-font-size,
-      $h1-line-height
-    )
-  ),
-  h2: (
-    null: (
-      $h2-font-size,
-      $h2-line-height
-    )
-  ),
-  h3: (
-    null: (
-      $h3-font-size,
-      $h3-line-height
-    )
-  ),
-  h4: (
-    null: (
-      $h4-font-size,
-      $h4-line-height
-    )
-  ),
-  h5: (
-    null: (
-      $h5-font-size,
-      $h5-line-height
-    )
-  ),
-  h6: (
-    null: (
-      $h6-font-size,
-      $h6-line-height
-    )
-  )
-);
-
-@include typi-create-classes;
-
 /**
  * Headings
  */
