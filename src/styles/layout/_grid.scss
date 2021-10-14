@@ -2,6 +2,8 @@
  * Name: grid.styl
  */
 
+@use "sass:math";
+
 $gutter-compensation: $columns-gutter * 0.5 * -1;
 $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
@@ -140,8 +142,8 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
   @for $column from 1 through $max-columns {
     &.-spans-#{$column} {
-      flex-basis: 100% / $max-columns * $column;
-      max-width: 100% / $max-columns * $column;
+      flex-basis: math.div(100%, $max-columns) * $column;
+      max-width: math.div(100%, $max-columns) * $column;
     }
   }
 
@@ -150,7 +152,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
       @if $column==0 {
         margin-left: 0;
       } @else {
-        margin-left: 100% / $max-columns * $column;
+        margin-left: math.div(100%, $max-columns) * $column;
       }
     }
   }
@@ -159,8 +161,8 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
     @for $column from 1 through $max-columns {
       &.-spans-#{$column}-#{$name} {
         @media only screen and (max-width: $size) {
-          flex-basis: 100% / $max-columns * $column;
-          max-width: 100% / $max-columns * $column;
+          flex-basis: math.div(100%, $max-columns) * $column;
+          max-width: math.div(100%, $max-columns) * $column;
         }
       }
     }
@@ -171,7 +173,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
           @if $column==0 {
             margin-left: 0;
           } @else {
-            margin-left: 100% / $max-columns * $column;
+            margin-left: math.div(100%, $max-columns) * $column;
           }
         }
       }
