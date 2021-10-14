@@ -48,6 +48,7 @@
 
 	<!-- // Favicon -->
 	<link rel="icon" href="<?php bloginfo( 'template_url' ); ?>/favicon.ico">
+	<link rel="icon" href="<?php bloginfo( 'template_url' ); ?>/icon.svg" type="image/svg+xml">
 	<!-- Apple Pin Icon -->
 	<link rel="mask-icon" href="<?php bloginfo( 'template_url' ); ?>/pin_icon.svg" color="#000000">
 	<!-- Apple Touch Icon -->
