@@ -3,6 +3,8 @@ version: '3.8'
 services:
     php-fpm:
         image: graffino/php:v1
+        restart: unless-stopped
+        container_name: ${COMPOSE_PROJECT_NAME}-php-fpm
         build:
             context: .
             dockerfile: .docker/php/Dockerfile
@@ -29,6 +31,8 @@ services:
 
     nginx:
         image: graffino/nginx:v1
+        restart: unless-stopped
+        container_name: ${COMPOSE_PROJECT_NAME}-nginx
         build:
             context: .
             dockerfile: .docker/nginx/Dockerfile
@@ -66,6 +70,8 @@ services:
 
     mariadb:
         image: graffino/mariadb:v1
+        restart: unless-stopped
+        container_name: ${COMPOSE_PROJECT_NAME}-mariadb
         build:
             context: .
             dockerfile: .docker/mariadb/Dockerfile

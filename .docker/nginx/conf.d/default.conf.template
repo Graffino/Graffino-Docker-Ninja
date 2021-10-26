@@ -17,9 +17,10 @@ server {
         }
 
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass  ${COMPOSE_PROJECT_NAME}_php-fpm_1:${DOCKER_PHP_PORT};
+        fastcgi_pass  ${COMPOSE_PROJECT_NAME}-php-fpm:${DOCKER_PHP_PORT};
         fastcgi_index index.php;
-        fastcgi_param SERVER_PORT ${DOCKER_NGINX_EXPOSED_PORT};
+        # Exposed ports are disabled by default you may enable them below
+        # fastcgi_param SERVER_PORT ${DOCKER_NGINX_EXPOSED_PORT};
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }

@@ -1,23 +1,23 @@
 include .env
 export
 
-CONTAINER_NGINX=docker-compose exec -T nginx sh -c
-CONTAINER_PHP=docker-compose exec -T php-fpm sh -c
-CONTAINER_MARIADB=docker-compose exec -T mariadb sh -c
+CONTAINER_NGINX=docker compose exec -T nginx sh -c
+CONTAINER_PHP=docker compose exec -T php-fpm sh -c
+CONTAINER_MARIADB=docker compose exec -T mariadb sh -c
 
 .PHONY: start
 start:
-	docker-compose up -d
+	docker compose up -d
 
 .PHONY: stop
 stop:
-	docker-compose -f docker-compose.yml down
+	docker compose -f docker-compose.yml down
 
 .PHONY: setup
 setup:
 	make permissions
 	docker network create proxy || true
-	docker-compose up --build -d
+	docker compose up --build -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
 	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
@@ -38,7 +38,7 @@ staging-test:
 .PHONY: production
 production:
 	make permissions
-	docker-compose up -d
+	docker compose up -d
 	$(CONTAINER_PHP) 'yarn node:install'
 	$(CONTAINER_PHP) 'yarn composer:install'
 	$(CONTAINER_PHP) 'yarn wp:clean --no-confirm'
@@ -66,7 +66,7 @@ permissions:
 
 .PHONY: reset
 reset:
-	docker-compose -f docker-compose.yml down
+	docker compose -f docker-compose.yml down
 	docker system prune --force
 	rm -rf ./.docker/logs/cron/*
 	rm -rf ./.docker/logs/mariadb/*
@@ -82,7 +82,7 @@ reset:
 
 .PHONY: clean
 clean:
-	docker-compose -f docker-compose.yml down
+	docker compose -f docker-compose.yml down
 	docker system prune --all --volumes --force
 	rm -rf ./.docker/logs/cron/*
 	rm -rf ./.docker/logs/mariadb/*
@@ -101,25 +101,25 @@ clean-force:
 
 .PHONY: ssh-nginx
 ssh-nginx:
-	docker exec -it ${COMPOSE_PROJECT_NAME}_nginx_1 /bin/sh
+	docker exec -it ${COMPOSE_PROJECT_NAME}-nginx /bin/sh
 
 .PHONY: ssh-php
 ssh-php:
-	docker exec -it ${COMPOSE_PROJECT_NAME}_php-fpm_1 /bin/sh
+	docker exec -it ${COMPOSE_PROJECT_NAME}-php-fpm /bin/sh
 
 .PHONY: ssh-mariadb
 ssh-mariadb:
-	docker exec -it ${COMPOSE_PROJECT_NAME}_mariadb_1 /bin/sh
+	docker exec -it ${COMPOSE_PROJECT_NAME}-mariadb /bin/sh
 
 .PHONY: rebuild-nginx
 rebuild-nginx:
-	docker-compose up -d --no-deps  --force-recreate --build nginx
+	docker compose up -d --no-deps  --force-recreate --build nginx
 
 .PHONY: rebuild-php
 rebuild-php:
-	docker-compose up -d --no-deps  --force-recreate --build php-fpm
+	docker compose up -d --no-deps  --force-recreate --build php-fpm
 
 .PHONY: rebuild-mariadb
 rebuild-mariadb:
-	docker-compose up -d --no-deps  --force-recreate --build mariadb
+	docker compose up -d --no-deps  --force-recreate --build mariadb
 

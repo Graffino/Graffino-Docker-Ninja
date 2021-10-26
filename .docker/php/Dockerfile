@@ -67,6 +67,6 @@ WORKDIR /var/www/
 
 VOLUME /var/www/node_modules
 
-EXPOSE ${DOCKER_PHP_EXPOSED_PORT}
+EXPOSE ${DOCKER_PHP_PORT}
 
 CMD ["php-fpm"]
