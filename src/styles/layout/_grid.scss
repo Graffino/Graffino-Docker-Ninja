@@ -2,7 +2,7 @@
  * Name: grid.styl
  */
 
-@use "sass:math";
+@use 'sass:math';
 
 $gutter-compensation: $columns-gutter * 0.5 * -1;
 $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
