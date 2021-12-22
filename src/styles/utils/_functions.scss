@@ -3,6 +3,8 @@
  */
 
 // Generate color themeing for headings
+@use 'sass:math';
+
 $font-weights: (
   extralight: 100,
   light: 200,
@@ -32,13 +34,13 @@ $font-colors: (
 
 // Convert to REM
 @function rem($value) {
-  $rem-value: $value / $base-font-size-px;
+  $rem-value: math.div($value, $base-font-size-px);
   @return #{$rem-value}rem;
 }
 
 // Convert to EM
 @function em($value) {
-  $em-value: $value / $base-font-size-px;
+  $em-value: math.div($value, $base-font-size-px);
   @return #{$em-value}em;
 }
 
@@ -113,7 +115,7 @@ $font-colors: (
 @mixin font-weights {
   @each $weight, $value in $font-weights {
     &.-font-weight {
-      &-#{$weight} {
+      &-#{'' + $weight} {
         font-weight: $value;
       }
     }
@@ -122,7 +124,7 @@ $font-colors: (
 
 @mixin font-colors {
   @each $key, $value in $font-colors {
-    &.-color-#{$key} {
+    &.-color-#{'' + $key} {
       color: $value;
     }
   }
@@ -130,7 +132,7 @@ $font-colors: (
 
 @mixin link-colors {
   @each $key, $value in $font-colors {
-    &.-color-#{$key} {
+    &.-color-#{'' + $key} {
       color: $value;
 
       &:hover {
@@ -244,7 +246,7 @@ $font-colors: (
     content: '';
     display: block;
     width: 100%;
-    padding-top: ($height / $width) * 100%;
+    padding-top: math.div($height, $width) * 100%;
   }
 
   > .content {

@@ -1,13 +1,20 @@
 {
-  "name": "Ninja",
-  "short_name": "Ninja",
-  "icons": [{
-    "src": "/touch-icon.png",
-    "sizes": "160x160",
-    "type": "image/png"
-  }],
-  "theme_color": "#ffffff",
   "background_color": "#ffffff",
   "display": "standalone",
-  "start_url": "https://example.com/"
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "/icon-192.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "512x512",
+      "src": "/touch-icon.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "Ninja",
+  "short_name": "Ninja",
+  "start_url": "https://example.com/",
+  "theme_color": "#ffffff"
 }
