@@ -121,6 +121,6 @@ username: graffino
 password: js#O^P#S3CYp$SpwIu
 ```
 
-Keep the version for the prettier-eslint-cli plugin at 7.32: <https://github.com/prettier/prettier-eslint-cli/issues/427>
+Keep the version for the eslint plugin at 7.32: <https://github.com/prettier/prettier-eslint-cli/issues/427>
 
 Keep the version for the imagemin-mozjpeg plugin at 9.0: <https://github.com/imagemin/imagemin/issues/380>
