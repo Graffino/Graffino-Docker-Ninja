@@ -120,3 +120,7 @@ We bundled some other cool scripts and tools into Ninja: <https://github.com/Gra
 username: graffino
 password: js#O^P#S3CYp$SpwIu
 ```
+
+Keep the version for the prettier-eslint-cli plugin at 7.32: <https://github.com/prettier/prettier-eslint-cli/issues/427>
+
+Keep the version for the imagemin-mozjpeg plugin at 7.32: <https://github.com/imagemin/imagemin/issues/380>
