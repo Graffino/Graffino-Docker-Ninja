@@ -6,6 +6,12 @@
     }
   ],
   "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "ffraenz/private-composer-installer": true,
+      "johnpbloch/wordpress-core-installer": true
+    },
     "vendor-dir": "composer/vendor"
   },
   "description": "Ninja. Website building webpack flow.",
@@ -40,7 +46,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "5.10.2"
+        "version": "5.11.4"
       },
       "type": "package"
     },
@@ -55,7 +61,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "1.9.0"
+        "version": "1.9.3"
       },
       "type": "package"
     },
@@ -142,7 +148,7 @@
     "vlucas/phpdotenv": "^5.3",
     "wp-cli/wp-cli": "^2.5",
     "wpackagist-plugin/ajax-load-more": "^5.5",
-    "wpackagist-plugin/complianz-gdpr": "^5.3",
+    "wpackagist-plugin/complianz-gdpr": "^6.0",
     "wpackagist-plugin/custom-post-type-maker": "^1.1",
     "wpackagist-plugin/debug-bar": "^1.1",
     "wpackagist-plugin/google-site-kit": "^1.48",
@@ -153,7 +159,7 @@
     "wpackagist-plugin/wordpress-seo": "^17.8",
     "wpackagist-plugin/wp-sentry-integration": "^4.10",
     "wpackagist-plugin/wp-super-cache": "^1.7",
-    "wpml/acfml": "^1.8",
+    "wpml/acfml": "^1.9",
     "wpml/sitepress-multilingual-cms": "^4.4",
     "wpml/wp-seo-multilingual": "^2.0",
     "wpml/wpml-media-translation": "^2.6",

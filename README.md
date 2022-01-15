@@ -21,6 +21,7 @@ The feature packed, lightning fast boilerplate we use at [Graffino](https://graf
   - [Docker environment](#docker-environment)
   - [Other tools](#other-tools)
   - [Default Password](#default-password)
+  - [Important](#important)
 
 ## Features
 
@@ -124,3 +125,7 @@ password: js#O^P#S3CYp$SpwIu
 Keep the version for the eslint plugin at 7.32: <https://github.com/prettier/prettier-eslint-cli/issues/427>
 
 Keep the version for the imagemin-mozjpeg plugin at 9.0: <https://github.com/imagemin/imagemin/issues/380>
+
+## Important
+
+- Keep the version for the imagemin-mozjpeg plugin at 9.0.0 as it is now ESM only.
