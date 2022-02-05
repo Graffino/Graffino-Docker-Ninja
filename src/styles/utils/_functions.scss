@@ -181,7 +181,7 @@ $font-colors: (
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
     // Write the media query.
-    @media (min-width: $breakpoint-value + 1) {
+    @media (min-width: #{$breakpoint-value + 1}) {
       @content;
     }
 
@@ -218,7 +218,7 @@ $font-colors: (
     $upper-breakpoint: map-get($breakpoints, $upper);
 
     // Write the media query.
-    @media (min-width: $lower-breakpoint + 1) and (max-width: $upper-breakpoint) {
+    @media (min-width: #{$lower-breakpoint + 1}) and (max-width: $upper-breakpoint) {
       @content;
     }
 
