@@ -16,6 +16,7 @@ Edit Link CSS Style file
   position: absolute;
   z-index: 999999;
 }
+
 .nwp-admin__icon {
   right: 45px;
   bottom: 10%;
@@ -80,13 +81,16 @@ Edit Link CSS Style file
 .nwp-admin__icon.-edit::before {
   content: '\65';
 }
+
 .nwp-admin__icon.-edit-menu::before {
   content: '\6d';
 }
+
 .nwp-admin__icon.-panel::before {
   content: '\61';
   font-size: 16px;
 }
+
 .nwp-admin__icon.-select::before {
   content: '\73';
 }

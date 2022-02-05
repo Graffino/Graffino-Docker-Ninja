@@ -9,11 +9,17 @@
 <head>
 	<title>
 		<?php
-		// Page title | Site name | Site description
-		wp_title( '|', true, 'right' );
-		bloginfo( 'name' );
-		$site_description = get_bloginfo( 'description', 'display' );
-		if ( $site_description && ( is_home() || is_front_page() ) ) {
+			// Page title | Site name | Site description
+		if ( is_home() || is_front_page() ) {
+			bloginfo( 'name' );
+		} else {
+			wp_title( '|', true, 'right' );
+		}
+			$meta_description = get_field( 'meta_description' );
+			$site_description = get_bloginfo( 'description', 'display' );
+		if ( $meta_description ) {
+			echo " | $meta_description";
+		} elseif ( $site_description ) {
 			echo " | $site_description";
 		}
 		?>
@@ -48,6 +54,7 @@
 
 	<!-- // Favicon -->
 	<link rel="icon" href="<?php bloginfo( 'template_url' ); ?>/favicon.ico">
+	<link rel="icon" href="<?php bloginfo( 'template_url' ); ?>/icon.svg" type="image/svg+xml">
 	<!-- Apple Pin Icon -->
 	<link rel="mask-icon" href="<?php bloginfo( 'template_url' ); ?>/pin_icon.svg" color="#000000">
 	<!-- Apple Touch Icon -->

@@ -2,59 +2,6 @@
  * Typography
  */
 
-$typi: (
-  base: (
-    null: (
-      $base-font-size-px,
-      $default-line-height
-    )
-  ),
-  text: (
-    null: (
-      $body-font-size,
-      $body-line-height
-    )
-  ),
-  h1: (
-    null: (
-      $h1-font-size,
-      $h1-line-height
-    )
-  ),
-  h2: (
-    null: (
-      $h2-font-size,
-      $h2-line-height
-    )
-  ),
-  h3: (
-    null: (
-      $h3-font-size,
-      $h3-line-height
-    )
-  ),
-  h4: (
-    null: (
-      $h4-font-size,
-      $h4-line-height
-    )
-  ),
-  h5: (
-    null: (
-      $h5-font-size,
-      $h5-line-height
-    )
-  ),
-  h6: (
-    null: (
-      $h6-font-size,
-      $h6-line-height
-    )
-  )
-);
-
-@include typi-create-classes;
-
 /**
  * Headings
  */
@@ -193,4 +140,39 @@ $size-large: rem(18px);
     color: $white;
     font-family: $mono-fontface-stack;
   }
+}
+
+.h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+}
+
+.h2 {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+}
+
+.h3 {
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+}
+
+.h4 {
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+}
+
+.h5 {
+  font-size: $h5-font-size;
+  line-height: $h5-line-height;
+}
+
+.h6 {
+  font-size: $h6-font-size;
+  line-height: $h6-line-height;
+}
+
+.text {
+  font-size: $body-font-size;
+  line-height: $body-line-height;
 }
