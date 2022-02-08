@@ -11,8 +11,47 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class NWP_ACF {
-	public function __construct() {
-		$this->register_default_acf_fields();
+	public function __construct() {}
+
+	/**
+	 * Get simple admin values
+	 *
+	 * @return void
+	 */
+	public function simple_admin() {
+		global $simple_admin, $simple_plugins, $simple_updates, $simple_settings, $simple_acf;
+		if ( function_exists( 'get_field' ) ) {
+			$simple_admin    = get_field( 'simple_admin', 'options' );
+			$simple_plugins  = get_field( 'simple_plugins', 'options' );
+			$simple_updates  = get_field( 'simple_updates', 'options' );
+			$simple_settings = get_field( 'simple_settings', 'options' );
+			$simple_acf      = get_field( 'simple_acf', 'options' );
+		}
+	}
+
+	/**
+	 * Register option pages
+	 *
+	 * @return void
+	 */
+	public function register_option_pages() {
+		// Register option pages
+		if ( function_exists( 'acf_add_options_page' ) ) {
+			acf_add_options_page();
+			acf_add_options_sub_page( 'Global Widgets' );
+			acf_add_options_sub_page( 'Social & Contact' );
+			acf_add_options_sub_page( 'Page Links' );
+			acf_add_options_sub_page( 'API Settings' );
+			acf_add_options_sub_page( 'Admin Settings' );
+		}
+
+		if ( function_exists( 'register_options_page' ) ) {
+			register_options_page( 'Global Widgets' );
+			register_options_page( 'Social & Contact' );
+			register_options_page( 'Page Links' );
+			register_options_page( 'API Settings' );
+			register_options_page( 'Admin Settings' );
+		}
 	}
 
 	/**
