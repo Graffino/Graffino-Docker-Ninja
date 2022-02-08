@@ -35,15 +35,6 @@ class NWP_Hooks {
 		 * Restrictions
 		 */
 		$restrictions = $registry->get( 'NWP_Restrictions' );
-		// Configure simple admin
-		global $simple_admin, $simple_plugins, $simple_updates, $simple_settings, $simple_acf;
-		if ( function_exists( 'get_field' ) ) {
-			$simple_admin    = get_field( 'simple_admin', 'options' );
-			$simple_plugins  = get_field( 'simple_plugins', 'options' );
-			$simple_updates  = get_field( 'simple_updates', 'options' );
-			$simple_settings = get_field( 'simple_settings', 'options' );
-			$simple_acf      = get_field( 'simple_acf', 'options' );
-		}
 		// Lockdown mode
 		add_action( 'send_headers', array( $restrictions, 'lockdown' ) );
 		// Unset admin role
@@ -82,24 +73,9 @@ class NWP_Hooks {
 		 * ACF
 		 */
 		$acf = $registry->get( 'NWP_ACF' );
-		// Register option pages
-		if ( function_exists( 'acf_add_options_page' ) ) {
-			acf_add_options_page();
-			acf_add_options_sub_page( 'Global Widgets' );
-			acf_add_options_sub_page( 'Social & Contact' );
-			acf_add_options_sub_page( 'Page Links' );
-			acf_add_options_sub_page( 'API Settings' );
-			acf_add_options_sub_page( 'Admin Settings' );
-		}
-
-		if ( function_exists( 'register_options_page' ) ) {
-			register_options_page( 'Global Widgets' );
-			register_options_page( 'Social & Contact' );
-			register_options_page( 'Page Links' );
-			register_options_page( 'API Settings' );
-			register_options_page( 'Admin Settings' );
-		}
-		add_action( 'init', array( $acf, 'register_default_acf_fields' ) );
+		add_action( 'acf/init', array( $acf, 'register_option_pages' ) );
+		add_action( 'acf/init', array( $acf, 'simple_admin' ) );
+		add_action( 'acf/init', array( $acf, 'register_default_acf_fields' ) );
 		add_filter( 'acf/load_value/type=textarea', array( $acf, 'text_field_shortcode' ), 10, 3 );
 		add_filter( 'acf/load_value/type=text', array( $acf, 'text_field_shortcode' ), 10, 3 );
 

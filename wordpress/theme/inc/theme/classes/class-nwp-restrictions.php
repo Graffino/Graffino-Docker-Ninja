@@ -84,7 +84,7 @@ EOT;
 	public function remove_menus() {
 		global $simple_admin, $simple_plugins, $simple_updates, $simple_settings, $simple_acf, $simple_wpml, $menu, $submenu;
 
-		$restricted = array( __( 'Settings' ), __( 'Plugins' ), __( 'Links' ), __( 'Tools' ), __( 'Posts' ), __( 'Comments' ) );
+		$restricted = array( __( 'Settings' ), __( 'Plugins' ), __( 'Links' ), __( 'Tools' ), __( 'Comments' ) );
 		// $restricted = array( __( 'Links' ), __( 'Posts' ), __( 'Links' ),  __( 'Users' ), __( 'Tools' ), __( 'Module' ),  __( 'Appearance' ),  __( 'Users' ),  __( 'Settings', __( 'Comments' ),   __( 'Posts' ));
 
 		// Add plugins
