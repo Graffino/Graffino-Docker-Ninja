@@ -61,7 +61,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "1.9.3"
+        "version": "1.9.5"
       },
       "type": "package"
     },
@@ -76,7 +76,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "4.4.12"
+        "version": "4.5.4"
       },
       "type": "package"
     },
@@ -91,7 +91,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "2.6.5"
+        "version": "2.7.0"
       },
       "type": "package"
     },
@@ -106,7 +106,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "3.1.10"
+        "version": "3.2.1"
       },
       "type": "package"
     },
@@ -114,7 +114,7 @@
       "package": {
         "dist": {
           "type": "zip",
-          "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
+          "url": "https://wpml.org/?download=6094&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
         },
         "name": "wpml/wpml-translation-management",
         "require": {
@@ -143,27 +143,28 @@
   ],
   "require": {
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.10",
-    "johnpbloch/wordpress": "^5.8",
+    "johnpbloch/wordpress": "^5.9",
     "johnpbloch/wordpress-core-installer": "^2.0",
     "vlucas/phpdotenv": "^5.3",
     "wp-cli/wp-cli": "^2.5",
     "wpackagist-plugin/ajax-load-more": "^5.5",
-    "wpackagist-plugin/complianz-gdpr": "^6.0",
+    "wpackagist-plugin/complianz-gdpr": "^6.1",
     "wpackagist-plugin/custom-post-type-maker": "^1.1",
     "wpackagist-plugin/debug-bar": "^1.1",
     "wpackagist-plugin/google-site-kit": "^1.48",
     "wpackagist-plugin/redirection": "^5.1",
     "wpackagist-plugin/regenerate-thumbnails": "^3.1",
     "wpackagist-plugin/safe-svg": "^1.9",
-    "wpackagist-plugin/smtp-mailer": "1.1.2",
-    "wpackagist-plugin/wordpress-seo": "^17.8",
+    "wpackagist-plugin/smtp-mailer": "^1.1",
+    "wpackagist-plugin/wordpress-seo": "^18.1",
     "wpackagist-plugin/wp-sentry-integration": "^4.10",
     "wpackagist-plugin/wp-super-cache": "^1.7",
     "wpml/acfml": "^1.9",
-    "wpml/sitepress-multilingual-cms": "^4.4",
+    "wpml/sitepress-multilingual-cms": "^4.5",
     "wpml/wp-seo-multilingual": "^2.0",
-    "wpml/wpml-media-translation": "^2.6",
-    "wpml/wpml-string-translation": "^3.1"
+    "wpml/wpml-media-translation": "^2.7",
+    "wpml/wpml-string-translation": "^3.2",
+    "wpml/wpml-translation-management": "^2.10"
   },
   "require-dev": {
     "composer/installers": "^2.0",

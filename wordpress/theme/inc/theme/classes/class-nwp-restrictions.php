@@ -16,6 +16,7 @@ class NWP_Restrictions {
 
 	// Lockdown mode
 	public function lockdown() {
+		$simple_lockdown = false;
 		// Doesn't work ouside the function
 		if ( function_exists( 'get_field' ) ) {
 			$simple_lockdown = get_field( 'simple_lockdown', 'options' );
