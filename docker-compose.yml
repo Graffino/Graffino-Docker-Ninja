@@ -16,7 +16,6 @@ services:
             - node_modules:/var/www/node_modules
             - ./.docker/logs/php-fpm/:/var/log/php-fpm/
             - ./.docker/logs/cron/:/var/log/cron/
-        restart: unless-stopped
         networks:
             - servers
             - proxy
@@ -40,7 +39,6 @@ services:
             - ./:/var/www:rw
             - ./.docker/logs/nginx/:/var/log/nginx
             - ./.docker/nginx/conf.d:/etc/nginx/templates
-        restart: unless-stopped
         networks:
             - servers
             - proxy
@@ -78,7 +76,6 @@ services:
         volumes:
             - ./.docker/logs/mariadb:/var/log/mysql
             - mariadb:/var/lib/mysql
-        restart: unless-stopped
         networks:
             - servers
         # Exposed ports are disabled by default you may enable them below
