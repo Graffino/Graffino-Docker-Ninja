@@ -129,3 +129,4 @@ Keep the version for the imagemin-mozjpeg plugin at 9.0: <https://github.com/ima
 ## Important
 
 - Keep the version for the imagemin-mozjpeg plugin at 9.0.0 as it is now ESM only.
+- Keep the version for eslint plugin at 7.32.0 as prettier-eslint is not compatible with eslint 8.0 yet: <https://github.com/prettier/prettier-eslint/pull/696>.
