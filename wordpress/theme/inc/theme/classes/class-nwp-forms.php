@@ -23,10 +23,16 @@ class NWP_Forms {
 	 * @param string $filter
 	 * @return string Variable content
 	 */
-	public function get_get_var( $var, $default = false, $empty = false, $filter = FILTER_SANITIZE_STRING ) {
+	public static function get_get_var( $var, $default = false, $empty = false, $filter = HTML_SPECIALCHARS ) {
 
-		if ( isset( $_GET[ $var ] ) && ! empty( $_GET[ $var ] ) ) {
-			$get_var = filter_var( $_GET[ $var ], $filter );
+		if ( isset( $_GET[ $var ] ) ) {
+			if ( 'ARRAY' === $filter && ! empty( $_GET[ $var ] ) ) {
+				$get_var = $_GET[ $var ];
+			} elseif ( strpos( $filter, 'VALIDATE' ) !== false && ! empty( $_GET[ $var ] ) ) {
+				$get_var = filter_var( $_GET[ $var ], $filter );
+			} else {
+				$get_var = htmlspecialchars( $_GET[ $var ] );
+			}
 		} elseif ( empty( $_GET[ $var ] ) ) {
 			$get_var = $empty;
 		} else {
@@ -45,13 +51,15 @@ class NWP_Forms {
 	 * @param string $filter
 	 * @return string Variable content
 	 */
-	public function get_post_var( $var, $default = false, $empty = false, $filter = FILTER_SANITIZE_STRING ) {
+	public static function get_post_var( $var, $default = false, $empty = false, $filter = HTML_SPECIALCHARS ) {
 
 		if ( isset( $_POST[ $var ] ) ) {
 			if ( 'ARRAY' === $filter && ! empty( $_GET[ $var ] ) ) {
 				$post_var = $_POST[ $var ];
-			} else {
+			} elseif ( strpos( $filter, 'VALIDATE' ) !== false && ! empty( $_POST[ $var ] ) ) {
 				$post_var = filter_var( $_POST[ $var ], $filter );
+			} else {
+				$post_var = htmlspecialchars( $_POST[ $var ] );
 			}
 		} elseif ( empty( $_POST[ $var ] ) ) {
 			$post_var = $empty;
@@ -402,5 +410,4 @@ class NWP_Forms {
 		$mail = wp_mail( $mail_to, $mail_subject, $mail_body, $mail_headers );
 		return $mail;
 	}
-
 }
