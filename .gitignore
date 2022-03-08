@@ -22,10 +22,15 @@ auth.json
 
 node_modules
 composer
-vendor
+sprite.scss
 
 .docker/logs/php-fpm/*
+!.docker/logs/php-fpm/.gitkeep
 .docker/logs/mariadb/*
+!.docker/logs/mariadb/.gitkeep
 .docker/logs/cron/*
+!.docker/logs/cron/.gitkeep
 .docker/logs/nginx/*
-
+!.docker/logs/nginx/.gitkeep
+.docker/logs/redis/*
+!.docker/logs/redis/.gitkeep
