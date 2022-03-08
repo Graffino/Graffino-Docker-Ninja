@@ -152,8 +152,9 @@ class NWP_Utilities {
 	 */
 	public function search_filter( $query ) {
 		if ( $query->is_search ) {
-			$query->set( 'post_type', 'post' );
+			$post_type = NWP_Forms::get_get_var( 'post_type', 'post' );
 			$query->set( 'paged', ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1 );
+			$query->set( 'post_type', $post_type );
 			$query->set( 'posts_per_page', 4 );
 		}
 		return $query;

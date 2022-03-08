@@ -78,7 +78,7 @@
 	<?php the_field( 'google_analytics', 'options' ); ?>
 	<!-- End Google Analytics -->
 </head>
-<body class="home <?php body_class(); ?>" data-component="browser-update">
+<body <?php body_class(); ?> data-component="browser-update">
 	<?php NWP_Images::inject_sprite(); ?>
 	<?php NWP_Admin::edit_admin_link(); ?>
 	<header class="header js-header is-visible">
