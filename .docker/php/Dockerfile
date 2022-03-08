@@ -53,8 +53,10 @@ RUN apk add yarn --repository="http://dl-cdn.alpinelinux.org/alpine/edge/communi
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wpp
-RUN printf "#!/bin/sh\n/usr/local/bin/wpp --path='./dist-wp/' --allow-root \"\$@\"" > /usr/local/bin/wp
-RUN chmod +x /usr/local/bin/wp
+RUN printf "#!/bin/sh\n/usr/local/bin/wpp --path='./dist-wp/' --allow-root \"\$@\"" > wp
+RUN chmod +x wp
+RUN mv wp /usr/local/bin/
+
 
 RUN apk add vim
 RUN apk add mc
