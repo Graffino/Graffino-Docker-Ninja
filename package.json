@@ -1,6 +1,6 @@
 {
   "name": "ninja",
-  "version": "8.1.2",
+  "version": "8.1.3",
   "description": "The feature packed, lightning fast boilerplate we use at Graffino for building modern responsive static and WordPress powered websites.",
   "private": false,
   "scripts": {

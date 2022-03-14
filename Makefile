@@ -25,6 +25,7 @@ setup:
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:uploads:symlink --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
+	$(CONTAINER_PHP) 'wp search-replace $(DB_REPLACE) $(DOCKER_HOSTNAME)'
 
 .PHONY: staging
 staging:
@@ -46,6 +47,7 @@ production:
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:uploads:symlink --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
+	$(CONTAINER_PHP) 'wp search-replace $(DB_REPLACE) $(DOCKER_HOSTNAME)'
 
 .PHONY: composer
 composer:
