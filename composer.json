@@ -39,7 +39,7 @@
       "package": {
         "dist": {
           "type": "zip",
-          "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t={%version}"
+          "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%PLUGIN_ACF_KEY}&t={%version}"
         },
         "name": "advanced-custom-fields/advanced-custom-fields-pro",
         "require": {
