@@ -143,6 +143,7 @@
   ],
   "require": {
     "advanced-custom-fields/advanced-custom-fields-pro": "^5.12",
+    "interconnectit/search-replace-db": "^4.1",
     "johnpbloch/wordpress": "^5.9",
     "johnpbloch/wordpress-core-installer": "^2.0",
     "vlucas/phpdotenv": "^5.3",
@@ -173,6 +174,11 @@
     "phpcompatibility/phpcompatibility-wp": "^2.1",
     "squizlabs/php_codesniffer": "^3.5",
     "wp-coding-standards/wpcs": "^2.3"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "echo 'Post autoload scripts...'"
+    ]
   },
   "type": "project"
 }
