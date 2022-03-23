@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fadb95651e05f7f1937d8989b382744",
+    "content-hash": "b189df17812385ad33fc00749943d963",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -20,16 +20,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8"
+                "reference": "75e5ef05436c90ac565a48176cc7465991908352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8",
-                "reference": "a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8",
+                "url": "https://api.github.com/repos/composer/installers/zipball/75e5ef05436c90ac565a48176cc7465991908352",
+                "reference": "75e5ef05436c90ac565a48176cc7465991908352",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,8 @@
                 "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-main": "2.x-dev"
-                }
+                },
+                "plugin-modifies-install-path": true
             },
             "autoload": {
                 "psr-4": {
@@ -143,7 +144,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v2.0.1"
+                "source": "https://github.com/composer/installers/tree/v2.1.0"
             },
             "funding": [
                 {
@@ -159,7 +160,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-13T08:21:20+00:00"
+            "time": "2022-03-18T12:27:54+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -222,6 +223,49 @@
                 }
             ],
             "time": "2021-11-21T21:41:47+00:00"
+        },
+        {
+            "name": "interconnectit/search-replace-db",
+            "version": "4.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/interconnectit/Search-Replace-DB.git",
+                "reference": "046459947052fa5b955a9c18910aba1f50ef3590"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/interconnectit/Search-Replace-DB/zipball/046459947052fa5b955a9c18910aba1f50ef3590",
+                "reference": "046459947052fa5b955a9c18910aba1f50ef3590",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-mysqli": "*",
+                "ext-pdo": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "ext-simplexml": "*",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "srdb.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "A PHP search replace tool for quickly modifying a string throughout a database. Useful for changing the base URL when migrating a WordPress site from development to production.",
+            "homepage": "https://github.com/interconnectit/Search-Replace-DB",
+            "support": {
+                "issues": "https://github.com/interconnectit/Search-Replace-DB/issues",
+                "source": "https://github.com/interconnectit/Search-Replace-DB/tree/4.1.2"
+            },
+            "time": "2020-05-12T08:39:39+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -1281,15 +1325,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "18.3",
+            "version": "18.4.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/18.3"
+                "reference": "tags/18.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.18.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.18.4.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
