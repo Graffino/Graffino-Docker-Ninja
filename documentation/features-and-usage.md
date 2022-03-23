@@ -2,7 +2,6 @@
 
 - [Features And Usage](#features-and-usage)
   - [Project Folder Structure](#project-folder-structure)
-    - [Handlebars Views Structure](#handlebars-views-structure)
     - [Styles Structure](#styles-structure)
     - [Scripts Structure](#scripts-structure)
     - [Fonts](#fonts)
@@ -10,7 +9,6 @@
     - [SVG Injection](#svg-injection)
     - [Favicon Generation](#favicon-generation)
     - [Lazy Loading](#lazy-loading)
-    - [Responsive Typography](#responsive-typography)
     - [Easy Media Queries](#easy-media-queries)
     - [Helpers & Mix-ins](#helpers--mix-ins)
       - [Helpers](#helpers)
@@ -35,29 +33,6 @@ Start by exploring the folder structure and files.
 - **styles** - Write your CSS in here, following the organized structure provided.
 - **views** - Handlebars templates for static HTML are placed here.
 
-### Handlebars Views Structure
-
-By default, Ninja uses handlebars for templating.
-
-- **hepers/** - If you need any helpers you can write them here. Do not remove the _sprite.js_ helper.
-- **partials/** - If you're reusing parts of the website, write them here.
-- **index.handlebars** - Homepage.
-- **page.handlebars** - Secondary page.
-
-When creating a new page you also have to let WebPack know about it in _webpack.config.js_ file.
-
-```javascript
-plugins: [
-  new HtmlWebpackPlugin({
-    title: 'Page Title',
-    filename: 'page.html',
-    template: './src/views/page.handlebars'
-  })
-]
-```
-
-For more info please check out [Handlebars Loader](https://github.com/pcardune/handlebars-loader) and [HTML Webpack Plugin](https://github.com/jantimon/html-webpack-plugin).
-
 ### Styles Structure
 
 Project styles use a modular folder structure. You can read more about this [here](https://vanseodesign.com/css/sass-folder-structures/).
@@ -74,7 +49,7 @@ When starting a new project you should begin by changing the variables in _base/
 
 ### Scripts Structure
 
-Ninja supports [ES6 syntax](https://github.com/lukehoban/es6features).
+Projects supports [ES6/ES7 syntax](https://github.com/lukehoban/es6features).
 It also implements a module structure with auto initialisation of modules.
 
 - **modules/** - Write Custom autoloading JS modules, following the provided module template.
@@ -122,7 +97,7 @@ _We could have automated this process, but from our experience, this needs to be
 
 ### Lazy Loading
 
-Ninja uses this [LazyLoad library](https://github.com/verlok/lazyload) to load images/videos/iframes as they enter the viewport via the [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) API.
+Project uses this [LazyLoad library](https://github.com/verlok/lazyload) to load images/videos/iframes as they enter the viewport via the [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) API.
 
 To use this feature just add the attribute `data-src` to your `img` tag.
 
@@ -168,13 +143,6 @@ As a background-image.
 
 For advanced use of this feature check out the library's [docs](https://github.com/verlok/lazyload).
 
-### Responsive Typography
-
-Ninja uses [Typi](https://github.com/zellwk/typi) for responsive typography.
-There's a SASS map named `$typi` in _src/styles/base/\_typography.scss_ where global typography variables tell Typi what `font-size` and `line-height` values to create at different media queries.
-Typi can also be a helper for Vertical Rhythm.
-Check out this [guide](https://zellwk.com/blog/typi/) for a better understanding and advanced use.
-
 ### Easy Media Queries
 
 When building a responsive website, writing media queries can be a tedious process.
@@ -209,7 +177,7 @@ _Note: these helpers only work with breakpoints defined in the global SASS varia
 
 ### Helpers & Mix-ins
 
-Ninja comes with some useful helpers and mix-ins designed to make development faster, cleaner and consistent.
+Project comes with some useful helpers and mix-ins designed to make development faster, cleaner and consistent.
 
 #### Helpers
 
@@ -231,7 +199,7 @@ For more mix-ins check out _src/styles/utils/\_functions.scss_
 
 ### Linters & Automatic Code Formatters
 
-Ninja uses [ESLint](https://eslint.org/) and [Stylelint](https://stylelint.io/) for linting and [Prettier](https://prettier.io) for code formatting.
+Project uses [ESLint](https://eslint.org/) and [Stylelint](https://stylelint.io/) for linting and [Prettier](https://prettier.io) for code formatting.
 
 Their configs can be found in the root of the project. Feel free to configure them according to your preference.
 

@@ -32,7 +32,7 @@ const createLocalFolder = async () => {
       return
     }
     console.log(
-      `[Ninja] Push Uploads to Staging => Local Folder Created. ${stdout}\n`
+      `[Ninja] Pull Uploads from Remote => Local Folder Created. ${stdout}\n`
     )
     pullFromRemote()
   })

@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const dotenv = require('dotenv').config({
   path: __dirname + '/.env'
 })
@@ -17,6 +18,11 @@ module.exports = {
   entry: {
     main: path.resolve(__dirname, 'src/scripts/index.js')
   },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.runtime.esm-bundler.js'
+    }
+  },
   output: {
     path: path.resolve(
       __dirname,
@@ -26,7 +32,7 @@ module.exports = {
     publicPath: '../'
   },
   watchOptions: {
-    ignored: ['node_modules', 'dist', 'dist-wp', 'composer', 'cache']
+    ignored: ['node_modules', 'dist-wp', 'composer', 'cache']
   },
   stats: {
     colors: true,
@@ -65,6 +71,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -151,7 +161,9 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': dotenv.parsed
+      'process.env': dotenv.parsed,
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: true
     }),
     new SVGSpritemapPlugin(['src/icons/*.svg'], {
       output: {
@@ -215,8 +227,6 @@ module.exports = {
     new StyleLintPlugin(),
     new BrowserSyncPlugin({
       files: [
-        'dist/**/*.css',
-        'dist/**/*.js',
         'dist-wp/wp-content/themes/**/*.css',
         'dist-wp/wp-content/themes/**/*.js',
         'wordpress/**/*.php'
@@ -243,6 +253,7 @@ module.exports = {
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     }),
-    new ESLintPlugin()
+    new ESLintPlugin(),
+    new VueLoaderPlugin()
   ]
 }

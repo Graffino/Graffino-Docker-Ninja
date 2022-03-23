@@ -63,11 +63,6 @@ const promptUserForInfo = async () => {
       name: 'license',
       initial: 'MIT',
       message: 'What sort of licence does the project have?'
-    },
-    {
-      type: 'confirm',
-      name: 'isWordpress',
-      message: 'Will you be using wordpress for this project?'
     }
   ]
 
@@ -92,10 +87,7 @@ const promptUserForInfo = async () => {
   ])
 
   console.log('\n[Ninja] Init Project => Overwriting package.json...\n')
-
-  if (generalProjectInfo.isWordpress) {
-    await setUpEnv()
-  }
+  await setUpEnv()
 }
 
 const setUpEnv = async () => {
