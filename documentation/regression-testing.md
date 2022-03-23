@@ -1,6 +1,6 @@
 # Regression Testing
 
-Ninja includes regression testing utilities that help you find out if you broke already developed components
+Project includes regression testing utilities that help you find out if you broke already developed components
 
 ## Backstop
 

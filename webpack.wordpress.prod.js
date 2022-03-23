@@ -51,8 +51,6 @@ module.exports = merge(common, {
     new PurgecssPlugin({
       paths: glob.sync(
         [
-          path.join(__dirname, './src/**/*.html'),
-          path.join(__dirname, './src/**/*.handlebars'),
           path.join(__dirname, './src/**/*.js'),
           path.join(__dirname, './src/**/*.vue'),
           path.join(__dirname, './wordpress/**/*.php')
@@ -62,7 +60,7 @@ module.exports = merge(common, {
       extractors: [
         {
           extractor: (content) => content.match(/[A-z0-9-:/]+/g) || [],
-          extensions: ['handlebars', 'html', 'js', 'php', 'vue']
+          extensions: ['js', 'php', 'vue']
         }
       ],
       safelist: [

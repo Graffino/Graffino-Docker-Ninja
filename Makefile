@@ -79,7 +79,6 @@ reset:
 	rm -rf ./composer/
 	rm -rf ./vendor/
 	rm -rf ./dist-wp/
-	rm -rf ./dist/
 	make setup
 
 .PHONY: clean
@@ -95,7 +94,6 @@ clean:
 	rm -rf ./composer/
 	rm -rf ./vendor/
 	rm -rf ./dist-wp/
-	rm -rf ./dist/
 
 .PHONY: clean-force
 clean-force:
