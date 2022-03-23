@@ -48,13 +48,8 @@ async function start() {
     await initRepo()
     await Promise.all([configureSiteManifest(), replaceNameInWebpack()])
 
-    if (packageJson.isWordpress) {
-      const setupWp = require('./init-wp')
-      await setupWp()
-    } else {
-      const setupStatic = require('./init-static')
-      await setupStatic()
-    }
+    const setupWp = require('./init-wp')
+    await setupWp()
 
     console.log('\n[Ninja] Init Project => Project initialized!\n')
     process.exit(0)

@@ -1,7 +1,5 @@
 node_modules/*
 vendor/*
 dist-wp/*
-dist/*
 composer/*
-src/wordpress-scripts/*
 wordpress/uploads/*

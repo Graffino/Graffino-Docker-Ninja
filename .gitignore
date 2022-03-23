@@ -5,7 +5,6 @@
 certs/*
 cache
 
-dist
 dist-wp
 
 nohup.out

@@ -1,9 +1,8 @@
 # Prerequisites
 
 1. Explore the folder structure and files.
-2. For a better experience we recommend writing [Handlebars](http://handlebarsjs.com) and [SASS](https://sass-lang.com/guide), but it works just fine with HTML and CSS.
-3. Ninja uses [webpack](https://webpack.js.org) to bundle your assets, which also allows having a split config for development and production.
-4. You need [git](https://git-scm.com/), [node](https://nodejs.org/) and [yarn](https://yarnpkg.com) on your computer before running it.
+2. Project uses [webpack](https://webpack.js.org) to bundle your assets, which also allows having a split config for development and production.
+3. You need [git](https://git-scm.com/), [node](https://nodejs.org/) and [yarn](https://yarnpkg.com) on your computer before running it.
 
 ## How to install
 
@@ -19,13 +18,9 @@ git init
 # Install Dependencies
 yarn install
 
-# Initialize static project or WordPress project
-yarn init
-# or
+# Initialize WordPress project
 yarn wp:init
 
-# Start Dev Server
-yarn dev
-# or
+# Run it
 yarn wp
 ```

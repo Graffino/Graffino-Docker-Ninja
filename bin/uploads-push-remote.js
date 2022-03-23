@@ -35,7 +35,7 @@ const createRemoteFolder = async () => {
         return
       }
       console.log(
-        `[Ninja] Push Uploads to Staging => Remote Folder Created. ${stdout}\n`
+        `[Ninja] Push Uploads to Remote => Remote Folder Created. ${stdout}\n`
       )
       pushToRemote()
     }

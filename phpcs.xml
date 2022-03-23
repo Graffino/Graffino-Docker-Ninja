@@ -4,7 +4,9 @@
   <rule ref="WordPress-Core"></rule>
   <file>wordpress</file>
   <exclude-pattern>*/dist-wp/*</exclude-pattern>
-  <exclude-pattern>*/dist/*</exclude-pattern>
   <exclude-pattern>*/node_modules/*</exclude-pattern>
   <exclude-pattern>*/uploads/*</exclude-pattern>
+  <exclude-pattern>*/composer/*</exclude-pattern>
+  <exclude-pattern>*/vendor/*</exclude-pattern>
+  <exclude-pattern>/wordpress/theme/inc/admin/template-parts/*</exclude-pattern>
 </ruleset>

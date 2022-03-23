@@ -1,0 +1,6 @@
+{
+  "include": [
+    "./src/scripts/**/*",
+    "./wordpress/theme/partials/*.vue"
+  ]
+}

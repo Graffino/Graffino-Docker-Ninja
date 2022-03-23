@@ -32,6 +32,11 @@ const cleanWP = async () => {
   console.log('    => Twentytwenty-one theme removed...')
 
   await fse.remove(
+    path.resolve(__dirname, '../dist-wp/wp-content/themes/twentytwentytwo/')
+  )
+  console.log('    => Twentytwenty-two theme removed...')
+
+  await fse.remove(
     path.resolve(__dirname, '../dist-wp/wp-content/plugins/akismet/')
   )
   console.log('    => Akismet removed...')

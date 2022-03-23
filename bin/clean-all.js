@@ -9,9 +9,6 @@ const clean = async () => {
   await fse.remove(path.resolve(__dirname, '../dist-wp/'))
   console.log('    => WordPress dist folder removed...')
 
-  await fse.remove(path.resolve(__dirname, '../dist/'))
-  console.log('    => HTML dist folder removed...')
-
   await fse.remove(path.resolve(__dirname, '../cache/'))
   console.log('    => Cache folder removed...')
 

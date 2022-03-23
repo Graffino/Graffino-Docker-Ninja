@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b42b67c42007afceeca89a8d4e64ddf0",
+    "content-hash": "b189df17812385ad33fc00749943d963",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
             "version": "5.12",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&k={%PLUGIN_ACF_KEY}&t={%version}"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%PLUGIN_ACF_KEY}&t={%version}"
             },
             "require": {
                 "composer/installers": "^2.0"
@@ -20,16 +20,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8"
+                "reference": "75e5ef05436c90ac565a48176cc7465991908352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8",
-                "reference": "a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8",
+                "url": "https://api.github.com/repos/composer/installers/zipball/75e5ef05436c90ac565a48176cc7465991908352",
+                "reference": "75e5ef05436c90ac565a48176cc7465991908352",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,8 @@
                 "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-main": "2.x-dev"
-                }
+                },
+                "plugin-modifies-install-path": true
             },
             "autoload": {
                 "psr-4": {
@@ -143,7 +144,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v2.0.1"
+                "source": "https://github.com/composer/installers/tree/v2.1.0"
             },
             "funding": [
                 {
@@ -159,7 +160,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-13T08:21:20+00:00"
+            "time": "2022-03-18T12:27:54+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -224,21 +225,64 @@
             "time": "2021-11-21T21:41:47+00:00"
         },
         {
-            "name": "johnpbloch/wordpress",
-            "version": "5.9.1",
+            "name": "interconnectit/search-replace-db",
+            "version": "4.1.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "37734d678aac2d8cae73271583e638eaa82823d2"
+                "url": "https://github.com/interconnectit/Search-Replace-DB.git",
+                "reference": "046459947052fa5b955a9c18910aba1f50ef3590"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/37734d678aac2d8cae73271583e638eaa82823d2",
-                "reference": "37734d678aac2d8cae73271583e638eaa82823d2",
+                "url": "https://api.github.com/repos/interconnectit/Search-Replace-DB/zipball/046459947052fa5b955a9c18910aba1f50ef3590",
+                "reference": "046459947052fa5b955a9c18910aba1f50ef3590",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.9.1",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-mysqli": "*",
+                "ext-pdo": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "ext-simplexml": "*",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "srdb.class.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "A PHP search replace tool for quickly modifying a string throughout a database. Useful for changing the base URL when migrating a WordPress site from development to production.",
+            "homepage": "https://github.com/interconnectit/Search-Replace-DB",
+            "support": {
+                "issues": "https://github.com/interconnectit/Search-Replace-DB/issues",
+                "source": "https://github.com/interconnectit/Search-Replace-DB/tree/4.1.2"
+            },
+            "time": "2020-05-12T08:39:39+00:00"
+        },
+        {
+            "name": "johnpbloch/wordpress",
+            "version": "5.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/johnpbloch/wordpress.git",
+                "reference": "e929834ba93c3de1d6b832162eda5af469041ea6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/e929834ba93c3de1d6b832162eda5af469041ea6",
+                "reference": "e929834ba93c3de1d6b832162eda5af469041ea6",
+                "shasum": ""
+            },
+            "require": {
+                "johnpbloch/wordpress-core": "5.9.2",
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -250,37 +294,37 @@
             "authors": [
                 {
                     "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
+                    "homepage": "https://wordpress.org/about/"
                 }
             ],
             "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
-            "homepage": "http://wordpress.org/",
+            "homepage": "https://wordpress.org/",
             "keywords": [
                 "blog",
                 "cms",
                 "wordpress"
             ],
             "support": {
-                "forum": "http://wordpress.org/support/",
+                "docs": "https://developer.wordpress.org/",
+                "forum": "https://wordpress.org/support/",
                 "irc": "irc://irc.freenode.net/wordpress",
-                "issues": "http://core.trac.wordpress.org/",
-                "source": "http://core.trac.wordpress.org/browser",
-                "wiki": "http://codex.wordpress.org/"
+                "issues": "https://core.trac.wordpress.org/",
+                "source": "https://core.trac.wordpress.org/browser"
             },
-            "time": "2022-02-22T15:31:51+00:00"
+            "time": "2022-03-11T00:51:43+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.9.1",
+            "version": "5.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "2c3acb773b91a72ab83ee039532d2c7e0b6f2127"
+                "reference": "0eb92a65ce99816683e2c0d50e83774ae5bfcf1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/2c3acb773b91a72ab83ee039532d2c7e0b6f2127",
-                "reference": "2c3acb773b91a72ab83ee039532d2c7e0b6f2127",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/0eb92a65ce99816683e2c0d50e83774ae5bfcf1a",
+                "reference": "0eb92a65ce99816683e2c0d50e83774ae5bfcf1a",
                 "shasum": ""
             },
             "require": {
@@ -288,7 +332,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.9.1"
+                "wordpress/core-implementation": "5.9.2"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -315,7 +359,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2022-02-22T15:31:48+00:00"
+            "time": "2022-03-11T00:51:39+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -1119,15 +1163,15 @@
         },
         {
             "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.5.1",
+            "version": "5.5.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
-                "reference": "tags/5.5.1"
+                "reference": "tags/5.5.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.5.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.5.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1137,15 +1181,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "6.1.0.1",
+            "version": "6.1.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/6.1.0.1"
+                "reference": "tags/6.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.6.1.0.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.6.1.2.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1191,15 +1235,15 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.69.0",
+            "version": "1.70.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.69.0"
+                "reference": "tags/1.70.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.69.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.70.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1281,15 +1325,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "18.2",
+            "version": "18.4.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/18.2"
+                "reference": "tags/18.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.18.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.18.4.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1299,15 +1343,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-sentry-integration",
-            "version": "4.13.1",
+            "version": "4.15.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wp-sentry-integration/",
-                "reference": "tags/4.13.1"
+                "reference": "tags/4.15.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-sentry-integration.4.13.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-sentry-integration.4.15.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"

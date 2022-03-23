@@ -53,7 +53,7 @@ This will install WordPress in the `dist-wp` folder, create your database if it 
 ## Theme Development
 
 The source code for the theme is in the `wordpress/theme` folder.
-For [CSS](https://github.com/Graffino/Ninja/tree/master/docs/features-and-usage#styles-structure) and [JS](https://github.com/Graffino/Ninja/tree/master/docs/features-and-usage#scripts-structure) just write them in the `src` folder as you would normally do developing a normal website.
+For SCSS just write them in the `src` folder as you would normally do developing a normal website.
 
 To start the dev server run `yarn wp`
 

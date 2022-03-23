@@ -1,6 +1,6 @@
 # Other tools
 
-We bundled some other cool scripts and tools into Ninja.
+We bundled some other cool scripts and tools into this project.
 
 ## Automatic Updates
 
@@ -18,4 +18,4 @@ You can also check for outdated _Composer_ packages via `yarn composer:outdated`
 
 ## Version Bumping
 
-Ninja can automatically bump a major, minor or patch version for you via `yarn bump {major, minor, patch}`
+Project can automatically bump a major, minor or patch version for you via `yarn bump {major, minor, patch}`
