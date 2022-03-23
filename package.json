@@ -1,6 +1,6 @@
 {
   "name": "ninja",
-  "version": "8.2.0",
+  "version": "9.0.0",
   "description": "The feature packed, lightning fast boilerplate we use at Graffino for building modern responsive static and WordPress powered websites.",
   "private": false,
   "scripts": {
@@ -16,7 +16,8 @@
     "wp:init": "node bin/init-wp.js",
     "wp:dev": "yarn wp:uploads:symlink --no-confirm; yarn webpack:wp:dev",
     "wp:build": "yarn node:install; yarn composer:install; yarn wp:clean --no-confirm; yarn wp:uploads:symlink --no-confirm; yarn webpack:wp:build --progress",
-    "wp:setup": "echo '\n[Ninja] => Installing WordPress... \n'; yarn node:install; yarn composer:install; yarn wp:clean --no-confirm; yarn wp:db:init --no-confirm; yarn wp:uploads:symlink --no-confirm",    "wp:update": "echo '\n[Ninja] => Updating WordPress... \n'; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:uploads:symlink --no-confirm",
+    "wp:setup": "echo '\n[Ninja] => Installing WordPress... \n'; yarn node:install; yarn composer:install; yarn wp:clean --no-confirm; yarn wp:db:init --no-confirm; yarn wp:uploads:symlink --no-confirm",
+    "wp:update": "echo '\n[Ninja] => Updating WordPress... \n'; yarn composer:update; yarn wp:clean --no-confirm; yarn wp:uploads:symlink --no-confirm",
     "wp:clean": "node bin/clean-wp.js",
     "wp:db:init": "node bin/db-init.js",
     "wp:db:migrate": "node bin/db-migrate.js",
@@ -71,7 +72,8 @@
     "browser-update": "^3.3.38",
     "browserlist": "^1.0.1",
     "clean-css": "^5.2.4",
-    "clean-webpack-plugin": "^4.0.0",    "copy-webpack-plugin": "^10.2.4",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "dotenv": "^16.0.0",
