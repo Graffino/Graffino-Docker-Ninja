@@ -114,7 +114,7 @@
       "package": {
         "dist": {
           "type": "zip",
-          "url": "https://wpml.org/?download=6094&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
+          "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
         },
         "name": "wpml/wpml-translation-management",
         "require": {
