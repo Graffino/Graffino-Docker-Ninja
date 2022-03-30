@@ -63,37 +63,43 @@ test:
 
 .PHONY: permissions
 permissions:
-	mkdir -p .docker/logs/cron/ .docker/logs/nginx/ .docker/logs/mariadb docker/logs/php-fpm/
-	chmod -R 777 .docker/logs/
+	mkdir -p .docker/logs/cron/ .docker/logs/nginx/ .docker/logs/mariadb docker/logs/php-fpm/ || true
+	chmod -R 777 .docker/logs/ || true
 
 .PHONY: reset
 reset:
+	$(CONTAINER_PHP) rm -rf /var/logs/php-fpm/* || true
+	$(CONTAINER_PHP) rm -rf /var/logs/cron/* || true
+	$(CONTAINER_NGINX) rm -rf /var/logs/nginx/* || true
 	docker compose -f docker-compose.yml down
 	docker system prune --force
-	rm -rf ./.docker/logs/cron/*
-	rm -rf ./.docker/logs/mariadb/*
-	rm -rf ./.docker/logs/nginx/*
-	rm -rf ./.docker/logs/php-fpm/*
-	rm -rf ./node_modules/
-	rm -rf ./.cache/
-	rm -rf ./composer/
-	rm -rf ./vendor/
-	rm -rf ./dist-wp/
+	rm -rf ./.docker/logs/cron/* || true
+	rm -rf ./.docker/logs/mariadb/* || true
+	rm -rf ./.docker/logs/nginx/* || true
+	rm -rf ./.docker/logs/php-fpm/* || true
+	rm -rf ./node_modules/ || true
+	rm -rf ./.cache/ || true
+	rm -rf ./composer/ || true
+	rm -rf ./vendor/ || true
+	rm -rf ./dist-wp/ || true
 	make setup
 
 .PHONY: clean
 clean:
+	$(CONTAINER_PHP) rm -rf /var/logs/php-fpm/* || true
+	$(CONTAINER_PHP) rm -rf /var/logs/cron/* || true
+	$(CONTAINER_NGINX) rm -rf /var/logs/nginx/* || true
 	docker compose -f docker-compose.yml down
 	docker system prune --all --volumes --force
-	rm -rf ./.docker/logs/cron/*
-	rm -rf ./.docker/logs/mariadb/*
-	rm -rf ./.docker/logs/nginx/*
-	rm -rf ./.docker/logs/php-fpm/*
-	rm -rf ./node_modules/
-	rm -rf ./.cache/
-	rm -rf ./composer/
-	rm -rf ./vendor/
-	rm -rf ./dist-wp/
+	rm -rf ./.docker/logs/cron/* || true
+	rm -rf ./.docker/logs/mariadb/* || true
+	rm -rf ./.docker/logs/nginx/* || true
+	rm -rf ./.docker/logs/php-fpm/* || true
+	rm -rf ./node_modules/ || true
+	rm -rf ./.cache/ || true
+	rm -rf ./composer/ || true
+	rm -rf ./vendor/ || true
+	rm -rf ./dist-wp/ || true
 
 .PHONY: clean-force
 clean-force:
