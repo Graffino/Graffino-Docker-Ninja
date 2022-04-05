@@ -46,7 +46,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "5.12"
+        "version": "5.12.1"
       },
       "type": "package"
     },
