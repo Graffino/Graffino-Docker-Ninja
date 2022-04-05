@@ -68,38 +68,46 @@ permissions:
 
 .PHONY: reset
 reset:
-	$(CONTAINER_PHP) rm -rf /var/logs/php-fpm/* || true
-	$(CONTAINER_PHP) rm -rf /var/logs/cron/* || true
-	$(CONTAINER_NGINX) rm -rf /var/logs/nginx/* || true
+	$(CONTAINER_MARIADB) 'rm -rf /var/log/mysql/* || true'
+	$(CONTAINER_NGINX) 'rm -rf /var/log/nginx/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/cron/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/php-fpm/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/node_modules/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/dist-wp/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/.cache/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/composer/ || true'
 	docker compose -f docker-compose.yml down
 	docker system prune --force
-	rm -rf ./.docker/logs/cron/* || true
 	rm -rf ./.docker/logs/mariadb/* || true
 	rm -rf ./.docker/logs/nginx/* || true
+	rm -rf ./.docker/logs/cron/* || true
 	rm -rf ./.docker/logs/php-fpm/* || true
 	rm -rf ./node_modules/ || true
-	rm -rf ./.cache/ || true
-	rm -rf ./composer/ || true
-	rm -rf ./vendor/ || true
 	rm -rf ./dist-wp/ || true
+	rm -rf ./composer/ || true
+	rm -rf ./.cache/ || true
 	make setup
 
 .PHONY: clean
 clean:
-	$(CONTAINER_PHP) rm -rf /var/logs/php-fpm/* || true
-	$(CONTAINER_PHP) rm -rf /var/logs/cron/* || true
-	$(CONTAINER_NGINX) rm -rf /var/logs/nginx/* || true
+	$(CONTAINER_MARIADB) 'rm -rf /var/log/mysql/* || true'
+	$(CONTAINER_NGINX) 'rm -rf /var/log/nginx/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/cron/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/php-fpm/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/node_modules/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/dist-wp/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/.cache/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/composer/ || true'
 	docker compose -f docker-compose.yml down
 	docker system prune --all --volumes --force
-	rm -rf ./.docker/logs/cron/* || true
 	rm -rf ./.docker/logs/mariadb/* || true
 	rm -rf ./.docker/logs/nginx/* || true
+	rm -rf ./.docker/logs/cron/* || true
 	rm -rf ./.docker/logs/php-fpm/* || true
 	rm -rf ./node_modules/ || true
-	rm -rf ./.cache/ || true
-	rm -rf ./composer/ || true
-	rm -rf ./vendor/ || true
 	rm -rf ./dist-wp/ || true
+	rm -rf ./composer/ || true
+	rm -rf ./.cache/ || true
 
 .PHONY: clean-force
 clean-force:
