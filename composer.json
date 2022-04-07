@@ -149,6 +149,7 @@
     "vlucas/phpdotenv": "^5.3",
     "wp-cli/wp-cli": "^2.5",
     "wpackagist-plugin/ajax-load-more": "^5.5",
+    "wpackagist-plugin/better-search-replace": "^1.4",
     "wpackagist-plugin/complianz-gdpr": "^6.1",
     "wpackagist-plugin/custom-post-type-maker": "^1.1",
     "wpackagist-plugin/debug-bar": "^1.1",
