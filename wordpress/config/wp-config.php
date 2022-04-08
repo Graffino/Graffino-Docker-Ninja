@@ -40,10 +40,6 @@ if ( isset( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && 'https' === $_SERVER['HTTP_X
 	$_SERVER['HTTPS'] = 'on';
 }
 
-if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) ) {
-	$_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
-}
-
 define( 'WP_HOME', $_ENV['THEME_URL'] );
 define( 'WP_SITEURL', $_ENV['THEME_URL'] );
 define( 'WP_CONTENT_URL', $_ENV['THEME_URL'] . '/wp-content' );
