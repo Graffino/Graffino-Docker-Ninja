@@ -87,3 +87,4 @@ password: js#O^P#S3CYp$SpwIu
 - Keep the version for the imagemin-mozjpeg plugin at 9.0.0 as it is now ESM only.
 - Keep the version for eslint plugin at 7.32.0 as prettier-eslint is not compatible with eslint 8.0 yet: <https://github.com/prettier/prettier-eslint/pull/696>.
 - PHP linting issue with PHP8: <https://github.com/squizlabs/PHP_CodeSniffer/issues/3196>
+- Backstop temporarily removed from `package.json` as it is not compatible with Arm64: `"backstopjs": "^6.0.4"`

@@ -46,7 +46,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "5.12"
+        "version": "5.12.2"
       },
       "type": "package"
     },
@@ -149,13 +149,14 @@
     "vlucas/phpdotenv": "^5.3",
     "wp-cli/wp-cli": "^2.5",
     "wpackagist-plugin/ajax-load-more": "^5.5",
+    "wpackagist-plugin/better-search-replace": "^1.4",
     "wpackagist-plugin/complianz-gdpr": "^6.1",
     "wpackagist-plugin/custom-post-type-maker": "^1.1",
     "wpackagist-plugin/debug-bar": "^1.1",
     "wpackagist-plugin/google-site-kit": "^1.48",
     "wpackagist-plugin/redirection": "^5.1",
     "wpackagist-plugin/regenerate-thumbnails": "^3.1",
-    "wpackagist-plugin/safe-svg": "^1.9",
+    "wpackagist-plugin/safe-svg": "^2.0",
     "wpackagist-plugin/smtp-mailer": "^1.1",
     "wpackagist-plugin/wordpress-seo": "^18.1",
     "wpackagist-plugin/wp-sentry-integration": "^4.10",

@@ -24,6 +24,7 @@ setup:
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:uploads:symlink --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:languages:symlink --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
 	$(CONTAINER_PHP) 'php composer/vendor/interconnectit/search-replace-db/srdb.cli.php -h mariadb -n ${DOCKER_DB_NAME} -u root -p "${DOCKER_DB_PASSWORD}" -s "$(DB_REPLACE)" -r "$(DOCKER_HOSTNAME)"'
 
@@ -46,6 +47,7 @@ production:
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:uploads:symlink --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:uploads:languages --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
 	$(CONTAINER_PHP) 'php composer/vendor/interconnectit/search-replace-db/srdb.cli.php -h mariadb -n ${DOCKER_DB_NAME} -u root -p "${DOCKER_DB_PASSWORD}" -s "$(DB_REPLACE)" -r "$(DOCKER_HOSTNAME)"'
 
@@ -63,37 +65,51 @@ test:
 
 .PHONY: permissions
 permissions:
-	mkdir -p .docker/logs/cron/ .docker/logs/nginx/ .docker/logs/mariadb docker/logs/php-fpm/
-	chmod -R 777 .docker/logs/
+	mkdir -p .docker/logs/cron/ .docker/logs/nginx/ .docker/logs/mariadb .docker/logs/php-fpm/ || true
+	chmod -R 777 .docker/logs/ || true
 
 .PHONY: reset
 reset:
+	$(CONTAINER_MARIADB) 'rm -rf /var/log/mysql/* || true'
+	$(CONTAINER_NGINX) 'rm -rf /var/log/nginx/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/cron/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/php-fpm/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/node_modules/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/dist-wp/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/.cache/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/composer/ || true'
 	docker compose -f docker-compose.yml down
 	docker system prune --force
-	rm -rf ./.docker/logs/cron/*
-	rm -rf ./.docker/logs/mariadb/*
-	rm -rf ./.docker/logs/nginx/*
-	rm -rf ./.docker/logs/php-fpm/*
-	rm -rf ./node_modules/
-	rm -rf ./.cache/
-	rm -rf ./composer/
-	rm -rf ./vendor/
-	rm -rf ./dist-wp/
+	rm -rf ./.docker/logs/mariadb/* || true
+	rm -rf ./.docker/logs/nginx/* || true
+	rm -rf ./.docker/logs/cron/* || true
+	rm -rf ./.docker/logs/php-fpm/* || true
+	rm -rf ./node_modules/ || true
+	rm -rf ./dist-wp/ || true
+	rm -rf ./composer/ || true
+	rm -rf ./.cache/ || true
 	make setup
 
 .PHONY: clean
 clean:
+	$(CONTAINER_MARIADB) 'rm -rf /var/log/mysql/* || true'
+	$(CONTAINER_NGINX) 'rm -rf /var/log/nginx/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/cron/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/log/php-fpm/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/node_modules/* || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/dist-wp/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/.cache/ || true'
+	$(CONTAINER_PHP) 'rm -rf /var/www/composer/ || true'
 	docker compose -f docker-compose.yml down
 	docker system prune --all --volumes --force
-	rm -rf ./.docker/logs/cron/*
-	rm -rf ./.docker/logs/mariadb/*
-	rm -rf ./.docker/logs/nginx/*
-	rm -rf ./.docker/logs/php-fpm/*
-	rm -rf ./node_modules/
-	rm -rf ./.cache/
-	rm -rf ./composer/
-	rm -rf ./vendor/
-	rm -rf ./dist-wp/
+	rm -rf ./.docker/logs/mariadb/* || true
+	rm -rf ./.docker/logs/nginx/* || true
+	rm -rf ./.docker/logs/cron/* || true
+	rm -rf ./.docker/logs/php-fpm/* || true
+	rm -rf ./node_modules/ || true
+	rm -rf ./dist-wp/ || true
+	rm -rf ./composer/ || true
+	rm -rf ./.cache/ || true
 
 .PHONY: clean-force
 clean-force:

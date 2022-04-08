@@ -22,15 +22,21 @@ COPY .docker/php/conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 # Logs
 RUN mkdir -p /var/log/php-fpm/ && \
-  chown -R www-data:www-data /var/log/php-fpm
+    chown -R www-data:www-data /var/log/php-fpm
 
 # Install PHP Extensions
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
 RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
-  install-php-extensions $(eval echo ${DOCKER_PHP_EXTENSIONS})
+    install-php-extensions $(eval echo ${DOCKER_PHP_EXTENSIONS})
 
 # Development Tools
 RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg jpeg-dev libjpeg-turbo-dev
+
+# Install Python
+RUN apk add python3 py3-pip
+
+# Fix for OptiPNG on ARM64
+ENV CPPFLAGS="-DPNG_ARM_NEON_OPT=0"
 
 # Git
 RUN apk add git

@@ -107,7 +107,7 @@ $table_prefix = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define( 'WP_DEBUG', filter_var( $_ENV['DEBUG'], FILTER_VALIDATE_BOOLEAN ) );
+define( 'WP_DEBUG', filter_var( $_ENV['WP_DEBUG'], FILTER_VALIDATE_BOOLEAN ) );
 define( 'CACHE_BUSTING', $_ENV['CACHE_BUSTING'] );
 
 /* That's all, stop editing! Happy publishing. */
