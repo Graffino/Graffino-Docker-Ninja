@@ -24,6 +24,7 @@ setup:
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:uploads:symlink --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:languages:symlink --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
 	$(CONTAINER_PHP) 'php composer/vendor/interconnectit/search-replace-db/srdb.cli.php -h mariadb -n ${DOCKER_DB_NAME} -u root -p "${DOCKER_DB_PASSWORD}" -s "$(DB_REPLACE)" -r "$(DOCKER_HOSTNAME)"'
 
@@ -46,6 +47,7 @@ production:
 	$(CONTAINER_PHP) 'yarn wp:db:init --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:db:migrate --no-confirm'
 	$(CONTAINER_PHP) 'yarn wp:uploads:symlink --no-confirm'
+	$(CONTAINER_PHP) 'yarn wp:uploads:languages --no-confirm'
 	$(CONTAINER_PHP) 'yarn webpack:wp:build'
 	$(CONTAINER_PHP) 'php composer/vendor/interconnectit/search-replace-db/srdb.cli.php -h mariadb -n ${DOCKER_DB_NAME} -u root -p "${DOCKER_DB_PASSWORD}" -s "$(DB_REPLACE)" -r "$(DOCKER_HOSTNAME)"'
 

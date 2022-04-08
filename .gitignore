@@ -11,7 +11,8 @@ nohup.out
 npm-debug.log
 yarn-error.log
 
-wordpress/uploads/
+wordpress/uploads/*
+wordpress/languages/*
 
 backstop_data/bitmaps_test/*
 backstop_data/html_report/*
