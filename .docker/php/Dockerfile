@@ -32,6 +32,12 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions && sync && \
 # Development Tools
 RUN apk add gcc make g++ zlib-dev autoconf automake libtool nasm libjpeg jpeg-dev libjpeg-turbo-dev
 
+# Install Python
+RUN apk add python3 py3-pip
+
+# Fix for OptiPNG on ARM64
+ENV CPPFLAGS="-DPNG_ARM_NEON_OPT=0"
+
 # Git
 RUN apk add git
 
