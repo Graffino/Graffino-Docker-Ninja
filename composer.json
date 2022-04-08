@@ -46,7 +46,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "5.12.1"
+        "version": "5.12.2"
       },
       "type": "package"
     },
@@ -156,7 +156,7 @@
     "wpackagist-plugin/google-site-kit": "^1.48",
     "wpackagist-plugin/redirection": "^5.1",
     "wpackagist-plugin/regenerate-thumbnails": "^3.1",
-    "wpackagist-plugin/safe-svg": "^1.9",
+    "wpackagist-plugin/safe-svg": "^2.0",
     "wpackagist-plugin/smtp-mailer": "^1.1",
     "wpackagist-plugin/wordpress-seo": "^18.1",
     "wpackagist-plugin/wp-sentry-integration": "^4.10",

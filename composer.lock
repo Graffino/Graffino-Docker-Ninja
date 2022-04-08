@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee5e469d0ef5b3c06ca004ddce61becf",
+    "content-hash": "632a5cd9408fa0b2e7fac56e68ddaa93",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.12.1",
+            "version": "5.12.2",
             "dist": {
                 "type": "zip",
                 "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%PLUGIN_ACF_KEY}&t={%version}"
@@ -1268,15 +1268,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "6.1.3",
+            "version": "6.1.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/6.1.3"
+                "reference": "tags/6.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.6.1.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.6.1.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1376,15 +1376,15 @@
         },
         {
             "name": "wpackagist-plugin/safe-svg",
-            "version": "1.9.10",
+            "version": "2.0.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/safe-svg/",
-                "reference": "tags/1.9.10"
+                "reference": "tags/2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/safe-svg.1.9.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.2.0.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
