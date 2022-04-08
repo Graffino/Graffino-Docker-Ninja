@@ -63,7 +63,7 @@ test:
 
 .PHONY: permissions
 permissions:
-	mkdir -p .docker/logs/cron/ .docker/logs/nginx/ .docker/logs/mariadb docker/logs/php-fpm/ || true
+	mkdir -p .docker/logs/cron/ .docker/logs/nginx/ .docker/logs/mariadb .docker/logs/php-fpm/ || true
 	chmod -R 777 .docker/logs/ || true
 
 .PHONY: reset
