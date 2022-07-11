@@ -61,7 +61,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "1.9.5"
+        "version": "1.10.3"
       },
       "type": "package"
     },
@@ -76,7 +76,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "4.5.4"
+        "version": "4.5.8"
       },
       "type": "package"
     },
@@ -161,7 +161,7 @@
     "wpackagist-plugin/wordpress-seo": "^18.9",
     "wpackagist-plugin/wp-sentry-integration": "^4.18",
     "wpackagist-plugin/wp-super-cache": "^1.7",
-    "wpml/acfml": "^1.9",
+    "wpml/acfml": "^1.10",
     "wpml/sitepress-multilingual-cms": "^4.5",
     "wpml/wp-seo-multilingual": "^2.0",
     "wpml/wpml-media-translation": "^2.7",
@@ -178,7 +178,7 @@
   },
   "scripts": {
     "post-autoload-dump": [
-      "echo 'Post autoload scripts...'"
+      "# remove for Oxygen mv dist-wp/wp-content/plugins/oxygen-builder/oxygen/* dist-wp/wp-content/plugins/oxygen-builder; rm -rf dist-wp/wp-content/plugins/oxygen-builder/oxygen; rm -rf dist-wp/wp-content/plugins/oxygen-builder/__MACOSX || true"
     ]
   },
   "type": "project"
