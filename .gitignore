@@ -34,3 +34,6 @@ sprite.scss
 !.docker/logs/nginx/.gitkeep
 .docker/logs/redis/*
 !.docker/logs/redis/.gitkeep
+/.vscode/configurationCache.log
+/.vscode/dryrun.log
+/.vscode/targets.log
