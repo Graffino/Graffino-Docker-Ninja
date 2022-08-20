@@ -269,20 +269,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "2432ce687e68c3df7de16920d467761b241e20cf"
+                "reference": "185dfc9f49aa48efb4f345a042e78e5003d9b6a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/2432ce687e68c3df7de16920d467761b241e20cf",
-                "reference": "2432ce687e68c3df7de16920d467761b241e20cf",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/185dfc9f49aa48efb4f345a042e78e5003d9b6a2",
+                "reference": "185dfc9f49aa48efb4f345a042e78e5003d9b6a2",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "6.0.0",
+                "johnpbloch/wordpress-core": "6.0.1",
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -311,20 +311,20 @@
                 "issues": "https://core.trac.wordpress.org/",
                 "source": "https://core.trac.wordpress.org/browser"
             },
-            "time": "2022-05-24T19:10:15+00:00"
+            "time": "2022-07-12T16:22:03+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "90d8de3a682f2ed93ebe8cf99bec8fb297d43967"
+                "reference": "163eec26760f7d2cac040e04f00ce548cd303eb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/90d8de3a682f2ed93ebe8cf99bec8fb297d43967",
-                "reference": "90d8de3a682f2ed93ebe8cf99bec8fb297d43967",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/163eec26760f7d2cac040e04f00ce548cd303eb1",
+                "reference": "163eec26760f7d2cac040e04f00ce548cd303eb1",
                 "shasum": ""
             },
             "require": {
@@ -332,7 +332,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "6.0.0"
+                "wordpress/core-implementation": "6.0.1"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -359,7 +359,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2022-05-24T19:10:11+00:00"
+            "time": "2022-07-12T16:22:00+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -1038,16 +1038,16 @@
         },
         {
             "name": "wp-cli/php-cli-tools",
-            "version": "v0.11.13",
+            "version": "v0.11.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/php-cli-tools.git",
-                "reference": "a2866855ac1abc53005c102e901553ad5772dc04"
+                "reference": "f8f340e4a87687549d046e2da516242f7f36c934"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/a2866855ac1abc53005c102e901553ad5772dc04",
-                "reference": "a2866855ac1abc53005c102e901553ad5772dc04",
+                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/f8f340e4a87687549d046e2da516242f7f36c934",
+                "reference": "f8f340e4a87687549d046e2da516242f7f36c934",
                 "shasum": ""
             },
             "require": {
@@ -1086,9 +1086,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wp-cli/php-cli-tools/issues",
-                "source": "https://github.com/wp-cli/php-cli-tools/tree/v0.11.13"
+                "source": "https://github.com/wp-cli/php-cli-tools/tree/v0.11.14"
             },
-            "time": "2021-07-01T15:08:16+00:00"
+            "time": "2022-07-04T21:44:34+00:00"
         },
         {
             "name": "wp-cli/wp-cli",
@@ -1253,15 +1253,15 @@
         },
         {
             "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.78.0",
+            "version": "1.79.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.78.0"
+                "reference": "tags/1.79.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.78.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.79.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
