@@ -60,6 +60,15 @@ const dump = () => {
   ])
 
   // Run mysqldump
+  MysqlDump.stderr.on('data', (error) => {
+    if (error !== null) {
+      console.log(`There was an error while dumping the database: ${error}`)
+      // On error run terminate()
+      terminate()
+    }
+  })
+
+  // Run mysqldump
   MysqlDump.stdout
     .pipe(DumpFile)
     .on('finish', () => {
