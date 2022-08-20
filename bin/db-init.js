@@ -37,7 +37,7 @@ const init = () => {
     .then((connection) => {
       connection
         .query(`CREATE DATABASE \`${DatabaseName}\``)
-        .then((res) => {
+        .then(() => {
           console.log(`    => Database ${DatabaseName} created!`)
           // Close connection
           connection.end()
