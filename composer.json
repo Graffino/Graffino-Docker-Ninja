@@ -46,7 +46,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "5.12.2"
+        "version": "6.0.2"
       },
       "type": "package"
     },
@@ -61,7 +61,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "1.10.3"
+        "version": "1.10.4"
       },
       "type": "package"
     },
@@ -76,7 +76,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "4.5.8"
+        "version": "4.5.11"
       },
       "type": "package"
     },
@@ -91,7 +91,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "2.7.0"
+        "version": "2.7.1"
       },
       "type": "package"
     },
@@ -106,7 +106,7 @@
           "composer/installers": "^2.0"
         },
         "type": "wordpress-plugin",
-        "version": "3.2.1"
+        "version": "3.2.2"
       },
       "type": "package"
     },
@@ -142,7 +142,7 @@
     }
   ],
   "require": {
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.12",
+    "advanced-custom-fields/advanced-custom-fields-pro": "^6.0",
     "interconnectit/search-replace-db": "^4.1",
     "johnpbloch/wordpress": "^6.0",
     "johnpbloch/wordpress-core-installer": "^2.0",
@@ -160,9 +160,9 @@
     "wpackagist-plugin/regenerate-thumbnails": "^3.1",
     "wpackagist-plugin/safe-svg": "^2.0",
     "wpackagist-plugin/smtp-mailer": "^1.1",
-    "wpackagist-plugin/wordpress-seo": "^18.9",
+    "wpackagist-plugin/wordpress-seo": "^19.7",
     "wpackagist-plugin/wp-optimize": "^3.2",
-    "wpackagist-plugin/wp-sentry-integration": "^4.18",
+    "wpackagist-plugin/wp-sentry-integration": "^6.0",
     "wpml/acfml": "^1.10",
     "wpml/sitepress-multilingual-cms": "^4.5",
     "wpml/wp-seo-multilingual": "^2.0",
