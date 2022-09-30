@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57df4813ab4a6bf76a7152a92dcaefc3",
+    "content-hash": "fa7c31a448d919408758af4988178cf4",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.12.2",
+            "version": "6.0.2",
             "dist": {
                 "type": "zip",
                 "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&k={%PLUGIN_ACF_KEY}&t={%version}"
@@ -20,16 +20,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v2.1.1",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "af93ba6e52236418f07a278033eba6959ee5b983"
+                "reference": "c29dc4b93137acb82734f672c37e029dfbd95b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/af93ba6e52236418f07a278033eba6959ee5b983",
-                "reference": "af93ba6e52236418f07a278033eba6959ee5b983",
+                "url": "https://api.github.com/repos/composer/installers/zipball/c29dc4b93137acb82734f672c37e029dfbd95b35",
+                "reference": "c29dc4b93137acb82734f672c37e029dfbd95b35",
                 "shasum": ""
             },
             "require": {
@@ -117,6 +117,7 @@
                 "magento",
                 "majima",
                 "mako",
+                "matomo",
                 "mediawiki",
                 "miaoxing",
                 "modulework",
@@ -144,7 +145,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v2.1.1"
+                "source": "https://github.com/composer/installers/tree/v2.2.0"
             },
             "funding": [
                 {
@@ -160,28 +161,28 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-13T09:13:00+00:00"
+            "time": "2022-08-20T06:45:11+00:00"
         },
         {
             "name": "graham-campbell/result-type",
-            "version": "v1.0.4",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Result-Type.git",
-                "reference": "0690bde05318336c7221785f2a932467f98b64ca"
+                "reference": "a878d45c1914464426dc94da61c9e1d36ae262a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/0690bde05318336c7221785f2a932467f98b64ca",
-                "reference": "0690bde05318336c7221785f2a932467f98b64ca",
+                "url": "https://api.github.com/repos/GrahamCampbell/Result-Type/zipball/a878d45c1914464426dc94da61c9e1d36ae262a8",
+                "reference": "a878d45c1914464426dc94da61c9e1d36ae262a8",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0 || ^8.0",
-                "phpoption/phpoption": "^1.8"
+                "php": "^7.2.5 || ^8.0",
+                "phpoption/phpoption": "^1.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.5.14 || ^7.5.20 || ^8.5.19 || ^9.5.8"
+                "phpunit/phpunit": "^8.5.28 || ^9.5.21"
             },
             "type": "library",
             "autoload": {
@@ -210,7 +211,7 @@
             ],
             "support": {
                 "issues": "https://github.com/GrahamCampbell/Result-Type/issues",
-                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.0.4"
+                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -222,7 +223,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-21T21:41:47+00:00"
+            "time": "2022-07-30T15:56:11+00:00"
         },
         {
             "name": "interconnectit/search-replace-db",
@@ -269,20 +270,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "185dfc9f49aa48efb4f345a042e78e5003d9b6a2"
+                "reference": "6c3d7d1a4ddb3b27e6f3ca4b2018b0150d7221b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/185dfc9f49aa48efb4f345a042e78e5003d9b6a2",
-                "reference": "185dfc9f49aa48efb4f345a042e78e5003d9b6a2",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/6c3d7d1a4ddb3b27e6f3ca4b2018b0150d7221b7",
+                "reference": "6c3d7d1a4ddb3b27e6f3ca4b2018b0150d7221b7",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "6.0.1",
+                "johnpbloch/wordpress-core": "6.0.2",
                 "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
                 "php": ">=5.6.20"
             },
@@ -311,20 +312,20 @@
                 "issues": "https://core.trac.wordpress.org/",
                 "source": "https://core.trac.wordpress.org/browser"
             },
-            "time": "2022-07-12T16:22:03+00:00"
+            "time": "2022-08-30T17:46:21+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "6.0.1",
+            "version": "6.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "163eec26760f7d2cac040e04f00ce548cd303eb1"
+                "reference": "aa7b334880fd8158abe64469e71570bd8815f273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/163eec26760f7d2cac040e04f00ce548cd303eb1",
-                "reference": "163eec26760f7d2cac040e04f00ce548cd303eb1",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/aa7b334880fd8158abe64469e71570bd8815f273",
+                "reference": "aa7b334880fd8158abe64469e71570bd8815f273",
                 "shasum": ""
             },
             "require": {
@@ -332,7 +333,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "6.0.1"
+                "wordpress/core-implementation": "6.0.2"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -359,7 +360,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2022-07-12T16:22:00+00:00"
+            "time": "2022-08-30T17:46:17+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -417,16 +418,16 @@
         },
         {
             "name": "mustache/mustache",
-            "version": "v2.14.1",
+            "version": "v2.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/mustache.php.git",
-                "reference": "579ffa5c96e1d292c060b3dd62811ff01ad8c24e"
+                "reference": "e62b7c3849d22ec55f3ec425507bf7968193a6cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/579ffa5c96e1d292c060b3dd62811ff01ad8c24e",
-                "reference": "579ffa5c96e1d292c060b3dd62811ff01ad8c24e",
+                "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/e62b7c3849d22ec55f3ec425507bf7968193a6cb",
+                "reference": "e62b7c3849d22ec55f3ec425507bf7968193a6cb",
                 "shasum": ""
             },
             "require": {
@@ -461,35 +462,39 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/mustache.php/issues",
-                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.1"
+                "source": "https://github.com/bobthecow/mustache.php/tree/v2.14.2"
             },
-            "time": "2022-01-21T06:08:36+00:00"
+            "time": "2022-08-23T13:07:01+00:00"
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "eab7a0df01fe2344d172bff4cd6dbd3f8b84ad15"
+                "reference": "dc5ff11e274a90cc1c743f66c9ad700ce50db9ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/eab7a0df01fe2344d172bff4cd6dbd3f8b84ad15",
-                "reference": "eab7a0df01fe2344d172bff4cd6dbd3f8b84ad15",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/dc5ff11e274a90cc1c743f66c9ad700ce50db9ab",
+                "reference": "dc5ff11e274a90cc1c743f66c9ad700ce50db9ab",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0 || ^8.0"
+                "php": "^7.2.5 || ^8.0"
             },
             "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "phpunit/phpunit": "^6.5.14 || ^7.5.20 || ^8.5.19 || ^9.5.8"
+                "bamarni/composer-bin-plugin": "^1.8",
+                "phpunit/phpunit": "^8.5.28 || ^9.5.21"
             },
             "type": "library",
             "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true
+                },
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -522,7 +527,7 @@
             ],
             "support": {
                 "issues": "https://github.com/schmittjoh/php-option/issues",
-                "source": "https://github.com/schmittjoh/php-option/tree/1.8.1"
+                "source": "https://github.com/schmittjoh/php-option/tree/1.9.0"
             },
             "funding": [
                 {
@@ -534,7 +539,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-04T23:24:31+00:00"
+            "time": "2022-07-30T15:51:26+00:00"
         },
         {
             "name": "rmccue/requests",
@@ -598,16 +603,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v6.0.8",
+            "version": "v6.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "af7edab28d17caecd1f40a9219fc646ae751c21f"
+                "reference": "09cb683ba5720385ea6966e5e06be2a34f2568b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/af7edab28d17caecd1f40a9219fc646ae751c21f",
-                "reference": "af7edab28d17caecd1f40a9219fc646ae751c21f",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/09cb683ba5720385ea6966e5e06be2a34f2568b1",
+                "reference": "09cb683ba5720385ea6966e5e06be2a34f2568b1",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +644,7 @@
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v6.0.8"
+                "source": "https://github.com/symfony/finder/tree/v6.0.11"
             },
             "funding": [
                 {
@@ -655,7 +660,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-15T08:07:58+00:00"
+            "time": "2022-07-29T07:39:48+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -1038,16 +1043,16 @@
         },
         {
             "name": "wp-cli/php-cli-tools",
-            "version": "v0.11.14",
+            "version": "v0.11.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/php-cli-tools.git",
-                "reference": "f8f340e4a87687549d046e2da516242f7f36c934"
+                "reference": "b6edd35988892ea1451392eb7a26d9dbe98c836d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/f8f340e4a87687549d046e2da516242f7f36c934",
-                "reference": "f8f340e4a87687549d046e2da516242f7f36c934",
+                "url": "https://api.github.com/repos/wp-cli/php-cli-tools/zipball/b6edd35988892ea1451392eb7a26d9dbe98c836d",
+                "reference": "b6edd35988892ea1451392eb7a26d9dbe98c836d",
                 "shasum": ""
             },
             "require": {
@@ -1086,9 +1091,9 @@
             ],
             "support": {
                 "issues": "https://github.com/wp-cli/php-cli-tools/issues",
-                "source": "https://github.com/wp-cli/php-cli-tools/tree/v0.11.14"
+                "source": "https://github.com/wp-cli/php-cli-tools/tree/v0.11.15"
             },
-            "time": "2022-07-04T21:44:34+00:00"
+            "time": "2022-08-15T10:15:55+00:00"
         },
         {
             "name": "wp-cli/wp-cli",
@@ -1163,15 +1168,15 @@
         },
         {
             "name": "wpackagist-plugin/ajax-load-more",
-            "version": "5.5.3",
+            "version": "5.5.4.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-load-more/",
-                "reference": "tags/5.5.3"
+                "reference": "tags/5.5.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.5.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/ajax-load-more.5.5.4.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1180,16 +1185,34 @@
             "homepage": "https://wordpress.org/plugins/ajax-load-more/"
         },
         {
-            "name": "wpackagist-plugin/better-search-replace",
-            "version": "1.4",
+            "name": "wpackagist-plugin/autoptimize",
+            "version": "3.1.2",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/better-search-replace/",
-                "reference": "tags/1.4"
+                "url": "https://plugins.svn.wordpress.org/autoptimize/",
+                "reference": "tags/3.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/better-search-replace.1.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/autoptimize.3.1.2.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/autoptimize/"
+        },
+        {
+            "name": "wpackagist-plugin/better-search-replace",
+            "version": "1.4.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/better-search-replace/",
+                "reference": "tags/1.4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-search-replace.1.4.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1199,15 +1222,15 @@
         },
         {
             "name": "wpackagist-plugin/complianz-gdpr",
-            "version": "6.2.4",
+            "version": "6.3.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/complianz-gdpr/",
-                "reference": "tags/6.2.4"
+                "reference": "tags/6.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.6.2.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/complianz-gdpr.6.3.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1252,16 +1275,34 @@
             "homepage": "https://wordpress.org/plugins/debug-bar/"
         },
         {
-            "name": "wpackagist-plugin/google-site-kit",
-            "version": "1.79.0",
+            "name": "wpackagist-plugin/ewww-image-optimizer",
+            "version": "6.9.0",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/google-site-kit/",
-                "reference": "tags/1.79.0"
+                "url": "https://plugins.svn.wordpress.org/ewww-image-optimizer/",
+                "reference": "tags/6.9.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.79.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/ewww-image-optimizer.6.9.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ewww-image-optimizer/"
+        },
+        {
+            "name": "wpackagist-plugin/google-site-kit",
+            "version": "1.84.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/google-site-kit/",
+                "reference": "tags/1.84.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/google-site-kit.1.84.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1271,15 +1312,15 @@
         },
         {
             "name": "wpackagist-plugin/redirection",
-            "version": "5.2.3",
+            "version": "5.3.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/redirection/",
-                "reference": "tags/5.2.3"
+                "reference": "tags/5.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redirection.5.2.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/redirection.5.3.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1307,15 +1348,15 @@
         },
         {
             "name": "wpackagist-plugin/safe-svg",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/safe-svg/",
-                "reference": "tags/2.0.2"
+                "reference": "tags/2.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/safe-svg.2.0.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/safe-svg.2.0.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1343,15 +1384,15 @@
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
-            "version": "18.9",
+            "version": "19.7.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/18.9"
+                "reference": "tags/19.7.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.18.9.zip"
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.19.7.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1360,16 +1401,34 @@
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
-            "name": "wpackagist-plugin/wp-sentry-integration",
-            "version": "4.18.0",
+            "name": "wpackagist-plugin/wp-optimize",
+            "version": "3.2.7",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-sentry-integration/",
-                "reference": "tags/4.18.0"
+                "url": "https://plugins.svn.wordpress.org/wp-optimize/",
+                "reference": "tags/3.2.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-sentry-integration.4.18.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/wp-optimize.3.2.7.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wp-optimize/"
+        },
+        {
+            "name": "wpackagist-plugin/wp-sentry-integration",
+            "version": "6.0.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wp-sentry-integration/",
+                "reference": "tags/6.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-sentry-integration.6.0.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -1378,26 +1437,8 @@
             "homepage": "https://wordpress.org/plugins/wp-sentry-integration/"
         },
         {
-            "name": "wpackagist-plugin/wp-super-cache",
-            "version": "1.7.9",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wp-super-cache/",
-                "reference": "tags/1.7.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-super-cache.1.7.9.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-super-cache/"
-        },
-        {
             "name": "wpml/acfml",
-            "version": "1.10.3",
+            "version": "1.10.4",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=1097589&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
@@ -1409,7 +1450,7 @@
         },
         {
             "name": "wpml/sitepress-multilingual-cms",
-            "version": "4.5.8",
+            "version": "4.5.11",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6088&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
@@ -1433,7 +1474,7 @@
         },
         {
             "name": "wpml/wpml-media-translation",
-            "version": "2.7.0",
+            "version": "2.7.1",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=7474&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"
@@ -1445,7 +1486,7 @@
         },
         {
             "name": "wpml/wpml-string-translation",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6092&user_id={%PLUGIN_WPML_ID}&subscription_key={%PLUGIN_WPML_KEY}&version={%version}"

@@ -3,7 +3,7 @@ const glob = require('glob-all')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.wordpress.js')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const PurgecssPlugin = require('purgecss-webpack-plugin')
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg')
@@ -48,7 +48,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new PurgecssPlugin({
+    new PurgeCSSPlugin({
       paths: glob.sync(
         [
           path.join(__dirname, './src/**/*.js'),
