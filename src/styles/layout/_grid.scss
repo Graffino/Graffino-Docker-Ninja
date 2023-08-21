@@ -88,7 +88,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
     & > .column {
       flex-basis: auto;
-      margin-bottom: rem(30px);
+      margin-bottom: to-rem(30px);
 
       &.-spans-6 {
         width: 50%;
@@ -97,7 +97,7 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
       &.-spans-12-tablet {
         @include below(tablet) {
           width: 100%;
-          margin-bottom: rem(10px);
+          margin-bottom: to-rem(10px);
         }
       }
 
@@ -109,10 +109,10 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
   &.-equal-height {
     & > .column {
-      margin-bottom: rem(30px);
+      margin-bottom: to-rem(30px);
 
       @include below(tablet) {
-        margin-bottom: rem(20px);
+        margin-bottom: to-rem(20px);
       }
 
       & > * {
@@ -210,5 +210,5 @@ $gutter-compensation-large: $columns-gutter-large * 0.5 * -1;
 
 .masonry__wrapper {
   display: flex;
-  max-height: rem(1000px);
+  max-height: to-rem(1000px);
 }

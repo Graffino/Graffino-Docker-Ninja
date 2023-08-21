@@ -33,35 +33,35 @@ $font-colors: (
  */
 
 // Convert to REM
-@function rem($value) {
+@function to-rem($value) {
   $rem-value: math.div($value, $base-font-size-px);
   @return #{$rem-value}rem;
 }
 
 // Convert to EM
-@function em($value) {
+@function to-em($value) {
   $em-value: math.div($value, $base-font-size-px);
   @return #{$em-value}em;
 }
 
 // CSS calc() subtract value from 100%
 @function calc-100-minus($value) {
-  @return calc(100% - #{rem($value)});
+  @return calc(100% - #{to-rem($value)});
 }
 
 // CSS calc() subtract value from 100vh
 @function calc-100vh-minus($value) {
-  @return calc(100vh - #{rem($value)});
+  @return calc(100vh - #{to-rem($value)});
 }
 
 // CSS calc() add value to 100%
 @function calc-100-plus($value) {
-  @return calc(100% + #{rem($value)});
+  @return calc(100% + #{to-rem($value)});
 }
 
 // CSS calc() substract value from 50%
 @function calc-50-minus($value) {
-  @return calc(50% - #{rem($value)});
+  @return calc(50% - #{to-rem($value)});
 }
 
 /*
@@ -267,7 +267,7 @@ $font-colors: (
     position: absolute;
     top: 50%;
     left: 50%;
-    padding: rem($y) rem($x);
+    padding: to-rem($y) to-rem($x);
     will-change: transform;
     transform: translate(-50%, -50%);
   }

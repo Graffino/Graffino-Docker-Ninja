@@ -6,9 +6,9 @@
   position: relative;
   display: block;
   width: 100%;
-  max-width: rem(1064px);
+  max-width: to-rem(1064px);
   height: 100%;
-  max-height: rem(600px);
+  max-height: to-rem(600px);
   margin: 0 auto;
 
   &__control--overlaid {

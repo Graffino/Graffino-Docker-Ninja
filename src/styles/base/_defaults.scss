@@ -19,7 +19,7 @@
   // Custom focus state for DOM elements
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 rem(3px) rgba($color-primary, 0.12);
+    box-shadow: 0 0 0 to-rem(3px) rgba($color-primary, 0.12);
   }
 }
 
@@ -41,8 +41,8 @@ html {
 // Body
 body {
   overflow-x: hidden;
-  min-width: rem(320px);
-  padding: rem(20px);
+  min-width: to-rem(320px);
+  padding: to-rem(20px);
   background-color: $color-background-body;
   color: $color-text;
   font-family: $default-fontface-stack;
@@ -58,14 +58,14 @@ body {
 
 .main {
   @include clearfix();
-  margin: rem(32px) 0;
-  padding: rem(48px) 0 rem(96px);
+  margin: to-rem(32px) 0;
+  padding: to-rem(48px) 0 to-rem(96px);
   background-color: $white;
   transition: transition-custom();
   transition-property: margin;
 
   @include below(large) {
-    margin: rem(16px) 0;
+    margin: to-rem(16px) 0;
   }
 }
 

@@ -11,10 +11,10 @@
 
 .cursor--small {
   @extend .h-z-index-max;
-  top: rem(-2.5px);
-  left: rem(-2.5px);
-  width: rem(20px);
-  height: rem(20px);
+  top: to-rem(-2.5px);
+  left: to-rem(-2.5px);
+  width: to-rem(20px);
+  height: to-rem(20px);
   border: 1px solid $white;
   border-radius: 50%;
 }
