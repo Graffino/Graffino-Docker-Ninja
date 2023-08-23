@@ -10,10 +10,10 @@
     display: block;
     width: 100%;
     max-width: 100%;
-    min-height: rem(60px);
-    border: rem(1px) solid $color-border;
+    min-height: to-rem(60px);
+    border: to-rem(1px) solid $color-border;
     border-radius: $default-radius;
-    padding: rem(22px) rem(16px);
+    padding: to-rem(22px) to-rem(16px);
     background-color: $white;
     color: $color-text;
     font-size: $default-font-size;
@@ -27,7 +27,7 @@
     &:hover,
     &:focus,
     &:active {
-      border: rem(1px) solid $color-border;
+      border: to-rem(1px) solid $color-border;
     }
 
     &::placeholder,

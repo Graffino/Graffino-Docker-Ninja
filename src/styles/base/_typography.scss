@@ -62,9 +62,9 @@
   }
 }
 
-$size-small: rem(14px);
-$size-medium: rem(16px);
-$size-large: rem(18px);
+$size-small: to-rem(14px);
+$size-medium: to-rem(16px);
+$size-large: to-rem(18px);
 
 .text {
   // Adding font-weight modifier classes (e.g. ".-font-weight-200")
@@ -133,7 +133,7 @@ $size-large: rem(18px);
 
 .code {
   width: 100%;
-  padding: rem(10px) rem(30px);
+  padding: to-rem(10px) to-rem(30px);
   background-color: $color-background-dark;
 
   code {

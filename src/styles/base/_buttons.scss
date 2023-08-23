@@ -6,13 +6,13 @@
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  border: rem(2px) solid $color-primary;
-  padding: rem(16px) rem(32px);
+  border: to-rem(2px) solid $color-primary;
+  padding: to-rem(16px) to-rem(32px);
   background-color: $color-accent;
   color: $eerie-black;
-  font-size: rem(11px);
+  font-size: to-rem(11px);
   line-height: 1.2;
-  letter-spacing: rem(3.5px);
+  letter-spacing: to-rem(3.5px);
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -28,38 +28,38 @@
     content: '';
     position: absolute;
     display: block;
-    width: rem(12px);
-    height: rem(12px);
+    width: to-rem(12px);
+    height: to-rem(12px);
     color: $color-accent;
     transition: transition-custom(all, 800ms);
   }
 
   &::before {
-    top: rem(-4px);
-    left: rem(-4px);
-    border-top: rem(2px) solid currentColor;
-    border-left: rem(2px) solid currentColor;
+    top: to-rem(-4px);
+    left: to-rem(-4px);
+    border-top: to-rem(2px) solid currentColor;
+    border-left: to-rem(2px) solid currentColor;
   }
 
   &::after {
-    top: rem(-4px);
-    right: rem(-4px);
-    border-top: rem(2px) solid currentColor;
-    border-right: rem(2px) solid currentColor;
+    top: to-rem(-4px);
+    right: to-rem(-4px);
+    border-top: to-rem(2px) solid currentColor;
+    border-right: to-rem(2px) solid currentColor;
   }
 
   &__inner::before {
-    bottom: rem(-4px);
-    left: rem(-4px);
-    border-bottom: rem(2px) solid currentColor;
-    border-left: rem(2px) solid currentColor;
+    bottom: to-rem(-4px);
+    left: to-rem(-4px);
+    border-bottom: to-rem(2px) solid currentColor;
+    border-left: to-rem(2px) solid currentColor;
   }
 
   &__inner::after {
-    right: rem(-4px);
-    bottom: rem(-4px);
-    border-right: rem(2px) solid currentColor;
-    border-bottom: rem(2px) solid currentColor;
+    right: to-rem(-4px);
+    bottom: to-rem(-4px);
+    border-right: to-rem(2px) solid currentColor;
+    border-bottom: to-rem(2px) solid currentColor;
   }
 
   &:hover {

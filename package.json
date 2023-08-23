@@ -113,7 +113,7 @@
     "pristinejs": "^0.1.9",
     "purgecss-webpack-plugin": "^5.0.0",
     "replace-in-file": "^6.3.5",
-    "sass": "^1.55.0",
+    "sass": "^1.66.1",
     "sass-loader": "^13.0.2",
     "semver": "^7.3.7",
     "sharp": "^0.31.1",
